@@ -1,0 +1,4 @@
+sequence_id	alignment_score	ref_coverage	pairwise_identity
+C5HDF8|C11|a89_local_alignment_provisional	159	1.0000	0.5140
+U6BN37|C50|a89_local_alignment_provisional	121	0.9875	0.4921
+A0A0B5HPB2|C54|a89_local_alignment_provisional	134	0.9844	0.5190

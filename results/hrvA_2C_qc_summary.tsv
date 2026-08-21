@@ -1,0 +1,14 @@
+metric	value
+reference_length	321
+primary_sequences	78
+expanded_sequences	113
+primary_min_length	320
+primary_max_length	322
+expanded_min_length	320
+expanded_max_length	322
+primary_internal_stop_records	0
+expanded_internal_stop_records	0
+primary_unknown_residues	10
+expanded_unknown_residues	15
+primary_type_labels	78
+expanded_type_labels	78

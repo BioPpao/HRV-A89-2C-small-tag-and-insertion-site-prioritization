@@ -1,0 +1,12 @@
+metric	value
+species	HRV-A
+taxonomy_id	147711
+retrieval_date	2026-08-21
+uniprot_query	protein_name:"Protein 2C"
+source_records_seen	212
+retained_expanded_sequences	113
+primary_type_representatives	78
+ncbi_taxonomy_subtree_rows	1045
+expected_type_labels	83
+missing_expected_type_labels	5
+missing_type_labels	A1,A105,A106,A107,A108

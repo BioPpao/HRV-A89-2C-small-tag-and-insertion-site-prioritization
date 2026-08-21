@@ -1,0 +1,6 @@
+item	value
+python	3.6.8 (default, Apr 12 2022, 06:55:39)  [GCC 8.5.0 20210514 (Red Hat 8.5.0-10)]
+platform	Linux-4.18.0-372.9.1.el8.x86_64-x86_64-with-centos-8.6-Green_Obsidian
+requests	2.20.0
+mafft	not_available
+alignment_method	A89 reference-guided Needleman-Wunsch fallback; MAFFT not available on PATH

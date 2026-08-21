@@ -1,0 +1,12 @@
+metric	value
+species	HRV-B
+taxonomy_id	147712
+retrieval_date	2026-08-21
+uniprot_query	protein_name:"Protein 2C"
+source_records_seen	68
+retained_expanded_sequences	3
+primary_type_representatives	3
+ncbi_taxonomy_subtree_rows	40
+expected_type_labels	39
+missing_expected_type_labels	36
+missing_type_labels	B100,B101,B102,B103,B104,B107,B17,B26,B27,B35,B37,B4,B42,B48,B5,B52,B5928,B6,B6253,B69,B70,B72,B7425,B7851,B79,B8001,B83,B8317,B84,B86,B91,B9166,B93,B97,B9864,B99

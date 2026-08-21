@@ -32,11 +32,34 @@ Initial observations:
 - Initial UniProt probe had a shell quoting error; corrected and rerun.
 - NCBI complete-genome GenBank probe found polyprotein CDS but no parseable `mat_peptide`/`Protein 2C` mature boundary in the sampled record.
 - UniProt exact `Chain: Protein 2C` records exist but are sparse; records lacking exact chain annotations will be marked `a89_local_alignment_provisional` if they pass coverage/identity QC.
+- First full UniProt HRV-A retrieval timed out; script was patched to use smaller pages and retry/backoff.
+- NCBI Taxonomy XML parsing initially included nested lineage taxons; script was patched to parse only direct returned `Taxon` elements.
+- Existing `data/junction_structural_metrics_v1.tsv` contains 8 rows where current gate columns all pass but `strict_structural_pass=False`. The old table was not modified. `candidate_junctions_v1.tsv` records this as `strict_flag_gate_mismatch=True`; such rows are not called structural near-misses.
+
+## Acquisition / QC
+
+- HRV-A UniProtKB records seen: 212.
+- HRV-A retained expanded sequences: 113.
+- HRV-A primary type representatives: 78.
+- HRV-A NCBI Taxonomy parsed type labels: 83.
+- HRV-A missing parsed type labels in retained primary panel: A1, A105, A106, A107, A108.
+- HRV-A QC: primary length range 320-322 aa; expanded length range 320-322 aa; internal stop records 0; unknown residues 10 primary / 15 expanded.
+- HRV-B secondary context retained 3 primary / 3 expanded sequences.
+- HRV-C secondary context retained 3 primary / 3 expanded sequences.
+
+## Computation
+
+- Alignment method used: A89 reference-guided Needleman-Wunsch fallback; MAFFT not available on `PATH`.
+- Residue conservation table: 321 data rows.
+- Junction conservation table: 320 data rows.
+- Integrated candidate table: 320 data rows.
+- Integrated junction key span: `1|2` through `320|321`; keys unique.
 
 ## Checkpoints
 
-- Script/workflow checkpoint: pending.
+- Script/workflow checkpoint: `c2bb69b`, pushed.
+- Dataset/alignment/metrics checkpoint: pending.
 
 ## Next Action
 
-Run acquisition for HRV-A primary/expanded panel and HRV-B/C secondary context.
+Write `docs/CONSERVATION_SCREEN_V1.md`, update project state/navigation files, then final checkpoint.

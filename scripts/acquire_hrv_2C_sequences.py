@@ -22,15 +22,22 @@ NCBI_EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 
 
 def get_json(url, params=None):
-    r = requests.get(url, params=params, timeout=60)
-    r.raise_for_status()
-    return r
+    last = None
+    for attempt in range(5):
+        try:
+            r = requests.get(url, params=params, timeout=120)
+            r.raise_for_status()
+            return r
+        except requests.RequestException as exc:
+            last = exc
+            time.sleep(2 * (attempt + 1))
+    raise last
 
 
 def uniprot_records(taxonomy_id, query_extra):
     query = "taxonomy_id:%s AND %s" % (taxonomy_id, query_extra)
     url = UNIPROT
-    params = {"query": query, "format": "json", "size": "500"}
+    params = {"query": query, "format": "json", "size": "100"}
     while url:
         r = get_json(url, params=params)
         data = r.json()
@@ -62,7 +69,7 @@ def taxonomy_rows(taxonomy_id, species_prefix):
         "retmode": "xml",
     })
     root = ET.fromstring(r.text)
-    for taxon in root.findall(".//Taxon"):
+    for taxon in root.findall("./Taxon"):
         tid = taxon.findtext("TaxId", "")
         name = taxon.findtext("ScientificName", "")
         rank = taxon.findtext("Rank", "")

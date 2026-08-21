@@ -126,7 +126,8 @@ def main():
         tracks = []
         if s["strict_structural_pass"] == "True":
             tracks.append("strict structural pass")
-        if s["strict_structural_pass"] != "True" and s["functional_tier"] != "EXCLUDE" and len(failed) <= 2:
+        gate_mismatch = s["strict_structural_pass"] != "True" and len(failed) == 0
+        if s["strict_structural_pass"] != "True" and s["functional_tier"] != "EXCLUDE" and 1 <= len(failed) <= 2:
             tracks.append("structural near-miss")
         if j in RESCUE:
             tracks.append("literature-rescue")
@@ -147,6 +148,7 @@ def main():
             "structural_track": ";".join(tracks),
             "failed_gate_count": len(failed),
             "failed_gate_names": ";".join(failed) if failed else "none",
+            "strict_flag_gate_mismatch": "True" if gate_mismatch else "False",
             "literature_rescue_status": "True" if j in RESCUE else "False",
             "literature_rescue_source": RESCUE.get(j, ""),
             "hrvA_conservation_class": conservation_class(c),

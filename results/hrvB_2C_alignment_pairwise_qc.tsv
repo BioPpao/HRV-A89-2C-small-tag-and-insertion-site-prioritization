@@ -1,0 +1,4 @@
+sequence_id	alignment_score	ref_coverage	pairwise_identity
+P03303|B14|uniprot_chain_exact	138	1.0000	0.5047
+Q82081|B3|uniprot_chain_exact	147	1.0000	0.5140
+B9V490|B92|a89_local_alignment_provisional	160	0.9969	0.5281
