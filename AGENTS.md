@@ -90,4 +90,4 @@ All use A89 2C numbering 1–321 and were integrity-audited. Checksums are in `I
 
 ## Current next task
 
-Read `ACTIVE_TASK.md` for the executable task. The currently authorized decision-changing layer is **near-HRV conservation and indel tolerance**, followed by integrated candidate-junction prioritization. Do not jump directly to long MD or tag-modeling batches unless a later task specification explicitly authorizes it.
+Read `ACTIVE_TASK.md` for the executable task. The near-HRV conservation and indel-tolerance layer is complete in `docs/CONSERVATION_SCREEN_V1.md`. The next project decision is the reduced candidate-junction set for tag × site modeling, or whether to pivot to an experimental insertion-library/minimal-epitope strategy. Do not start tag modeling, long MD, RNA/codon design, or construct recommendations unless a later task specification explicitly authorizes it.

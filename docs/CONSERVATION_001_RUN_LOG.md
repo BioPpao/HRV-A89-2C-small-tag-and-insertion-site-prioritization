@@ -6,7 +6,7 @@ Branch: `analysis/conservation-001`
 
 Starting commit: `f199651e9731e077e1b216cfde04816317d630bd`
 
-Status: `IN_PROGRESS`
+Status: `COMPLETE`
 
 ## Environment
 
@@ -58,8 +58,9 @@ Initial observations:
 ## Checkpoints
 
 - Script/workflow checkpoint: `c2bb69b`, pushed.
-- Dataset/alignment/metrics checkpoint: pending.
+- Dataset/alignment/metrics checkpoint: `f0a89ed`, pushed.
+- Final report/state checkpoint: pending commit/push.
 
 ## Next Action
 
-Write `docs/CONSERVATION_SCREEN_V1.md`, update project state/navigation files, then final checkpoint.
+ChatGPT/user decision: choose reduced candidate-junction set for tag x site modeling, or choose pivot to insertion-library/minimal-epitope strategy. RNA/codon audit remains blocked until exact experimental replicon nucleotide sequence is supplied.

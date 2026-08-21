@@ -43,8 +43,8 @@ Key C-alpha RMSD checks are recorded in `results/phase0_structure_rmsd.tsv` and 
 | 1. 2C functional constraint/exclusion mapping | **COMPLETE, working V3** | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | A89-specific annotations + homolog genetics/structures define hard/high-risk regions |
 | 2. Four-structure all-atom junction screen | **COMPLETE, V2** | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v1.tsv` | 320 junctions screened; no structurally clean junction is yet biologically low-risk |
 | 3. Small-tag evidence screen | **COMPLETE, V1** | `docs/TAG_CANDIDATE_SCREEN_V1.md` | MAP8/HA/G196 lead the first modeling set; ranking remains site-dependent |
-| 4. Near-HRV conservation / indel-tolerance layer | **NEXT / NOT YET FINALIZED** | planned conservation tables and report | decisive next evidence layer before tag × site modeling |
-| 5. Candidate-junction shortlist | **PENDING** | planned ranked junction table | no junction currently designated safe/final |
+| 4. Near-HRV conservation / indel-tolerance layer | **COMPLETE, V1** | `docs/CONSERVATION_SCREEN_V1.md`, `data/candidate_junctions_v1.tsv` | HRV-A variability supports later review of 287–291 and preserves literature-rescue conflicts, but no junction is cleared as low-risk |
+| 5. Candidate-junction shortlist | **NEXT / PENDING DECISION** | planned reduced junction set | ChatGPT/user must decide whether to model a narrow 287–291/rescue set, broaden to near-misses, or pivot to library/minimal-epitope strategy |
 | 6. Tag × site structural perturbation modeling | **PENDING** | planned construct models/metrics | only after the site set is reduced |
 | 7. Replicon nucleotide/RNA audit | **BLOCKED ON INPUT** | planned RNA/codon audit | requires exact experimental 2C nucleotide sequence / replicon context |
 | 8. Experimental construct recommendation | **PENDING** | 2–3 primary/backup constructs | requires evidence integration and later WT-vs-tagged validation |
@@ -68,6 +68,16 @@ Reasons include:
 - `287|288` through `290|291`: favorable geometry, but located in the Cys/Zn-to-C-terminal bundle transition and not yet cleared by conservation/tag-specific modeling.
 
 This is a negative-but-informative result: **surface-loop geometry alone is insufficient for 2C**.
+
+The HRV-A conservation layer is now complete. It used 78 primary type-balanced HRV-A representatives and 113 retained expanded HRV-A 2C sequences. The 320-junction integrated matrix is in `data/candidate_junctions_v1.tsv`.
+
+Conservation changes interpretation as follows:
+
+- `155|156`, `174|175` and `216|217` are weakened further by conserved or functionally constrained context.
+- `175|176`, `217|218` and `218|219` remain unresolved rather than rescued.
+- `248|249` and `256|257` remain literature-rescue conflicts; HRV-A variability supports retaining them for review but does not override unfavorable structural/functional context.
+- `287|288` through `290|291` gain support for later review because the local HRV-A layer is variable, but they remain in a high-risk Zn/Cys-to-C-terminal transition region.
+- No outside-strict junction is promoted; `223|224`, `245|246` and `250|251` are the most reviewable near-miss examples if the later modeling set is broadened.
 
 ## Functional map currently treated as authoritative
 
@@ -121,13 +131,13 @@ Conservation is a supporting layer, not a standalone safety criterion. Structure
 
 ## Immediate next step
 
-The next decisive analysis is **near-HRV conservation and indel tolerance**, with this hierarchy:
+The next decision is the reduced candidate-junction shortlist for tag × site perturbation modeling.
 
-1. HRV-A sequences for quantitative conservation.
-2. HRV-A/B/C for broader rhinovirus context.
-3. EV/PV/other picornavirus mainly for homologous functional interpretation rather than a single pooled entropy score.
+Options requiring ChatGPT/user judgment:
 
-After this layer, produce a reduced junction shortlist and only then model MAP8/HA/G196 (plus alternatives if justified) at specific sites.
+1. narrow modeling to the strict-pass variable C-terminal transition region `287|288` through `290|291`, with `248|249` and `256|257` retained as literature-rescue controls;
+2. broaden the modeling set to include selected near-miss review sites such as `223|224`, `245|246` or `250|251`;
+3. conclude that no convincing targeted site emerged and pivot to an experimental insertion-library/minimal-epitope strategy.
 
 ## Required future user input
 

@@ -47,6 +47,7 @@ The computational endpoint is **candidate prioritization**, not proof of a safe 
 - **Phase 1:** literature- and A89-annotation-informed 2C functional exclusion/constraint map.
 - **Phase 2:** all-atom structural scan of all **320 internal peptide junctions**.
 - **Tag layer V1:** evidence-based shortlist of MAP8, HA, G196, AGIA, ALFA, PA12 and HiBiT; FLAG removed.
+- **Conservation layer V1:** HRV-A 2C conservation and indel-tolerance screen across all 321 residues / 320 junctions.
 
 ### Key checkpoint result
 
@@ -58,9 +59,11 @@ However, **none is currently promoted to a low-risk biological site** because ea
 
 This is an important result: **a surface-exposed loop is not sufficient evidence for tagging 2C**.
 
+The conservation layer used 78 primary type-balanced HRV-A representatives and 113 retained expanded HRV-A sequences. It supports later review of the variable `287|288` to `290|291` region, preserves `248|249` and `256|257` as literature-rescue conflicts, and does not promote a new outside-strict junction.
+
 ### Next decisive step
 
-Build a **near-HRV conservation and indel-tolerance layer**, prioritizing HRV-A sequences for quantitative conservation, then HRV-B/C as broader rhinovirus context. Only after this layer will the project generate a reduced candidate-junction set for tag × site modeling.
+Decide the reduced site set for tag × site modeling, or decide that no targeted computational site is convincing enough and pivot to an insertion-library/minimal-epitope strategy.
 
 Longer generic no-membrane MD is **not** the current priority.
 
@@ -100,10 +103,15 @@ See [`docs/TAG_CANDIDATE_SCREEN_V1.md`](docs/TAG_CANDIDATE_SCREEN_V1.md) for the
 │   ├── 2C_FUNCTIONAL_EXCLUSION_MAP_V3.md
 │   ├── 2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md
 │   ├── STRUCTURAL_SCREEN_V2.md
+│   ├── CONSERVATION_SCREEN_V1.md
 │   ├── TAG_CANDIDATE_SCREEN_V1.md
 │   └── older versioned reports retained for provenance
 ├── data/
 │   ├── junction_structural_metrics_v1.tsv
+│   ├── candidate_junctions_v1.tsv
+│   ├── hrvA_conservation_per_residue.tsv
+│   ├── hrvA_conservation_per_junction.tsv
+│   ├── hrvABC_candidate_window_context.tsv
 │   ├── CVB3_to_A89_functional_mapping_v1.tsv
 │   └── README.md
 ├── results/

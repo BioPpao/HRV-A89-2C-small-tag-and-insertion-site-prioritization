@@ -42,6 +42,14 @@ Purpose: map each literature source to the **specific claim it is allowed to sup
 | UniProtKB P07210 (HRV-A89/HRV-89 strain 41467-Gallo) | C | direct A89 coordinate framework for the 2C chain, membrane-binding/oligomerization/RNA-binding/Zn-related annotations and polyprotein cleavage boundaries | many features are annotated **By similarity**, not by direct A89 mutagenesis |
 | PROSITE-ProRule annotation carried by P07210 | C | approximate SF3 helicase-domain context around A89 aa94–254 | domain context is not equivalent to a residue-by-residue hard exclusion map |
 
+## Conservation data sources
+
+| Source | Class | What it supports here | Boundary |
+|---|---|---|---|
+| UniProtKB REST API records under NCBI Taxonomy `147711` queried on 2026-08-21 | C / conservation dataset | HRV-A 2C sequence panel for residue/junction conservation and natural indel screen in `docs/CONSERVATION_SCREEN_V1.md` | many retained records used A89 local-alignment provisional extraction because exact mature-chain coordinates were sparse; see `references/CONSERVATION_DATA_SOURCES.md` and metadata |
+| NCBI Taxonomy E-utilities subtree `txid147711[Subtree]` queried on 2026-08-21 | C / taxonomy source | source-state expected/observed/missing HRV-A type labels for CONSERVATION_001 | taxonomy subtree includes isolates and no-rank records; parsed labels are current-source bookkeeping, not ICTV manual curation |
+| UniProtKB REST API records under NCBI Taxonomy `147712` and `463676` queried on 2026-08-21 | C / secondary context | sparse HRV-B/C context for candidate windows | only 3 HRV-B and 3 HRV-C retained sequences passed the same boundary/QC workflow; not used as primary entropy score |
+
 ## Structural metric methodology
 
 | Source | Class | Use |

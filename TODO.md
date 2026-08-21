@@ -4,17 +4,11 @@ Last updated: 2026-08-21
 
 Priority order is scientific, not cosmetic. Do not jump to tag modeling before the site layer is sufficiently reduced.
 
-## P0 — Next decisive analysis
+## P0 — Completed decisive analysis
 
-### 1. Build HRV-A-focused 2C conservation dataset
+### 1. Build HRV-A-focused 2C conservation dataset — COMPLETE
 
-- collect representative, non-redundant HRV-A 2C sequences with traceable accession metadata;
-- verify 2C boundaries and lengths before alignment;
-- remove obvious partial/poorly annotated sequences;
-- align to the authoritative A89 321-aa sequence;
-- calculate per-position conservation / entropy and gap frequency;
-- calculate local-window statistics around every candidate junction;
-- explicitly record indels around candidate loops.
+Completed in `docs/CONSERVATION_SCREEN_V1.md`.
 
 Deliverables:
 
@@ -25,18 +19,16 @@ Deliverables:
 - `data/hrvA_conservation_per_junction.tsv`
 - `docs/CONSERVATION_SCREEN_V1.md`
 
-### 2. Add broader rhinovirus context without pooling it into one entropy score
+### 2. Add broader rhinovirus context without pooling it into one entropy score — COMPLETE / SPARSE
 
-- HRV-B and HRV-C alignments as secondary context;
-- annotate whether candidate windows are lineage-specific, conserved, or indel-prone;
-- use EV/PV/FMDV primarily for functional-homology interpretation.
+Completed as secondary context in `data/hrvABC_candidate_window_context.tsv`. HRV-B/C retained sequence counts are sparse after applying the same extraction/QC rules, so this context is weak.
 
 Deliverables:
 
 - `data/hrvABC_candidate_window_context.tsv`
-- update `docs/CONSERVATION_SCREEN_V1.md`.
+- `docs/CONSERVATION_SCREEN_V1.md`
 
-### 3. Integrate functional + structural + conservation evidence
+### 3. Integrate functional + structural + conservation evidence — COMPLETE
 
 Produce a transparent candidate table with separate columns for:
 
@@ -57,7 +49,15 @@ Do **not** hide these components behind one opaque score.
 Deliverables:
 
 - `data/candidate_junctions_v1.tsv`
-- `docs/CANDIDATE_JUNCTION_PRIORITIZATION_V1.md`.
+- `docs/CONSERVATION_SCREEN_V1.md`
+
+## P0 — Next decision
+
+ChatGPT/user should decide the reduced candidate-junction set before tag × site modeling:
+
+- narrow set: `287|288`, `288|289`, `289|290`, `290|291`, with `248|249` and `256|257` retained as literature-rescue controls;
+- broader review set: add selected near-misses such as `223|224`, `245|246`, `250|251`;
+- alternative path: pivot to insertion-library/minimal-epitope strategy if no targeted site is convincing.
 
 ## P1 — Tag × site modeling
 

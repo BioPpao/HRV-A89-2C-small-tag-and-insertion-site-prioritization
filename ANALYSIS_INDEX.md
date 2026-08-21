@@ -14,7 +14,12 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Direct-tolerance conflict / rescue logic | `docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md` | CURRENT SUPPORTING | preserves historical PV insertion-tolerance evidence and conflicts |
 | Four-structure structural screen | `docs/STRUCTURAL_SCREEN_V2.md` | CURRENT | all-atom 320-junction structural funnel |
 | Small-tag evidence screen | `docs/TAG_CANDIDATE_SCREEN_V1.md` | CURRENT | tag-level literature ranking; not a construct ranking |
+| HRV-A conservation / indel tolerance | `docs/CONSERVATION_SCREEN_V1.md` | CURRENT | near-HRV evolutionary layer and explicit conflict interpretation |
 | All-junction metrics | `data/junction_structural_metrics_v1.tsv` | CURRENT DATA | quantitative metrics for all 320 junctions |
+| Integrated candidate junction evidence | `data/candidate_junctions_v1.tsv` | CURRENT DATA | all 320 junctions with structural/function/conservation/rescue columns |
+| HRV-A residue conservation | `data/hrvA_conservation_per_residue.tsv` | CURRENT DATA | 321 A89-anchored conservation rows |
+| HRV-A junction conservation | `data/hrvA_conservation_per_junction.tsv` | CURRENT DATA | 320 A89 junction rows with local-window and indel metrics |
+| HRV-A/B/C context | `data/hrvABC_candidate_window_context.tsv` | CURRENT DATA | secondary broader-rhinovirus context; HRV-B/C sparse |
 | CVB3→A89 functional mapping | `data/CVB3_to_A89_functional_mapping_v1.tsv` | CURRENT DATA | homolog mapping used for RNA/pore-function constraints |
 | Structure integrity audit | `results/phase0_structure_integrity.tsv` | CURRENT RESULT | residue/chain/sequence integrity |
 | Structure RMSD audit | `results/phase0_structure_rmsd.tsv` | CURRENT RESULT | monomer↔hexamer and model↔model structural correspondence |
@@ -46,9 +51,9 @@ These remain in Git for scientific provenance. Do not use them as the current de
         ↓
 320 peptide-junction all-atom screen          COMPLETE (V2)
         ↓
-near-HRV conservation + indel tolerance       NEXT
+near-HRV conservation + indel tolerance       COMPLETE (V1)
         ↓
-reduced candidate-junction shortlist          PENDING
+reduced candidate-junction shortlist          NEXT / PENDING DECISION
         ↓
 small-tag × site perturbation modeling        PENDING
         ↓
@@ -61,6 +66,6 @@ WT vs tagged replicon validation              EXPERIMENTAL GATE
 
 ## Current checkpoint result
 
-The structural screen identifies 10 junctions with unusually clean four-structure geometry, but functional evidence prevents any of them from being called low-risk at this stage. No final insertion site and no final tag have been selected.
+The structural screen identifies 10 junctions with unusually clean four-structure geometry. Conservation adds support for later review of the variable 287–291 region and preserves the 248|249 / 256|257 literature-rescue conflicts, but no final insertion site and no final tag have been selected.
 
-The next decision-changing analysis is near-HRV conservation; additional unconstrained MD is not the current priority.
+The next decision is the reduced site set for tag × site modeling, or whether to pivot away from targeted computational site selection.
