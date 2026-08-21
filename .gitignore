@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
+# Logs / scratch
+logs/
+*.log
+scratch/
+tmp/
+temp/
+
+# Credentials / local environment
+.env
+.env.*
+*.pem
+*.key
+
+# Large MD / restart / generated state files
+*.xtc
+*.trr
+*.cpt
+*.edr
+*.tpr
+*.xvg
+
+# Bulk GROMACS coordinates are ignored by default; selected curated structures
+# can be force-added explicitly when scientifically justified.
+*.gro
+
+# Archives / bulk downloads
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Generated notebooks checkpoints
+.ipynb_checkpoints/
