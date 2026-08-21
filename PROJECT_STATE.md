@@ -42,50 +42,40 @@ Key C-alpha RMSD checks are recorded in `results/phase0_structure_rmsd.tsv` and 
 |---|---|---|---|
 | 0. Input integrity / numbering / sequence / RMSD audit | **COMPLETE** | `results/phase0_structure_integrity.tsv`, `results/phase0_structure_rmsd.tsv` | four structures are mutually compatible for residue-level comparison |
 | 1. 2C functional constraint/exclusion mapping | **COMPLETE, working V3** | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | A89-specific annotations + homolog genetics/structures define hard/high-risk regions |
-| 2. Four-structure all-atom junction screen | **COMPLETE V2, QC re-audit pending** | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v1.tsv` | 320 junctions screened; eight strict-flag/gate mismatches discovered during CONSERVATION_001 require deterministic regeneration |
+| 2. Four-structure all-atom junction screen | **COMPLETE, V2 REGENERATED** | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v2.tsv` | V2 strict gate is internally consistent; original 10 strict-pass junctions remain |
 | 3. Small-tag evidence screen | **COMPLETE, V1** | `docs/TAG_CANDIDATE_SCREEN_V1.md` | MAP8/HA/G196 lead the first modeling set; ranking remains site-dependent |
-| 4A. Near-HRV conservation / indel-tolerance layer | **COMPLETE BUT PROVISIONAL, V1** | `docs/CONSERVATION_SCREEN_V1.md`, `data/candidate_junctions_v1.tsv` | useful first-pass result, but primary alignment used a custom A89-guided NW fallback because MAFFT was missing; taxonomy/provenance and indel conclusions require hardening |
-| 4B. Conservation / taxonomy / structural QC hardening | **CURRENT — CONSERVATION_002** | planned V2 alignments, metrics and QC reports | install mature tools, use MAFFT, reconcile ICTV type universe, compare exact vs provisional boundaries, resolve structural mismatch |
-| 5. Candidate-junction shortlist | **PENDING V2 REVIEW** | planned reduced junction set | no shortlist authorized until CONSERVATION_002 is reviewed |
+| 4A. Near-HRV conservation / indel-tolerance layer | **PROVENANCE V1** | `docs/CONSERVATION_SCREEN_V1.md`, `data/candidate_junctions_v1.tsv` | preserved as provisional history |
+| 4B. Conservation / taxonomy / structural QC hardening | **COMPLETE, V2** | `docs/CONSERVATION_SCREEN_V2.md`, `data/candidate_junctions_v2.tsv` | MAFFT/ICTV/indel/structural QC supports `READY_FOR_SHORTLIST` for review, not automatic modeling |
+| 5. Candidate-junction shortlist | **NEXT / PENDING CHATGPT REVIEW** | `docs/CANDIDATE_JUNCTION_QC_V1.md` | choose narrow strict-pass cluster plus rescue controls, broaden to near-misses, or decide `NO_TARGETED_SITE` |
 | 6. Tag × site structural perturbation modeling | **PENDING** | planned construct models/metrics | only after the site set is reduced and approved |
 | 7. RNA/codon audit | **BLOCKED ON INPUT** | planned RNA/codon audit | requires exact experimental nucleotide sequence/context |
 | 8. Experimental construct recommendation | **PENDING** | primary/backup construct set | requires later evidence integration and biological validation |
 
-## Current V1 structural result
+## Current structural result
 
-Ten junctions were flagged as strict structural passes in the existing V1 table:
+Ten junctions are strict structural passes after V2 regeneration:
 
 `155|156`, `174|175`, `175|176`, `216|217`, `217|218`, `218|219`, `287|288`, `288|289`, `289|290`, `290|291`.
 
 None is currently promoted to a low-risk biological candidate.
 
-Important: during CONSERVATION_001, eight additional rows were found where the stored gate columns appeared to pass while `strict_structural_pass=False`. V1 was preserved rather than silently changed. CONSERVATION_002 must regenerate the table from the four original structures and explain every mismatch before the structural shortlist is considered decision-grade.
+CONSERVATION_002 resolved the eight V1 strict-flag/gate mismatches. They were V1 table/data-version inconsistencies; V2 is internally consistent and does not add new strict-pass rows.
 
-## Current V1 conservation result — provisional interpretation
+## Current conservation result — V2
 
-`CONSERVATION_001` used 78 primary type-balanced labels and 113 retained expanded HRV-A sequences. It generated 321 residue rows and 320 junction rows.
+`CONSERVATION_002` installed a user-space MAFFT environment, used ICTV VMR MSL41 as the type universe, built a 77-type V2 full panel, a 186-sequence expanded panel and a 5-sequence exact-boundary sensitivity subset.
 
-The V1 evolutionary overlay suggested:
+The V2 evolutionary overlay supports:
 
 - `155|156`, `174|175` and `216|217` remain strongly disfavored;
 - `175|176`, `217|218` and `218|219` remain unresolved;
 - `248|249` and `256|257` remain literature-rescue conflicts;
-- `287|288` through `290|291` have favorable structural geometry and locally variable HRV-A windows, so they merit further review;
-- no outside-strict junction was promoted; `223|224`, `245|246` and `250|251` were reviewable near-misses only.
-
-However, this interpretation is **provisional** because:
-
-1. MAFFT and other mature MSA tools were absent and a custom A89-guided Needleman–Wunsch merge was used;
-2. the type universe came from NCBI taxonomy labels and needs reconciliation with current ICTV-recognized HRV-A types;
-3. many retained 2C regions were alignment-derived provisional extractions rather than exact mature-product annotations;
-4. the original `indel_signal` category was too permissive for singleton/rare events;
-5. the structural table contains strict-flag/gate inconsistencies that require re-computation.
-
-Therefore V1 must not yet be used to authorize Tag × Site modeling.
+- `287|288` through `290|291` remain the only strict-pass cluster with V2 evolutionary support;
+- no outside-strict junction is promoted, though `223|224`, `245|246` and `250|251` remain optional review controls.
 
 ## Focal region nuance
 
-Do not describe `287–291` as uniformly variable. The V1 table shows different conservation at the actual junction flanks. For example, `287|288` has highly conserved flanking residues even though the broader local window is variable, whereas `288|289`, `289|290` and `290|291` include more variable flanks. CONSERVATION_002 must preserve this junction-specific distinction.
+Do not describe `287–291` as uniformly variable. V2 shows `287|288` has conserved flanking residues despite a variable local window, whereas `288|289`, `289|290` and `290|291` include strongly variable flanking residues.
 
 ## Functional map currently treated as authoritative
 
@@ -135,6 +125,10 @@ Conservation is a supporting layer, not a standalone safety criterion. Structure
 
 ## Immediate next step
 
-Execute `tasks/CONSERVATION_002.md` on branch `analysis/conservation-002`.
+ChatGPT/user should review `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`, then choose:
 
-Do not authorize a candidate-junction shortlist or Tag × Site modeling until the V2 MAFFT/taxonomy/provenance/structural QC result has been reviewed.
+1. narrow modeling shortlist: `287|288`, `288|289`, `289|290`, `290|291` plus `248|249` and `256|257` as rescue/conflict controls;
+2. broader comparison set adding `223|224`, `245|246`, `250|251`;
+3. `NO_TARGETED_SITE` and pivot to insertion-library/minimal-epitope strategy.
+
+Do not start Tag × Site modeling until that decision is explicitly authorized.

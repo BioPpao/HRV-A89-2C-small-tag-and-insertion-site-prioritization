@@ -100,4 +100,4 @@ All use A89 2C numbering 1–321 and were integrity-audited. Checksums are in `I
 
 ## Current next task
 
-Read `ACTIVE_TASK.md`. The currently authorized task is `CONSERVATION_002`: install and use mature analysis software, rebuild the conservation layer with MAFFT and reconciled type/provenance QC, resolve the structural strict-flag mismatch, and determine whether V1 candidate interpretations are stable. Do not start tag × site modeling, long MD, RNA/codon design or construct recommendations until this QC task has been reviewed.
+Read `ACTIVE_TASK.md`. CONSERVATION_002 is complete in `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`; decision state is `READY_FOR_SHORTLIST` review. Do not start tag × site modeling, long MD, RNA/codon design or construct recommendations until ChatGPT/user explicitly authorizes the next task and reduced site set.

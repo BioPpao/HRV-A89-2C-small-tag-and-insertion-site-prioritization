@@ -6,7 +6,7 @@ Branch: `analysis/conservation-002`
 
 Starting commit: `817b9ecdfcb14e47e39888ca0f15598ec4ce3167`
 
-Status: `IN_PROGRESS`
+Status: `COMPLETE`
 
 ## Source Checks
 
@@ -59,9 +59,10 @@ Environment records:
 
 ## Checkpoints
 
-- Environment + framework checkpoint: pending.
-- Panel/alignment/metrics checkpoint: pending.
+- Environment + framework checkpoint: `48fade2`, pushed.
+- Panel/alignment/metrics checkpoint: `f99a6da`, pushed.
+- Final report/state checkpoint: pending.
 
 ## Next Action
 
-Write V2 reports and update project-state/navigation files.
+ChatGPT/user review of `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`; choose narrow shortlist, broader comparison set, or `NO_TARGETED_SITE`. Tag x site modeling is not authorized yet.

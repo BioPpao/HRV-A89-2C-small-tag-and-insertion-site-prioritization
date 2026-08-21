@@ -48,6 +48,7 @@ The computational endpoint is **candidate prioritization**, not proof of a safe 
 - **Phase 2:** all-atom structural scan of all **320 internal peptide junctions**.
 - **Tag layer V1:** evidence-based shortlist of MAP8, HA, G196, AGIA, ALFA, PA12 and HiBiT; FLAG removed.
 - **Conservation layer V1:** HRV-A 2C conservation and indel-tolerance screen across all 321 residues / 320 junctions.
+- **Conservation layer V2:** MAFFT/ICTV-hardened conservation QC and regenerated structural metrics.
 
 ### Key checkpoint result
 
@@ -59,11 +60,11 @@ However, **none is currently promoted to a low-risk biological site** because ea
 
 This is an important result: **a surface-exposed loop is not sufficient evidence for tagging 2C**.
 
-The conservation layer used 78 primary type-balanced HRV-A representatives and 113 retained expanded HRV-A sequences. It supports later review of the variable `287|288` to `290|291` region, preserves `248|249` and `256|257` as literature-rescue conflicts, and does not promote a new outside-strict junction.
+The V2 conservation layer used ICTV VMR MSL41, MAFFT L-INS-i, a 77-type full panel, a 186-sequence expanded panel, and regenerated structural metrics. It supports later review of `287|288` to `290|291`, preserves `248|249` and `256|257` as literature-rescue conflicts, and does not promote a new outside-strict junction.
 
 ### Next decisive step
 
-Decide the reduced site set for tag × site modeling, or decide that no targeted computational site is convincing enough and pivot to an insertion-library/minimal-epitope strategy.
+Review `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`, then decide the reduced site set for tag × site modeling, or decide that no targeted computational site is convincing enough and pivot to an insertion-library/minimal-epitope strategy.
 
 Longer generic no-membrane MD is **not** the current priority.
 
@@ -104,13 +105,15 @@ See [`docs/TAG_CANDIDATE_SCREEN_V1.md`](docs/TAG_CANDIDATE_SCREEN_V1.md) for the
 │   ├── 2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md
 │   ├── STRUCTURAL_SCREEN_V2.md
 │   ├── CONSERVATION_SCREEN_V1.md
+│   ├── CONSERVATION_SCREEN_V2.md
+│   ├── CANDIDATE_JUNCTION_QC_V1.md
 │   ├── TAG_CANDIDATE_SCREEN_V1.md
 │   └── older versioned reports retained for provenance
 ├── data/
-│   ├── junction_structural_metrics_v1.tsv
-│   ├── candidate_junctions_v1.tsv
-│   ├── hrvA_conservation_per_residue.tsv
-│   ├── hrvA_conservation_per_junction.tsv
+│   ├── junction_structural_metrics_v2.tsv
+│   ├── candidate_junctions_v2.tsv
+│   ├── hrvA_conservation_per_residue_v2.tsv
+│   ├── hrvA_conservation_per_junction_v2.tsv
 │   ├── hrvABC_candidate_window_context.tsv
 │   ├── CVB3_to_A89_functional_mapping_v1.tsv
 │   └── README.md

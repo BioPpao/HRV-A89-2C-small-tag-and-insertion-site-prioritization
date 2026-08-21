@@ -4,35 +4,35 @@ Last updated: 2026-08-21
 
 Priority order is scientific, not cosmetic. Do not jump to tag modeling before the site layer is sufficiently reduced and methodologically hardened.
 
-## P0 — CONSERVATION_001 completed, but V1 is provisional
+## P0 — CONSERVATION_001 completed, V1 provisional
 
 The first conservation pass produced useful data and a complete 321-residue / 320-junction matrix, but it used an A89-guided Needleman–Wunsch fallback because MAFFT was not installed. It also exposed taxonomy/provenance and structural strict-flag issues.
 
 Preserve all V1 outputs for provenance; do not treat them as final decision-grade evidence.
 
-## P0 — CURRENT: CONSERVATION_002 decision-grade QC hardening
+## P0 — CONSERVATION_002 decision-grade QC hardening — COMPLETE
 
-Execute `tasks/CONSERVATION_002.md`.
+Completed in:
 
-Required work:
+- `docs/CONSERVATION_SCREEN_V2.md`
+- `docs/CANDIDATE_JUNCTION_QC_V1.md`
+- `data/candidate_junctions_v2.tsv`
+- `data/hrvA_conservation_per_junction_v2.tsv`
+- `data/junction_structural_metrics_v2.tsv`
 
-- install MAFFT and required scientific packages in a reproducible user-space environment;
-- reconcile the HRV-A type universe against current official ICTV taxonomy/VMR rather than using raw NCBI taxonomy labels as the sole type definition;
-- build exact/high-confidence and full type-balanced 2C panels;
-- rerun primary/expanded alignments with MAFFT high-accuracy mode;
-- compare MAFFT V2 against the V1 custom NW alignment;
-- perform exact-boundary vs provisional-boundary sensitivity analysis;
-- refine natural-indel evidence so singleton/rare observations are not conflated with recurrent lineage-supported indels;
-- regenerate the four-structure junction table and resolve all `strict_structural_pass` / gate-column mismatches;
-- generate V2 residue, junction and integrated candidate tables;
-- explicitly re-audit `223|224`, `245|246`, `248|249`, `250|251`, `256|257`, and `287|288` through `290|291`;
-- produce `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`.
+Decision state: `READY_FOR_SHORTLIST` review. Do not start tag × site modeling automatically. ChatGPT/user must choose the site set first.
 
-Do not start tag × site modeling automatically at the end. ChatGPT/user reviews V2 first.
+## P0 — CURRENT: Candidate-junction shortlist decision
 
-## P1 — Candidate-junction shortlist
+ChatGPT/user should choose one:
 
-Only after CONSERVATION_002 is reviewed:
+- narrow shortlist: `287|288`, `288|289`, `289|290`, `290|291`, plus `248|249` and `256|257` as rescue/conflict controls;
+- broader comparison set: add `223|224`, `245|246`, `250|251`;
+- `NO_TARGETED_SITE`: pivot to insertion-library/minimal-epitope strategy.
+
+## P1 — Candidate-junction shortlist report
+
+After review:
 
 - reduce to a small number of junctions with stable structural + functional + evolutionary support;
 - preserve literature-rescue conflicts rather than averaging them away;
