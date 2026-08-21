@@ -1,0 +1,10 @@
+CVB3_label	CVB3_aa	CVB3_pos	A89_pos	A89_aa	evidence_note	evidence_class
+D162	D	162	155	K	FMDV D146 ortholog; CVB3 D162A reported WT-like replication	preprint
+H163	H	163	156	Y	FMDV H147 ortholog/pore-loop aromatic position; CVB3 H163A abolished replication	preprint
+K185	K	185	178	E	FMDV K169 ortholog; CVB3 K185A showed no appreciable replication defect	preprint
+A204	A	204	197	A	FMDV A188 ortholog; conserved RNA-binding triad; CVB3 A204S inhibited replication	preprint
+L206	L	206	199	L	FMDV L190 ortholog; conserved RNA-binding triad; CVB3 L206D inhibited replication	preprint
+K209	K	209	202	K	FMDV K193 ortholog; conserved RNA-binding triad; CVB3 K209A inhibited replication	preprint
+N223	N	223	216	N	FMDV N207 ortholog/motif C; aligns exactly to A89 N216	preprint + ATPase motif literature
+R240	R	240	233	R	conserved R-finger homolog	EV/PV structure
+R241	R	241	234	R	conserved R-finger homolog	EV/PV structure
