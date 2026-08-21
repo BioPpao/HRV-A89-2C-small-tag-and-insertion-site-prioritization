@@ -1,0 +1,6 @@
+sequence_id	type_label	source_database	source_accession	organism	sequence_length	extraction_method	boundary_confidence	alignment_ref_coverage	alignment_identity	inferred_start	inferred_end	retain_reason	provenance_note
+A89_REF|A89|repository_authoritative	A89	project_repository	repository_reference	HRV-A89 authoritative project 2C	321	repository_authoritative_2C	authoritative	1.0000	1.0000	1	321	exact_or_authoritative_boundary_subset	exact mature 2C boundary
+P12916|A1B|uniprot_chain_exact	A1B	UniProtKB	P12916	Human rhinovirus 1B	322	uniprot_chain_exact	high	1.0	1.0	1095	1416	exact_or_authoritative_boundary_subset	exact mature 2C boundary
+P23008|A1|uniprot_chain_exact	A1	UniProtKB	P23008	Human rhinovirus 1A	322	uniprot_chain_exact	high	1.0	1.0	1095	1416	exact_or_authoritative_boundary_subset	A1A exact record reconciled to ICTV A1
+Q82122|A16|uniprot_chain_exact	A16	UniProtKB	Q82122	Human rhinovirus 16	322	uniprot_chain_exact	high	1.0	1.0	1091	1412	exact_or_authoritative_boundary_subset	exact mature 2C boundary
+P04936|A2|uniprot_chain_exact	A2	UniProtKB	P04936	Human rhinovirus 2	322	uniprot_chain_exact	high	1.0	1.0	1088	1409	exact_or_authoritative_boundary_subset	exact mature 2C boundary

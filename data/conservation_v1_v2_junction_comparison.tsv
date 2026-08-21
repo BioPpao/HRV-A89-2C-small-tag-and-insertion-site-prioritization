@@ -1,0 +1,321 @@
+junction	v1_conservation_class	v2_conservation_class	v1_priority_interpretation	v2_priority_interpretation	v1_type_weighted_window_mean_identity	v2_type_weighted_window_mean_identity	v1_type_weighted_window_mean_entropy	v2_type_weighted_window_mean_entropy	v1_expanded_insertion_frequency	v2_expanded_insertion_frequency	v2_expanded_indel_category	interpretation_changed
+1|2	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.937729	0.940631	0.256808	0.250978	0.000000	0.000000	none	False
+2|3	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.945513	0.948052	0.224707	0.219606	0.000000	0.000000	none	False
+3|4	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.951567	0.953824	0.199739	0.195205	0.000000	0.000000	none	False
+4|5	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.956410	0.958442	0.179765	0.175684	0.000000	0.000000	none	False
+5|6	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.879953	0.881936	0.210327	0.207016	0.000000	0.000000	none	False
+6|7	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.889957	0.891775	0.192800	0.189765	0.000000	0.000000	none	False
+7|8	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.889957	0.891775	0.192800	0.189765	0.000000	0.000000	none	False
+8|9	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.889957	0.891775	0.192800	0.189765	0.000000	0.000000	none	False
+9|10	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.910256	0.911255	0.107515	0.105989	0.000000	0.000000	none	False
+10|11	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.909188	0.910173	0.115761	0.114323	0.000000	0.000000	none	False
+11|12	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.925214	0.925325	0.051242	0.051695	0.000000	0.000000	none	False
+12|13	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.925214	0.925325	0.051242	0.051695	0.000000	0.000000	none	False
+13|14	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.925214	0.925325	0.051242	0.051695	0.000000	0.000000	none	False
+14|15	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.925214	0.925325	0.051242	0.051695	0.000000	0.000000	none	False
+15|16	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.912393	0.912338	0.102857	0.103718	0.000000	0.000000	none	False
+16|17	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.912393	0.912338	0.102857	0.103718	0.000000	0.000000	none	False
+17|18	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.908120	0.908009	0.107775	0.103520	0.000000	0.000000	none	False
+18|19	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.908120	0.908009	0.107775	0.103520	0.000000	0.000000	none	False
+19|20	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.908120	0.908009	0.107775	0.103520	0.000000	0.000000	none	False
+20|21	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.908120	0.908009	0.107775	0.103520	0.000000	0.000000	none	False
+21|22	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.908120	0.908009	0.107775	0.103520	0.000000	0.000000	none	False
+22|23	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.909188	0.909091	0.099529	0.095186	0.000000	0.000000	none	False
+23|24	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.909188	0.909091	0.099529	0.095186	0.000000	0.000000	none	False
+24|25	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.871795	0.871212	0.182229	0.178022	0.000000	0.000000	none	False
+25|26	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.871795	0.871212	0.182229	0.178022	0.000000	0.000000	none	False
+26|27	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.794872	0.794372	0.295819	0.289810	0.000000	0.000000	none	False
+27|28	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.806624	0.806277	0.252450	0.246120	0.000000	0.000000	none	False
+28|29	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.804487	0.804113	0.268923	0.262766	0.000000	0.000000	none	False
+29|30	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.882479	0.882035	0.221010	0.219603	0.000000	0.000000	none	False
+30|31	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.882479	0.882035	0.221010	0.219603	0.000000	0.000000	none	False
+31|32	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.882479	0.882035	0.221010	0.219603	0.000000	0.000000	none	False
+32|33	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.882479	0.882035	0.221010	0.219603	0.000000	0.000000	none	False
+33|34	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.881410	0.880952	0.229256	0.227936	0.000000	0.000000	none	False
+34|35	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.867521	0.866883	0.292028	0.291236	0.000000	0.000000	none	False
+35|36	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.864316	0.864719	0.311627	0.305718	0.000000	0.000000	none	False
+36|37	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.901709	0.902597	0.228927	0.222882	0.000000	0.000000	none	False
+37|38	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.834402	0.835498	0.303588	0.298126	0.000000	0.000000	none	False
+38|39	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.836538	0.837662	0.281842	0.278937	0.000000	0.000000	none	False
+39|40	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.826923	0.829004	0.319637	0.313964	0.000000	0.000000	none	False
+40|41	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.815171	0.817100	0.357332	0.351903	0.000000	0.000000	none	False
+41|42	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.736111	0.738095	0.542462	0.533902	0.000000	0.000000	none	False
+42|43	variable	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.659188	0.661255	0.669388	0.657104	0.000000	0.000000	none	False
+43|44	variable	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.653846	0.656926	0.706145	0.688149	0.000000	0.000000	none	False
+44|45	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.652778	0.655844	0.714392	0.696482	0.000000	0.000000	none	False
+45|46	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.594017	0.596320	0.785396	0.766427	0.000000	0.000000	none	False
+46|47	variable	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.607906	0.610390	0.722625	0.703127	0.000000	0.000000	none	False
+47|48	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.572650	0.576840	0.842628	0.821789	0.000000	0.000000	none	False
+48|49	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.549679	0.555556	0.913415	0.890101	0.000000	0.000000	none	False
+49|50	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.608440	0.615079	0.886667	0.858020	0.000000	0.000000	none	False
+50|51	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	unchanged_or_unresolved	0.683226	0.689755	0.794823	0.765422	0.000000	0.000000	none	False
+51|52	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.693910	0.699495	0.748781	0.722061	0.000000	0.000000	none	False
+52|53	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.700320	0.705989	0.735339	0.708583	0.000000	0.000000	none	False
+53|54	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.750000	0.756494	0.657442	0.631910	0.000000	0.000000	none	False
+54|55	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.804487	0.811688	0.600546	0.577571	0.000000	0.000000	none	False
+55|56	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.730769	0.737013	0.742116	0.724753	0.000000	0.000000	none	False
+56|57	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.653846	0.660173	0.762497	0.745314	0.000000	0.000000	none	False
+57|58	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.709402	0.717533	0.711031	0.689810	0.000000	0.000000	none	False
+58|59	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.645299	0.653680	0.930026	0.905874	0.000000	0.000000	none	False
+59|60	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.683761	0.689394	0.790424	0.772730	0.000000	0.000000	none	False
+60|61	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.630247	0.633838	0.824119	0.814464	0.000000	0.000000	none	False
+61|62	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.560624	0.563673	0.973982	0.968541	0.000000	0.000000	none	False
+62|63	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.481564	0.484668	1.169579	1.159257	0.000000	0.000000	none	False
+63|64	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.403146	0.406313	1.315780	1.293869	0.000000	0.000000	none	False
+64|65	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.409556	0.412807	1.283301	1.261095	0.000000	0.000000	none	False
+65|66	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.426650	0.425433	1.245059	1.229672	0.053097	0.000000	none	True
+66|67	indel_signal	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	unchanged_or_unresolved	0.428787	0.427597	1.289677	1.258012	0.008850	0.000000	none	True
+67|68	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	unchanged_or_unresolved	0.496094	0.489286	1.181296	1.147062	0.000000	0.000000	none	False
+68|69	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	unchanged_or_unresolved	0.495667	0.488853	1.279030	1.234788	0.000000	0.000000	none	False
+69|70	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.424183	0.412013	1.515129	1.475056	0.000000	0.000000	none	False
+70|71	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.472260	0.460515	1.382323	1.333147	0.000000	0.000000	none	False
+71|72	variable	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.450358	0.438509	1.504468	1.431206	0.000000	0.000000	none	False
+72|73	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.447782	0.436345	1.536628	1.451314	0.000000	0.000000	none	False
+73|74	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.513131	0.496770	1.411311	1.352335	0.000000	0.000000	none	False
+74|75	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.586849	0.559541	1.244340	1.220903	0.000000	0.000000	none	False
+75|76	indel_signal	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.652536	0.620580	1.165800	1.164930	0.000000	0.000000	none	True
+76|77	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.653605	0.621662	1.157554	1.156597	0.000000	0.000000	none	True
+77|78	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.649865	0.622384	1.164294	1.154036	0.000000	0.000000	none	True
+78|79	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.670165	0.641864	1.049645	1.056834	0.000000	0.000000	none	True
+79|80	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.603925	0.581258	1.086616	1.095244	0.000000	0.000000	none	True
+80|81	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.682344	0.659613	0.960255	0.978623	0.044248	0.000000	none	True
+81|82	indel_signal	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.754897	0.737535	0.715970	0.730063	0.000000	0.000000	none	True
+82|83	indel_signal	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.770922	0.752886	0.629781	0.655909	0.000000	0.000000	none	True
+83|84	indel_signal	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.792824	0.774892	0.507635	0.557850	0.000000	0.000000	none	True
+84|85	indel_signal	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.871884	0.853896	0.370994	0.427696	0.000000	0.000000	none	True
+85|86	indel_signal	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.884704	0.871212	0.298535	0.329434	0.000000	0.000000	none	True
+86|87	indel_signal	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.885773	0.884199	0.294226	0.289942	0.000000	0.000000	none	True
+87|88	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.882479	0.886364	0.334001	0.314178	0.000000	0.000000	none	False
+88|89	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.882479	0.886364	0.334001	0.314178	0.000000	0.000000	none	False
+89|90	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.882479	0.886364	0.317126	0.299839	0.000000	0.000000	none	False
+90|91	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.804487	0.808442	0.345753	0.328733	0.000000	0.000000	none	False
+91|92	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.879273	0.884199	0.261379	0.239692	0.000000	0.000000	none	False
+92|93	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.878205	0.883117	0.269626	0.248025	0.000000	0.000000	none	False
+93|94	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.879273	0.883117	0.266500	0.250190	0.000000	0.000000	none	False
+94|95	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.801282	0.805195	0.472601	0.452916	0.000000	0.000000	none	False
+95|96	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.795940	0.799784	0.505084	0.485716	0.000000	0.000000	none	False
+96|97	indel_signal	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.743471	0.745926	0.633769	0.629354	0.000000	0.000000	none	True
+97|98	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.668796	0.671251	0.768531	0.753151	0.000000	0.000000	none	True
+98|99	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.662385	0.653935	0.799669	0.810515	0.000000	0.000000	none	True
+99|100	indel_signal	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.660249	0.651770	0.780302	0.792098	0.000000	0.000000	none	True
+100|101	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.605272	0.582867	0.954932	0.976847	0.000000	0.000000	none	True
+101|102	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.576426	0.546071	1.092292	1.110341	0.000000	0.000000	none	True
+102|103	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.587109	0.551482	1.179511	1.141912	0.000000	0.000000	none	True
+103|104	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.583904	0.536330	1.201063	1.207244	0.000000	0.000000	none	True
+104|105	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.567879	0.522261	1.274100	1.272417	0.000000	0.000000	none	True
+105|106	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.492024	0.446503	1.362474	1.355791	0.000000	0.000000	none	True
+106|107	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.492024	0.446503	1.309916	1.304374	0.000000	0.000000	none	True
+107|108	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.496298	0.450832	1.285680	1.279906	0.000000	0.000000	none	True
+108|109	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.548767	0.504690	1.156995	1.136268	0.070796	0.000000	none	True
+109|110	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.545451	0.501443	1.189441	1.175662	0.106195	0.000000	none	True
+110|111	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.556134	0.522006	1.133985	1.098506	0.000000	0.000000	none	True
+111|112	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.574297	0.539322	1.045916	1.014048	0.000000	0.000000	none	True
+112|113	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.629274	0.608225	0.871286	0.829299	0.000000	0.000000	none	False
+113|114	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	unchanged_or_unresolved	0.660257	0.646104	0.729237	0.693388	0.000000	0.000000	none	False
+114|115	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.711004	0.701659	0.673338	0.693656	0.000000	0.000000	none	False
+115|116	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.647970	0.649711	0.785851	0.768643	0.000000	0.000000	none	False
+116|117	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.644765	0.645382	0.781168	0.770316	0.000000	0.000000	none	False
+117|118	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.722756	0.723304	0.676321	0.670297	0.000000	0.000000	none	False
+118|119	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.800748	0.801227	0.522778	0.518988	0.000000	0.000000	none	False
+119|120	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.728632	0.729077	0.665101	0.656417	0.000000	0.000000	none	False
+120|121	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.728633	0.729077	0.665101	0.656417	0.000000	0.000000	none	False
+121|122	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.806624	0.806999	0.497892	0.493226	0.000000	0.000000	none	False
+122|123	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.797009	0.798341	0.549718	0.540352	0.000000	0.000000	none	False
+123|124	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.797009	0.798341	0.549718	0.540352	0.000000	0.000000	none	False
+124|125	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.797009	0.798341	0.549718	0.540352	0.000000	0.000000	none	False
+125|126	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.810897	0.812410	0.495549	0.485767	0.000000	0.000000	none	False
+126|127	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.750534	0.752525	0.549723	0.539698	0.000000	0.000000	none	False
+127|128	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.750534	0.752525	0.466022	0.451214	0.000000	0.000000	none	False
+128|129	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.770833	0.772006	0.389421	0.376034	0.000000	0.000000	none	False
+129|130	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.733440	0.733045	0.472121	0.459113	0.000000	0.000000	none	False
+130|131	variable	variable	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.656517	0.656205	0.561516	0.547052	0.000000	0.000000	none	False
+131|132	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.729701	0.729437	0.410947	0.401290	0.000000	0.000000	none	False
+132|133	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.727564	0.727273	0.425283	0.415771	0.000000	0.000000	none	False
+133|134	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.724359	0.724026	0.444882	0.435564	0.000000	0.000000	none	False
+134|135	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.733974	0.732684	0.393057	0.388437	0.000000	0.000000	none	False
+135|136	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.670940	0.669913	0.459804	0.455612	0.000000	0.000000	none	False
+136|137	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.670940	0.669913	0.459804	0.455612	0.000000	0.000000	none	False
+137|138	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.592949	0.591991	0.575711	0.572416	0.000000	0.000000	none	False
+138|139	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.635684	0.634199	0.558323	0.551044	0.000000	0.000000	none	False
+139|140	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.628205	0.626623	0.518020	0.515464	0.000000	0.000000	none	False
+140|141	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.628205	0.626623	0.518020	0.515464	0.000000	0.000000	none	False
+141|142	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.659188	0.659091	0.467923	0.465286	0.000000	0.000000	none	False
+142|143	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.736111	0.735931	0.378529	0.377348	0.000000	0.000000	none	False
+143|144	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.736111	0.735931	0.378529	0.377348	0.000000	0.000000	none	False
+144|145	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.738248	0.738095	0.364192	0.362866	0.000000	0.000000	none	False
+145|146	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.741453	0.741342	0.344593	0.343073	0.000000	0.000000	none	False
+146|147	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.741453	0.741342	0.344593	0.343073	0.000000	0.000000	none	False
+147|148	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.789530	0.788961	0.348616	0.346410	0.000000	0.000000	none	False
+148|149	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.789530	0.788961	0.348616	0.346410	0.000000	0.000000	none	False
+149|150	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.867521	0.866883	0.232709	0.229606	0.000000	0.000000	none	False
+150|151	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.900641	0.900433	0.144224	0.144647	0.000000	0.000000	none	False
+151|152	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.977564	0.977273	0.111620	0.111745	0.000000	0.000000	none	False
+152|153	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.977564	0.977273	0.111620	0.111745	0.000000	0.000000	none	False
+153|154	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.983974	0.983766	0.079016	0.078844	0.000000	0.000000	singleton_or_rare	False
+154|155	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.982906	0.982684	0.087263	0.087178	0.000000	0.000000	singleton_or_rare	False
+155|156	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.978632	0.979437	0.115048	0.109951	0.000000	0.000000	singleton_or_rare	False
+156|157	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.973290	0.974026	0.147531	0.142752	0.000000	0.000000	singleton_or_rare	False
+157|158	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.973291	0.974026	0.147531	0.142752	0.000000	0.000000	singleton_or_rare	False
+158|159	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.967949	0.969697	0.176158	0.167303	0.000000	0.000000	singleton_or_rare	False
+159|160	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.981837	0.983766	0.113635	0.105126	0.000000	0.000000	singleton_or_rare	False
+160|161	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.981837	0.983766	0.113635	0.105126	0.000000	0.000000	singleton_or_rare	False
+161|162	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.981837	0.983766	0.113635	0.105126	0.000000	0.000000	singleton_or_rare	False
+162|163	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.982906	0.984849	0.105388	0.096793	0.000000	0.000000	singleton_or_rare	False
+163|164	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.982906	0.984849	0.105388	0.096793	0.000000	0.000000	singleton_or_rare	False
+164|165	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.982906	0.984849	0.105388	0.096793	0.000000	0.000000	singleton_or_rare	False
+165|166	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.969017	0.974026	0.159557	0.143216	0.000000	0.000000	none	False
+166|167	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.970085	0.975108	0.151310	0.134883	0.000000	0.000000	none	False
+167|168	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.974359	0.978355	0.123525	0.112109	0.000000	0.000000	none	False
+168|169	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.979701	0.983766	0.091042	0.079308	0.000000	0.000000	none	False
+169|170	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.979701	0.983766	0.091042	0.079308	0.000000	0.000000	none	False
+170|171	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.942308	0.945887	0.229248	0.220479	0.000000	0.000000	none	False
+171|172	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.943376	0.946970	0.221002	0.212145	0.000000	0.000000	none	False
+172|173	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.920940	0.925325	0.291032	0.281008	0.000000	0.000000	none	False
+173|174	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.920940	0.925325	0.291032	0.281008	0.000000	0.000000	none	False
+174|175	conserved	conserved	unchanged; strict geometry but conservation does not clear functional risk	decreased; conserved local window	0.920940	0.925325	0.291032	0.281008	0.000000	0.000000	none	False
+175|176	intermediate	intermediate	unchanged; strict geometry but conservation does not clear functional risk	unchanged_or_unresolved	0.883547	0.888528	0.380731	0.370562	0.000000	0.000000	none	False
+176|177	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.880342	0.886364	0.400330	0.385044	0.000000	0.000000	none	False
+177|178	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.894231	0.897186	0.346161	0.338621	0.000000	0.000000	none	False
+178|179	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.894231	0.897186	0.346161	0.338621	0.000000	0.000000	none	False
+179|180	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.894231	0.897186	0.346161	0.338621	0.000000	0.000000	none	False
+180|181	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.894231	0.897186	0.346161	0.338621	0.000000	0.000000	none	False
+181|182	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.894231	0.897186	0.346161	0.338621	0.000000	0.000000	none	False
+182|183	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.936966	0.939394	0.179328	0.172899	0.000000	0.000000	none	False
+183|184	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.936966	0.939394	0.179328	0.172899	0.000000	0.000000	none	False
+184|185	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.959402	0.961039	0.109298	0.104036	0.000000	0.000000	none	False
+185|186	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.896367	0.898268	0.202056	0.192626	0.000000	0.000000	none	False
+186|187	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.893162	0.896104	0.221655	0.207108	0.000000	0.000000	none	False
+187|188	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+188|189	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+189|190	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+190|191	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+191|192	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+192|193	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+193|194	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+194|195	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+195|196	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+196|197	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.927350	0.930736	0.151556	0.132035	0.000000	0.000000	none	False
+197|198	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.990384	0.993506	0.058798	0.043445	0.000000	0.000000	none	False
+198|199	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.990384	0.993507	0.058798	0.043445	0.000000	0.000000	none	False
+199|200	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.982906	0.985931	0.105753	0.091537	0.000000	0.000000	none	False
+200|201	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.986111	0.988095	0.086153	0.077055	0.000000	0.000000	none	False
+201|202	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.909188	0.911255	0.177542	0.167118	0.000000	0.000000	none	False
+202|203	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.909188	0.911255	0.177542	0.167118	0.000000	0.000000	none	False
+203|204	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.832265	0.834416	0.274696	0.262916	0.000000	0.000000	none	False
+204|205	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.815171	0.818182	0.335702	0.322201	0.000000	0.000000	none	False
+205|206	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.814102	0.817100	0.343948	0.330534	0.000000	0.000000	none	False
+206|207	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.795940	0.799784	0.406982	0.391971	0.000000	0.000000	none	False
+207|208	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.731838	0.735931	0.471928	0.457348	0.000000	0.000000	none	False
+208|209	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.731838	0.735931	0.471928	0.457348	0.000000	0.000000	none	False
+209|210	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.731838	0.735931	0.471928	0.457348	0.000000	0.000000	none	False
+210|211	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.735043	0.738095	0.452328	0.442866	0.000000	0.000000	none	False
+211|212	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.737179	0.740260	0.425530	0.416917	0.000000	0.000000	none	False
+212|213	variable	variable	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.669872	0.673160	0.581818	0.573147	0.000000	0.000000	none	False
+213|214	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.725427	0.728355	0.580060	0.571086	0.000000	0.000000	none	False
+214|215	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.725427	0.728355	0.580060	0.571086	0.000000	0.000000	none	False
+215|216	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.730769	0.732684	0.595736	0.586460	0.000000	0.000000	none	False
+216|217	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.747863	0.748918	0.534730	0.527175	0.000000	0.000000	none	False
+217|218	intermediate	intermediate	unchanged; strict geometry but conservation does not clear functional risk	unchanged_or_unresolved	0.748932	0.750000	0.526483	0.518842	0.000000	0.000000	none	False
+218|219	intermediate	intermediate	unchanged; strict geometry but conservation does not clear functional risk	unchanged_or_unresolved	0.767094	0.767316	0.463450	0.457405	0.000000	0.000000	none	False
+219|220	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.753205	0.753247	0.427131	0.420923	0.000000	0.000000	none	False
+220|221	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	outside_strict_review_only; near-miss plus V2 evolutionary support	0.685023	0.684168	0.488687	0.479222	0.000000	0.000000	none	False
+221|222	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	outside_strict_review_only; near-miss plus V2 evolutionary support	0.668998	0.669016	0.559112	0.545190	0.000000	0.000000	none	False
+222|223	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	outside_strict_review_only; near-miss plus V2 evolutionary support	0.654041	0.653865	0.621245	0.607818	0.000000	0.000000	none	False
+223|224	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	outside_strict_review_only; near-miss plus V2 evolutionary support	0.631605	0.630055	0.707014	0.697617	0.000000	0.000000	none	False
+224|225	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.698912	0.697155	0.550727	0.541387	0.000000	0.000000	none	False
+225|226	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.717075	0.716635	0.480695	0.467868	0.000000	0.000000	none	False
+226|227	variable	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.634810	0.634384	0.513178	0.500668	0.000000	0.000000	none	False
+227|228	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.706391	0.706895	0.400349	0.389495	0.000000	0.000000	none	False
+228|229	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.706391	0.706895	0.400349	0.389495	0.000000	0.000000	none	False
+229|230	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.703186	0.704731	0.419948	0.403977	0.000000	0.000000	none	False
+230|231	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.637302	0.639255	0.481643	0.466443	0.000000	0.000000	none	False
+231|232	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.647986	0.648995	0.530462	0.517813	0.000000	0.000000	none	False
+232|233	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.716168	0.718074	0.468906	0.459514	0.000000	0.000000	none	False
+233|234	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.732194	0.733225	0.398481	0.393546	0.000000	0.000000	none	False
+234|235	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.743946	0.746212	0.355948	0.345400	0.000000	0.000000	none	False
+235|236	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.773860	0.776515	0.238669	0.227309	0.000000	0.000000	none	False
+236|237	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.695962	0.698664	0.395597	0.380432	0.000000	0.000000	none	False
+237|238	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.698098	0.699746	0.384244	0.374283	0.000000	0.000000	none	False
+238|239	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.715589	0.717062	0.542429	0.518214	0.000000	0.000000	none	False
+239|240	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.666664	0.639188	0.724959	0.637196	0.000000	0.000000	none	False
+240|241	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.590858	0.561313	0.929356	0.816079	0.000000	0.000000	none	False
+241|242	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.552396	0.551573	1.012335	0.850903	0.000000	0.000000	none	False
+242|243	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.548835	0.540209	1.077696	0.854831	0.000000	0.000000	none	False
+243|244	indel_signal	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	unchanged_or_unresolved	0.537083	0.529386	1.259196	1.023859	0.415929	0.000000	none	True
+244|245	indel_signal	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	outside_strict_review_only; near-miss plus V2 evolutionary support	0.460160	0.450382	1.343916	1.103526	0.044248	0.000000	none	True
+245|246	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	outside_strict_review_only; near-miss plus V2 evolutionary support	0.459091	0.449300	1.352163	1.111860	0.000000	0.000000	none	False
+246|247	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.458023	0.447135	1.360348	1.121929	0.000000	0.000000	none	False
+247|248	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.458023	0.447135	1.360348	1.121929	0.380531	0.000000	none	True
+248|249	variable	lineage_indel_supported	literature-rescue retained; conservation variable; not promoted without functional/structure review	literature-rescue retained; V2 conservation lineage_indel_supported; not promoted	0.476127	0.465337	1.290580	1.056316	0.000000	0.903226	broader_lineage_supported	True
+249|250	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.400273	0.388497	1.373722	1.136425	0.000000	0.000000	none	False
+250|251	indel_signal	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	outside_strict_review_only; near-miss plus V2 evolutionary support	0.396671	0.385251	1.381135	1.155238	0.026549	0.000000	none	True
+251|252	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.387903	0.405766	1.343102	1.180116	0.000000	0.000000	none	False
+252|253	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.397471	0.417624	1.199710	1.062669	0.000000	0.000000	none	False
+253|254	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.420975	0.412212	1.160166	1.074800	0.000000	0.000000	none	False
+254|255	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.426673	0.426173	1.152896	1.129193	0.000000	0.000000	none	False
+255|256	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.498254	0.498684	0.936706	0.917024	0.017699	0.000000	none	True
+256|257	variable	variable	literature-rescue retained; conservation variable; not promoted without functional/structure review	literature-rescue retained; V2 conservation variable; not promoted	0.575177	0.577689	0.851986	0.837357	0.000000	0.000000	none	False
+257|258	indel_signal	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.567187	0.560733	0.890201	0.914682	0.000000	0.000000	none	True
+258|259	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.546028	0.547701	0.992408	0.977371	0.000000	0.000000	broader_lineage_supported	True
+259|260	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.487412	0.489573	1.120386	1.120348	0.000000	0.000000	broader_lineage_supported	True
+260|261	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.468574	0.470651	1.251748	1.246278	0.000000	0.000000	broader_lineage_supported	True
+261|262	indel_signal	lineage_indel_supported	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.543360	0.546408	1.174696	1.172317	0.000000	0.000000	broader_lineage_supported	True
+262|263	indel_signal	lineage_indel_supported	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.599984	0.602685	1.025525	1.026079	0.000000	0.000000	broader_lineage_supported	True
+263|264	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.657676	0.660045	0.881028	0.882220	0.000000	0.000000	broader_lineage_supported	True
+264|265	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.722847	0.724980	0.828269	0.829116	0.000000	0.000000	broader_lineage_supported	True
+265|266	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.741009	0.742296	0.765236	0.767679	0.000000	0.000000	broader_lineage_supported	True
+266|267	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.757678	0.758756	0.735199	0.736930	0.000000	0.000000	broader_lineage_supported	True
+267|268	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.765157	0.765250	0.692443	0.699808	0.000000	0.000000	broader_lineage_supported	True
+268|269	indel_signal	lineage_indel_supported	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.765157	0.765250	0.692443	0.699808	0.000000	0.000000	broader_lineage_supported	True
+269|270	intermediate	lineage_indel_supported	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.774215	0.783287	0.645981	0.614149	0.000000	0.000000	broader_lineage_supported	True
+270|271	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.782554	0.784415	0.576995	0.586194	0.000000	0.000000	none	False
+271|272	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.829418	0.831720	0.492385	0.484190	0.000000	0.000000	none	False
+272|273	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.908050	0.910292	0.273864	0.270750	0.000000	0.000000	none	False
+273|274	conserved	conserved	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.910187	0.912456	0.259528	0.256268	0.000000	0.000000	none	False
+274|275	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.919789	0.922187	0.225026	0.221493	0.000000	0.000000	none	False
+275|276	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.919789	0.922187	0.225026	0.221493	0.000000	0.000000	none	False
+276|277	conserved	conserved	decreased; conserved local window	decreased; conserved local window	0.910708	0.912808	0.273170	0.271315	0.000000	0.000000	none	False
+277|278	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.832785	0.834957	0.513051	0.509804	0.000000	0.000000	none	False
+278|279	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.879863	0.881375	0.423301	0.419766	0.000000	0.000000	none	False
+279|280	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.841402	0.845661	0.532045	0.522710	0.000000	0.000000	none	False
+280|281	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.838197	0.843496	0.551644	0.537192	0.000000	0.000000	none	False
+281|282	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.838197	0.843496	0.551644	0.537192	0.000000	0.000000	none	False
+282|283	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.848880	0.853236	0.531265	0.518936	0.000000	0.000000	none	False
+283|284	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.786380	0.790105	0.562075	0.550387	0.000000	0.000000	none	False
+284|285	intermediate	intermediate	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.769286	0.773871	0.636948	0.621391	0.000000	0.000000	none	False
+285|286	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.689243	0.694982	0.846347	0.839366	0.000000	0.000000	none	False
+286|287	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.641179	0.646291	1.054865	1.048058	0.000000	0.000000	none	False
+287|288	variable	variable	increased_for_later_review; structural geometry plus evolutionary variability	reviewable_after_QC; structural pass plus V2 evolutionary support, functional context still required	0.579214	0.583520	1.131091	1.128816	0.000000	0.000000	none	False
+288|289	variable	variable	increased_for_later_review; structural geometry plus evolutionary variability	reviewable_after_QC; structural pass plus V2 evolutionary support, functional context still required	0.541286	0.546363	1.193953	1.190328	0.000000	0.000000	none	False
+289|290	variable	variable	increased_for_later_review; structural geometry plus evolutionary variability	reviewable_after_QC; structural pass plus V2 evolutionary support, functional context still required	0.619208	0.624214	0.954072	0.951840	0.000000	0.000000	none	False
+290|291	variable	variable	increased_for_later_review; structural geometry plus evolutionary variability	reviewable_after_QC; structural pass plus V2 evolutionary support, functional context still required	0.571131	0.574430	1.063213	1.060688	0.000000	0.000000	none	False
+291|292	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	outside_strict_review_only; near-miss plus V2 evolutionary support	0.589700	0.591221	1.038008	1.037501	0.000000	0.000000	none	False
+292|293	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	unchanged_or_unresolved	0.514914	0.515464	1.124763	1.129662	0.000000	0.000000	none	False
+293|294	variable	variable	new_outside_strict10_for_later_review; near-miss plus evolutionary variability	unchanged_or_unresolved	0.514914	0.515464	1.124763	1.129662	0.000000	0.000000	none	False
+294|295	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.439772	0.440247	1.104770	1.108479	0.000000	0.000000	none	False
+295|296	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.442443	0.442773	1.264093	1.274481	0.000000	0.000000	none	False
+296|297	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.446182	0.445659	1.251771	1.265711	0.000000	0.000000	none	False
+297|298	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.445029	0.443379	1.210231	1.214138	0.000000	0.000000	none	False
+298|299	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.461767	0.461725	1.151135	1.143752	0.000000	0.000000	none	False
+299|300	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.523733	0.524496	1.074909	1.062994	0.000000	0.000000	none	False
+300|301	variable	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.553647	0.554799	1.043810	1.027254	0.000000	0.000000	none	False
+301|302	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.485806	0.487339	1.128024	1.107554	0.000000	0.000000	none	False
+302|303	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.515720	0.518724	1.099680	1.080166	0.000000	0.000000	none	False
+303|304	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.535613	0.537647	1.016141	1.000408	0.000000	0.000000	none	False
+304|305	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.535613	0.537647	1.052643	1.033104	0.000000	0.000000	none	False
+305|306	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.459855	0.461989	1.255119	1.235429	0.000000	0.000000	none	False
+306|307	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.463416	0.465777	1.331572	1.313439	0.000000	0.000000	none	False
+307|308	variable	variable	unchanged; no decisive evolutionary rescue	outside_strict_review_only; near-miss plus V2 evolutionary support	0.458074	0.460366	1.263113	1.238527	0.000000	0.000000	none	False
+308|309	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.392369	0.394709	1.324641	1.297805	0.000000	0.000000	none	False
+309|310	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.396643	0.399038	1.260072	1.230661	0.000000	0.000000	none	False
+310|311	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.415161	0.416406	1.152820	1.134827	0.000000	0.000000	none	False
+311|312	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.342512	0.342813	1.345398	1.325602	0.000000	0.000000	none	False
+312|313	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.360674	0.360129	1.257244	1.241675	0.000000	0.000000	none	False
+313|314	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.427448	0.426507	1.181277	1.169708	0.000000	0.000000	none	False
+314|315	variable	variable	unchanged; no decisive evolutionary rescue	unchanged_or_unresolved	0.445610	0.444905	1.100480	1.088249	0.000000	0.000000	none	False
+315|316	variable	variable	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.445610	0.444905	1.100480	1.088249	0.000000	0.000000	none	False
+316|317	variable	variable	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.480292	0.479448	1.044681	1.035174	0.000000	0.000000	none	False
+317|318	variable	variable	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.519231	0.518182	0.906178	0.895901	0.000000	0.000000	none	False
+318|319	variable	variable	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.569801	0.568543	0.877415	0.864972	0.000000	0.000000	none	False
+319|320	variable	variable	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.633013	0.631494	0.727160	0.715323	0.000000	0.000000	none	False
+320|321	intermediate	intermediate	decreased_or_excluded; hard functional feature dominates conservation	decreased_or_excluded; hard functional feature dominates	0.716117	0.714286	0.618333	0.609206	0.000000	0.000000	none	False

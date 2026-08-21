@@ -27,6 +27,7 @@ Installation:
 - Downloaded micromamba 2.9.0 from `https://micro.mamba.pm/api/micromamba/linux-64/latest` to `.tools/bin/micromamba`.
 - Created project-local user-space environment `.tools/envs/hrv2c-conservation-qc`.
 - Installed from conda-forge: Python 3.11, MAFFT, Biopython, pandas, numpy, MDTraj, gemmi and scipy.
+- Added conda-forge `openpyxl` and `requests` for ICTV VMR Excel parsing and API retrieval.
 - Network during installation had intermittent TLS EOF warnings; micromamba retried and installation completed.
 
 Environment records:
@@ -35,14 +36,32 @@ Environment records:
 - `results/conservation_002_micromamba_list.tsv`
 - `envs/hrv2c-conservation-qc.yml`
 
+## Data / QC Progress
+
+- Downloaded ICTV current VMR `VMR_MSL41.v1.20260729.xlsx`.
+- Extracted 80 HRV-A type rows under ICTV species `Enterovirus alpharhino`.
+- Built V2 full type-balanced panel: 77 represented ICTV types.
+- Built V2 expanded panel: 186 sequences.
+- Built exact/high-confidence boundary subset: 5 sequences.
+- Missing full-panel ICTV types: `A106`, `A107`, `A108`.
+- Missing reasons: `A106` VMR record is partial polyprotein with extensive unknown residues; `A107` and `A108` VMR records are VP1 partial CDS only.
+- Reconciled A1/A1A/A1B: VMR lists `A1` and `A1B`; V1 `A1A` exact UniProt record is mapped to ICTV `A1` and explicitly flagged.
+- Ran MAFFT L-INS-i equivalent (`--localpair --maxiterate 1000`) for full, expanded and exact-boundary panels.
+- Generated V2 residue/junction conservation tables and exact-boundary sensitivity tables.
+- Regenerated structural metrics from the original structures after locating them under `/public/home/yukang/HRV Oligomers`.
+- Structural V2 strict gate is internally consistent and returns the same 10 strict-pass junctions as the V1 report.
+- Structural mismatch audit: 8 V1 rows had gate columns that computed as strict while stored `strict_structural_pass=False`; V2 recomputation is internally consistent and those rows are not strict.
+
 ## Current Blockers / Risks
 
-- The four original structural files listed in `INPUT_PROVENANCE.md` were not found in the current repository or under `/public/home/yukang/wf` at search depth 4. Structural V2 regeneration may be blocked unless the files are supplied or located elsewhere.
+- Exact/high-confidence boundary subset is small (`n=5`), so it is only a sensitivity layer and cannot replace the full ICTV type-balanced panel.
+- Full V2 panel still has 3 missing ICTV types because source records did not contain acceptable 2C sequence.
 
 ## Checkpoints
 
 - Environment + framework checkpoint: pending.
+- Panel/alignment/metrics checkpoint: pending.
 
 ## Next Action
 
-Build V2 acquisition/taxonomy/MAFFT scripts and run sequence panels.
+Write V2 reports and update project-state/navigation files.
