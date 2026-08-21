@@ -1,14 +1,14 @@
 # Active task
 
-Current task: `CONSERVATION_002` — **COMPLETE**
+Current task: `CANDIDATE_SHORTLIST_001` — **IN REVIEW**
 
 Branch: `analysis/conservation-002`
 
-Completed execution specification:
+Current task specification:
 
-`tasks/CONSERVATION_002.md`
+`tasks/CANDIDATE_SHORTLIST_001.md`
 
-Before executing, read in order:
+Before any execution, read in order:
 
 1. `WORKFLOW.md`
 2. `AGENTS.md`
@@ -16,15 +16,27 @@ Before executing, read in order:
 4. `DECISIONS.md`
 5. `ANALYSIS_INDEX.md`
 6. this file
-7. `tasks/CONSERVATION_002.md`
-8. `docs/CONSERVATION_SCREEN_V1.md`
-9. `docs/CONSERVATION_001_RUN_LOG.md`
-10. current reports/data referenced by the task
+7. `tasks/CANDIDATE_SHORTLIST_001.md`
+8. `docs/CANDIDATE_SHORTLIST_001_DECISION.md`
+9. current structural and conservation reports/data
 
-Codex executed the task specification, committed and pushed checkpoint results to the task branch, and did not merge into `main`.
+Repository role:
 
-The repository is the shared project memory between ChatGPT and Codex. Decision-relevant results must be committed rather than left only in chat or terminal output.
+The GitHub repository is the shared project memory between ChatGPT and Codex. Decision-changing conclusions must be committed to the repository rather than kept only in chat or terminal output.
 
-Important: `CONSERVATION_001` is preserved as a provisional V1 result. `CONSERVATION_002` hardens the analysis with mature software/methods and concludes `READY_FOR_SHORTLIST` review in `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`.
+Current phase:
 
-No tag × site modeling, long MD, RNA/codon design, or construct recommendation is authorized until ChatGPT/user defines the next task.
+`CONSERVATION_002` is complete and has passed methodological QC review.
+
+The current goal is to establish a transparent candidate junction decision gate before any Tag × Site perturbation modeling.
+
+Important constraints:
+
+- No tag × site modeling is authorized yet.
+- No candidate is considered safe, validated, or experimentally proven.
+- Preserve evidence conflicts.
+- Use candidate / primary review / secondary / control terminology.
+
+Next gate:
+
+ChatGPT/user review of the candidate shortlist and explicit authorization before entering Tag × Site modeling.
