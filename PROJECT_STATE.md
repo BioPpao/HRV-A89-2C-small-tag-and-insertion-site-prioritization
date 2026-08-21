@@ -8,9 +8,9 @@ Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
 ## Scientific objective
 
-Identify a small set of experimentally testable internal-tag constructs for HRV-A89 2C that minimize predicted perturbation of native 2C biology while remaining detectable in cell-based replicon/mechanism experiments.
+Identify a small set of experimentally testable internal-tag constructs for HRV-A89 2C that minimize predicted perturbation of native 2C biology while remaining detectable in downstream mechanistic experiments.
 
-The computational endpoint is **candidate prioritization**, not proof of a "safe" insertion site. WT-like replicon behavior remains the decisive biological acceptance gate.
+The computational endpoint is **candidate prioritization**, not proof of a "safe" insertion site.
 
 ## Fixed project constraints
 
@@ -20,7 +20,8 @@ The computational endpoint is **candidate prioritization**, not proof of a "safe
 - Homologous functional residues must be mapped to HRV-A89; residue numbers from PV/EV-A71/FMDV are not copied directly.
 - Monomer-only exposure is insufficient. Candidate sites must be evaluated in both AlphaFold monomers and both hexamer ensembles.
 - Current HRV-A89 hexamers are template-guided, no-membrane/no-RNA structural hypotheses and cannot by themselves establish native pore/RNA geometry.
-- Final construct design must include the exact replicon nucleotide sequence and RNA-level checks.
+- Final RNA-level design requires the exact experimental nucleotide sequence/context; protein back-translation is not an acceptable substitute.
+- Decision-changing analyses must use appropriate mature methods. Missing software should be installed in a reproducible user-space environment rather than silently replaced by a weaker method.
 
 ## Current structural inputs
 
@@ -41,43 +42,50 @@ Key C-alpha RMSD checks are recorded in `results/phase0_structure_rmsd.tsv` and 
 |---|---|---|---|
 | 0. Input integrity / numbering / sequence / RMSD audit | **COMPLETE** | `results/phase0_structure_integrity.tsv`, `results/phase0_structure_rmsd.tsv` | four structures are mutually compatible for residue-level comparison |
 | 1. 2C functional constraint/exclusion mapping | **COMPLETE, working V3** | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | A89-specific annotations + homolog genetics/structures define hard/high-risk regions |
-| 2. Four-structure all-atom junction screen | **COMPLETE, V2** | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v1.tsv` | 320 junctions screened; no structurally clean junction is yet biologically low-risk |
+| 2. Four-structure all-atom junction screen | **COMPLETE V2, QC re-audit pending** | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v1.tsv` | 320 junctions screened; eight strict-flag/gate mismatches discovered during CONSERVATION_001 require deterministic regeneration |
 | 3. Small-tag evidence screen | **COMPLETE, V1** | `docs/TAG_CANDIDATE_SCREEN_V1.md` | MAP8/HA/G196 lead the first modeling set; ranking remains site-dependent |
-| 4. Near-HRV conservation / indel-tolerance layer | **COMPLETE, V1** | `docs/CONSERVATION_SCREEN_V1.md`, `data/candidate_junctions_v1.tsv` | HRV-A variability supports later review of 287–291 and preserves literature-rescue conflicts, but no junction is cleared as low-risk |
-| 5. Candidate-junction shortlist | **NEXT / PENDING DECISION** | planned reduced junction set | ChatGPT/user must decide whether to model a narrow 287–291/rescue set, broaden to near-misses, or pivot to library/minimal-epitope strategy |
-| 6. Tag × site structural perturbation modeling | **PENDING** | planned construct models/metrics | only after the site set is reduced |
-| 7. Replicon nucleotide/RNA audit | **BLOCKED ON INPUT** | planned RNA/codon audit | requires exact experimental 2C nucleotide sequence / replicon context |
-| 8. Experimental construct recommendation | **PENDING** | 2–3 primary/backup constructs | requires evidence integration and later WT-vs-tagged validation |
+| 4A. Near-HRV conservation / indel-tolerance layer | **COMPLETE BUT PROVISIONAL, V1** | `docs/CONSERVATION_SCREEN_V1.md`, `data/candidate_junctions_v1.tsv` | useful first-pass result, but primary alignment used a custom A89-guided NW fallback because MAFFT was missing; taxonomy/provenance and indel conclusions require hardening |
+| 4B. Conservation / taxonomy / structural QC hardening | **CURRENT — CONSERVATION_002** | planned V2 alignments, metrics and QC reports | install mature tools, use MAFFT, reconcile ICTV type universe, compare exact vs provisional boundaries, resolve structural mismatch |
+| 5. Candidate-junction shortlist | **PENDING V2 REVIEW** | planned reduced junction set | no shortlist authorized until CONSERVATION_002 is reviewed |
+| 6. Tag × site structural perturbation modeling | **PENDING** | planned construct models/metrics | only after the site set is reduced and approved |
+| 7. RNA/codon audit | **BLOCKED ON INPUT** | planned RNA/codon audit | requires exact experimental nucleotide sequence/context |
+| 8. Experimental construct recommendation | **PENDING** | primary/backup construct set | requires later evidence integration and biological validation |
 
-## Current main result
+## Current V1 structural result
 
-The strict structural funnel starts from all **320 internal peptide junctions** and applies reproducible coil/exposure/interface gates across both AF monomers and all protomers in both hexamers.
-
-Ten junctions pass the strict structural geometry gate:
+Ten junctions were flagged as strict structural passes in the existing V1 table:
 
 `155|156`, `174|175`, `175|176`, `216|217`, `217|218`, `218|219`, `287|288`, `288|289`, `289|290`, `290|291`.
 
-**None is currently promoted to a low-risk biological candidate.**
+None is currently promoted to a low-risk biological candidate.
 
-Reasons include:
+Important: during CONSERVATION_001, eight additional rows were found where the stored gate columns appeared to pass while `strict_structural_pass=False`. V1 was preserved rather than silently changed. CONSERVATION_002 must regenerate the table from the four original structures and explain every mismatch before the structural shortlist is considered decision-grade.
 
-- `155|156`: inside the 9A5 epitope and adjacent to the homolog-mapped aromatic pore/RNA-function position.
-- `174|175`, `175|176`: immediately downstream of Walker B.
-- `216|217`: touches motif-C N216.
-- `217|218`, `218|219`: immediately adjacent to motif C within the SF3 ATPase core.
-- `287|288` through `290|291`: favorable geometry, but located in the Cys/Zn-to-C-terminal bundle transition and not yet cleared by conservation/tag-specific modeling.
+## Current V1 conservation result — provisional interpretation
 
-This is a negative-but-informative result: **surface-loop geometry alone is insufficient for 2C**.
+`CONSERVATION_001` used 78 primary type-balanced labels and 113 retained expanded HRV-A sequences. It generated 321 residue rows and 320 junction rows.
 
-The HRV-A conservation layer is now complete. It used 78 primary type-balanced HRV-A representatives and 113 retained expanded HRV-A 2C sequences. The 320-junction integrated matrix is in `data/candidate_junctions_v1.tsv`.
+The V1 evolutionary overlay suggested:
 
-Conservation changes interpretation as follows:
+- `155|156`, `174|175` and `216|217` remain strongly disfavored;
+- `175|176`, `217|218` and `218|219` remain unresolved;
+- `248|249` and `256|257` remain literature-rescue conflicts;
+- `287|288` through `290|291` have favorable structural geometry and locally variable HRV-A windows, so they merit further review;
+- no outside-strict junction was promoted; `223|224`, `245|246` and `250|251` were reviewable near-misses only.
 
-- `155|156`, `174|175` and `216|217` are weakened further by conserved or functionally constrained context.
-- `175|176`, `217|218` and `218|219` remain unresolved rather than rescued.
-- `248|249` and `256|257` remain literature-rescue conflicts; HRV-A variability supports retaining them for review but does not override unfavorable structural/functional context.
-- `287|288` through `290|291` gain support for later review because the local HRV-A layer is variable, but they remain in a high-risk Zn/Cys-to-C-terminal transition region.
-- No outside-strict junction is promoted; `223|224`, `245|246` and `250|251` are the most reviewable near-miss examples if the later modeling set is broadened.
+However, this interpretation is **provisional** because:
+
+1. MAFFT and other mature MSA tools were absent and a custom A89-guided Needleman–Wunsch merge was used;
+2. the type universe came from NCBI taxonomy labels and needs reconciliation with current ICTV-recognized HRV-A types;
+3. many retained 2C regions were alignment-derived provisional extractions rather than exact mature-product annotations;
+4. the original `indel_signal` category was too permissive for singleton/rare events;
+5. the structural table contains strict-flag/gate inconsistencies that require re-computation.
+
+Therefore V1 must not yet be used to authorize Tag × Site modeling.
+
+## Focal region nuance
+
+Do not describe `287–291` as uniformly variable. The V1 table shows different conservation at the actual junction flanks. For example, `287|288` has highly conserved flanking residues even though the broader local window is variable, whereas `288|289`, `289|290` and `290|291` include more variable flanks. CONSERVATION_002 must preserve this junction-specific distinction.
 
 ## Functional map currently treated as authoritative
 
@@ -95,19 +103,15 @@ Current HRV-A89 working constraints include:
 - C-terminal RNA-binding: approximately aa305–312 by similarity — high risk.
 - terminal oligomerization region: aa316–321 — exclude for first batch.
 
-Evidence strength and caveats are documented in `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md`.
-
 ## Literature-rescue track
 
 Historical poliovirus genetics reported viable small insertions after PV 2C residues 255 and 263. Explicit alignment maps these approximately to A89 junctions `248|249` and `256|257`.
 
-These junctions are **not automatically preferred** because current A89 structural evidence places them in ordered/interface-sensitive neighborhoods. They are retained as a separate literature-rescue track so conflicting evidence is preserved rather than averaged away or discarded.
-
-See `docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md`.
+These junctions remain a separate conflict/rescue track and are not automatically preferred.
 
 ## Current tag shortlist
 
-The tag layer is independent from the site layer.
+The tag layer remains independent from the site layer.
 
 | Tag | Design length | Current role | Main reason | Main concern |
 |---|---:|---|---|---|
@@ -131,18 +135,6 @@ Conservation is a supporting layer, not a standalone safety criterion. Structure
 
 ## Immediate next step
 
-The next decision is the reduced candidate-junction shortlist for tag × site perturbation modeling.
+Execute `tasks/CONSERVATION_002.md` on branch `analysis/conservation-002`.
 
-Options requiring ChatGPT/user judgment:
-
-1. narrow modeling to the strict-pass variable C-terminal transition region `287|288` through `290|291`, with `248|249` and `256|257` retained as literature-rescue controls;
-2. broaden the modeling set to include selected near-miss review sites such as `223|224`, `245|246` or `250|251`;
-3. conclude that no convincing targeted site emerged and pivot to an experimental insertion-library/minimal-epitope strategy.
-
-## Required future user input
-
-Before final experimental construct design, obtain the **exact nucleotide sequence of the experimental HRV-A89 2C region / replicon plasmid**. Protein back-translation is not an acceptable substitute for RNA-structure/codon-level auditing.
-
-## Scientific conclusion at this checkpoint
-
-There is currently **no computationally certified safe insertion site and no final tag winner**. The project has, however, converted a vague tagging question into a constrained, reproducible decision problem with explicit negative evidence, functional boundaries, quantitative structural metrics and a defined next gate.
+Do not authorize a candidate-junction shortlist or Tag × Site modeling until the V2 MAFFT/taxonomy/provenance/structural QC result has been reviewed.
