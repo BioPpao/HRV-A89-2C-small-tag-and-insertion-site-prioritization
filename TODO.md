@@ -2,66 +2,49 @@
 
 Last updated: 2026-08-21
 
-Priority order is scientific, not cosmetic. Do not jump to tag modeling before the site layer is sufficiently reduced.
+Priority order is scientific, not cosmetic. Do not jump to tag modeling before the site layer is sufficiently reduced and methodologically hardened.
 
-## P0 — Completed decisive analysis
+## P0 — CONSERVATION_001 completed, but V1 is provisional
 
-### 1. Build HRV-A-focused 2C conservation dataset — COMPLETE
+The first conservation pass produced useful data and a complete 321-residue / 320-junction matrix, but it used an A89-guided Needleman–Wunsch fallback because MAFFT was not installed. It also exposed taxonomy/provenance and structural strict-flag issues.
 
-Completed in `docs/CONSERVATION_SCREEN_V1.md`.
+Preserve all V1 outputs for provenance; do not treat them as final decision-grade evidence.
 
-Deliverables:
+## P0 — CURRENT: CONSERVATION_002 decision-grade QC hardening
 
-- `data/hrvA_2C_sequences.fasta`
-- `data/hrvA_2C_sequence_metadata.tsv`
-- `data/hrvA_2C_alignment.fasta`
-- `data/hrvA_conservation_per_residue.tsv`
-- `data/hrvA_conservation_per_junction.tsv`
-- `docs/CONSERVATION_SCREEN_V1.md`
+Execute `tasks/CONSERVATION_002.md`.
 
-### 2. Add broader rhinovirus context without pooling it into one entropy score — COMPLETE / SPARSE
+Required work:
 
-Completed as secondary context in `data/hrvABC_candidate_window_context.tsv`. HRV-B/C retained sequence counts are sparse after applying the same extraction/QC rules, so this context is weak.
+- install MAFFT and required scientific packages in a reproducible user-space environment;
+- reconcile the HRV-A type universe against current official ICTV taxonomy/VMR rather than using raw NCBI taxonomy labels as the sole type definition;
+- build exact/high-confidence and full type-balanced 2C panels;
+- rerun primary/expanded alignments with MAFFT high-accuracy mode;
+- compare MAFFT V2 against the V1 custom NW alignment;
+- perform exact-boundary vs provisional-boundary sensitivity analysis;
+- refine natural-indel evidence so singleton/rare observations are not conflated with recurrent lineage-supported indels;
+- regenerate the four-structure junction table and resolve all `strict_structural_pass` / gate-column mismatches;
+- generate V2 residue, junction and integrated candidate tables;
+- explicitly re-audit `223|224`, `245|246`, `248|249`, `250|251`, `256|257`, and `287|288` through `290|291`;
+- produce `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`.
 
-Deliverables:
+Do not start tag × site modeling automatically at the end. ChatGPT/user reviews V2 first.
 
-- `data/hrvABC_candidate_window_context.tsv`
-- `docs/CONSERVATION_SCREEN_V1.md`
+## P1 — Candidate-junction shortlist
 
-### 3. Integrate functional + structural + conservation evidence — COMPLETE
+Only after CONSERVATION_002 is reviewed:
 
-Produce a transparent candidate table with separate columns for:
+- reduce to a small number of junctions with stable structural + functional + evolutionary support;
+- preserve literature-rescue conflicts rather than averaging them away;
+- allow the valid result `NO_TARGETED_SITE` if high-quality QC still does not support a targeted site.
 
-- functional tier;
-- direct literature insertion-tolerance/rescue evidence;
-- AF secondary-structure consistency;
-- AF rSASA;
-- hexamer rSASA;
-- DeltaSASA/burial;
-- inter-protomer distance/contact metrics;
-- pore/radial proxy;
-- HRV-A conservation;
-- HRV-A local gap/indel frequency;
-- unresolved evidence conflicts.
+Planned deliverable:
 
-Do **not** hide these components behind one opaque score.
-
-Deliverables:
-
-- `data/candidate_junctions_v1.tsv`
-- `docs/CONSERVATION_SCREEN_V1.md`
-
-## P0 — Next decision
-
-ChatGPT/user should decide the reduced candidate-junction set before tag × site modeling:
-
-- narrow set: `287|288`, `288|289`, `289|290`, `290|291`, with `248|249` and `256|257` retained as literature-rescue controls;
-- broader review set: add selected near-misses such as `223|224`, `245|246`, `250|251`;
-- alternative path: pivot to insertion-library/minimal-epitope strategy if no targeted site is convincing.
+- `docs/CANDIDATE_JUNCTION_PRIORITIZATION_V1.md`
 
 ## P1 — Tag × site modeling
 
-Only after a small site set survives P0:
+Only after a small site set survives review:
 
 - model MAP8;
 - model HA;
@@ -71,41 +54,17 @@ Only after a small site set survives P0:
 - inspect steric/interface/pore conflicts and tag exposure;
 - treat tag flexibility/low confidence separately from native 2C perturbation.
 
-Deliverables:
+Planned deliverables:
 
 - `data/tag_site_perturbation_metrics_v1.tsv`
 - `docs/TAG_SITE_MODELING_V1.md`
 - selected lightweight structure snapshots if justified.
 
-## P1 — Exact replicon nucleotide/RNA audit
+## P1 — Exact nucleotide/RNA audit
 
-Blocked until the exact experimental nucleotide construct is supplied.
+Blocked until the exact experimental nucleotide construct/context is supplied.
 
-Required:
-
-- actual HRV-A89 2C nucleotide sequence from the replicon/plasmid;
-- boundaries around 2B|2C and 2C|3A;
-- intended codons for each tag construct.
-
-Then evaluate:
-
-- reading frame / polyprotein continuity;
-- local RNA secondary-structure perturbation;
-- broader plausible cis/long-range effects;
-- accidental creation of problematic cleavage-like sequence contexts;
-- codon-level design differences among synonymous tag encodings.
-
-## P2 — Experimental construct set
-
-Target outcome:
-
-- 1 primary construct;
-- 1 structurally/evolutionarily distinct backup site;
-- 1 minimal-footprint or assay-system backup;
-- WT replicon control;
-- appropriate replication-defective/processing controls as required by the assay.
-
-Do not enter 9A5 mechanism interpretation until tagged 2C shows sufficiently WT-like baseline behavior.
+Do not infer the native nucleotide sequence by back-translation.
 
 ## Repository maintenance
 
@@ -114,4 +73,6 @@ Do not enter 9A5 mechanism interpretation until tagged 2C shows sufficiently WT-
 - append changes to `DECISIONS.md` rather than silently reversing them;
 - store raw numerical outputs under `data/` or `results/`, not only inside prose reports;
 - record source accession/DOI and evidence class for every new literature-derived constraint;
-- do not commit bulk MD trajectories/restart files.
+- record software/environment versions for decision-changing analyses;
+- if appropriate software is absent, install it in user space rather than silently replacing it with a materially weaker method;
+- do not commit software installations, package caches, bulk MD trajectories or restart files.
