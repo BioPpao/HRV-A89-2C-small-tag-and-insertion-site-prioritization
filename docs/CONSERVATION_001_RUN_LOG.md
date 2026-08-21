@@ -59,7 +59,8 @@ Initial observations:
 
 - Script/workflow checkpoint: `c2bb69b`, pushed.
 - Dataset/alignment/metrics checkpoint: `f0a89ed`, pushed.
-- Final report/state checkpoint: pending commit/push.
+- Final report/state checkpoint: `ca6ed67`, pushed.
+- Closeout run-log update: current final commit after this edit; see `git log -1`.
 
 ## Next Action
 
