@@ -1,0 +1,15 @@
+structure	chain	residue_count	start	end	numbering_gaps	sequence_matches_ref
+af_model1	A	321	1	321		True
+af_model3	A	321	1	321		True
+hex_lead01	A	321	1	321		True
+hex_lead01	B	321	1	321		True
+hex_lead01	C	321	1	321		True
+hex_lead01	D	321	1	321		True
+hex_lead01	E	321	1	321		True
+hex_lead01	F	321	1	321		True
+hex_control02	A	321	1	321		True
+hex_control02	B	321	1	321		True
+hex_control02	C	321	1	321		True
+hex_control02	D	321	1	321		True
+hex_control02	E	321	1	321		True
+hex_control02	F	321	1	321		True
