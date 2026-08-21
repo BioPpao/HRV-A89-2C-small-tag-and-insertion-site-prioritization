@@ -1,3 +1,9 @@
+# SUPERSEDED — do not use for ranking
+
+This V1 file is retained only for provenance. Its blanket treatment of the N-terminal region and broad C-terminal exclusion logic were too coarse. Use **`docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md`** and **`docs/METHOD_LOGIC_AUDIT_V2.md`** for all subsequent analysis.
+
+---
+
 # HRV-A89 2C functional exclusion map V1
 
 Project: **HRV-A89 2C small-tag and insertion-site prioritization**
