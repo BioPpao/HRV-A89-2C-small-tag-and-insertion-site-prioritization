@@ -2,15 +2,28 @@
 
 Instructions for Codex/ChatGPT/other analysis agents working in this repository.
 
+## Repository-as-memory rule
+
+This repository is the persistent shared project memory between ChatGPT and server-side Codex.
+
+- ChatGPT is responsible for scientific reasoning, evidence review and defining the next decision gate.
+- Codex is responsible for execution, scripting, data/QC, reproducible computation, reporting and checkpoint Git updates.
+- Decision-relevant information must be committed to the repository rather than left only in chat, terminal output or temporary files.
+- Follow the full collaboration and checkpoint rules in `WORKFLOW.md`.
+
 ## Read order before making changes
 
-1. `PROJECT_STATE.md`
-2. `DECISIONS.md`
-3. `ANALYSIS_INDEX.md`
-4. the current topic-specific report linked by the index
-5. `INPUT_PROVENANCE.md`
-6. `references/LITERATURE_EVIDENCE_REGISTRY.md`
-7. `TODO.md`
+1. `WORKFLOW.md`
+2. `AGENTS.md`
+3. `PROJECT_STATE.md`
+4. `DECISIONS.md`
+5. `ANALYSIS_INDEX.md`
+6. `ACTIVE_TASK.md`
+7. the task specification referenced by `ACTIVE_TASK.md`
+8. the current topic-specific report linked by the index
+9. `INPUT_PROVENANCE.md`
+10. `references/LITERATURE_EVIDENCE_REGISTRY.md`
+11. `TODO.md`
 
 Do not infer the current state from an old `V1` report if a newer version is listed as authoritative.
 
@@ -62,6 +75,8 @@ All use A89 2C numbering 1–321 and were integrity-audited. Checksums are in `I
 - Update `PROJECT_STATE.md` after any phase that changes the scientific interpretation.
 - Update `DECISIONS.md` when a project-level assumption is changed.
 - Add literature sources/claim boundaries to `references/LITERATURE_EVIDENCE_REGISTRY.md`.
+- Use `ACTIVE_TASK.md` as the single pointer to the currently authorized execution task.
+- Keep reusable collaboration rules in `WORKFLOW.md`, not in transient chat prompts.
 
 ## Reproducibility rules
 
@@ -71,7 +86,8 @@ All use A89 2C numbering 1–321 and were integrity-audited. Checksums are in `I
 - Record random seeds for any stochastic modeling.
 - Keep bulk trajectories/restart/state data out of normal Git.
 - Do not fabricate unavailable PDB/EMDB/accession identifiers.
+- Push meaningful task checkpoints so the repository remains inspectable from ChatGPT without relying on Codex conversation state.
 
 ## Current next task
 
-The next decision-changing layer is **near-HRV conservation and indel tolerance**, followed by integrated candidate-junction prioritization. Do not jump directly to long MD or large tag-modeling batches unless new evidence changes `PROJECT_STATE.md` / `TODO.md`.
+Read `ACTIVE_TASK.md` for the executable task. The currently authorized decision-changing layer is **near-HRV conservation and indel tolerance**, followed by integrated candidate-junction prioritization. Do not jump directly to long MD or tag-modeling batches unless a later task specification explicitly authorizes it.
