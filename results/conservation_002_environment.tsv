@@ -1,0 +1,18 @@
+item	value
+task	CONSERVATION_002
+branch	analysis/conservation-002
+starting_commit	817b9ecdfcb14e47e39888ca0f15598ec4ce3167
+micromamba	2.9.0
+environment_prefix	.tools/envs/hrv2c-conservation-qc
+channels	conda-forge
+install_command	.tools/bin/micromamba create -y -p .tools/envs/hrv2c-conservation-qc -c conda-forge python=3.11 mafft biopython pandas numpy mdtraj gemmi scipy
+python	3.11.15
+mafft	7.526 (2024/Apr/26)
+biopython	1.88
+pandas	2.3.3
+numpy	2.4.6
+mdtraj	1.11.1
+gemmi	0.7.5
+scipy	1.17.1
+environment_export	envs/hrv2c-conservation-qc.yml
+package_list	results/conservation_002_micromamba_list.tsv

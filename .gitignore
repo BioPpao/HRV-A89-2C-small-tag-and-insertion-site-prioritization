@@ -21,6 +21,7 @@ logs/
 scratch/
 tmp/
 temp/
+.tools/
 
 # Credentials / local environment
 .env
