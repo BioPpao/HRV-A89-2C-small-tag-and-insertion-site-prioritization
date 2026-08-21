@@ -7,7 +7,7 @@ Instructions for Codex/ChatGPT/other analysis agents working in this repository.
 This repository is the persistent shared project memory between ChatGPT and server-side Codex.
 
 - ChatGPT is responsible for scientific reasoning, evidence review and defining the next decision gate.
-- Codex is responsible for execution, scripting, data/QC, reproducible computation, reporting and checkpoint Git updates.
+- Codex is responsible for execution, scripting, data/QC, reproducible computation, software/environment setup, reporting and checkpoint Git updates.
 - Decision-relevant information must be committed to the repository rather than left only in chat, terminal output or temporary files.
 - Follow the full collaboration and checkpoint rules in `WORKFLOW.md`.
 
@@ -26,6 +26,16 @@ This repository is the persistent shared project memory between ChatGPT and serv
 11. `TODO.md`
 
 Do not infer the current state from an old `V1` report if a newer version is listed as authoritative.
+
+## Method-quality rule
+
+For a decision-changing analysis, do not silently substitute a materially weaker method just because the preferred software is missing.
+
+- Install the appropriate mature tool in user space when feasible.
+- Prefer reproducible Conda/Mamba/Micromamba/Miniforge environments; do not use `sudo` unless the user explicitly authorizes it.
+- Record tool versions, install source/channels and environment specification.
+- A custom or weaker fallback may be retained for sensitivity comparison, but it must not be promoted to the primary result when the preferred method can reasonably be installed.
+- If the required method cannot be installed after reasonable attempts, record the blocker, push the current state and mark the task `BLOCKED` or result `PROVISIONAL` rather than claiming decision-grade completion.
 
 ## Scientific rules
 
@@ -90,4 +100,4 @@ All use A89 2C numbering 1–321 and were integrity-audited. Checksums are in `I
 
 ## Current next task
 
-Read `ACTIVE_TASK.md` for the executable task. The near-HRV conservation and indel-tolerance layer is complete in `docs/CONSERVATION_SCREEN_V1.md`. The next project decision is the reduced candidate-junction set for tag × site modeling, or whether to pivot to an experimental insertion-library/minimal-epitope strategy. Do not start tag modeling, long MD, RNA/codon design, or construct recommendations unless a later task specification explicitly authorizes it.
+Read `ACTIVE_TASK.md`. The currently authorized task is `CONSERVATION_002`: install and use mature analysis software, rebuild the conservation layer with MAFFT and reconciled type/provenance QC, resolve the structural strict-flag mismatch, and determine whether V1 candidate interpretations are stable. Do not start tag × site modeling, long MD, RNA/codon design or construct recommendations until this QC task has been reviewed.
