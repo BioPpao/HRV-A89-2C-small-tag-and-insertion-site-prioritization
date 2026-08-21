@@ -61,7 +61,8 @@ Environment records:
 
 - Environment + framework checkpoint: `48fade2`, pushed.
 - Panel/alignment/metrics checkpoint: `f99a6da`, pushed.
-- Final report/state checkpoint: pending.
+- Final report/state checkpoint: `9feac95`, pushed.
+- Closeout run-log update: current final commit after this edit; see `git log -1`.
 
 ## Next Action
 
