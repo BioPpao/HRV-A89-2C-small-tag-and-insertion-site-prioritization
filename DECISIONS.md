@@ -173,3 +173,15 @@ These are active decisions. Future analyses should change them only with explici
 - `248|249`, `256|257` → `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`.
 
 **Reason:** preserve informative contradictions rather than averaging them away or presenting them as preferred sites.
+
+## D-027 — ONE_SHOT_COMPUTATIONAL_AUDIT_003 ended in `METHOD_HARDENING_BLOCKED`
+
+**Decision:** Do not authorize automatic Tag × Site modeling from the current one-shot run.
+
+**Reason:** EV-A71 substitution, Pareto and phylogeny-aware indel analyses completed, but the mandatory MAP8/HA/G196 PLM insertion scan was blocked by unavailable mature PLM/GPU software and rejected dependency installation. Cross-tag consensus is therefore unresolved.
+
+## D-028 — V4 review set is not a modeling shortlist
+
+**Decision:** Treat `data/computational_review_set_v1.tsv` as a conflict-aware review set only.
+
+**Reason:** all reviewed rows remain either direct-homolog-conflicted, high-risk, mapping-uncertain, historically conflicted or negative controls. No row is validated or selected for experimental construct design.

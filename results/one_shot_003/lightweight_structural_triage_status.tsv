@@ -1,0 +1,8 @@
+metric	value
+stage_e_status	DEFERRED
+colabfold_batch_available	false
+rosetta_available	false
+pyrosetta_available	false
+visible_nvidia_gpu	false
+weak_custom_fallback_used	false
+reason	mature reproducible structure-prediction or loop-remodeling workflow unavailable; no long MD started

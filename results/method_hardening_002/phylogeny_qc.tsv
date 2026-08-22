@@ -1,0 +1,8 @@
+metric	value
+tree_method	FastTree -wag
+tree_tip_count	77
+a89_junction_rows	320
+junctions_with_insertion_tip_presence	1
+junctions_with_insertion_parsimony_changes	1
+junctions_with_local_deletion_tip_presence	12
+junctions_with_local_deletion_parsimony_changes	12

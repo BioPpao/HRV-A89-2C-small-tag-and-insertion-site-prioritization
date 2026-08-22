@@ -4,36 +4,36 @@ Last updated: 2026-08-22
 
 Priority order is scientific, not cosmetic.
 
-## CURRENT — ONE_SHOT_COMPUTATIONAL_AUDIT_003
+## ONE_SHOT_COMPUTATIONAL_AUDIT_003 — COMPLETED WITH BLOCKER
 
-Status: **AUTHORIZED / LONG-RUN COMPUTATIONAL TASK**
+Status: **METHOD_HARDENING_BLOCKED**
 
 Task:
 
 - `tasks/ONE_SHOT_COMPUTATIONAL_AUDIT_003.md`
 
-This task supersedes `METHOD_HARDENING_002` as the active execution wrapper and incorporates all of its mandatory modules.
+This task superseded `METHOD_HARDENING_002` as the active execution wrapper and incorporated all of its mandatory modules.
 
-The intended use is an unattended run on the 3090 server so the computational evidence layer can be pushed as far as scientifically justified in one session.
+The run pushed the CPU-valid computational evidence as far as scientifically justified. Mandatory PLM scoring remained blocked.
 
-Mandatory stages:
+Stage status:
 
-1. EV-A71 substitution-tolerance integration.
-2. Continuous/Pareto all-320 junction re-ranking.
-3. Phylogeny-aware independent natural-indel-event analysis.
-4. MAP8/HA/G196 tag-specific PLM insertion scans.
-5. Ranking robustness and negative-control audits.
-6. Cross-tag consensus/disagreement analysis.
-7. Reduced computational review-set construction.
-8. Final synthesis and repository updates.
+1. EV-A71 substitution-tolerance integration: complete.
+2. Continuous/Pareto all-320 junction re-ranking: complete.
+3. Phylogeny-aware independent natural-indel-event analysis: complete.
+4. MAP8/HA/G196 tag-specific PLM insertion scans: blocked.
+5. Ranking robustness and negative-control audits: complete for non-PLM layers.
+6. Cross-tag consensus/disagreement analysis: blocked.
+7. Reduced computational review-set construction: complete as review set only.
+8. Final synthesis and repository updates: complete locally.
 
 Optional stage:
 
-- lightweight insertion-specific structural feasibility triage for the reduced review set, only if a mature reproducible method is available without derailing the run.
+- lightweight insertion-specific structural feasibility triage: deferred because no mature reproducible workflow was available.
 
 Do not automatically start long MD, experimental protocol design, final RNA/codon design, or final experimental construct recommendation.
 
-Primary outputs expected:
+Primary outputs generated:
 
 - `data/candidate_junctions_v4_method_hardening.tsv`
 - `data/pareto_junction_frontier_v1.tsv`
@@ -49,11 +49,19 @@ Primary outputs expected:
 - `docs/COMPUTATIONAL_REVIEW_SET_V1.md`
 - `docs/ONE_SHOT_COMPUTATIONAL_AUDIT_003_REPORT.md`
 
-Final state must be exactly one of:
+Final state:
 
-- `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
-- `NO_HIGH_CONFIDENCE_TARGETED_SITE`
 - `METHOD_HARDENING_BLOCKED`
+
+## CURRENT — Review / unblock decision
+
+ChatGPT/user must decide one of:
+
+1. authorize a new PLM environment recovery task on a GPU-capable session;
+2. accept `METHOD_HARDENING_BLOCKED` and pivot to HRV-A89-specific empirical validation planning;
+3. explicitly authorize conflict-aware Tag x Site modeling despite absent PLM evidence.
+
+Until then, do not start Tag x Site modeling, long MD, final construct recommendation or RNA/codon design.
 
 ## Completed upstream work
 
@@ -62,7 +70,7 @@ Final state must be exactly one of:
 - DIRECT_INDEL_001 — complete; direct EV-A71 2C insertion phenotype requires shortlist revision.
 - METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2 — complete; current state `NO_HIGH_CONFIDENCE_TARGETED_SITE_YET`.
 
-## Later work — blocked pending ONE_SHOT_COMPUTATIONAL_AUDIT_003 review
+## Later work — blocked pending review / PLM unblock
 
 ### Insertion-specific Tag × Site structural modeling
 

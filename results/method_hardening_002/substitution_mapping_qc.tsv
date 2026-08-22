@@ -1,0 +1,7 @@
+metric	value
+ev71_2c_substitution_rows	6580
+a89_junction_rows	320
+exact_aligned_rows	315
+ambiguous_rows	5
+rows_with_flank_scores	320
+rows_with_window_scores	320

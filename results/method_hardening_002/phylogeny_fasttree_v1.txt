@@ -1,0 +1,29 @@
+FastTree Version 2.2.0 Double precision
+Alignment: data/hrvA_2C_alignment_v2_sanitized_for_tree.fasta
+Amino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000
+Search: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1
+TopHits: 1.00*sqrtN close=default refresh=0.80
+ML Model: Whelan-And-Goldman, CAT approximation with 20 rate categories
+Ignored unknown character X (seen 14 times)
+Initial topology in 0.02 seconds
+Refining topology: 25 rounds ME-NNIs, 2 rounds ME-SPRs, 13 rounds ML-NNIs
+      0.10 seconds: SPR round   1 of   2, 101 of 152 nodes
+      0.21 seconds: SPR round   2 of   2, 101 of 152 nodes
+Total branch-length 2.810 after 0.26 sec
+      0.34 seconds: ML NNI round 1 of 13, 1 of 75 splits
+ML-NNI round 1: LogLk = -8148.905 NNIs 10 max delta 7.38 Time 0.64
+      0.64 seconds: Site likelihoods with rate category 1 of 20
+      0.75 seconds: Site likelihoods with rate category 14 of 20
+Switched to using 20 rate categories (CAT approximation)
+Rate categories were divided by 0.857 so that average rate = 1.0
+CAT-based log-likelihoods may not be comparable across runs
+Use -gamma for approximate but comparable Gamma(20) log-likelihoods
+ML-NNI round 2: LogLk = -7278.822 NNIs 3 max delta 2.01 Time 1.09
+      1.08 seconds: ML NNI round 3 of 13, 1 of 75 splits
+ML-NNI round 3: LogLk = -7278.766 NNIs 0 max delta 0.00 Time 1.19
+Turning off heuristics for final round of ML NNIs (converged)
+      1.19 seconds: ML NNI round 4 of 13, 1 of 75 splits
+ML-NNI round 4: LogLk = -7277.782 NNIs 0 max delta 0.00 Time 1.60 (final)
+      1.59 seconds: ML Lengths 1 of 75 splits
+Optimize all lengths: LogLk = -7277.753 Time 1.70
+Total time: 2.03 seconds Unique: 77/77 Bad splits: 0/74
