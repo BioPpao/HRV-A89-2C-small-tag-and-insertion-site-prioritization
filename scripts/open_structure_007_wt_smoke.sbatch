@@ -43,7 +43,7 @@ PY
   --random-seed 7 \
   --templates \
   --overwrite-existing-results \
-  results/open_structure_007/colabfold_wt_input.fasta \
+  results/open_structure_007/wt_msa_only/A89_2C_WT.a3m \
   results/open_structure_007/wt_smoke
 
 .tools/envs/open_structure_007/bin/python scripts/open_structure_007_parse_colabfold.py \

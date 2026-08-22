@@ -1,0 +1,10 @@
+2026-08-22 22:57:05,725 Running colabfold 1.5.3
+2026-08-22 22:57:06,065 Unable to initialize backend 'cuda': FAILED_PRECONDITION: No visible GPU devices.
+2026-08-22 22:57:06,066 Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: Interpreter CUDA
+2026-08-22 22:57:06,067 Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+2026-08-22 22:57:06,067 No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+2026-08-22 22:57:06,068 WARNING: no GPU detected, will be using CPU
+2026-08-22 22:57:40,504 Found 4 citations for tools or databases
+2026-08-22 22:57:40,505 Query 1/1: A89_2C_WT (length 321)
+2026-08-22 22:57:44,040 Saved results/open_structure_007/wt_msa_only/A89_2C_WT.pickle
+2026-08-22 22:57:45,515 Done

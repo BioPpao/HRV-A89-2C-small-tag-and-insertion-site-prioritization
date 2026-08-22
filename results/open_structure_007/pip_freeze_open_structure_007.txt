@@ -1,8 +1,14 @@
-alphafold-colabfold @ file:///opt/conda/conda-bld/colabfold_1699446504011/work/alphafold
+absl-py==1.4.0
+alphafold-colabfold==2.3.5
 biopython @ file:///home/conda/feedstock_root/build_artifacts/biopython_1697728672647/work
-colabfold @ file:///opt/conda/conda-bld/colabfold_1699446504011/work/colabfold
+chex @ file:///home/conda/feedstock_root/build_artifacts/chex_1679925560941/work
+colabfold==1.5.3
+dm-haiku==0.0.9
+importlib-metadata==4.13.0
 jax @ file:///home/conda/feedstock_root/build_artifacts/jax_1690816385913/work
 jaxlib==0.4.14+cuda11.cudnn86
+keras @ file:///home/conda/feedstock_root/build_artifacts/keras_1679712543761/work/keras-2.12.0-py2.py3-none-any.whl
+Keras_Preprocessing @ file:///home/conda/feedstock_root/build_artifacts/keras-preprocessing_1736115346640/work
 MDAnalysis @ file:///home/conda/feedstock_root/build_artifacts/mdanalysis_1741916396960/work
 mdtraj @ file:///home/conda/feedstock_root/build_artifacts/mdtraj_1738947536654/work
 numpy @ file:///home/conda/feedstock_root/build_artifacts/numpy_1707225380409/work/dist/numpy-1.26.4-cp310-cp310-linux_x86_64.whl#sha256=51131fd8fc130cd168aecaf1bc0ea85f92e8ffebf211772ceb16ac2e7f10d7ca
@@ -15,5 +21,8 @@ nvidia-cufft-cu11==10.9.0.58
 nvidia-cusolver-cu11==11.4.1.48
 nvidia-cusparse-cu11==11.7.5.86
 OpenMM==7.7.0
-pandas @ file:///home/conda/feedstock_root/build_artifacts/pandas_1764614464206/work
+pandas==1.5.3
+protobuf==4.21.12
 scipy @ file:///home/conda/feedstock_root/build_artifacts/scipy-split_1739790642651/work/dist/scipy-1.15.2-cp310-cp310-linux_x86_64.whl#sha256=9e52bad6c3294d1a5b04a13632118ca2157130603c6c018c2d710162b223b27e
+tensorflow @ file:///home/conda/feedstock_root/build_artifacts/tensorflow-split_1696226128076/work/tensorflow_pkg/tensorflow-2.12.1-cp310-cp310-linux_x86_64.whl#sha256=d4f230ce1a3f20635e7b63159da48b7d50cbc85db0a6a4f509884b03b3be8159
+tensorflow-estimator @ file:///home/conda/feedstock_root/build_artifacts/tensorflow-split_1696226128076/work/tensorflow-estimator/wheel_dir/tensorflow_estimator-2.12.0-py2.py3-none-any.whl#sha256=19743a5226b91cddd5a2f681b8df625e4f7b3209f88ea864c6ce01e8618ad5bc

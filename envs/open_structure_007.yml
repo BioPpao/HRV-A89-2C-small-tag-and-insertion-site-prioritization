@@ -4,12 +4,12 @@ channels:
   - bioconda
 dependencies:
   - python=3.10
-  - colabfold
+  - colabfold=1.5.3
   - openmm
   - mdanalysis
   - mdtraj
-  - biopython
-  - pandas
+  - biopython=1.81
+  - pandas=1.5.3
   - scipy
   - numpy
   - kalign
@@ -17,3 +17,14 @@ dependencies:
   - mmseqs2
   - usalign
   - dssp
+  - tensorflow=2.12.1
+  - tensorflow-base=2.12.1
+  - tensorflow-estimator=2.12.1
+  - keras=2.12.0
+  - protobuf=4.21.12
+  - typing-extensions=4.5.0
+  - dm-haiku=0.0.9
+  - chex=0.1.7
+  - absl-py=1.4.0
+  - importlib-metadata=4.13.0
+  - pip
