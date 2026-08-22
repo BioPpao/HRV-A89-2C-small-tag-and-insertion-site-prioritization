@@ -1,0 +1,15 @@
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+warning  libmamba Download error (7) Could not connect to server [https://conda.anaconda.org/conda-forge/noarch/tabulate-0.10.0-pyhcf101f3_0.conda]
+    Failed to connect to conda.anaconda.org:443 over proxy 127.0.0.1 after 0 ms: Could not connect to server
+warning  libmamba Retrying in 2 seconds
+warning  libmamba Download error (7) Could not connect to server [https://conda.anaconda.org/conda-forge/noarch/tabulate-0.10.0-pyhcf101f3_0.conda]
+    Failed to connect to conda.anaconda.org:443 over proxy 127.0.0.1 after 0 ms: Could not connect to server
+warning  libmamba Retrying in 2 seconds
+warning  libmamba Download error (7) Could not connect to server [https://conda.anaconda.org/conda-forge/noarch/tabulate-0.10.0-pyhcf101f3_0.conda]
+    Failed to connect to conda.anaconda.org:443 over proxy 127.0.0.1 after 0 ms: Could not connect to server
+warning  libmamba Retrying in 2 seconds
+warning  libmamba Download error (7) Could not connect to server [https://conda.anaconda.org/conda-forge/noarch/tabulate-0.10.0-pyhcf101f3_0.conda]
+    Failed to connect to conda.anaconda.org:443 over proxy 127.0.0.1 after 0 ms: Could not connect to server
+warning  libmamba Retrying in 2 seconds
+critical libmamba Download error (7) Could not connect to server [https://conda.anaconda.org/conda-forge/noarch/tabulate-0.10.0-pyhcf101f3_0.conda]
+    Failed to connect to conda.anaconda.org:443 over proxy 127.0.0.1 after 0 ms: Could not connect to server

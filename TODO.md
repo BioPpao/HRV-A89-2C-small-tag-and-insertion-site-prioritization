@@ -53,9 +53,9 @@ Final state:
 
 - `METHOD_HARDENING_BLOCKED`
 
-## GPU_RECOVERY_004 — BLOCKED / NO GPU VISIBLE
+## GPU_RECOVERY_004 — COMPLETED
 
-Status: **GPU_RECOVERY_BLOCKED_NO_GPU**
+Status: **READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING**
 
 Task:
 
@@ -65,24 +65,32 @@ Report:
 
 - `docs/GPU_RECOVERY_004_REPORT.md`
 
-Required GPU checks were performed:
+Successful GPU run:
 
-- `hostname`: `admin1`
-- `nvidia-smi`: command not found
-- `CUDA_VISIBLE_DEVICES`: empty
-- `/dev/nvidia*`: absent
+- Slurm node: `gpu15`
+- GPU: NVIDIA GeForce RTX 3090
+- PyTorch: 2.4.1+cu118
+- PLM: ESM2 `esm2_t6_8M_UR50D`
+- completed rows: 1,280 / 1,280
 
-Per task rule, no completed CPU analyses were rerun and no PLM-completed V5/V2 outputs were generated.
+Primary outputs:
 
-## CURRENT — Review / unblock decision
+- `data/tag_specific_plm_scores_v2_gpu.tsv`
+- `data/tag_specific_consensus_v2_gpu.tsv`
+- `data/candidate_junctions_v5_plm_gpu.tsv`
+- `data/computational_review_set_v2_plm_gpu.tsv`
+- `docs/TAG_SPECIFIC_PLM_SCAN_V2_GPU.md`
+- `docs/TAG_SPECIFIC_CONSENSUS_V2_GPU.md`
+
+## CURRENT — Review / modeling authorization decision
 
 ChatGPT/user must decide one of:
 
-1. rerun `GPU_RECOVERY_004` inside a Slurm GPU allocation where `nvidia-smi` and `/dev/nvidia*` are visible;
-2. accept the unresolved PLM blocker and pivot to HRV-A89-specific empirical validation planning;
-3. explicitly authorize conflict-aware Tag x Site modeling despite absent PLM evidence.
+1. authorize conflict-aware Tag x Site structural modeling from `data/computational_review_set_v2_plm_gpu.tsv`;
+2. stop computational escalation and pivot to HRV-A89-specific empirical validation planning;
+3. request a narrower/manual review of the V5 PLM evidence before modeling.
 
-Until then, do not start Tag x Site modeling, long MD, final construct recommendation or RNA/codon design.
+Until then, do not start long MD, final construct recommendation or RNA/codon design.
 
 ## Completed upstream work
 
@@ -91,11 +99,11 @@ Until then, do not start Tag x Site modeling, long MD, final construct recommend
 - DIRECT_INDEL_001 — complete; direct EV-A71 2C insertion phenotype requires shortlist revision.
 - METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2 — complete; current state `NO_HIGH_CONFIDENCE_TARGETED_SITE_YET`.
 
-## Later work — blocked pending review / PLM unblock
+## Later work — blocked pending review
 
 ### Insertion-specific Tag × Site structural modeling
 
-Only after a reduced conflict-aware computational set is reviewed and authorized.
+Only after `data/computational_review_set_v2_plm_gpu.tsv` is reviewed and authorized.
 
 ### Targeted MD
 

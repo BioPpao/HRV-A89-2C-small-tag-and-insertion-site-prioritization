@@ -12,11 +12,11 @@ The computational endpoint is **relative candidate prioritization**, not proof o
 
 ## Current project-level decision state
 
-`GPU_RECOVERY_BLOCKED_NO_GPU`
+`READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
 
-GPU_RECOVERY_004 was started to recover the previously blocked tag-specific PLM stage, but the session had no visible CUDA-capable GPU: `hostname` was `admin1`, `nvidia-smi` was unavailable, `CUDA_VISIBLE_DEVICES` was empty and `/dev/nvidia*` did not exist.
+GPU_RECOVERY_004 recovered the previously blocked tag-specific PLM stage on Slurm node `gpu15` with an NVIDIA GeForce RTX 3090.
 
-Per the task stop rule, no CPU analyses were rerun and no PLM-completed V5/V2 outputs were fabricated.
+The run completed ESM2 masked pseudo-log-likelihood scoring for all MAP8 / HA / G196 forms across all 320 HRV-A89 2C peptide junctions and created the V5 PLM-integrated matrix plus V2 computational review set.
 
 The previous `287|288–290|291` C-terminal cluster remains unsupported as a targeted shortlist after direct EV-A71 2C insertion-fitness mapping. The homolog 8-aa insertion result is still not treated as universal proof that every HRV-A89-specific MAP8/HA/G196 insertion must fail.
 
@@ -24,7 +24,7 @@ The previous `287|288–290|291` C-terminal cluster remains unsupported as a tar
 
 `GPU_RECOVERY_004`
 
-Status: **BLOCKED BEFORE GPU/PLM EXECUTION**
+Status: **COMPLETED**
 
 Branch: `analysis/conservation-002`
 
@@ -34,14 +34,14 @@ Task specification:
 
 This task was designed to recover only the GPU/PLM work blocked in `ONE_SHOT_COMPUTATIONAL_AUDIT_003`.
 
-Completed/attempted scope:
+Completed scope:
 
-1. required GPU visibility checks: complete;
-2. GPU-capable PLM environment setup: blocked because no CUDA device was visible;
-3. MAP8/HA/G196 tag-specific PLM insertion scans: not run;
-4. cross-tag consensus/disagreement analysis: not run;
-5. V5 integrated evidence matrix and V2 review set: not created;
-6. optional lightweight insertion-specific structural feasibility triage: not run.
+1. required GPU visibility checks: complete on `gpu15`;
+2. GPU-capable PLM environment setup: complete;
+3. MAP8/HA/G196 tag-specific PLM insertion scans: complete for 1,280 / 1,280 planned rows;
+4. cross-tag consensus/disagreement analysis: complete;
+5. V5 integrated evidence matrix and V2 review set: complete;
+6. optional lightweight insertion-specific structural feasibility triage: deferred because no mature reproducible structure workflow was installed without derailing PLM recovery.
 
 Automatic escalation to long MD, experimental protocol design, final experimental construct selection, or RNA/codon design remains unauthorized.
 
@@ -126,7 +126,7 @@ Core data products:
 
 Decision state:
 
-`GPU_RECOVERY_BLOCKED_NO_GPU`
+`METHOD_HARDENING_BLOCKED`
 
 Key interpretation:
 
@@ -149,14 +149,16 @@ Machine-readable GPU check:
 
 Decision state:
 
-`GPU_RECOVERY_BLOCKED_NO_GPU`
+`READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
 
 Key interpretation:
 
-- the task ran on `admin1`;
-- no `nvidia-smi`, no `CUDA_VISIBLE_DEVICES` value and no `/dev/nvidia*` devices were visible;
-- GPU PLM recovery was not scientifically executable in this session;
-- V4 and `data/computational_review_set_v1.tsv` remain unchanged current PLM-blocked outputs.
+- final GPU run used `gpu15`, NVIDIA GeForce RTX 3090, driver 575.57.08 and PyTorch 2.4.1+cu118;
+- ESM2 `esm2_t6_8M_UR50D` full-sequence masked pseudo-log-likelihood completed 1,280 / 1,280 planned tag x junction rows;
+- cross-tag Spearman correlations ranged from 0.506 to 0.816, with MAP8 and G196_practical_GS most similar;
+- V5 retains direct homolog insertion phenotype as higher-weight conflicting evidence;
+- no site is called safe or validated;
+- `data/computational_review_set_v2_plm_gpu.tsv` is ready for ChatGPT/user conflict-aware modeling review, not final construct selection.
 
 ## Required future user input
 

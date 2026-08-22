@@ -1,6 +1,6 @@
 # Active task
 
-Current task: `GPU_RECOVERY_004` — **BLOCKED / NO GPU VISIBLE**
+Current task: `GPU_RECOVERY_004` — **COMPLETED**
 
 Branch: `analysis/conservation-002`
 
@@ -24,14 +24,17 @@ Machine-readable GPU check:
 
 - `results/gpu_recovery_004/gpu_visibility_check.tsv`
 
-Observed runtime:
+Final successful runtime:
 
-- `hostname`: `admin1`
-- `nvidia-smi`: command not found
-- `CUDA_VISIBLE_DEVICES`: empty
-- `/dev/nvidia*`: absent
+- `hostname`: `gpu15`
+- GPU: NVIDIA GeForce RTX 3090
+- driver: 575.57.08
+- CUDA visible device: `0`
+- PyTorch: 2.4.1+cu118
+- PLM: ESM2 `esm2_t6_8M_UR50D`
+- completed PLM rows: 1,280 / 1,280
 
-Because no CUDA-capable GPU was visible, the task stopped at the required GPU check and did not rerun completed CPU analyses.
+Earlier direct execution on `admin1` correctly recorded `GPU_RECOVERY_BLOCKED_NO_GPU`, but the task was then rerun through Slurm on `gpu15` and completed.
 
 ## Execution rule
 
@@ -82,4 +85,4 @@ No site may be called safe or validated for HRV-A89.
 
 ## Final state
 
-`GPU_RECOVERY_BLOCKED_NO_GPU`
+`READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`

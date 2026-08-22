@@ -1,0 +1,13 @@
+metric	value
+hostname	gpu15
+python	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/hrv2c-gpu-plm/bin/python 3.11.15
+torch_version	2.4.1+cu118
+torch_cuda_available	True
+torch_cuda_version	11.8
+cuda_device_name	NVIDIA GeForce RTX 3090
+plm_model	esm2_t6_8M_UR50D
+planned_rows	1280
+completed_rows	1280
+failed_rows	0
+reproducibility_subset_max_abs_delta_mean_pll_diff	0
+final_decision_state	READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING

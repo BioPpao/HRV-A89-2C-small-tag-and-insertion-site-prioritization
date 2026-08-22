@@ -1,0 +1,7 @@
+Requirement already satisfied: pip in ./.tools/envs/hrv2c-gpu-plm/lib/python3.11/site-packages (26.2.1)
+python smoke ok
+torch 2.4.1+cu118
+cuda_available True
+cuda_version 11.8
+device NVIDIA GeForce RTX 3090
+smoke_sum 1020.2203369140625

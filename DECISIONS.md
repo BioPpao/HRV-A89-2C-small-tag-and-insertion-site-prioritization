@@ -186,8 +186,14 @@ These are active decisions. Future analyses should change them only with explici
 
 **Reason:** all reviewed rows remain either direct-homolog-conflicted, high-risk, mapping-uncertain, historically conflicted or negative controls. No row is validated or selected for experimental construct design.
 
-## D-029 — GPU_RECOVERY_004 stopped before PLM because no GPU was visible
+## D-029 — direct login execution of GPU_RECOVERY_004 had no GPU visible
 
-**Decision:** Do not reinterpret `GPU_RECOVERY_004` as a software failure or a PLM result. It is a runtime-allocation blocker with final state `GPU_RECOVERY_BLOCKED_NO_GPU`.
+**Decision:** Preserve the initial direct-login GPU check as provenance only, not the final task state.
 
-**Reason:** required checks showed `hostname=admin1`, no `nvidia-smi`, empty `CUDA_VISIBLE_DEVICES` and no `/dev/nvidia*`. The task rule required stopping without rerunning CPU analyses or fabricating PLM-completed V5/V2 outputs.
+**Reason:** required checks on `admin1` showed no `nvidia-smi`, empty `CUDA_VISIBLE_DEVICES` and no `/dev/nvidia*`. The task was subsequently rerun through Slurm on `gpu15`.
+
+## D-030 — GPU_RECOVERY_004 completed the tag-specific PLM layer
+
+**Decision:** Treat `data/candidate_junctions_v5_plm_gpu.tsv` and `data/computational_review_set_v2_plm_gpu.tsv` as the current PLM-integrated computational state for ChatGPT/user review.
+
+**Reason:** Slurm job `164151` ran on `gpu15` with NVIDIA GeForce RTX 3090 and completed ESM2 `esm2_t6_8M_UR50D` full-sequence masked pseudo-log-likelihood scoring for all 1,280 planned MAP8 / HA / G196 rows. PLM remains secondary computational evidence and does not validate any insertion site or override direct homolog phenotype.

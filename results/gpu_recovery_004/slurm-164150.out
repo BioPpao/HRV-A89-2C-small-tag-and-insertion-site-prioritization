@@ -1,0 +1,130 @@
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.1 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (0.4 sec)
+
+Transaction
+
+  Prefix: /public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/hrv2c-gpu-plm
+
+  Updating specs:
+
+   - python=3.11
+   - pip
+   - pandas
+   - numpy
+   - scipy
+
+
+  Package                 Version  Build                 Channel           Size
+─────────────────────────────────────────────────────────────────────────────────
+  Install:
+─────────────────────────────────────────────────────────────────────────────────
+
+  + _openmp_mutex             4.5  20_gnu                conda-forge     Cached
+  + bzip2                   1.0.8  hda65f42_10           conda-forge     Cached
+  + ca-certificates     2026.7.22  hbd8a1cb_0            conda-forge     Cached
+  + icu                      78.3  py310h44b86e0_2       conda-forge     Cached
+  + ld_impl_linux-64       2.46.1  default_hbd61a6d_102  conda-forge     Cached
+  + libblas                3.11.0  9_h4a7cf45_openblas   conda-forge     Cached
+  + libcblas               3.11.0  9_h0358290_openblas   conda-forge     Cached
+  + libexpat                2.8.1  hecca717_1            conda-forge     Cached
+  + libffi                  3.7.0  h3435931_0            conda-forge     Cached
+  + libgcc                 16.1.0  ha9f2e26_2            conda-forge     Cached
+  + libgfortran            16.1.0  h69a702a_2            conda-forge     Cached
+  + libgfortran5           16.1.0  h79bb938_2            conda-forge     Cached
+  + libgomp                16.1.0  he0feb66_2            conda-forge     Cached
+  + liblapack              3.11.0  9_h47877c9_openblas   conda-forge     Cached
+  + liblzma                 5.8.3  hb03c661_1            conda-forge     Cached
+  + libnsl                  2.0.1  hb9d3cd8_1            conda-forge     Cached
+  + libopenblas            0.3.34  pthreads_h94d23a6_0   conda-forge     Cached
+  + libsqlite              3.53.4  h13e7031_1            conda-forge     Cached
+  + libstdcxx              16.1.0  h934c35e_2            conda-forge     Cached
+  + libuuid                2.42.2  h5347b49_0            conda-forge     Cached
+  + libxcrypt              4.4.38  h280c20c_0            conda-forge     Cached
+  + libzlib                 1.3.2  h25fd6f3_3            conda-forge     Cached
+  + ncurses                   6.6  hdb14827_1            conda-forge     Cached
+  + numpy                   2.4.6  py311h2e04523_0       conda-forge     Cached
+  + openssl                 3.6.3  h35e630c_1            conda-forge     Cached
+  + packaging                26.3  pyhc364b38_0          conda-forge     Cached
+  + pandas                  3.0.5  py311h8032f78_1       conda-forge     Cached
+  + pip                    26.2.1  pyh8b19718_0          conda-forge     Cached
+  + python                3.11.15  h8ab3286_2_cpython    conda-forge     Cached
+  + python-dateutil   2.9.0.post0  pyhe01879c_2          conda-forge     Cached
+  + python_abi               3.11  8_cp311               conda-forge     Cached
+  + readline                  8.3  hd6e31c0_1            conda-forge     Cached
+  + scipy                  1.17.1  py311hbe70eeb_1       conda-forge     Cached
+  + setuptools             84.0.0  pyh332efcf_0          conda-forge     Cached
+  + six                    1.17.0  pyhe01879c_1          conda-forge     Cached
+  + tk                     8.6.13  noxft_h1df4ec4_4      conda-forge     Cached
+  + tzdata                  2026c  h151e31d_0            conda-forge     Cached
+  + wheel                  0.48.0  pyhd8ed1ab_0          conda-forge     Cached
+  + zstd                    1.5.7  hb78ec9c_7            conda-forge     Cached
+
+  Summary:
+
+  Install: 39 packages
+
+  Total download: 0 B
+
+─────────────────────────────────────────────────────────────────────────────────
+
+
+
+Transaction starting
+Linking python_abi-3.11-8_cp311
+Linking tzdata-2026c-h151e31d_0
+Linking ca-certificates-2026.7.22-hbd8a1cb_0
+Linking libzlib-1.3.2-h25fd6f3_3
+Linking libgomp-16.1.0-he0feb66_2
+Linking zstd-1.5.7-hb78ec9c_7
+Linking _openmp_mutex-4.5-20_gnu
+Linking ld_impl_linux-64-2.46.1-default_hbd61a6d_102
+Linking libgcc-16.1.0-ha9f2e26_2
+Linking bzip2-1.0.8-hda65f42_10
+Linking libnsl-2.0.1-hb9d3cd8_1
+Linking libexpat-2.8.1-hecca717_1
+Linking openssl-3.6.3-h35e630c_1
+Linking liblzma-5.8.3-hb03c661_1
+Linking ncurses-6.6-hdb14827_1
+Linking tk-8.6.13-noxft_h1df4ec4_4
+Linking libgfortran5-16.1.0-h79bb938_2
+Linking libstdcxx-16.1.0-h934c35e_2
+Linking libuuid-2.42.2-h5347b49_0
+Linking libffi-3.7.0-h3435931_0
+Linking libxcrypt-4.4.38-h280c20c_0
+Linking readline-8.3-hd6e31c0_1
+Linking libgfortran-16.1.0-h69a702a_2
+Linking icu-78.3-py310h44b86e0_2
+Linking libopenblas-0.3.34-pthreads_h94d23a6_0
+Linking libsqlite-3.53.4-h13e7031_1
+Linking libblas-3.11.0-9_h4a7cf45_openblas
+Linking python-3.11.15-h8ab3286_2_cpython
+Linking libcblas-3.11.0-9_h0358290_openblas
+Linking liblapack-3.11.0-9_h47877c9_openblas
+Linking numpy-2.4.6-py311h2e04523_0
+Linking scipy-1.17.1-py311hbe70eeb_1
+Linking six-1.17.0-pyhe01879c_1
+Linking packaging-26.3-pyhc364b38_0
+Linking setuptools-84.0.0-pyh332efcf_0
+Linking python-dateutil-2.9.0.post0-pyhe01879c_2
+Linking wheel-0.48.0-pyhd8ed1ab_0
+Linking pip-26.2.1-pyh8b19718_0
+Linking pandas-3.0.5-py311h8032f78_1
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate hrv2c-gpu-plm
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -n hrv2c-gpu-plm mycommand
+
+Requirement already satisfied: pip in ./.tools/envs/hrv2c-gpu-plm/lib/python3.11/site-packages (26.2.1)
+Looking in indexes: https://download.pytorch.org/whl/cu118
