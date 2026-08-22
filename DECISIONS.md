@@ -133,3 +133,43 @@ These are active decisions. Future analyses should change them only with explici
 **Decision:** If experimental resources permit, prefer a full or targeted HRV-A89 2C insertion scan/replicon fitness panel over indefinite computational refinement.
 
 **Reason:** direct A89 phenotype would outrank homolog mapping and computational proxies and can serve as an empirical validation/training set.
+
+## D-022 — Current project state is `NO_HIGH_CONFIDENCE_TARGETED_SITE_YET`
+
+**Decision:** Do not promote the previous `287|288–290|291` cluster as a targeted shortlist, but do not infer universal HRV-A89 insertion impossibility from EV-A71 alone.
+
+**Reason:** EV-A71 direct 8-aa insertion fitness strongly contradicts the old structure/conservation shortlist, yet homolog transfer and insertion-sequence dependence remain material limitations.
+
+## D-023 — EV-A71 direct insertion phenotype is a strong prior, not a universal binary veto
+
+**Decision:** Treat the mapped EV-A71 insertion phenotype as a high-weight evidence layer. It can demote candidates, but it does not by itself prove that every MAP8/HA/G196 insertion at the homologous A89 junction will fail.
+
+**Reason:** sequence background, local epistasis, insert identity/length and RNA/polyprotein context differ between the homolog dataset and the planned A89 constructs.
+
+## D-024 — Global re-ranking must retain all 320 junctions with continuous metrics
+
+**Decision:** The next site-discovery stage must re-rank the full 320-junction landscape. `strict_structural_pass` remains an annotation, not the membership rule.
+
+**Method:** use transparent evidence classes and Pareto/non-dominated comparisons rather than a single opaque weighted score.
+
+## D-025 — Add substitution tolerance, phylogeny-aware indels and tag-specific PLM before structural Tag × Site modeling
+
+**Decision:** Authorize `METHOD_HARDENING_002` before Rosetta/AlphaFold/ColabFold tag modeling.
+
+**Scope:**
+
+- EV-A71 substitution-tolerance integration;
+- continuous/Pareto all-320 ranking;
+- independent natural-indel-event inference;
+- MAP8/HA/G196-specific PLM insertion perturbation scans.
+
+**Reason:** these layers have higher expected information gain than immediately modeling a shortlist that direct homolog phenotype has already challenged.
+
+## D-026 — Reinterpret current candidate groups as conflict controls
+
+**Decision:**
+
+- `287|288`, `288|289`, `289|290`, `290|291` → `STRUCTURE_EVOLUTION_FAVORED__DIRECT_HOMOLOG_CONFLICT`;
+- `248|249`, `256|257` → `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`.
+
+**Reason:** preserve informative contradictions rather than averaging them away or presenting them as preferred sites.
