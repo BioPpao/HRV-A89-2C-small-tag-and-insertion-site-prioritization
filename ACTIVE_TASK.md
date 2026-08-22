@@ -1,64 +1,52 @@
 # Active task
 
-Current task: `METHOD_HARDENING_002` — **AUTHORIZED / NEXT EXECUTION TASK**
+Current task: `ONE_SHOT_COMPUTATIONAL_AUDIT_003` — **AUTHORIZED / LONG-RUN COMPUTATIONAL TASK**
 
 Branch: `analysis/conservation-002`
 
 Task specification:
 
-`tasks/METHOD_HARDENING_002.md`
+`tasks/ONE_SHOT_COMPUTATIONAL_AUDIT_003.md`
 
-Strategic basis:
+This task supersedes `METHOD_HARDENING_002` as the active execution wrapper and incorporates all of its required modules.
 
-`docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2.md`
-
-## Entering decision state
+Current project state:
 
 `NO_HIGH_CONFIDENCE_TARGETED_SITE_YET`
 
-`DIRECT_INDEL_001` is complete and its direct EV-A71 2C 8-aa insertion phenotype demotes the previous `287|288–290|291` targeted shortlist. However, homolog-specific and insertion-sequence-specific transfer limits mean the result is a strong prior, not proof that every HRV-A89-specific tag insertion is impossible.
+## Authorized unattended scope
 
-## Authorized scope
+The 3090 server may execute, in one run:
 
-`METHOD_HARDENING_002` must execute four modules:
-
-1. EV-A71 2C substitution-tolerance integration;
-2. continuous/Pareto all-320 junction re-ranking, with strict structural pass retained only as an annotation;
+1. EV-A71 substitution-tolerance integration;
+2. continuous/Pareto all-320 re-ranking;
 3. phylogeny-aware independent natural-indel-event analysis;
-4. tag-specific protein-language-model insertion scans for MAP8, HA and G196.
+4. MAP8/HA/G196 tag-specific PLM insertion scans;
+5. ranking robustness and negative-control audits;
+6. cross-tag consensus/disagreement analysis;
+7. construction of a reduced computational review set;
+8. optional lightweight insertion-specific structural feasibility triage if a mature reproducible method is available;
+9. final synthesis and repository-state updates.
 
-Primary integrated output:
+## Prohibited automatic escalation
 
-- `data/candidate_junctions_v4_method_hardening.tsv`
+Do not start:
 
-Primary report:
+- long molecular dynamics simulations;
+- experimental protocol design;
+- final experimental construct recommendation;
+- final RNA/codon design without the exact experimental nucleotide construct.
 
-- `docs/METHOD_HARDENING_002_REPORT.md`
+Do not label any site safe or validated for HRV-A89.
 
-## Important constraints
+## Required final stop state
 
-- Do not label any junction safe, validated or experimentally proven for HRV-A89.
-- Do not treat EV-A71 direct insertion phenotype as a universal binary veto across all A89 tag sequences.
-- Do not use `strict_structural_pass` as the sole candidate funnel.
-- Do not collapse conflicting evidence into one opaque weighted score.
-- Do not start Tag × Site Rosetta/AlphaFold/ColabFold modeling automatically.
-- Do not start MD.
-- Do not perform final RNA/codon design without the exact experimental nucleotide construct.
-- Missing mature software should be installed in user space rather than silently replaced with a materially weaker method.
+Return exactly one of:
 
-## Required stop gate
+- `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
+- `NO_HIGH_CONFIDENCE_TARGETED_SITE`
+- `METHOD_HARDENING_BLOCKED`
 
-Return for ChatGPT/user review when:
+The final report must be:
 
-- the four hardening modules are complete or a blocker is documented;
-- `candidate_junctions_v4_method_hardening.tsv` exists;
-- a Pareto/evidence-class candidate set is defined;
-- the `287–291` cluster and `248|249` / `256|257` conflict controls are explicitly re-audited;
-- `docs/METHOD_HARDENING_002_REPORT.md` is complete;
-- no downstream structural modeling has started automatically.
-
-Expected final state from this task:
-
-- `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`, or
-- `NO_HIGH_CONFIDENCE_TARGETED_SITE`, or
-- `METHOD_HARDENING_BLOCKED`.
+`docs/ONE_SHOT_COMPUTATIONAL_AUDIT_003_REPORT.md`
