@@ -8,78 +8,90 @@ Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
 Identify a small set of experimentally testable internal-tag constructs for HRV-A89 2C that minimize predicted perturbation of native 2C biology while remaining detectable in downstream mechanistic experiments.
 
-The computational endpoint is **relative candidate prioritization**, not proof of a safe insertion site.
+The computational endpoint is **relative candidate prioritization and perturbation comparison**, not proof of a safe insertion site.
 
 ## Current project-level decision state
 
 `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
 
-GPU_RECOVERY_004 recovered the previously blocked tag-specific PLM stage on Slurm node `gpu15` with an NVIDIA GeForce RTX 3090.
+GPU_RECOVERY_004 recovered the previously blocked tag-specific PLM stage on an RTX 3090 Slurm node and completed all 1,280 planned MAP8/HA/G196 tag × junction scores.
 
-The run completed ESM2 masked pseudo-log-likelihood scoring for all MAP8 / HA / G196 forms across all 320 HRV-A89 2C peptide junctions and created the V5 PLM-integrated matrix plus V2 computational review set.
-
-The previous `287|288–290|291` C-terminal cluster remains unsupported as a targeted shortlist after direct EV-A71 2C insertion-fitness mapping. The homolog 8-aa insertion result is still not treated as universal proof that every HRV-A89-specific MAP8/HA/G196 insertion must fail.
+The project has now finished the major all-320 global discovery layers. The next priority is reduced insertion-specific structural perturbation modeling rather than adding more global scoring methods.
 
 ## Current active task
 
-`GPU_RECOVERY_004`
+`CONTINUOUS_TAG_SITE_MODELING_005`
 
-Status: **COMPLETED**
+Status: **AUTHORIZED / CONTINUITY-FIRST COMPUTATIONAL TASK**
 
 Branch: `analysis/conservation-002`
 
 Task specification:
 
-- `tasks/GPU_RECOVERY_004.md`
+- `tasks/CONTINUOUS_TAG_SITE_MODELING_005.md`
 
-This task was designed to recover only the GPU/PLM work blocked in `ONE_SHOT_COMPUTATIONAL_AUDIT_003`.
+## Why this task is next
 
-Completed scope:
+The current evidence stack already includes:
 
-1. required GPU visibility checks: complete on `gpu15`;
-2. GPU-capable PLM environment setup: complete;
-3. MAP8/HA/G196 tag-specific PLM insertion scans: complete for 1,280 / 1,280 planned rows;
-4. cross-tag consensus/disagreement analysis: complete;
-5. V5 integrated evidence matrix and V2 review set: complete;
-6. optional lightweight insertion-specific structural feasibility triage: deferred because no mature reproducible structure workflow was installed without derailing PLM recovery.
+- A89 functional constraints;
+- four-structure WT geometry;
+- HRV-A conservation;
+- phylogeny-aware independent-indel evidence;
+- EV-A71 insertion/deletion/substitution phenotype mapping;
+- all-320 Pareto/robustness analysis;
+- MAP8/HA/G196 tag-specific ESM2 PLM scores;
+- V5 integrated evidence matrix;
+- V2 computational review set.
 
-Automatic escalation to long MD, experimental protocol design, final experimental construct selection, or RNA/codon design remains unauthorized.
+The main unresolved computational question is now construct-specific:
+
+> after inserting a particular tag at a particular review junction, how strongly is the native 2C structural environment perturbed?
+
+## New methods authorized in CONTINUOUS_TAG_SITE_MODELING_005
+
+The task adds missing/underused orthogonal computational layers:
+
+1. insertion-specific structure-prediction ensembles;
+2. loop/backbone closure and conformational feasibility modeling;
+3. local energetic/frustration analysis;
+4. oligomer-context compatibility analysis;
+5. residue-contact-network perturbation analysis;
+6. targeted phylogeny-aware site-rate / coevolution / flexibility checks where technically defensible;
+7. cross-method robustness analysis.
+
+These methods are secondary perturbation-ranking layers and cannot override direct phenotype or hard functional constraints.
+
+## Continuity-first execution rule
+
+The task must not stop merely because one preferred tool, package, GPU, scheduler context, network route, or Git push is unavailable.
+
+Required recovery behavior:
+
+- detect login-node versus Slurm compute-node context;
+- request/submit GPU work when needed;
+- continue CPU-capable work while GPU jobs are pending when useful;
+- use login-node network access to prepare dependencies/checkpoints for compute-node execution when necessary;
+- try alternative mature methods within the same evidence class if the preferred package fails;
+- mark only the affected module deferred when no mature substitute is available;
+- continue independent modules;
+- preserve local commits/results if remote push temporarily fails.
+
+A single local method failure is not a project-wide blocker.
 
 ## Fixed project constraints
 
-- FLAG is excluded because the 9A5 antibody construct already uses FLAG; orthogonal detection is required.
-- N- or C-terminal tagging is not assumed safe.
-- The ranking unit is peptide junction `i|i+1`, not an isolated residue.
-- Homologous functional residues must be explicitly mapped to HRV-A89.
-- Monomer-only exposure is insufficient; current site metrics use two A89 monomer models and two hexamer ensembles.
-- Current A89 hexamers are template-guided no-membrane/no-RNA hypotheses and cannot establish native RNA-pore geometry by themselves.
-- Conservation is supporting evidence, not proof of artificial insertion tolerance.
-- Direct homolog insertion phenotype is a strong prior, not an absolute A89-specific binary veto.
-- Tagged-structure prediction is a perturbation screen, not biological validation.
-- Exact RNA/codon analysis requires the real experimental nucleotide construct; protein back-translation is not an acceptable substitute.
-- Decision-changing analyses must use mature reproducible software; missing tools should be installed in user space rather than silently replaced with weaker methods.
+- FLAG remains excluded because the 9A5 construct already uses FLAG.
+- Ranking unit remains peptide junction `i|i+1`.
+- Monomer-only exposure is insufficient.
+- Current A89 hexamers are no-membrane/no-RNA hypotheses and are comparative context models only.
+- Conservation and PLM are supporting evidence, not direct insertion-tolerance proof.
+- Direct homolog insertion phenotype remains a high-weight prior, not an absolute HRV-A89 veto.
+- Structure prediction is a perturbation screen, not biological validation.
+- Exact RNA/codon analysis still requires the real experimental nucleotide construct.
+- No computational analysis may label a site safe or experimentally validated.
 
-## Current structural/evolutionary/direct-evidence state
-
-Ten junctions remain strict structural passes after V2 regeneration:
-
-`155|156`, `174|175`, `175|176`, `216|217`, `217|218`, `218|219`, `287|288`, `288|289`, `289|290`, `290|291`.
-
-`strict_structural_pass` is retained only as a reproducible annotation. It no longer defines candidate membership.
-
-CONSERVATION_002 remains the current near-HRV evolutionary layer. DIRECT_INDEL_001 remains the current high-weight homolog phenotype layer.
-
-Key direct-evidence interpretation:
-
-- all 320 A89 junctions are mapped to EV-A71 mature 2C;
-- 315 mappings are exact-aligned, 5 ambiguous, 0 unmapped;
-- the direct insertion handle is 8 aa `SGRPGSLS`;
-- no mapped A89 junction has EV-A71 2C insertion score `>0`;
-- no outside-strict candidate is rescued by favorable direct insertion phenotype;
-- the old `287|288–290|291` cluster is unfavorable in the homolog insertion dataset;
-- the result is high-weight negative evidence, not universal proof of A89-specific tag failure.
-
-## Current candidate/control roles
+## Current candidate/control interpretation
 
 ### `287|288`, `288|289`, `289|290`, `290|291`
 
@@ -89,76 +101,50 @@ Key direct-evidence interpretation:
 
 `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`
 
-### Other non-hard-excluded junctions
+### Outside-strict examples such as `203|204`, `224|225`
 
-Remain eligible for all-320 continuous/Pareto re-ranking regardless of the previous strict structural gate.
+Remain useful conflict-aware review rows, not preferred sites.
 
-## Current evidence hierarchy
+## Evidence hierarchy
 
 When evidence conflicts, use:
 
 1. direct HRV-A89 insertion/replicon phenotype, if generated;
 2. direct homolog 2C insertion phenotype with high-confidence A89 mapping;
 3. direct homolog substitution/deletion phenotype and direct 2C genetics/biochemistry;
-4. established functional motifs and experimental homolog structures with explicit A89 mapping;
-5. A89 continuous structural-ensemble metrics;
+4. established functional motifs and experimental homolog structures;
+5. A89 continuous structural-ensemble evidence;
 6. phylogeny-aware HRV-A evolutionary / independent-indel evidence;
-7. tag-specific PLM indel scores;
-8. insertion-specific loop/structure ensembles;
-9. targeted MD for a reduced construct set only.
+7. tag-specific PLM scores;
+8. insertion-specific loop/structure/energy/network analyses;
+9. targeted dynamics only after a reduced construct set survives perturbation screening.
 
-No lower-level prediction may silently override stronger direct phenotype or a hard biological constraint.
+No lower-level method may silently override stronger evidence.
 
-## Current one-shot hardening result
+## Required outputs from current task
 
-Primary final report:
+Expected primary outputs include:
 
-- `docs/ONE_SHOT_COMPUTATIONAL_AUDIT_003_REPORT.md`
+- `data/tag_site_modeling_panel_v1.tsv`
+- `results/tag_site_modeling_005/environment_and_method_inventory.tsv`
+- `data/tag_site_structure_ensemble_metrics_v1.tsv`
+- `data/tag_site_loop_feasibility_v1.tsv`
+- `data/tag_site_energy_context_v1.tsv`
+- `data/tag_site_contact_network_v1.tsv`
+- `data/tag_site_hexamer_context_v1.tsv`
+- `data/tag_site_integrated_perturbation_v1.tsv`
+- `results/tag_site_modeling_005/cross_method_robustness.tsv`
+- `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
 
-Core data products:
+## Final state expected from current task
 
-- `data/candidate_junctions_v4_method_hardening.tsv`
-- `data/pareto_junction_frontier_v1.tsv`
-- `data/hrvA_independent_indel_events_v1.tsv`
-- `data/tag_specific_plm_scores_v1.tsv`
-- `data/tag_specific_consensus_v1.tsv`
-- `data/computational_review_set_v1.tsv`
+Return exactly one of:
 
-Decision state:
+- `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
+- `NO_COMPUTATIONAL_CONSENSUS_SITE`
+- `TAG_SITE_MODELING_PARTIALLY_COMPLETE`
 
-`METHOD_HARDENING_BLOCKED`
-
-Key interpretation:
-
-- V4 retains all 320 junctions and marks 61 hard functional exclusions.
-- Multiple outside-strict rows become Pareto-reviewable, but all remain direct-homolog-conflicted and often high-risk.
-- EV-A71 substitution tolerance adds context but does not rescue a targeted site.
-- Phylogeny-aware indel counting makes natural-indel evidence sparse; `248|249` remains a conflict/control row with independent indel lower bound 2.
-- PLM scores for MAP8/HA/G196 are absent due software/GPU blocker, so cross-tag consensus is unavailable.
-- `data/computational_review_set_v1.tsv` is a conflict-aware review set, not a modeling authorization.
-
-## Current GPU recovery result
-
-Primary final report:
-
-- `docs/GPU_RECOVERY_004_REPORT.md`
-
-Machine-readable GPU check:
-
-- `results/gpu_recovery_004/gpu_visibility_check.tsv`
-
-Decision state:
-
-`READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
-
-Key interpretation:
-
-- final GPU run used `gpu15`, NVIDIA GeForce RTX 3090, driver 575.57.08 and PyTorch 2.4.1+cu118;
-- ESM2 `esm2_t6_8M_UR50D` full-sequence masked pseudo-log-likelihood completed 1,280 / 1,280 planned tag x junction rows;
-- cross-tag Spearman correlations ranged from 0.506 to 0.816, with MAP8 and G196_practical_GS most similar;
-- V5 retains direct homolog insertion phenotype as higher-weight conflicting evidence;
-- no site is called safe or validated;
-- `data/computational_review_set_v2_plm_gpu.tsv` is ready for ChatGPT/user conflict-aware modeling review, not final construct selection.
+Do not automatically escalate to long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
 
 ## Required future user input
 
