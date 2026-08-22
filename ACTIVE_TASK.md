@@ -1,55 +1,64 @@
 # Active task
 
-Current task: `DIRECT_INDEL_001` — **COMPLETE / WAITING FOR CHATGPT-USER REVIEW**
+Current task: `METHOD_HARDENING_002` — **AUTHORIZED / NEXT EXECUTION TASK**
 
 Branch: `analysis/conservation-002`
 
-Completed task specification:
+Task specification:
 
-`tasks/DIRECT_INDEL_001.md`
+`tasks/METHOD_HARDENING_002.md`
 
-Primary completed outputs:
+Strategic basis:
 
-- `docs/DIRECT_INDEL_001_RUN_LOG.md`
-- `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`
-- `data/evA71_2C_direct_indel_to_A89_v1.tsv`
-- `data/candidate_junctions_v3_direct_indel.tsv`
-- `references/direct_indel_001/source_records_v1.tsv`
+`docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2.md`
 
-Decision state:
+## Entering decision state
 
-`DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`
+`NO_HIGH_CONFIDENCE_TARGETED_SITE_YET`
 
-Repository role:
+`DIRECT_INDEL_001` is complete and its direct EV-A71 2C 8-aa insertion phenotype demotes the previous `287|288–290|291` targeted shortlist. However, homolog-specific and insertion-sequence-specific transfer limits mean the result is a strong prior, not proof that every HRV-A89-specific tag insertion is impossible.
 
-The GitHub repository is the shared project memory between ChatGPT and Codex. Decision-changing conclusions must be committed to the repository rather than left only in chat or terminal output.
+## Authorized scope
 
-Summary:
+`METHOD_HARDENING_002` must execute four modules:
 
-DIRECT_INDEL_001 mapped EV-A71 2C direct insertion/deletion/substitution phenotype to all 320 HRV-A89 peptide junctions.
+1. EV-A71 2C substitution-tolerance integration;
+2. continuous/Pareto all-320 junction re-ranking, with strict structural pass retained only as an annotation;
+3. phylogeny-aware independent natural-indel-event analysis;
+4. tag-specific protein-language-model insertion scans for MAP8, HA and G196.
 
-Key result:
+Primary integrated output:
 
-- EV-A71 reference/boundary verified: Tainan/4643/98, `MW298156`, mature 2C nt `4079-5065`, 329 aa.
-- A89 mapping coverage: 320/320 junctions.
-- Mapping classes: 315 `exact_aligned`, 5 `ambiguous`, 0 `unmapped`.
-- Direct insertion design: 8 aa insertional handle `SGRPGSLS`.
-- A89 junctions with EV-A71 2C insertion score `>0`: 0.
-- New candidates outside strict structural gate with favorable direct insertion evidence: 0.
-- Current strict C-terminal cluster `287|288-290|291` maps exactly but remains unfavorable by direct EV-A71 insertion phenotype.
-- `250|251` remains mapping-uncertain.
+- `data/candidate_junctions_v4_method_hardening.tsv`
 
-Important constraints:
+Primary report:
 
-- Do not start Tag x Site modeling automatically.
-- Do not start long MD, RNA/codon design, construct recommendation or experimental-final site selection.
-- No candidate is considered safe, validated or experimentally proven for HRV-A89.
-- A new task file is required before further execution.
+- `docs/METHOD_HARDENING_002_REPORT.md`
 
-Next gate:
+## Important constraints
 
-ChatGPT/user review must decide whether to:
+- Do not label any junction safe, validated or experimentally proven for HRV-A89.
+- Do not treat EV-A71 direct insertion phenotype as a universal binary veto across all A89 tag sequences.
+- Do not use `strict_structural_pass` as the sole candidate funnel.
+- Do not collapse conflicting evidence into one opaque weighted score.
+- Do not start Tag × Site Rosetta/AlphaFold/ColabFold modeling automatically.
+- Do not start MD.
+- Do not perform final RNA/codon design without the exact experimental nucleotide construct.
+- Missing mature software should be installed in user space rather than silently replaced with a materially weaker method.
 
-1. pivot to `NO_TARGETED_SITE` / targeted empirical insertion-library strategy;
-2. retain only a small conflict-aware modeling/control set;
-3. authorize a new optional method-hardening task.
+## Required stop gate
+
+Return for ChatGPT/user review when:
+
+- the four hardening modules are complete or a blocker is documented;
+- `candidate_junctions_v4_method_hardening.tsv` exists;
+- a Pareto/evidence-class candidate set is defined;
+- the `287–291` cluster and `248|249` / `256|257` conflict controls are explicitly re-audited;
+- `docs/METHOD_HARDENING_002_REPORT.md` is complete;
+- no downstream structural modeling has started automatically.
+
+Expected final state from this task:
+
+- `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`, or
+- `NO_HIGH_CONFIDENCE_TARGETED_SITE`, or
+- `METHOD_HARDENING_BLOCKED`.
