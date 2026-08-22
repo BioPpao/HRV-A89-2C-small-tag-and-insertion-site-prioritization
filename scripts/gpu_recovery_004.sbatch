@@ -40,7 +40,7 @@ ENV=.tools/envs/hrv2c-gpu-plm
 MM=.tools/bin/micromamba
 
 if [ ! -x "$ENV/bin/python" ]; then
-  "$MM" create -y -p "$ENV" -c conda-forge python=3.11 pip pandas numpy scipy tabulate
+  "$MM" create -y -p "$ENV" -c conda-forge python=3.11 pip pandas numpy scipy
 fi
 
 PY="$ENV/bin/python"
@@ -48,7 +48,7 @@ PY="$ENV/bin/python"
 
 if ! "$PY" -c "import torch, esm" >/dev/null 2>&1; then
   "$PY" -m pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cu118
-  "$PY" -m pip install fair-esm==2.0.0 tabulate
+  "$PY" -m pip install fair-esm==2.0.0
 fi
 
 "$PY" - <<'PY'

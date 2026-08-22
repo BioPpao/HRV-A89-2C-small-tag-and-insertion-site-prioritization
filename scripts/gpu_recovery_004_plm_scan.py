@@ -336,7 +336,18 @@ def write_reports(args, df: pd.DataFrame, ranked: pd.DataFrame, consensus: pd.Da
     def md_table(frame: pd.DataFrame, cols: list[str], n: int | None = None) -> str:
         if n is not None:
             frame = frame.head(n)
-        return frame[cols].to_markdown(index=False)
+        vals = frame[cols].copy()
+        lines = ["| " + " | ".join(cols) + " |", "| " + " | ".join(["---"] * len(cols)) + " |"]
+        for _, row in vals.iterrows():
+            cells = []
+            for col in cols:
+                val = row[col]
+                if isinstance(val, float):
+                    cells.append(f"{val:.6g}")
+                else:
+                    cells.append(str(val))
+            lines.append("| " + " | ".join(cells) + " |")
+        return "\n".join(lines)
 
     args.plm_doc.write_text(
         "\n".join(
@@ -428,7 +439,7 @@ def write_reports(args, df: pd.DataFrame, ranked: pd.DataFrame, consensus: pd.Da
                 "",
                 "Rank correlations are stored in `results/gpu_recovery_004/tag_landscape_correlations_v2.tsv`.",
                 "",
-                corr.to_markdown(index=False),
+                md_table(corr, list(corr.columns)),
                 "",
                 "Top V5 PLM-context rows:",
                 "",
