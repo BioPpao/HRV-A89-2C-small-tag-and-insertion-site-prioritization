@@ -100,4 +100,4 @@ All use A89 2C numbering 1–321 and were integrity-audited. Checksums are in `I
 
 ## Current next task
 
-Read `ACTIVE_TASK.md`. CONSERVATION_002 and DIRECT_INDEL_001 are complete. The current decision state is `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`, documented in `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md` and `data/candidate_junctions_v3_direct_indel.tsv`. Do not start tag × site modeling, long MD, RNA/codon design or construct recommendations until ChatGPT/user explicitly authorizes a new task and reduced/revised site set.
+Read `ACTIVE_TASK.md`. CONSERVATION_002, DIRECT_INDEL_001, METHOD_HARDENING_002, GPU_RECOVERY_004 and CONTINUOUS_TAG_SITE_MODELING_005 are complete. The current decision state is `TAG_SITE_MODELING_PARTIALLY_COMPLETE`, documented in `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md` and `data/tag_site_integrated_perturbation_v1.tsv`. Do not start long MD, final construct design, RNA/codon design or experimental protocol design until ChatGPT/user explicitly authorizes the next task.

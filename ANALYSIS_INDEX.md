@@ -11,7 +11,7 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint and next step |
 | Methodological logic audit | `docs/METHOD_LOGIC_AUDIT_V2.md` | CURRENT SUPPORTING | corrected logic, evidence hierarchy, Phase 0 summary |
 | Post-direct-evidence method audit | `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2.md` | **CURRENT STRATEGIC** | reinterprets direct EV-A71 phenotype, rejects both premature shortlist promotion and universal-A89-intolerance claims, authorizes method hardening |
-| Current execution task | `tasks/GPU_RECOVERY_004.md` | **COMPLETE** | recovered GPU PLM scoring on Slurm node `gpu15` |
+| Current execution task | `tasks/CONTINUOUS_TAG_SITE_MODELING_005.md` | **COMPLETE / PARTIAL** | compact conflict-aware tag x site perturbation modeling; final state `TAG_SITE_MODELING_PARTIALLY_COMPLETE` |
 | Active task pointer | `ACTIVE_TASK.md` | CURRENT | current task/stop gate for Codex and ChatGPT |
 | Functional exclusion/constraint map | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | CURRENT | latest A89-specific functional map |
 | Historical insertion-tolerance conflict logic | `docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md` | CURRENT SUPPORTING | preserves historical PV insertion-tolerance evidence and literature-rescue conflicts |
@@ -25,6 +25,11 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Current integrated direct-evidence matrix | `data/candidate_junctions_v3_direct_indel.tsv` | CURRENT DATA | all-320 V3 matrix before METHOD_HARDENING_002 |
 | Hardened all-junction matrix | `data/candidate_junctions_v4_method_hardening.tsv` | SUPERSEDED BY V5 / PROVENANCE | primary non-PLM V4 matrix; PLM columns marked blocked |
 | GPU PLM integrated matrix | `data/candidate_junctions_v5_plm_gpu.tsv` | CURRENT DATA | all-320 V5 matrix with completed ESM2 tag-specific PLM layer |
+| Tag-site modeling report | `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md` | CURRENT REPORT | 33-junction x 4-tag panel; WT anchor/context modeling completed; structure/loop/energy primary methods deferred by software availability |
+| Tag-site modeling run log | `docs/CONTINUOUS_TAG_SITE_MODELING_005_RUN_LOG.md` | CURRENT PROVENANCE | commands, software audit, QC and deferred-method records |
+| Tag-site modeling panel | `data/tag_site_modeling_panel_v1.tsv` | CURRENT DATA | 132 site x tag constructs from V2 review set and fixed MAP8/HA/G196 forms |
+| Tag-site integrated perturbation | `data/tag_site_integrated_perturbation_v1.tsv` | CURRENT DATA | separate direct/function/PLM/loop-proxy/hexamer/network/status dimensions without a hidden total score |
+| Tag-site robustness | `results/tag_site_modeling_005/cross_method_robustness.tsv` | CURRENT DATA | cross-method support/disfavor flags with deferred primary methods preserved |
 | One-shot final report | `docs/ONE_SHOT_COMPUTATIONAL_AUDIT_003_REPORT.md` | CURRENT REPORT | final state `METHOD_HARDENING_BLOCKED` |
 | Method hardening report | `docs/METHOD_HARDENING_002_REPORT.md` | CURRENT REPORT | CPU module results and PLM blocker |
 | GPU recovery report | `docs/GPU_RECOVERY_004_REPORT.md` | CURRENT REPORT | final state `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`; records GPU runtime and PLM results |
@@ -100,9 +105,16 @@ GPU_RECOVERY_004                                COMPLETE
   ├─ cross-tag consensus completed
   └─ V5 matrix + V2 review set completed
         ↓
+CONTINUOUS_TAG_SITE_MODELING_005                COMPLETE / PARTIAL
+  ├─ compact 33-junction x 4-tag panel
+  ├─ WT oligomer-context compatibility
+  ├─ WT residue-contact-network anchor analysis
+  ├─ targeted V5/V2 direct/evolutionary/PLM reuse
+  └─ insertion-specific structure / loop / energy DEFERRED_SOFTWARE
+        ↓
 ChatGPT/user review                             REQUIRED STOP GATE
         ↓
-insertion-specific loop + AF/ColabFold          BLOCKED PENDING REVIEW
+dedicated mature structure/loop recovery or targeted dynamics  PENDING DECISION
         ↓
 targeted MD                                     LATER
         ↓
@@ -117,14 +129,15 @@ HRV-A89 biological validation                   EXPERIMENTAL GOLD STANDARD
 
 Current project state:
 
-`READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
+`TAG_SITE_MODELING_PARTIALLY_COMPLETE`
 
-The EV-A71 direct 8-aa insertion phenotype is unfavorable across mapped A89 junctions and therefore demotes the prior `287|288–290|291` structure/conservation shortlist. The result is treated as a strong homolog prior rather than universal proof that every A89-specific tag sequence will fail.
+CONTINUOUS_TAG_SITE_MODELING_005 evaluated 132 constructs from the V2 review set. Completed WT-anchor/context layers identify `289|290` and `290|291` with MAP8 or G196_minimal as the lowest relative perturbation rows, but all retain direct homolog insertion conflict and no inserted-structure ensemble or energy calculation was completed.
 
 Current candidate/control roles:
 
-- `287|288–290|291`: `STRUCTURE_EVOLUTION_FAVORED__DIRECT_HOMOLOG_CONFLICT`;
-- `248|249`, `256|257`: `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`;
-- near-miss/non-strict sites remain eligible for full 320-junction continuous/Pareto re-ranking unless hard-excluded biologically.
+- `289|290`, `290|291` with MAP8/G196_minimal: `RELATIVELY_LOWER_PERTURBATION__DIRECT_EVIDENCE_CONFLICT` under completed layers only;
+- `287|288`, `288|289`: mixed/inconclusive within the old conflict cluster;
+- `248|249`, `256|257`: `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL` with unfavorable WT oligomer/contact context;
+- `203|204`, `224|225`: structurally/context disfavored in the current panel.
 
-The next scientific question is whether ChatGPT/user authorizes conflict-aware Tag x Site structural modeling from `data/computational_review_set_v2_plm_gpu.tsv`. This is not final construct recommendation and does not bypass exact RNA/codon requirements.
+The next scientific question is whether ChatGPT/user authorizes a dedicated mature structure-prediction/loop-remodeling recovery task, targeted dynamics from the partial reduced set, or prioritization of HRV-A89-specific insertion phenotype. This is not final construct recommendation and does not bypass exact RNA/codon requirements.

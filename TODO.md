@@ -19,39 +19,41 @@ Primary outputs:
 - `data/candidate_junctions_v5_plm_gpu.tsv`
 - `data/computational_review_set_v2_plm_gpu.tsv`
 
-## CURRENT — CONTINUOUS_TAG_SITE_MODELING_005
+## CONTINUOUS_TAG_SITE_MODELING_005 — COMPLETED / PARTIAL
 
-Status: **AUTHORIZED / CONTINUITY-FIRST COMPUTATIONAL TASK**
+Status: **TAG_SITE_MODELING_PARTIALLY_COMPLETE**
 
 Task:
 
 - `tasks/CONTINUOUS_TAG_SITE_MODELING_005.md`
 
-The task moves from all-320 discovery into a compact site × tag structural perturbation panel.
+The task moved from all-320 discovery into a compact site × tag structural perturbation panel.
 
-### Main missing computational methods to add
+Primary report:
 
-1. insertion-specific structure-prediction ensembles;
-2. loop/backbone closure and conformational feasibility modeling;
-3. local energetic/frustration analysis;
-4. oligomer-context compatibility analysis;
-5. residue-contact-network perturbation analysis;
-6. targeted phylogeny-aware site-rate / coevolution / flexibility checks where defensible;
-7. cross-method robustness analysis.
+- `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
 
-### Continuity policy
+Run log:
 
-Do not stop the project because one tool, package, GPU, network route, scheduler context or Git push fails.
+- `docs/CONTINUOUS_TAG_SITE_MODELING_005_RUN_LOG.md`
 
-- If GPU is absent in the current shell, inspect Slurm and obtain/submit GPU execution where needed.
-- Continue independent CPU modules while GPU jobs wait where useful.
-- If compute-node network is blocked, prepare dependencies/checkpoints from a network-capable login context.
-- If one preferred package fails, try another mature method in the same evidence class.
-- If no mature substitute exists, mark only that module deferred and continue all independent work.
-- If remote push fails, preserve local commits and continue.
-- Do not rerun completed global analyses without a concrete QC reason.
+### Completed / deferred methods
 
-### Planned outputs
+Completed:
+
+- compact 33-junction x 4-tag panel;
+- WT oligomer-context compatibility;
+- WT residue-contact-network anchor analysis;
+- targeted reuse of V5/V2 direct/evolutionary/PLM layers;
+- cross-method robustness with deferred-method flags.
+
+Deferred:
+
+- insertion-specific structure-prediction ensembles: no mature local ColabFold/AlphaFold/OpenFold/ESMFold workflow found;
+- mature loop/backbone remodeling: no Rosetta/KIC-like workflow found;
+- local energetic/frustration analysis: no FoldX/Rosetta/local-frustration workflow found.
+
+### Outputs
 
 - `data/tag_site_modeling_panel_v1.tsv`
 - `results/tag_site_modeling_005/environment_and_method_inventory.tsv`
@@ -64,11 +66,16 @@ Do not stop the project because one tool, package, GPU, network route, scheduler
 - `results/tag_site_modeling_005/cross_method_robustness.tsv`
 - `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
 
-### Final state expected
+## CURRENT — ChatGPT/User Review Gate
 
-- `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
-- `NO_COMPUTATIONAL_CONSENSUS_SITE`
-- `TAG_SITE_MODELING_PARTIALLY_COMPLETE`
+Status: **REVIEW REQUIRED**
+
+ChatGPT/user should decide whether to:
+
+- authorize a dedicated mature structure-prediction / loop-remodeling recovery task;
+- authorize targeted dynamics only after reviewing the partial evidence;
+- prioritize HRV-A89-specific insertion phenotype generation;
+- provide exact nucleotide construct context for later RNA/codon audit.
 
 ## Later work
 

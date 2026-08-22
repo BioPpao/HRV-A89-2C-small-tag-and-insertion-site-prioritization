@@ -12,17 +12,17 @@ The computational endpoint is **relative candidate prioritization and perturbati
 
 ## Current project-level decision state
 
-`READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
+`TAG_SITE_MODELING_PARTIALLY_COMPLETE`
 
-GPU_RECOVERY_004 recovered the previously blocked tag-specific PLM stage on an RTX 3090 Slurm node and completed all 1,280 planned MAP8/HA/G196 tag × junction scores.
+CONTINUOUS_TAG_SITE_MODELING_005 built a compact conflict-aware 33-junction x 4-tag panel and completed the independent WT-anchor, oligomer-context, contact-network, reused evolutionary/direct-evidence and robustness layers.
 
-The project has now finished the major all-320 global discovery layers. The next priority is reduced insertion-specific structural perturbation modeling rather than adding more global scoring methods.
+The task is only partially complete because mature insertion-specific structure-prediction ensembles, Rosetta/KIC-like loop remodeling and FoldX/Rosetta/local-frustration energy analysis were not available in the current user/module environment. No inserted-structure or energy result was fabricated.
 
 ## Current active task
 
 `CONTINUOUS_TAG_SITE_MODELING_005`
 
-Status: **AUTHORIZED / CONTINUITY-FIRST COMPUTATIONAL TASK**
+Status: **COMPLETED / PARTIAL BY SOFTWARE AVAILABILITY**
 
 Branch: `analysis/conservation-002`
 
@@ -44,11 +44,39 @@ The current evidence stack already includes:
 - V5 integrated evidence matrix;
 - V2 computational review set.
 
-The main unresolved computational question is now construct-specific:
+The main unresolved computational question remains construct-specific:
 
 > after inserting a particular tag at a particular review junction, how strongly is the native 2C structural environment perturbed?
 
-## New methods authorized in CONTINUOUS_TAG_SITE_MODELING_005
+CONTINUOUS_TAG_SITE_MODELING_005 answers this only for completed WT-anchor/context layers and explicitly records deferred primary insertion-specific methods.
+
+## CONTINUOUS_TAG_SITE_MODELING_005 result
+
+Primary report:
+
+- `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
+
+Primary outputs:
+
+- `data/tag_site_modeling_panel_v1.tsv`
+- `results/tag_site_modeling_005/environment_and_method_inventory.tsv`
+- `data/tag_site_structure_ensemble_metrics_v1.tsv`
+- `data/tag_site_loop_feasibility_v1.tsv`
+- `data/tag_site_energy_context_v1.tsv`
+- `data/tag_site_contact_network_v1.tsv`
+- `data/tag_site_hexamer_context_v1.tsv`
+- `data/tag_site_integrated_perturbation_v1.tsv`
+- `results/tag_site_modeling_005/cross_method_robustness.tsv`
+
+Summary:
+
+- 132 site x tag constructs were evaluated.
+- `289|290` and `290|291` with MAP8 or G196_minimal are the lowest relative perturbation rows among completed layers.
+- All four still retain direct homolog insertion conflict and are not validated or safe.
+- `203|204`, `224|225`, `248|249` and `256|257` are structurally/context constrained in this task.
+- G196_minimal is not globally less disruptive than MAP8/HA; its advantage is local and method-dependent.
+
+## Methods authorized in CONTINUOUS_TAG_SITE_MODELING_005
 
 The task adds missing/underused orthogonal computational layers:
 
@@ -62,7 +90,7 @@ The task adds missing/underused orthogonal computational layers:
 
 These methods are secondary perturbation-ranking layers and cannot override direct phenotype or hard functional constraints.
 
-## Continuity-first execution rule
+## Continuity-first execution rule used
 
 The task must not stop merely because one preferred tool, package, GPU, scheduler context, network route, or Git push is unavailable.
 
@@ -77,7 +105,7 @@ Required recovery behavior:
 - continue independent modules;
 - preserve local commits/results if remote push temporarily fails.
 
-A single local method failure is not a project-wide blocker.
+The continuity rule was applied: deferred structure/loop/energy methods did not stop panel construction, WT anchor analyses or evidence integration.
 
 ## Fixed project constraints
 
@@ -93,17 +121,21 @@ A single local method failure is not a project-wide blocker.
 
 ## Current candidate/control interpretation
 
-### `287|288`, `288|289`, `289|290`, `290|291`
+### `289|290`, `290|291`
+
+`RELATIVELY_LOWER_PERTURBATION__DIRECT_EVIDENCE_CONFLICT` for MAP8 and G196_minimal under completed WT-anchor/context layers only.
+
+### `287|288`, `288|289`
 
 `STRUCTURE_EVOLUTION_FAVORED__DIRECT_HOMOLOG_CONFLICT`
 
 ### `248|249`, `256|257`
 
-`HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`
+`HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`, with unfavorable WT oligomer/contact context in CONTINUOUS_TAG_SITE_MODELING_005.
 
 ### Outside-strict examples such as `203|204`, `224|225`
 
-Remain useful conflict-aware review rows, not preferred sites.
+Remain useful conflict-aware review rows, but were structurally/context disfavored in CONTINUOUS_TAG_SITE_MODELING_005.
 
 ## Evidence hierarchy
 
@@ -136,15 +168,9 @@ Expected primary outputs include:
 - `results/tag_site_modeling_005/cross_method_robustness.tsv`
 - `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
 
-## Final state expected from current task
+## Current stop gate
 
-Return exactly one of:
-
-- `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
-- `NO_COMPUTATIONAL_CONSENSUS_SITE`
-- `TAG_SITE_MODELING_PARTIALLY_COMPLETE`
-
-Do not automatically escalate to long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
+ChatGPT/user review is required. Do not automatically escalate to long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
 
 ## Required future user input
 

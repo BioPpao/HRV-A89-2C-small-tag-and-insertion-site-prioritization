@@ -1,6 +1,6 @@
 # Active task
 
-Current task: `CONTINUOUS_TAG_SITE_MODELING_005` — **AUTHORIZED / CONTINUITY-FIRST COMPUTATIONAL TASK**
+Current task: `CONTINUOUS_TAG_SITE_MODELING_005` — **COMPLETED / PARTIAL BY SOFTWARE AVAILABILITY**
 
 Branch: `analysis/conservation-002`
 
@@ -15,6 +15,34 @@ Task specification:
 `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
 
 The next task moves from all-320 site discovery into reduced, insertion-specific structural perturbation modeling.
+
+## Completion state
+
+Final state:
+
+`TAG_SITE_MODELING_PARTIALLY_COMPLETE`
+
+Primary report:
+
+- `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
+
+Run log:
+
+- `docs/CONTINUOUS_TAG_SITE_MODELING_005_RUN_LOG.md`
+
+Primary outputs:
+
+- `data/tag_site_modeling_panel_v1.tsv`
+- `results/tag_site_modeling_005/environment_and_method_inventory.tsv`
+- `data/tag_site_structure_ensemble_metrics_v1.tsv`
+- `data/tag_site_loop_feasibility_v1.tsv`
+- `data/tag_site_energy_context_v1.tsv`
+- `data/tag_site_contact_network_v1.tsv`
+- `data/tag_site_hexamer_context_v1.tsv`
+- `data/tag_site_integrated_perturbation_v1.tsv`
+- `results/tag_site_modeling_005/cross_method_robustness.tsv`
+
+Stop for ChatGPT/user review before authorizing any next task.
 
 ## Continuity policy
 
@@ -71,8 +99,6 @@ No site may be called safe or experimentally validated for HRV-A89.
 
 ## Final state
 
-Return exactly one of:
+Returned:
 
-- `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
-- `NO_COMPUTATIONAL_CONSENSUS_SITE`
-- `TAG_SITE_MODELING_PARTIALLY_COMPLETE`
+`TAG_SITE_MODELING_PARTIALLY_COMPLETE`

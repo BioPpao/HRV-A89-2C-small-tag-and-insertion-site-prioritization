@@ -1,0 +1,24 @@
+record_type	name	status	value	exit_code	method_consequence
+environment_probe	hostname	completed_probe	admin1	0	
+environment_probe	analysis_python	completed_probe	Python 3.11.15	0	
+environment_probe	nvidia-smi	completed_probe	bash: nvidia-smi: command not found	0	
+environment_probe	cuda_visible_devices	completed_probe		0	
+environment_probe	dev_nvidia	completed_probe	ls: cannot access '/dev/nvidia*': No such file or directory	0	
+environment_probe	python	completed_probe	Python 3.6.8	0	
+environment_probe	colabfold_batch	completed_probe		0	
+environment_probe	alphafold	completed_probe		0	
+environment_probe	rosetta	completed_probe		0	
+environment_probe	foldx	completed_probe		0	
+environment_probe	esmfold	completed_probe		0	
+environment_probe	module_relevant	completed_probe	cuda/8.0                               oneapi/debugger/2024.1.0        | cuda/11.8                              oneapi/debugger/latest          | cuda/12.4                              oneapi/dev-utilities/2024.0.0   | nccl/2.27.6_cuda12.4                   oneapi/oclfpga/2024.1.0         | oneapi/compiler/2024.1.0               pytorch/2.3.1                   | amber/24       cisTEM/1.0.0            gromacs/constantph  scipion/3.0       | ambertools/25  cisTEM/2.0.0-alpha-183  R/4.4.0             ViennaRNA/2.7.2   | APBS/3.4.1     gromacs/2024.2          relion/5.0	0	
+input_structure	af1	available	/public/home/yukang/HRV Oligomers/hrv_2c_full/fold_hrv_2c_full_model_1.cif		WT context metrics only; no inserted structures generated
+input_structure	af3	available	/public/home/yukang/HRV Oligomers/hrv_2c_full/fold_hrv_2c_full_model_3.cif		WT context metrics only; no inserted structures generated
+input_structure	hex1	available	/public/home/yukang/HRV Oligomers/HRV_A89_2C_HEXAMER/results_summary/selected_hexamer_01_md_representative.pdb		WT context metrics only; no inserted structures generated
+input_structure	hex2	available	/public/home/yukang/HRV Oligomers/HRV_A89_2C_HEXAMER/results_summary/selected_hexamer_02_md_representative.pdb		WT context metrics only; no inserted structures generated
+method_status	insertion_specific_structure_prediction	DEFERRED_SOFTWARE	TAG_SITE_MODELING_PARTIALLY_COMPLETE		No ColabFold/AlphaFold/OpenFold/ESMFold executable found in PATH/modules; no inserted-construct model ensemble was generated.
+method_status	loop_backbone_feasibility	COMPLETED_PROXY_ONLY__PRIMARY_DEFERRED_SOFTWARE	TAG_SITE_MODELING_PARTIALLY_COMPLETE		No Rosetta Remodel/KIC/PyRosetta loop workflow found; WT anchor geometric loop proxy reported separately.
+method_status	local_energy_frustration	DEFERRED_SOFTWARE	TAG_SITE_MODELING_PARTIALLY_COMPLETE		No FoldX/Rosetta/local-frustration workflow found for inserted models; energy values not fabricated.
+method_status	oligomer_context_compatibility	COMPLETED_WT_CONTEXT_PROXY	TAG_SITE_MODELING_PARTIALLY_COMPLETE		Existing A89 no-membrane/no-RNA hexamer hypotheses used to quantify anchor proximity/burial/pore context.
+method_status	residue_contact_network	COMPLETED_WT_ANCHOR_NETWORK__TAGGED_MAP_DEFERRED	TAG_SITE_MODELING_PARTIALLY_COMPLETE		CA contact networks computed for WT monomer/hexamer structures; tagged contact-map deltas require inserted models.
+method_status	targeted_evolutionary_statistical	COMPLETED_REUSE_TARGETED	TAG_SITE_MODELING_PARTIALLY_COMPLETE		Reused V5/V2 conservation, direct homolog phenotype, independent-indel and PLM metrics for panel only.
+method_status	cross_method_robustness	COMPLETED_WITH_DEFERRED_METHOD_FLAGS	TAG_SITE_MODELING_PARTIALLY_COMPLETE		Robustness integrates completed layers and explicit software-deferred layers.
