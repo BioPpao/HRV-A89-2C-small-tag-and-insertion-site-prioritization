@@ -1,6 +1,6 @@
 # TODO
 
-Last updated: 2026-08-22
+Last updated: 2026-08-23
 
 Priority order is scientific, not cosmetic.
 
@@ -26,9 +26,9 @@ The major remaining gap is real inserted-structure modeling.
 
 Retained as planning provenance. It included Rosetta/FoldX options, but the current project should not depend on restricted-license software.
 
-## CURRENT — OPEN_STRUCTURE_PIPELINE_007
+## OPEN_STRUCTURE_PIPELINE_007 — COMPLETE
 
-Status: **AUTHORIZED / OPEN-LICENSE CONTINUITY-FIRST TASK**
+Status: **READY_FOR_TARGETED_DYNAMIC_ANALYSIS**
 
 Task:
 
@@ -46,7 +46,7 @@ Task:
 
 Do not require Rosetta, PyRosetta or FoldX.
 
-### Required blocker-removal work
+### Completed blocker-removal work
 
 1. storage/quota/inode audit;
 2. Slurm/GPU/network-context audit;
@@ -91,6 +91,8 @@ Use Slurm, login-node downloads/cache, isolated compatible environments, mature 
 - `results/open_structure_007/cross_method_robustness_v3.tsv`
 - `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
 
+All generated. Use `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md` and `data/tag_site_integrated_perturbation_v3_open.tsv` as the current open-structure evidence source.
+
 ### Final state expected
 
 - `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
@@ -101,7 +103,7 @@ Use Slurm, login-node downloads/cache, isolated compatible environments, mature 
 
 ### Targeted dynamic analysis
 
-Only after a reduced site × tag set survives actual inserted-structure perturbation screening.
+Now eligible for ChatGPT/user decision. Do not start without a new authorized task. The likely review focus is `289|290 x MAP8`, `289|290 x G196_minimal`, and conflict checks around `288|289`, `290|291`, `224|225`, and `248|249`.
 
 ### Exact nucleotide/RNA audit
 

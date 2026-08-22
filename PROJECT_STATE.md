@@ -1,6 +1,6 @@
 # Project State
 
-Last updated: 2026-08-22
+Last updated: 2026-08-23
 
 Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
@@ -12,15 +12,15 @@ The computational endpoint is **relative candidate prioritization and perturbati
 
 ## Current project-level decision state
 
-`TAG_SITE_MODELING_PARTIALLY_COMPLETE`
+`READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
 
-CONTINUOUS_TAG_SITE_MODELING_005 completed WT-anchor/context analyses but lacked real inserted-structure ensembles. The current priority is therefore to build a fully open/reproducible inserted-structure pipeline rather than depend on restricted-license Rosetta/FoldX components.
+OPEN_STRUCTURE_PIPELINE_007 completed the open inserted-structure recovery path. ColabFold generated real WT and inserted HRV-A89 2C models, OpenMM geometry QC completed, and the reduced panel now has open-tool structural, hexamer-context and contact-network perturbation tables.
 
 ## Current active task
 
 `OPEN_STRUCTURE_PIPELINE_007`
 
-Status: **AUTHORIZED / OPEN-LICENSE CONTINUITY-FIRST TASK**
+Status: **COMPLETE**
 
 Branch: `analysis/conservation-002`
 
@@ -79,7 +79,7 @@ A single local failure is not a project-wide blocker.
 
 ## Current scientific interpretation entering OPEN_STRUCTURE_PIPELINE_007
 
-The strongest relative constructs from completed non-fabricated layers are:
+The strongest relative constructs before open inserted-structure modeling were:
 
 - `289|290 × MAP8`;
 - `289|290 × G196_minimal`;
@@ -99,7 +99,7 @@ Mandatory re-audit rows include:
 - `289|290`;
 - `290|291`.
 
-Real inserted-structure ensembles are allowed to overturn previous weaker rankings.
+OPEN_STRUCTURE_PIPELINE_007 did not validate any site, but it resolved the previous structure-pipeline blocker for the reduced panel. `289|290 x MAP8` and `289|290 x G196_minimal` are now the strongest deep-replicated open-structure rows. `290|291 x MAP8/G196_minimal` retained low clash counts but ranked weaker by native/local RMSD after deeper replication. `224|225` and `248|249` remain informative conflict-control rows; `256|257` is strongly disfavored by actual tagged-hexamer clash context.
 
 ## Evidence hierarchy
 
@@ -133,6 +133,8 @@ No lower-level method may silently override stronger evidence.
 - `results/open_structure_007/cross_method_robustness_v3.tsv`
 - `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
 
+All required files above were generated.
+
 ## Final task state expected
 
 Return exactly one of:
@@ -142,6 +144,10 @@ Return exactly one of:
 - `OPEN_STRUCTURE_PIPELINE_PARTIALLY_COMPLETE`
 
 Do not automatically escalate to long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
+
+OPEN_STRUCTURE_PIPELINE_007 final state:
+
+`READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
 
 ## Required future user input
 

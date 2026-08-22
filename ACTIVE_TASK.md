@@ -1,6 +1,6 @@
 # Active task
 
-Current task: `OPEN_STRUCTURE_PIPELINE_007` — **AUTHORIZED / OPEN-LICENSE CONTINUITY-FIRST TASK**
+Current task: `OPEN_STRUCTURE_PIPELINE_007` — **COMPLETE**
 
 Branch: `analysis/conservation-002`
 
@@ -8,13 +8,17 @@ Task specification:
 
 `tasks/OPEN_STRUCTURE_PIPELINE_007.md`
 
-## Entering state
+## Completion state
 
-`CONTINUOUS_TAG_SITE_MODELING_005` is complete/partial because actual inserted-structure ensembles were unavailable. `STRUCTURE_STACK_RECOVERY_006` is retained as planning provenance but is superseded as the execution task because the user cannot rely on restricted-license Rosetta/FoldX components.
+`OPEN_STRUCTURE_PIPELINE_007` completed the open-license inserted-structure recovery path.
 
-Current project state entering this task:
+Current project state after this task:
 
-`TAG_SITE_MODELING_PARTIALLY_COMPLETE`
+`READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
+
+Primary report:
+
+`docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
 
 ## Primary route
 
@@ -60,6 +64,8 @@ Prefer public MSA-server generation from the network-capable login context, cach
 
 `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
 
+Status: generated.
+
 ## Final state
 
 Return exactly one of:
@@ -69,3 +75,5 @@ Return exactly one of:
 - `OPEN_STRUCTURE_PIPELINE_PARTIALLY_COMPLETE`
 
 Do not automatically start long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
+
+Stop here for ChatGPT/user review before authorizing any targeted dynamic analysis.

@@ -1,6 +1,6 @@
 # Decision Log
 
-Last updated: 2026-08-22
+Last updated: 2026-08-23
 
 These are active decisions. Future analyses should change them only with explicit new evidence and should record the reason for the change.
 
@@ -205,3 +205,13 @@ These are active decisions. Future analyses should change them only with explici
 **Reason:** The task completed the compact 33-junction x 4-tag panel, WT oligomer-context analysis, WT residue-contact-network anchor analysis, targeted reuse of V5/V2 direct/evolutionary/PLM evidence and cross-method robustness. Mature insertion-specific structure-prediction ensembles, Rosetta/KIC-like loop remodeling and FoldX/Rosetta/local-frustration energy analysis were not available and were explicitly deferred rather than fabricated.
 
 **Interpretation:** `289|290` and `290|291` with MAP8 or G196_minimal are the lowest relative perturbation rows among completed layers, but they retain direct homolog insertion conflict and are not safe, validated, or final construct recommendations. `248|249`, `256|257`, `203|204` and `224|225` are structurally/context constrained in this panel. G196_minimal is locally useful but not globally less disruptive than MAP8/HA.
+
+## D-032 — OPEN_STRUCTURE_PIPELINE_007 completed the open inserted-structure layer
+
+**Decision:** Treat `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`, `data/tag_site_integrated_perturbation_v3_open.tsv` and `results/open_structure_007/cross_method_robustness_v3.tsv` as the current open-structure evidence for the reduced structural panel.
+
+**Reason:** ColabFold 1.5.3 ran successfully through Slurm on `gpu15` with an RTX 3090; WT smoke, 40 inserted constructs, 4 deep-replicated constructs, OpenMM geometry QC, tagged-hexamer placement and contact-network analysis completed without restricted-license tools.
+
+**Interpretation:** `289|290 x MAP8` and `289|290 x G196_minimal` are the strongest deep-replicated open-structure rows. `290|291 x MAP8/G196_minimal` remain low-clash but are weaker by native/local RMSD after deeper replication. `256|257` is disfavored by actual tagged-hexamer clash context. No row is safe, validated, or a final construct recommendation.
+
+**Current state:** `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`.

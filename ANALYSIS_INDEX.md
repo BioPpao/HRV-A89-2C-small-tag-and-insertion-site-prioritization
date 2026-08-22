@@ -1,6 +1,6 @@
 # Analysis Index
 
-Last updated: 2026-08-22
+Last updated: 2026-08-23
 
 This file is the navigation layer for the project. Read `PROJECT_STATE.md` first, then use the table below to find the current scientific source for each question.
 
@@ -11,7 +11,7 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint and next step |
 | Methodological logic audit | `docs/METHOD_LOGIC_AUDIT_V2.md` | CURRENT SUPPORTING | corrected logic, evidence hierarchy, Phase 0 summary |
 | Post-direct-evidence method audit | `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2.md` | **CURRENT STRATEGIC** | reinterprets direct EV-A71 phenotype, rejects both premature shortlist promotion and universal-A89-intolerance claims, authorizes method hardening |
-| Current execution task | `tasks/CONTINUOUS_TAG_SITE_MODELING_005.md` | **COMPLETE / PARTIAL** | compact conflict-aware tag x site perturbation modeling; final state `TAG_SITE_MODELING_PARTIALLY_COMPLETE` |
+| Current execution task | `tasks/OPEN_STRUCTURE_PIPELINE_007.md` | **COMPLETE** | open-license inserted-structure pipeline; final state `READY_FOR_TARGETED_DYNAMIC_ANALYSIS` |
 | Active task pointer | `ACTIVE_TASK.md` | CURRENT | current task/stop gate for Codex and ChatGPT |
 | Functional exclusion/constraint map | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | CURRENT | latest A89-specific functional map |
 | Historical insertion-tolerance conflict logic | `docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md` | CURRENT SUPPORTING | preserves historical PV insertion-tolerance evidence and literature-rescue conflicts |
@@ -30,6 +30,10 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Tag-site modeling panel | `data/tag_site_modeling_panel_v1.tsv` | CURRENT DATA | 132 site x tag constructs from V2 review set and fixed MAP8/HA/G196 forms |
 | Tag-site integrated perturbation | `data/tag_site_integrated_perturbation_v1.tsv` | CURRENT DATA | separate direct/function/PLM/loop-proxy/hexamer/network/status dimensions without a hidden total score |
 | Tag-site robustness | `results/tag_site_modeling_005/cross_method_robustness.tsv` | CURRENT DATA | cross-method support/disfavor flags with deferred primary methods preserved |
+| Open structure pipeline report | `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md` | CURRENT REPORT | ColabFold/OpenMM/hexamer/contact-network recovery; final state `READY_FOR_TARGETED_DYNAMIC_ANALYSIS` |
+| Open structure integrated perturbation | `data/tag_site_integrated_perturbation_v3_open.tsv` | CURRENT DATA | 40 construct-level open inserted-structure perturbation rows |
+| Open structure robustness | `results/open_structure_007/cross_method_robustness_v3.tsv` | CURRENT DATA | deep-subset vs single-model robustness status for OPEN_STRUCTURE_PIPELINE_007 |
+| Open structure prediction manifest | `results/open_structure_007/prediction_manifest.tsv` | CURRENT PROVENANCE | 49 WT/tagged ColabFold model rows and model provenance |
 | One-shot final report | `docs/ONE_SHOT_COMPUTATIONAL_AUDIT_003_REPORT.md` | CURRENT REPORT | final state `METHOD_HARDENING_BLOCKED` |
 | Method hardening report | `docs/METHOD_HARDENING_002_REPORT.md` | CURRENT REPORT | CPU module results and PLM blocker |
 | GPU recovery report | `docs/GPU_RECOVERY_004_REPORT.md` | CURRENT REPORT | final state `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`; records GPU runtime and PLM results |
@@ -112,6 +116,15 @@ CONTINUOUS_TAG_SITE_MODELING_005                COMPLETE / PARTIAL
   ├─ targeted V5/V2 direct/evolutionary/PLM reuse
   └─ insertion-specific structure / loop / energy DEFERRED_SOFTWARE
         ↓
+OPEN_STRUCTURE_PIPELINE_007                     COMPLETE
+  ├─ open ColabFold/JAX/OpenMM environment recovered
+  ├─ WT smoke test completed
+  ├─ 40 inserted constructs modeled
+  ├─ 4 targeted constructs deep replicated
+  ├─ OpenMM geometry QC completed
+  ├─ tagged hexamer/contact-network analysis completed
+  └─ final state READY_FOR_TARGETED_DYNAMIC_ANALYSIS
+        ↓
 ChatGPT/user review                             REQUIRED STOP GATE
         ↓
 dedicated mature structure/loop recovery or targeted dynamics  PENDING DECISION
@@ -129,15 +142,15 @@ HRV-A89 biological validation                   EXPERIMENTAL GOLD STANDARD
 
 Current project state:
 
-`TAG_SITE_MODELING_PARTIALLY_COMPLETE`
+`READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
 
-CONTINUOUS_TAG_SITE_MODELING_005 evaluated 132 constructs from the V2 review set. Completed WT-anchor/context layers identify `289|290` and `290|291` with MAP8 or G196_minimal as the lowest relative perturbation rows, but all retain direct homolog insertion conflict and no inserted-structure ensemble or energy calculation was completed.
+OPEN_STRUCTURE_PIPELINE_007 evaluated the 40-construct open structural panel plus WT with real ColabFold inserted models. The manifest contains 49 model rows, including 4 targeted constructs with 3 models each.
 
 Current candidate/control roles:
 
-- `289|290`, `290|291` with MAP8/G196_minimal: `RELATIVELY_LOWER_PERTURBATION__DIRECT_EVIDENCE_CONFLICT` under completed layers only;
-- `287|288`, `288|289`: mixed/inconclusive within the old conflict cluster;
-- `248|249`, `256|257`: `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL` with unfavorable WT oligomer/contact context;
-- `203|204`, `224|225`: structurally/context disfavored in the current panel.
+- `289|290 x MAP8` and `289|290 x G196_minimal`: strongest deep-replicated open-structure rows, but still direct-homolog-conflicted;
+- `290|291 x MAP8/G196_minimal`: low clash but weaker native/local RMSD after deeper replication;
+- `288|289`, `224|225`, `248|249`: retained as conflict checks rather than validated candidates;
+- `256|257`: strongly disfavored by actual tagged-hexamer clash context.
 
-The next scientific question is whether ChatGPT/user authorizes a dedicated mature structure-prediction/loop-remodeling recovery task, targeted dynamics from the partial reduced set, or prioritization of HRV-A89-specific insertion phenotype. This is not final construct recommendation and does not bypass exact RNA/codon requirements.
+The next scientific question is whether ChatGPT/user authorizes targeted dynamic analysis on a reduced conflict-aware set or prioritizes HRV-A89-specific insertion phenotype. This is not final construct recommendation and does not bypass exact RNA/codon requirements.
