@@ -1,0 +1,11 @@
+record	value
+hostname	gpu15
+cuda_visible_devices	0
+date	2026-08-22T23:31:10+08:00
+pwd	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization
+python	Python 3.10.21
+colabfold_batch	usage: colabfold_batch [-h] [--stop-at-score STOP_AT_SCORE]
+nvidia_smi	NVIDIA GeForce RTX 3090, 575.57.08, 24576 MiB
+jax	0.4.14
+jaxlib	0.4.14
+jax_devices	gpu:0

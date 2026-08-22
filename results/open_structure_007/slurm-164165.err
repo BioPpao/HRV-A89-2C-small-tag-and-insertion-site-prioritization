@@ -1,0 +1,16 @@
+2026-08-22 23:09:43.764077: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:462] TfrtCpuClient created.
+2026-08-22 23:09:44.016219: I external/xla/xla/service/service.cc:168] XLA service 0x55d50f13c8b0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2026-08-22 23:09:44.016284: I external/xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 3090, Compute Capability 8.6
+2026-08-22 23:09:44.016605: I external/xla/xla/pjrt/gpu/se_gpu_pjrt_client.cc:633] Using BFC allocator.
+2026-08-22 23:09:44.016648: I external/xla/xla/pjrt/gpu/gpu_helpers.cc:108] XLA backend will use up to 18972033024 bytes on device 0 for BFCAllocator.
+2026-08-22 23:09:44.099717: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:465] TfrtCpuClient destroyed.
+2026-08-22 23:09:46.294325: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:462] TfrtCpuClient created.
+2026-08-22 23:09:46.500410: I external/xla/xla/service/service.cc:168] XLA service 0x55ee05fd7a60 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2026-08-22 23:09:46.500479: I external/xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 3090, Compute Capability 8.6
+2026-08-22 23:09:46.500820: I external/xla/xla/pjrt/gpu/se_gpu_pjrt_client.cc:633] Using BFC allocator.
+2026-08-22 23:09:46.500874: I external/xla/xla/pjrt/gpu/gpu_helpers.cc:108] XLA backend will use up to 101184176128 bytes on device 0 for BFCAllocator.
+2026-08-22 23:09:50.736298: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-08-22 23:09:51.411681: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+  0%|          | 0/150 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/150 [elapsed: 00:00 remaining: ?]PENDING:   0%|          | 0/150 [elapsed: 00:01 remaining: ?]                                                             PENDING:   0%|          | 0/150 [elapsed: 00:01 remaining: ?]RUNNING:   0%|          | 0/150 [elapsed: 00:08 remaining: ?]RUNNING:   3%|▎         | 5/150 [elapsed: 00:08 remaining: 04:18]                                                                 RUNNING:   3%|▎         | 5/150 [elapsed: 00:08 remaining: 04:18]RUNNING:   3%|▎         | 5/150 [elapsed: 00:20 remaining: 04:18]RUNNING:   9%|▉         | 14/150 [elapsed: 00:20 remaining: 03:16]                                                                  RUNNING:   9%|▉         | 14/150 [elapsed: 00:20 remaining: 03:16]COMPLETE:   9%|▉         | 14/150 [elapsed: 00:29 remaining: 03:16]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:29 remaining: 00:00]COMPLETE: 100%|██████████| 150/150 [elapsed: 00:40 remaining: 00:00]
+2026-08-22 23:11:39.027947: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:465] TfrtCpuClient destroyed.

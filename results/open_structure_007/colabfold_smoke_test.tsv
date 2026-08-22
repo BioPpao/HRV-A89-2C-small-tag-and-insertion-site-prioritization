@@ -1,0 +1,2 @@
+construct_id	junction	tag_form	tag_length	model_file	json_file	rank	model	seed	mean_ca_plddt_from_pdb	ptm	ranking_confidence	prediction_status
+A89_2C_WT	WT	WT	0	results/open_structure_007/wt_smoke/A89_2C_WT_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_007.pdb		001	1	007	86.48959501557631			completed

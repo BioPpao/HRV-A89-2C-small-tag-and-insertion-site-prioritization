@@ -1,0 +1,7 @@
+2026-08-22 23:25:17,656 Running colabfold 1.5.3
+2026-08-22 23:25:19,929 Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: Interpreter CUDA
+2026-08-22 23:25:19,929 Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+2026-08-22 23:26:07,142 Running on GPU
+2026-08-22 23:26:18,671 Found 4 citations for tools or databases
+2026-08-22 23:26:18,672 Query 1/1: A89_2C_WT (length 321)
+2026-08-22 23:26:20,032 Setting max_seq=512, max_extra_seq=2750

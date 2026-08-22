@@ -19,6 +19,7 @@ Compatibility repairs applied on 2026-08-22:
 .tools/envs/open_structure_007/bin/pip install --no-cache-dir 'dm-haiku==0.0.9' 'pandas<2.0.0,>=1.3.4' 'absl-py<2.0.0,>=1.0.0' 'importlib-metadata<5.0.0,>=4.8.2' 'protobuf<5.0.0,>=3.20.3' 'keras<2.13,>=2.12.0' 'typing-extensions<4.6.0,>=3.6.6'
 .tools/envs/open_structure_007/bin/pip uninstall -y tensorflow-cpu
 .tools/bin/micromamba install -y --force-reinstall -p .tools/envs/open_structure_007 -c conda-forge tensorflow=2.12.1 tensorflow-base=2.12.1 tensorflow-estimator=2.12.1 keras=2.12.0 protobuf=4.21.12 typing-extensions=4.5.0
+.tools/envs/open_structure_007/bin/pip install --no-cache-dir --force-reinstall 'nvidia-cudnn-cu11==8.6.0.163'
 ```
 
 Rationale:
@@ -26,6 +27,7 @@ Rationale:
 - `biopython>=1.88` removed `Bio.Data.SCOPData`, which breaks ColabFold 1.5.3.
 - `dm-haiku 0.0.17` expects newer JAX APIs than ColabFold 1.5.3/JAX 0.4.14.
 - GPU prediction uses the CUDA 11 JAX wheel because the cluster exposes CUDA 11/12-era NVIDIA drivers and the Conda JAX build was CPU-only.
+- `jaxlib==0.4.14+cuda11.cudnn86` requires cuDNN 8.x; the initially pulled `nvidia-cudnn-cu11==9.10.2.21` caused GPU DNN initialization failure and was replaced by `8.6.0.163`.
 
 Exact observed package snapshot is recorded in:
 

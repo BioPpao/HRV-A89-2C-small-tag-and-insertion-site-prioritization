@@ -1,0 +1,43 @@
+2026-08-22 23:25:16.343721: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:462] TfrtCpuClient created.
+2026-08-22 23:25:16.605857: I external/xla/xla/service/service.cc:168] XLA service 0x5587000705f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2026-08-22 23:25:16.605913: I external/xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 3090, Compute Capability 8.6
+2026-08-22 23:25:16.606242: I external/xla/xla/pjrt/gpu/se_gpu_pjrt_client.cc:633] Using BFC allocator.
+2026-08-22 23:25:16.613311: I external/xla/xla/pjrt/gpu/gpu_helpers.cc:108] XLA backend will use up to 18972033024 bytes on device 0 for BFCAllocator.
+2026-08-22 23:25:16.646900: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:465] TfrtCpuClient destroyed.
+2026-08-22 23:25:19.654975: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:462] TfrtCpuClient created.
+2026-08-22 23:25:19.924465: I external/xla/xla/service/service.cc:168] XLA service 0x5654b98cf430 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2026-08-22 23:25:19.924526: I external/xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 3090, Compute Capability 8.6
+2026-08-22 23:25:19.924858: I external/xla/xla/pjrt/gpu/se_gpu_pjrt_client.cc:633] Using BFC allocator.
+2026-08-22 23:25:19.924909: I external/xla/xla/pjrt/gpu/gpu_helpers.cc:108] XLA backend will use up to 101184176128 bytes on device 0 for BFCAllocator.
+2026-08-22 23:25:24.282399: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-08-22 23:25:24.994375: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-08-22 23:26:21.567307: I external/xla/xla/stream_executor/cuda/cuda_dnn.cc:440] Loaded cuDNN version 8600
+2026-08-22 23:26:21.580639: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2026-08-22 23:26:21.681688: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2026-08-22 23:26:21.682727: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+Traceback (most recent call last):
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/bin/colabfold_batch", line 6, in <module>
+    sys.exit(main())
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/colabfold/batch.py", line 1957, in main
+    run(
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/colabfold/batch.py", line 1578, in run
+    model_runner_and_params = load_models_and_params(
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/colabfold/alphafold/models.py", line 113, in load_models_and_params
+    model_runner = model.RunModel(
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/alphafold/model/model.py", line 61, in __init__
+    self.apply = jax.jit(hk.transform(_forward_fn).apply)
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/haiku/_src/base.py", line 448, in wrapped
+    return wrapped._current(*args, **kwargs)
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/haiku/_src/transform.py", line 259, in transform
+    return without_state(transform_with_state(f))
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/haiku/_src/base.py", line 448, in wrapped
+    return wrapped._current(*args, **kwargs)
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/haiku/_src/transform.py", line 318, in transform_with_state
+    check_not_jax_transformed(f)
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/haiku/_src/transform.py", line 264, in check_not_jax_transformed
+    if isinstance(f, (jax.xla.xe.CompiledFunction, jax.xla.xe.PmapFunction)):  # pytype: disable=name-error
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/jax/_src/deprecations.py", line 53, in getattr
+    raise AttributeError(f"module {module!r} has no attribute {name!r}")
+AttributeError: module 'jax' has no attribute 'xla'
+2026-08-22 23:26:22.355657: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:465] TfrtCpuClient destroyed.

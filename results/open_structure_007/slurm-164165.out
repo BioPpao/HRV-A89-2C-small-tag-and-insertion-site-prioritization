@@ -1,0 +1,25 @@
+2026-08-22 23:09:45,036 Running colabfold 1.5.3
+2026-08-22 23:09:46,501 Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: Interpreter CUDA
+2026-08-22 23:09:46,502 Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+2026-08-22 23:10:36,762 Running on GPU
+2026-08-22 23:10:48,608 Found 7 citations for tools or databases
+2026-08-22 23:10:48,608 Query 1/1: A89_2C_WT (length 321)
+2026-08-22 23:10:50,482 Sleeping for 5s. Reason: PENDING
+2026-08-22 23:10:57,968 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:11:09,784 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:11:38,642 Could not get MSA/templates for A89_2C_WT: [Errno 2] No such file or directory: 'hhsearch'
+Traceback (most recent call last):
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/colabfold/batch.py", line 1491, in run
+    = get_msa_and_templates(jobname, query_seqs_unique, unpaired_msa, result_dir, 'single_sequence', use_templates,
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/colabfold/batch.py", line 811, in get_msa_and_templates
+    template_feature = mk_template(
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/colabfold/batch.py", line 131, in mk_template
+    hhsearch_result = hhsearch_pdb70_runner.query(a3m_lines)
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/alphafold/data/tools/hhsearch.py", line 86, in query
+    process = subprocess.Popen(
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/subprocess.py", line 1863, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'hhsearch'
+2026-08-22 23:11:38,715 Done

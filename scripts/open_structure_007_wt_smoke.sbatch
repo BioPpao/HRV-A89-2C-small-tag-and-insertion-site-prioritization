@@ -15,6 +15,8 @@ export XLA_PYTHON_CLIENT_PREALLOCATE=false
 export TF_CPP_MIN_LOG_LEVEL=0
 export COLABFOLD_DATA="$PWD/.tools/colabfold"
 export MPLBACKEND=Agg
+export LD_LIBRARY_PATH="$PWD/.tools/envs/open_structure_007/lib:$PWD/.tools/envs/open_structure_007/lib/python3.10/site-packages/nvidia/cudnn/lib:$PWD/.tools/envs/open_structure_007/lib/python3.10/site-packages/nvidia/cublas/lib:${LD_LIBRARY_PATH:-}"
+unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy ALL_PROXY all_proxy
 mkdir -p results/open_structure_007/wt_smoke "$COLABFOLD_DATA"
 
 {
@@ -36,12 +38,12 @@ PY
 
 .tools/envs/open_structure_007/bin/colabfold_batch \
   --model-type alphafold2_ptm \
+  --data "$COLABFOLD_DATA" \
   --msa-mode mmseqs2_uniref_env \
   --num-models 1 \
   --num-recycle 3 \
   --num-seeds 1 \
   --random-seed 7 \
-  --templates \
   --overwrite-existing-results \
   results/open_structure_007/wt_msa_only/A89_2C_WT.a3m \
   results/open_structure_007/wt_smoke

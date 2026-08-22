@@ -1,0 +1,3 @@
+hostname	gpu15
+devices	gpu:0
+matmul_sum	134217728.0
