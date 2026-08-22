@@ -1,0 +1,19 @@
+name: open_structure_007
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - colabfold
+  - openmm
+  - mdanalysis
+  - mdtraj
+  - biopython
+  - pandas
+  - scipy
+  - numpy
+  - kalign
+  - hhsuite
+  - mmseqs2
+  - usalign
+  - dssp
