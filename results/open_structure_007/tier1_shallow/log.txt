@@ -1,0 +1,646 @@
+2026-08-22 23:35:43,714 Running colabfold 1.5.3
+2026-08-22 23:35:45,921 Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: CUDA Interpreter
+2026-08-22 23:35:45,921 Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+2026-08-22 23:36:29,620 Running on GPU
+2026-08-22 23:36:41,006 Found 4 citations for tools or databases
+2026-08-22 23:36:41,006 Query 1/40: A89_2C_155_156_G196_minimal (length 326)
+2026-08-22 23:36:42,480 Sleeping for 8s. Reason: PENDING
+2026-08-22 23:36:51,748 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:37:02,729 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:37:13,987 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:37:26,318 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:37:37,277 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:37:47,221 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:37:53,133 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:38:27,706 Padding length to 330
+2026-08-22 23:38:57,141 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.1 pTM=0.672
+2026-08-22 23:39:03,052 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=84.1 pTM=0.665 tol=0.82
+2026-08-22 23:39:08,964 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.2 pTM=0.662 tol=0.735
+2026-08-22 23:39:14,877 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.4 pTM=0.656 tol=1.13
+2026-08-22 23:39:14,879 alphafold2_ptm_model_1_seed_011 took 47.2s (3 recycles)
+2026-08-22 23:39:15,009 reranking models by 'plddt' metric
+2026-08-22 23:39:15,009 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.4 pTM=0.656
+2026-08-22 23:39:15,570 Query 2/40: A89_2C_216_217_G196_minimal (length 326)
+2026-08-22 23:39:18,507 Sleeping for 10s. Reason: PENDING
+2026-08-22 23:39:31,760 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:39:40,690 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:39:51,768 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:40:01,817 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:40:09,067 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:40:16,148 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:40:32,835 Padding length to 330
+2026-08-22 23:40:38,788 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=79.9 pTM=0.637
+2026-08-22 23:40:44,687 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=78.2 pTM=0.621 tol=0.834
+2026-08-22 23:40:50,590 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=78.6 pTM=0.625 tol=0.657
+2026-08-22 23:40:56,505 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=78.4 pTM=0.62 tol=0.29
+2026-08-22 23:40:56,505 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-22 23:40:56,619 reranking models by 'plddt' metric
+2026-08-22 23:40:56,619 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=78.4 pTM=0.62
+2026-08-22 23:40:57,004 Query 3/40: A89_2C_256_257_G196_minimal (length 326)
+2026-08-22 23:40:58,593 Sleeping for 6s. Reason: PENDING
+2026-08-22 23:41:07,065 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:41:18,258 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:41:29,267 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:41:35,360 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:41:45,302 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:41:55,607 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:42:09,541 Padding length to 330
+2026-08-22 23:42:15,624 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=80.4 pTM=0.646
+2026-08-22 23:42:21,523 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=81.4 pTM=0.66 tol=1.49
+2026-08-22 23:42:27,439 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.2 pTM=0.667 tol=1.57
+2026-08-22 23:42:33,357 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=82.2 pTM=0.66 tol=1.01
+2026-08-22 23:42:33,358 alphafold2_ptm_model_1_seed_011 took 23.8s (3 recycles)
+2026-08-22 23:42:33,472 reranking models by 'plddt' metric
+2026-08-22 23:42:33,472 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=82.2 pTM=0.66
+2026-08-22 23:42:33,865 Query 4/40: A89_2C_287_288_G196_minimal (length 326)
+2026-08-22 23:42:34,863 Sleeping for 6s. Reason: PENDING
+2026-08-22 23:42:41,900 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:42:47,839 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:42:53,777 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:43:04,848 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:43:16,323 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:43:22,891 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:43:31,576 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:43:53,710 Padding length to 330
+2026-08-22 23:43:59,649 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.4 pTM=0.662
+2026-08-22 23:44:05,543 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=84.4 pTM=0.671 tol=0.913
+2026-08-22 23:44:11,467 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=84.7 pTM=0.68 tol=0.629
+2026-08-22 23:44:17,401 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.6 pTM=0.662 tol=1.26
+2026-08-22 23:44:17,401 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-22 23:44:17,515 reranking models by 'plddt' metric
+2026-08-22 23:44:17,515 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.6 pTM=0.662
+2026-08-22 23:44:17,900 Query 5/40: A89_2C_248_249_G196_minimal (length 326)
+2026-08-22 23:44:18,927 Sleeping for 6s. Reason: PENDING
+2026-08-22 23:44:25,875 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:44:36,922 Sleeping for 7s. Reason: RUNNING
+2026-08-22 23:44:44,970 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:44:58,299 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:45:05,973 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:45:12,581 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:45:21,837 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:45:48,223 Padding length to 330
+2026-08-22 23:45:54,477 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.6 pTM=0.674
+2026-08-22 23:46:00,369 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=86.4 pTM=0.691 tol=0.888
+2026-08-22 23:46:06,275 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=85.6 pTM=0.689 tol=0.381
+2026-08-22 23:46:12,190 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=86.2 pTM=0.694 tol=1.35
+2026-08-22 23:46:12,190 alphafold2_ptm_model_1_seed_011 took 24.0s (3 recycles)
+2026-08-22 23:46:12,303 reranking models by 'plddt' metric
+2026-08-22 23:46:12,303 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=86.2 pTM=0.694
+2026-08-22 23:46:12,691 Query 6/40: A89_2C_288_289_G196_minimal (length 326)
+2026-08-22 23:46:13,630 Sleeping for 8s. Reason: PENDING
+2026-08-22 23:46:22,590 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:46:29,580 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:46:39,584 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:46:48,525 Sleeping for 7s. Reason: RUNNING
+2026-08-22 23:46:56,705 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:47:07,032 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:47:19,049 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:47:39,946 Padding length to 330
+2026-08-22 23:47:45,872 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=81.9 pTM=0.654
+2026-08-22 23:47:51,780 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=85.4 pTM=0.68 tol=0.912
+2026-08-22 23:47:57,679 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=84.5 pTM=0.676 tol=1.06
+2026-08-22 23:48:03,598 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=85.6 pTM=0.675 tol=1.5
+2026-08-22 23:48:03,598 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-22 23:48:03,712 reranking models by 'plddt' metric
+2026-08-22 23:48:03,712 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=85.6 pTM=0.675
+2026-08-22 23:48:04,102 Query 7/40: A89_2C_289_290_G196_minimal (length 326)
+2026-08-22 23:48:05,028 Sleeping for 8s. Reason: PENDING
+2026-08-22 23:48:14,019 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:48:21,011 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:48:27,864 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:48:37,833 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:48:49,677 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:48:59,602 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:49:12,022 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:49:30,448 Padding length to 330
+2026-08-22 23:49:36,390 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83 pTM=0.663
+2026-08-22 23:49:42,290 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=84.3 pTM=0.664 tol=1.72
+2026-08-22 23:49:48,206 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=84.4 pTM=0.674 tol=1.64
+2026-08-22 23:49:54,132 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.9 pTM=0.666 tol=1.01
+2026-08-22 23:49:54,132 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-22 23:49:54,246 reranking models by 'plddt' metric
+2026-08-22 23:49:54,246 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.9 pTM=0.666
+2026-08-22 23:49:54,631 Query 8/40: A89_2C_290_291_G196_minimal (length 326)
+2026-08-22 23:49:56,628 Sleeping for 6s. Reason: PENDING
+2026-08-22 23:50:03,651 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:50:09,562 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:50:19,506 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:50:28,427 Sleeping for 7s. Reason: RUNNING
+2026-08-22 23:50:36,473 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:50:47,406 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:50:57,317 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:51:11,759 Padding length to 330
+2026-08-22 23:51:17,713 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=85 pTM=0.681
+2026-08-22 23:51:23,613 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=85.9 pTM=0.708 tol=0.628
+2026-08-22 23:51:29,515 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=85.9 pTM=0.712 tol=0.511
+2026-08-22 23:51:35,431 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=86.6 pTM=0.719 tol=0.532
+2026-08-22 23:51:35,431 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-22 23:51:35,544 reranking models by 'plddt' metric
+2026-08-22 23:51:35,544 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=86.6 pTM=0.719
+2026-08-22 23:51:35,925 Query 9/40: A89_2C_203_204_G196_minimal (length 326)
+2026-08-22 23:51:36,930 Sleeping for 9s. Reason: PENDING
+2026-08-22 23:51:46,917 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:51:57,854 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:52:04,081 Sleeping for 7s. Reason: RUNNING
+2026-08-22 23:52:12,251 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:52:23,295 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:52:44,852 Padding length to 330
+2026-08-22 23:52:50,785 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=78.4 pTM=0.64
+2026-08-22 23:52:56,671 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=82 pTM=0.666 tol=1.05
+2026-08-22 23:53:02,563 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=81.4 pTM=0.655 tol=0.601
+2026-08-22 23:53:08,464 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=82.6 pTM=0.665 tol=0.532
+2026-08-22 23:53:08,465 alphafold2_ptm_model_1_seed_011 took 23.6s (3 recycles)
+2026-08-22 23:53:08,578 reranking models by 'plddt' metric
+2026-08-22 23:53:08,578 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=82.6 pTM=0.665
+2026-08-22 23:53:08,968 Query 10/40: A89_2C_224_225_G196_minimal (length 326)
+2026-08-22 23:53:10,529 Sleeping for 5s. Reason: PENDING
+2026-08-22 23:53:16,516 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:53:27,520 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:53:35,505 Sleeping for 7s. Reason: RUNNING
+2026-08-22 23:53:44,317 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:53:51,223 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:54:10,077 Padding length to 330
+2026-08-22 23:54:15,998 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=75.4 pTM=0.603
+2026-08-22 23:54:21,895 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=75.3 pTM=0.598 tol=0.932
+2026-08-22 23:54:27,800 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=78.2 pTM=0.625 tol=0.349
+2026-08-22 23:54:33,716 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=76.6 pTM=0.604 tol=1.13
+2026-08-22 23:54:33,716 alphafold2_ptm_model_1_seed_011 took 23.6s (3 recycles)
+2026-08-22 23:54:33,829 reranking models by 'plddt' metric
+2026-08-22 23:54:33,829 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=76.6 pTM=0.604
+2026-08-22 23:54:34,206 Query 11/40: A89_2C_155_156_MAP8 (length 329)
+2026-08-22 23:54:35,173 Sleeping for 5s. Reason: PENDING
+2026-08-22 23:54:41,125 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:54:50,296 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:55:01,312 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:55:12,220 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:55:24,313 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:55:31,297 Sleeping for 7s. Reason: RUNNING
+2026-08-22 23:55:39,231 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:55:49,204 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:56:03,959 Padding length to 330
+2026-08-22 23:56:10,417 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=84.1 pTM=0.682
+2026-08-22 23:56:16,493 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=82.6 pTM=0.653 tol=1.78
+2026-08-22 23:56:22,381 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.1 pTM=0.653 tol=0.755
+2026-08-22 23:56:28,285 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.8 pTM=0.659 tol=1.18
+2026-08-22 23:56:28,286 alphafold2_ptm_model_1_seed_011 took 24.3s (3 recycles)
+2026-08-22 23:56:28,401 reranking models by 'plddt' metric
+2026-08-22 23:56:28,402 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.8 pTM=0.659
+2026-08-22 23:56:28,820 Query 12/40: A89_2C_216_217_MAP8 (length 329)
+2026-08-22 23:56:31,449 Sleeping for 7s. Reason: PENDING
+2026-08-22 23:56:39,433 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:56:48,668 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:56:58,655 Sleeping for 7s. Reason: RUNNING
+2026-08-22 23:57:06,974 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:57:17,982 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:57:39,020 Padding length to 330
+2026-08-22 23:57:44,981 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=81.7 pTM=0.665
+2026-08-22 23:57:50,893 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=81.8 pTM=0.653 tol=1.23
+2026-08-22 23:57:56,819 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=81.8 pTM=0.654 tol=1.22
+2026-08-22 23:58:02,751 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=81.4 pTM=0.642 tol=0.408
+2026-08-22 23:58:02,751 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-22 23:58:02,867 reranking models by 'plddt' metric
+2026-08-22 23:58:02,867 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=81.4 pTM=0.642
+2026-08-22 23:58:03,270 Query 13/40: A89_2C_256_257_MAP8 (length 329)
+2026-08-22 23:58:04,242 Sleeping for 6s. Reason: PENDING
+2026-08-22 23:58:11,576 Sleeping for 9s. Reason: RUNNING
+2026-08-22 23:58:21,738 Sleeping for 6s. Reason: RUNNING
+2026-08-22 23:58:28,678 Sleeping for 10s. Reason: RUNNING
+2026-08-22 23:58:42,004 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:58:51,003 Sleeping for 8s. Reason: RUNNING
+2026-08-22 23:59:01,526 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:59:07,509 Sleeping for 7s. Reason: RUNNING
+2026-08-22 23:59:15,635 Sleeping for 5s. Reason: RUNNING
+2026-08-22 23:59:25,862 Padding length to 330
+2026-08-22 23:59:32,101 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=84.4 pTM=0.673
+2026-08-22 23:59:38,083 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=85.1 pTM=0.684 tol=0.882
+2026-08-22 23:59:44,152 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=85.9 pTM=0.699 tol=0.623
+2026-08-22 23:59:50,125 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=86.1 pTM=0.697 tol=0.749
+2026-08-22 23:59:50,146 alphafold2_ptm_model_1_seed_011 took 24.3s (3 recycles)
+2026-08-22 23:59:50,261 reranking models by 'plddt' metric
+2026-08-22 23:59:50,261 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=86.1 pTM=0.697
+2026-08-22 23:59:50,902 Query 14/40: A89_2C_287_288_MAP8 (length 329)
+2026-08-22 23:59:51,931 Sleeping for 6s. Reason: PENDING
+2026-08-22 23:59:58,954 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:00:04,866 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:00:16,363 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:00:27,336 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:00:36,720 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:00:43,667 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:00:51,708 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:01:11,838 Padding length to 330
+2026-08-23 00:01:17,833 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.4 pTM=0.667
+2026-08-23 00:01:23,725 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=82.9 pTM=0.655 tol=1.42
+2026-08-23 00:01:29,658 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.8 pTM=0.662 tol=0.687
+2026-08-23 00:01:35,573 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.2 pTM=0.667 tol=0.623
+2026-08-23 00:01:35,574 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-23 00:01:35,689 reranking models by 'plddt' metric
+2026-08-23 00:01:35,689 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.2 pTM=0.667
+2026-08-23 00:01:36,078 Query 15/40: A89_2C_248_249_MAP8 (length 329)
+2026-08-23 00:01:38,916 Sleeping for 7s. Reason: PENDING
+2026-08-23 00:01:51,725 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:02:02,756 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:02:10,757 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:02:16,673 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:02:27,672 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:02:39,124 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:02:50,930 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:03:07,143 Padding length to 330
+2026-08-23 00:03:13,085 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.4 pTM=0.672
+2026-08-23 00:03:18,979 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.9 pTM=0.666 tol=1.28
+2026-08-23 00:03:24,879 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=84.4 pTM=0.679 tol=0.903
+2026-08-23 00:03:30,785 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.1 pTM=0.661 tol=0.849
+2026-08-23 00:03:30,786 alphafold2_ptm_model_1_seed_011 took 23.6s (3 recycles)
+2026-08-23 00:03:30,900 reranking models by 'plddt' metric
+2026-08-23 00:03:30,900 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.1 pTM=0.661
+2026-08-23 00:03:32,936 Query 16/40: A89_2C_288_289_MAP8 (length 329)
+2026-08-23 00:03:34,777 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:03:40,841 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:03:50,829 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:04:00,409 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:04:10,401 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:04:19,326 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:04:26,234 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:04:34,182 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:04:49,627 Padding length to 330
+2026-08-23 00:04:55,847 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.2 pTM=0.667
+2026-08-23 00:05:01,746 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=82.4 pTM=0.651 tol=1.29
+2026-08-23 00:05:07,650 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.6 pTM=0.66 tol=1.21
+2026-08-23 00:05:13,576 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.4 pTM=0.667 tol=1.02
+2026-08-23 00:05:13,576 alphafold2_ptm_model_1_seed_011 took 23.9s (3 recycles)
+2026-08-23 00:05:13,691 reranking models by 'plddt' metric
+2026-08-23 00:05:13,691 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.4 pTM=0.667
+2026-08-23 00:05:14,102 Query 17/40: A89_2C_289_290_MAP8 (length 329)
+2026-08-23 00:05:15,110 Sleeping for 6s. Reason: PENDING
+2026-08-23 00:05:22,409 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:05:30,069 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:05:38,086 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:05:45,088 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:05:54,253 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:06:02,263 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:06:13,174 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:06:37,050 Padding length to 330
+2026-08-23 00:06:42,984 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.5 pTM=0.664
+2026-08-23 00:06:48,874 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=84.6 pTM=0.669 tol=1.32
+2026-08-23 00:06:54,767 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.8 pTM=0.666 tol=1.04
+2026-08-23 00:07:00,676 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.9 pTM=0.658 tol=1.31
+2026-08-23 00:07:00,676 alphafold2_ptm_model_1_seed_011 took 23.6s (3 recycles)
+2026-08-23 00:07:00,792 reranking models by 'plddt' metric
+2026-08-23 00:07:00,792 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.9 pTM=0.658
+2026-08-23 00:07:01,180 Query 18/40: A89_2C_290_291_MAP8 (length 329)
+2026-08-23 00:07:02,118 Sleeping for 6s. Reason: PENDING
+2026-08-23 00:07:10,340 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:07:20,330 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:07:30,262 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:07:38,660 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:07:46,593 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:07:55,696 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:08:01,929 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:08:16,840 Padding length to 330
+2026-08-23 00:08:22,785 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.2 pTM=0.68
+2026-08-23 00:08:28,683 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=84.2 pTM=0.677 tol=0.761
+2026-08-23 00:08:34,594 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=84.8 pTM=0.687 tol=1.46
+2026-08-23 00:08:40,530 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=85.2 pTM=0.679 tol=0.529
+2026-08-23 00:08:40,531 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-23 00:08:40,645 reranking models by 'plddt' metric
+2026-08-23 00:08:40,645 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=85.2 pTM=0.679
+2026-08-23 00:08:41,033 Query 19/40: A89_2C_203_204_MAP8 (length 329)
+2026-08-23 00:08:44,629 Sleeping for 6s. Reason: PENDING
+2026-08-23 00:08:52,608 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:09:03,527 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:09:12,849 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:09:21,117 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:09:29,140 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:09:38,598 Padding length to 330
+2026-08-23 00:09:44,546 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.9 pTM=0.667
+2026-08-23 00:09:50,439 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=82.6 pTM=0.673 tol=3.29
+2026-08-23 00:09:56,354 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.4 pTM=0.698 tol=1.06
+2026-08-23 00:10:02,280 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.4 pTM=0.71 tol=0.266
+2026-08-23 00:10:02,281 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-23 00:10:02,395 reranking models by 'plddt' metric
+2026-08-23 00:10:02,396 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.4 pTM=0.71
+2026-08-23 00:10:04,429 Query 20/40: A89_2C_224_225_MAP8 (length 329)
+2026-08-23 00:10:06,645 Sleeping for 10s. Reason: PENDING
+2026-08-23 00:10:17,574 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:10:33,883 Timeout while fetching status from MSA server. Retrying...
+2026-08-23 00:10:34,840 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:10:43,846 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:10:53,216 Padding length to 330
+2026-08-23 00:10:59,177 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=80.9 pTM=0.648
+2026-08-23 00:11:05,093 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=81.2 pTM=0.645 tol=0.961
+2026-08-23 00:11:11,019 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.3 pTM=0.653 tol=0.586
+2026-08-23 00:11:16,947 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=81.2 pTM=0.637 tol=0.984
+2026-08-23 00:11:16,947 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-23 00:11:17,063 reranking models by 'plddt' metric
+2026-08-23 00:11:17,063 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=81.2 pTM=0.637
+2026-08-23 00:11:17,477 Query 21/40: A89_2C_155_156_HA (length 330)
+2026-08-23 00:11:18,497 Sleeping for 10s. Reason: PENDING
+2026-08-23 00:11:29,422 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:11:37,497 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:11:44,437 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:11:50,781 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:11:58,725 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:12:06,659 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:12:17,581 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:12:28,541 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:12:49,221 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.7 pTM=0.673
+2026-08-23 00:12:55,081 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.3 pTM=0.674 tol=0.72
+2026-08-23 00:13:00,956 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.6 pTM=0.67 tol=0.308
+2026-08-23 00:13:06,850 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.2 pTM=0.672 tol=0.917
+2026-08-23 00:13:06,875 alphafold2_ptm_model_1_seed_011 took 23.6s (3 recycles)
+2026-08-23 00:13:07,025 reranking models by 'plddt' metric
+2026-08-23 00:13:07,026 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.2 pTM=0.672
+2026-08-23 00:13:07,416 Query 22/40: A89_2C_155_156_G196_practical_GS (length 330)
+2026-08-23 00:13:09,174 Sleeping for 10s. Reason: PENDING
+2026-08-23 00:13:20,132 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:13:30,326 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:13:38,306 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:13:47,242 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:13:55,156 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:14:06,079 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:14:16,069 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:14:38,969 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=81.9 pTM=0.668
+2026-08-23 00:14:44,818 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=81.2 pTM=0.647 tol=1.13
+2026-08-23 00:14:50,689 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83 pTM=0.669 tol=1.07
+2026-08-23 00:14:56,591 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.3 pTM=0.659 tol=1.23
+2026-08-23 00:14:56,591 alphafold2_ptm_model_1_seed_011 took 24.1s (3 recycles)
+2026-08-23 00:14:56,712 reranking models by 'plddt' metric
+2026-08-23 00:14:56,712 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.3 pTM=0.659
+2026-08-23 00:14:57,192 Query 23/40: A89_2C_216_217_HA (length 330)
+2026-08-23 00:14:58,243 Sleeping for 8s. Reason: PENDING
+2026-08-23 00:15:07,228 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:15:17,235 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:15:23,168 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:15:30,925 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:15:36,860 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:15:42,841 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:16:10,565 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.6 pTM=0.667
+2026-08-23 00:16:16,471 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=82.3 pTM=0.663 tol=1.08
+2026-08-23 00:16:22,383 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.2 pTM=0.672 tol=1.16
+2026-08-23 00:16:28,317 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=82.9 pTM=0.659 tol=0.918
+2026-08-23 00:16:28,317 alphafold2_ptm_model_1_seed_011 took 23.6s (3 recycles)
+2026-08-23 00:16:28,432 reranking models by 'plddt' metric
+2026-08-23 00:16:28,433 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=82.9 pTM=0.659
+2026-08-23 00:16:28,810 Query 24/40: A89_2C_216_217_G196_practical_GS (length 330)
+2026-08-23 00:16:29,749 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:16:35,715 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:16:42,278 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:16:50,269 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:16:57,240 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:17:08,180 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:17:19,096 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:17:43,322 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=80.2 pTM=0.641
+2026-08-23 00:17:49,181 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=81.6 pTM=0.652 tol=1.72
+2026-08-23 00:17:55,052 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=80.1 pTM=0.642 tol=1.34
+2026-08-23 00:18:00,940 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=80.4 pTM=0.635 tol=1.22
+2026-08-23 00:18:00,960 alphafold2_ptm_model_1_seed_011 took 23.9s (3 recycles)
+2026-08-23 00:18:01,076 reranking models by 'plddt' metric
+2026-08-23 00:18:01,076 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=80.4 pTM=0.635
+2026-08-23 00:18:01,463 Query 25/40: A89_2C_256_257_HA (length 330)
+2026-08-23 00:18:03,959 Sleeping for 6s. Reason: PENDING
+2026-08-23 00:18:11,156 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:18:19,068 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:18:31,587 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:18:39,463 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:18:52,184 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:19:01,252 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:19:07,192 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:19:13,122 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:19:32,547 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.2 pTM=0.673
+2026-08-23 00:19:38,393 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.4 pTM=0.672 tol=1.43
+2026-08-23 00:19:44,267 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=85.4 pTM=0.695 tol=0.934
+2026-08-23 00:19:50,149 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=85.6 pTM=0.686 tol=0.711
+2026-08-23 00:19:50,150 alphafold2_ptm_model_1_seed_011 took 23.9s (3 recycles)
+2026-08-23 00:19:50,264 reranking models by 'plddt' metric
+2026-08-23 00:19:50,264 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=85.6 pTM=0.686
+2026-08-23 00:19:50,666 Query 26/40: A89_2C_256_257_G196_practical_GS (length 330)
+2026-08-23 00:19:52,465 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:19:58,462 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:20:07,444 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:20:18,449 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:20:28,138 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:20:38,157 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:20:47,142 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:20:56,134 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:21:27,227 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.7 pTM=0.673
+2026-08-23 00:21:33,080 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.8 pTM=0.672 tol=1.65
+2026-08-23 00:21:38,939 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.4 pTM=0.674 tol=0.879
+2026-08-23 00:21:44,807 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=82.4 pTM=0.659 tol=0.932
+2026-08-23 00:21:44,807 alphafold2_ptm_model_1_seed_011 took 23.5s (3 recycles)
+2026-08-23 00:21:44,922 reranking models by 'plddt' metric
+2026-08-23 00:21:44,922 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=82.4 pTM=0.659
+2026-08-23 00:21:45,302 Query 27/40: A89_2C_287_288_HA (length 330)
+2026-08-23 00:21:46,626 Sleeping for 6s. Reason: PENDING
+2026-08-23 00:21:53,546 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:21:59,535 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:22:11,154 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:22:21,527 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:22:27,443 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:22:37,383 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:22:44,415 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:22:51,361 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:22:57,363 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:23:35,748 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.9 pTM=0.663
+2026-08-23 00:23:41,643 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=84.6 pTM=0.678 tol=1.42
+2026-08-23 00:23:47,546 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=84.9 pTM=0.681 tol=0.511
+2026-08-23 00:23:53,466 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=85.1 pTM=0.68 tol=0.83
+2026-08-23 00:23:53,466 alphafold2_ptm_model_1_seed_011 took 23.6s (3 recycles)
+2026-08-23 00:23:53,582 reranking models by 'plddt' metric
+2026-08-23 00:23:53,582 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=85.1 pTM=0.68
+2026-08-23 00:23:53,967 Query 28/40: A89_2C_287_288_G196_practical_GS (length 330)
+2026-08-23 00:23:54,982 Sleeping for 8s. Reason: PENDING
+2026-08-23 00:24:05,393 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:24:14,530 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:24:22,560 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:24:33,530 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:24:57,890 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=81.9 pTM=0.661
+2026-08-23 00:25:03,784 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=81.6 pTM=0.649 tol=0.844
+2026-08-23 00:25:09,703 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.1 pTM=0.671 tol=0.805
+2026-08-23 00:25:15,639 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.9 pTM=0.664 tol=0.981
+2026-08-23 00:25:15,640 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-23 00:25:15,755 reranking models by 'plddt' metric
+2026-08-23 00:25:15,755 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.9 pTM=0.664
+2026-08-23 00:25:16,133 Query 29/40: A89_2C_248_249_HA (length 330)
+2026-08-23 00:25:17,063 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:25:23,006 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:25:34,039 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:25:40,039 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:25:50,416 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:25:57,504 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:26:06,293 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:26:14,224 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:26:20,196 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:26:29,122 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:26:52,596 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=85.4 pTM=0.693
+2026-08-23 00:26:58,565 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=86.8 pTM=0.694 tol=1.24
+2026-08-23 00:27:04,525 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=87 pTM=0.702 tol=1.14
+2026-08-23 00:27:10,498 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=86.9 pTM=0.69 tol=1.34
+2026-08-23 00:27:10,499 alphafold2_ptm_model_1_seed_011 took 24.4s (3 recycles)
+2026-08-23 00:27:10,620 reranking models by 'plddt' metric
+2026-08-23 00:27:10,620 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=86.9 pTM=0.69
+2026-08-23 00:27:11,043 Query 30/40: A89_2C_248_249_G196_practical_GS (length 330)
+2026-08-23 00:27:13,421 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:27:19,405 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:27:29,808 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:27:38,841 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:27:44,843 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:27:57,335 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:28:07,087 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:28:13,006 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:28:23,496 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:28:42,208 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.7 pTM=0.668
+2026-08-23 00:28:48,095 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.4 pTM=0.66 tol=1.4
+2026-08-23 00:28:54,153 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.7 pTM=0.659 tol=0.442
+2026-08-23 00:29:00,089 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.7 pTM=0.667 tol=0.788
+2026-08-23 00:29:00,090 alphafold2_ptm_model_1_seed_011 took 23.9s (3 recycles)
+2026-08-23 00:29:00,214 reranking models by 'plddt' metric
+2026-08-23 00:29:00,214 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.7 pTM=0.667
+2026-08-23 00:29:00,636 Query 31/40: A89_2C_288_289_HA (length 330)
+2026-08-23 00:29:01,616 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:29:09,138 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:29:15,452 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:29:22,508 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:29:33,484 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:29:44,420 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:29:53,577 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:30:31,762 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.4 pTM=0.674
+2026-08-23 00:30:37,692 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=84.3 pTM=0.67 tol=1.48
+2026-08-23 00:30:43,626 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=84.9 pTM=0.68 tol=1.08
+2026-08-23 00:30:49,564 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.9 pTM=0.673 tol=1.12
+2026-08-23 00:30:49,565 alphafold2_ptm_model_1_seed_011 took 24.1s (3 recycles)
+2026-08-23 00:30:49,680 reranking models by 'plddt' metric
+2026-08-23 00:30:49,680 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.9 pTM=0.673
+2026-08-23 00:30:50,057 Query 32/40: A89_2C_288_289_G196_practical_GS (length 330)
+2026-08-23 00:30:50,976 Sleeping for 7s. Reason: PENDING
+2026-08-23 00:30:59,020 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:31:06,969 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:31:17,882 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:31:25,077 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:31:36,033 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:31:43,959 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:32:20,706 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.5 pTM=0.67
+2026-08-23 00:32:26,592 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.2 pTM=0.672 tol=1.52
+2026-08-23 00:32:32,488 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.6 pTM=0.668 tol=1.08
+2026-08-23 00:32:38,397 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.6 pTM=0.667 tol=0.993
+2026-08-23 00:32:38,398 alphafold2_ptm_model_1_seed_011 took 23.6s (3 recycles)
+2026-08-23 00:32:38,514 reranking models by 'plddt' metric
+2026-08-23 00:32:38,514 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.6 pTM=0.667
+2026-08-23 00:32:38,897 Query 33/40: A89_2C_289_290_HA (length 330)
+2026-08-23 00:32:39,928 Sleeping for 8s. Reason: PENDING
+2026-08-23 00:32:49,532 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:32:59,515 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:33:06,462 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:33:15,454 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:33:21,483 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:33:28,427 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:33:37,377 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:33:58,705 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.3 pTM=0.67
+2026-08-23 00:34:04,587 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=82.9 pTM=0.653 tol=1.28
+2026-08-23 00:34:10,489 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.9 pTM=0.669 tol=0.945
+2026-08-23 00:34:16,400 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.1 pTM=0.657 tol=0.934
+2026-08-23 00:34:16,400 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-23 00:34:16,515 reranking models by 'plddt' metric
+2026-08-23 00:34:16,515 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.1 pTM=0.657
+2026-08-23 00:34:16,917 Query 34/40: A89_2C_289_290_G196_practical_GS (length 330)
+2026-08-23 00:34:18,027 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:34:23,962 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:34:36,019 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:34:42,967 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:34:54,982 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:35:05,975 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:35:14,929 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:35:47,979 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.2 pTM=0.666
+2026-08-23 00:35:53,878 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.9 pTM=0.67 tol=1.06
+2026-08-23 00:35:59,765 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.5 pTM=0.673 tol=1.02
+2026-08-23 00:36:05,665 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.8 pTM=0.664 tol=1.04
+2026-08-23 00:36:05,666 alphafold2_ptm_model_1_seed_011 took 24.2s (3 recycles)
+2026-08-23 00:36:05,781 reranking models by 'plddt' metric
+2026-08-23 00:36:05,781 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.8 pTM=0.664
+2026-08-23 00:36:06,161 Query 35/40: A89_2C_290_291_HA (length 330)
+2026-08-23 00:36:08,693 Sleeping for 9s. Reason: PENDING
+2026-08-23 00:36:20,591 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:36:30,510 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:36:41,442 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:36:48,412 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:37:00,114 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:37:09,495 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:37:49,184 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.9 pTM=0.665
+2026-08-23 00:37:55,052 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.6 pTM=0.666 tol=1.74
+2026-08-23 00:38:00,937 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=84 pTM=0.677 tol=1.15
+2026-08-23 00:38:06,836 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.9 pTM=0.667 tol=0.632
+2026-08-23 00:38:06,837 alphafold2_ptm_model_1_seed_011 took 24.1s (3 recycles)
+2026-08-23 00:38:06,953 reranking models by 'plddt' metric
+2026-08-23 00:38:06,953 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.9 pTM=0.667
+2026-08-23 00:38:08,989 Query 36/40: A89_2C_290_291_G196_practical_GS (length 330)
+2026-08-23 00:38:10,133 Sleeping for 10s. Reason: PENDING
+2026-08-23 00:38:21,103 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:38:29,540 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:38:35,506 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:38:45,552 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:38:51,548 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:38:57,554 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:39:04,791 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:39:12,761 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:39:32,373 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.2 pTM=0.676
+2026-08-23 00:39:38,233 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.8 pTM=0.675 tol=1.11
+2026-08-23 00:39:44,098 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.5 pTM=0.675 tol=0.998
+2026-08-23 00:39:49,973 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=83.2 pTM=0.663 tol=0.834
+2026-08-23 00:39:49,974 alphafold2_ptm_model_1_seed_011 took 23.5s (3 recycles)
+2026-08-23 00:39:50,088 reranking models by 'plddt' metric
+2026-08-23 00:39:50,089 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=83.2 pTM=0.663
+2026-08-23 00:39:50,470 Query 37/40: A89_2C_203_204_HA (length 330)
+2026-08-23 00:39:51,536 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:39:58,282 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:40:09,199 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:40:22,089 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:40:32,027 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:40:53,906 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=82.3 pTM=0.677
+2026-08-23 00:40:59,885 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=84.2 pTM=0.683 tol=2.2
+2026-08-23 00:41:05,763 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=82.4 pTM=0.673 tol=0.761
+2026-08-23 00:41:11,662 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=82.7 pTM=0.67 tol=0.377
+2026-08-23 00:41:11,686 alphafold2_ptm_model_1_seed_011 took 24.9s (3 recycles)
+2026-08-23 00:41:11,877 reranking models by 'plddt' metric
+2026-08-23 00:41:11,877 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=82.7 pTM=0.67
+2026-08-23 00:41:12,597 Query 38/40: A89_2C_203_204_G196_practical_GS (length 330)
+2026-08-23 00:41:13,721 Sleeping for 6s. Reason: PENDING
+2026-08-23 00:41:24,693 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:41:33,754 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:41:43,273 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:41:51,248 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:42:01,170 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:42:08,107 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:42:28,032 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=83.8 pTM=0.684
+2026-08-23 00:42:34,055 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=83.8 pTM=0.667 tol=2.19
+2026-08-23 00:42:39,991 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=83.1 pTM=0.659 tol=1.75
+2026-08-23 00:42:45,943 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=84.1 pTM=0.665 tol=0.422
+2026-08-23 00:42:45,964 alphafold2_ptm_model_1_seed_011 took 24.4s (3 recycles)
+2026-08-23 00:42:46,145 reranking models by 'plddt' metric
+2026-08-23 00:42:46,145 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=84.1 pTM=0.665
+2026-08-23 00:42:46,873 Query 39/40: A89_2C_224_225_HA (length 330)
+2026-08-23 00:42:47,980 Sleeping for 5s. Reason: PENDING
+2026-08-23 00:42:53,887 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:43:04,861 Sleeping for 7s. Reason: RUNNING
+2026-08-23 00:43:12,997 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:43:19,987 Sleeping for 10s. Reason: RUNNING
+2026-08-23 00:43:30,970 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:43:50,451 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=80.9 pTM=0.65
+2026-08-23 00:43:56,527 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=80.9 pTM=0.645 tol=1.91
+2026-08-23 00:44:02,461 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=81.5 pTM=0.652 tol=1.07
+2026-08-23 00:44:08,392 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=82.4 pTM=0.652 tol=0.786
+2026-08-23 00:44:08,393 alphafold2_ptm_model_1_seed_011 took 24.0s (3 recycles)
+2026-08-23 00:44:08,518 reranking models by 'plddt' metric
+2026-08-23 00:44:08,519 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=82.4 pTM=0.652
+2026-08-23 00:44:10,615 Query 40/40: A89_2C_224_225_G196_practical_GS (length 330)
+2026-08-23 00:44:11,594 Sleeping for 7s. Reason: PENDING
+2026-08-23 00:44:19,530 Sleeping for 9s. Reason: RUNNING
+2026-08-23 00:44:31,454 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:44:40,380 Sleeping for 5s. Reason: RUNNING
+2026-08-23 00:44:47,127 Sleeping for 8s. Reason: RUNNING
+2026-08-23 00:44:56,150 Sleeping for 6s. Reason: RUNNING
+2026-08-23 00:45:14,195 alphafold2_ptm_model_1_seed_011 recycle=0 pLDDT=78.8 pTM=0.625
+2026-08-23 00:45:20,090 alphafold2_ptm_model_1_seed_011 recycle=1 pLDDT=80.8 pTM=0.634 tol=1.16
+2026-08-23 00:45:25,996 alphafold2_ptm_model_1_seed_011 recycle=2 pLDDT=80.4 pTM=0.636 tol=1.27
+2026-08-23 00:45:31,926 alphafold2_ptm_model_1_seed_011 recycle=3 pLDDT=80.8 pTM=0.631 tol=0.861
+2026-08-23 00:45:31,927 alphafold2_ptm_model_1_seed_011 took 23.7s (3 recycles)
+2026-08-23 00:45:32,042 reranking models by 'plddt' metric
+2026-08-23 00:45:32,042 rank_001_alphafold2_ptm_model_1_seed_011 pLDDT=80.8 pTM=0.631
+2026-08-23 00:45:32,432 Done
