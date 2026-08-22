@@ -1,0 +1,7 @@
+tool	version_or_note
+python	3.11.15
+biopython	1.88
+pandas	2.3.3
+numpy	2.4.6
+mafft	v7.526 (2024/Apr/26)
+source_environment	existing .tools/envs/hrv2c-conservation-qc from CONSERVATION_002

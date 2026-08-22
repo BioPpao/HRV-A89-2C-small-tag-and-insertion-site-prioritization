@@ -1,0 +1,14 @@
+metric	value
+a89_junction_rows	320
+mapping_exact_aligned	315
+mapping_gap_adjacent	0
+mapping_ambiguous	5
+mapping_unmapped	0
+source_ev71_2c_insertions	329
+source_ev71_2c_deletions_all_lengths	987
+source_ev71_2c_substitution_scores	6580
+a89_junctions_with_direct_insert_score	320
+a89_junctions_insert_score_gt0	0
+integrated_rows	320
+integrated_experimental_conflict	14
+integrated_new_candidate_outside_strict_gate	0
