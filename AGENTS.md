@@ -100,4 +100,4 @@ All use A89 2C numbering 1–321 and were integrity-audited. Checksums are in `I
 
 ## Current next task
 
-Read `ACTIVE_TASK.md`. CONSERVATION_002 is complete in `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`; decision state is `READY_FOR_SHORTLIST` review. Do not start tag × site modeling, long MD, RNA/codon design or construct recommendations until ChatGPT/user explicitly authorizes the next task and reduced site set.
+Read `ACTIVE_TASK.md`. CONSERVATION_002 and DIRECT_INDEL_001 are complete. The current decision state is `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`, documented in `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md` and `data/candidate_junctions_v3_direct_indel.tsv`. Do not start tag × site modeling, long MD, RNA/codon design or construct recommendations until ChatGPT/user explicitly authorizes a new task and reduced/revised site set.

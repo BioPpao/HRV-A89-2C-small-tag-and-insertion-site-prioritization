@@ -127,3 +127,43 @@ QC summary:
 Scientific limitation:
 
 - The direct phenotype is homolog EV-A71 and an 8 aa insertional-handle design, not HRV-A89 small-tag validation. It is a higher-information conflict/support layer, not proof that any HRV-A89 site is safe or unsafe.
+
+### 2026-08-22 final report and validation
+
+Final report:
+
+- `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`
+
+Project-state files updated:
+
+- `PROJECT_STATE.md`
+- `ANALYSIS_INDEX.md`
+- `TODO.md`
+- `ACTIVE_TASK.md`
+- `AGENTS.md`
+- `references/LITERATURE_EVIDENCE_REGISTRY.md`
+
+Validation performed:
+
+- `python -m py_compile scripts/direct_indel_001_map_ev71_to_a89.py`: passed.
+- `data/evA71_2C_direct_indel_to_A89_v1.tsv`: 320 unique A89 junction rows, spanning `1|2` to `320|321`.
+- `data/candidate_junctions_v3_direct_indel.tsv`: 320 unique A89 junction rows.
+- Required focal junctions present: `287|288`, `288|289`, `289|290`, `290|291`, `248|249`, `256|257`, `223|224`, `245|246`, `250|251`.
+- Mapping class counts: 315 `exact_aligned`, 5 `ambiguous`.
+- EV-A71 2C insertion score `>0` after A89 mapping: 0 junctions.
+- `new_candidate_outside_strict_gate`: 0 junctions.
+
+Final decision state:
+
+`DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`
+
+Reason:
+
+- Direct EV-A71 2C handle-insertion scores are unfavorable at every mapped A89 junction.
+- The current strict C-terminal cluster maps exactly but is directly unfavorable.
+- `248|249` retains a deletion/literature-rescue conflict but does not gain insertion support.
+- No outside-strict A89 junction is recovered as favorable by direct insertion phenotype.
+
+Next action:
+
+Stop execution and wait for ChatGPT/user review. A new task file is required before any Tag x Site modeling, long MD, RNA/codon design or construct recommendation.

@@ -18,23 +18,24 @@ Completed in:
 - `data/hrvA_conservation_per_junction_v2.tsv`
 - `data/junction_structural_metrics_v2.tsv`
 
-## P0 — CURRENT: DIRECT_INDEL_001
+## P0 — DIRECT_INDEL_001 — COMPLETE
 
 Rationale:
 
 The present shortlist is based mainly on WT structural geometry, functional mapping and near-HRV evolutionary context. These are useful proxies but do not directly measure insertion tolerance.
 
-Before Tag × Site modeling, integrate direct enterovirus 2C insertion/deletion viral-fitness evidence.
+Before Tag × Site modeling, direct enterovirus 2C insertion/deletion viral-fitness evidence was integrated.
 
-Required work:
+Completed work:
 
-- verify the EV-A71 proteome-scale deep insertion/deletion study and data provenance;
-- acquire processed mutation-fitness data;
-- extract mature EV-A71 2C insertion/deletion data;
-- map EV-A71 2C junctions to HRV-A89 2C with auditable alignment;
-- project direct evidence to all 320 A89 junctions;
-- rebuild an integrated V3 candidate table without overwriting V2;
-- explicitly identify experimental conflicts and new candidates outside the current strict structural gate.
+- verified the EV-A71 proteome-scale deep insertion/deletion study and data provenance;
+- acquired processed mutation-fitness data from the publication code/data repository and Dryad metadata;
+- confirmed EV-A71 Tainan/4643/98 accession `MW298156`, mature 2C nt `4079-5065`, 329 aa;
+- extracted mature EV-A71 2C insertion/deletion/substitution data;
+- mapped EV-A71 2C junctions to HRV-A89 2C with MAFFT mature-sequence alignment;
+- projected direct evidence to all 320 A89 junctions;
+- rebuilt an integrated V3 candidate table without overwriting V2;
+- identified no favorable direct insertion-supported sites, either in the current strict cluster or outside it.
 
 Task specification:
 
@@ -44,21 +45,32 @@ Strategic audit:
 
 - `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V1.md`
 
+Outputs:
+
+- `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`
+- `docs/DIRECT_INDEL_001_RUN_LOG.md`
+- `data/evA71_2C_direct_indel_to_A89_v1.tsv`
+- `data/candidate_junctions_v3_direct_indel.tsv`
+- `references/direct_indel_001/source_records_v1.tsv`
+
+Decision state:
+
+- `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`
+
 Do not start Tag × Site modeling automatically after completion; ChatGPT/user review remains mandatory.
 
-## P1 — Candidate-junction shortlist re-audit after direct InDel evidence
+## P0 — CURRENT: Candidate-junction shortlist re-audit after direct InDel evidence
 
 After `DIRECT_INDEL_001`:
 
-- compare direct homolog phenotype with current structural/function/conservation evidence;
-- explicitly test whether `287|288–290|291` remain preferred;
-- reassess `248|249`, `256|257`, `223|224`, `245|246`, `250|251`;
-- identify any non-strict A89 junction newly supported by direct homolog insertion fitness;
-- allow `NO_TARGETED_SITE` if evidence remains unfavorable.
+- review `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`;
+- decide whether `NO_TARGETED_SITE` / targeted empirical insertion-library strategy is the next project move;
+- decide whether any conflict-aware modeling/control set is still worth authorizing despite unfavorable direct insertion evidence;
+- if ambiguity remains, authorize a new explicit method-hardening task rather than starting Tag × Site modeling automatically.
 
 Planned deliverable:
 
-- updated candidate-junction prioritization report after direct-evidence integration.
+- ChatGPT/user decision and a new task file if further execution is authorized.
 
 ## P1 — Optional method hardening if ambiguity remains
 

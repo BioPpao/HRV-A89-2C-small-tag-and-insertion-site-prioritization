@@ -18,6 +18,7 @@ Purpose: map each literature source to the **specific claim it is allowed to sup
 |---|---|---|---|
 | Li JP, Baltimore D. *J Virol.* 1988. DOI `10.1128/JVI.62.11.4016-4021.1988` | A | historical evidence that some small insertions in poliovirus 2C can be viable; used to preserve a literature-rescue track | does not make the homologous A89 junction automatically safe |
 | Teterina NL et al. *Virology.* 2011;409:1–11. DOI `10.1016/j.virol.2010.09.028` | A | 2C is unusually insertion-sensitive in a systematic poliovirus nonstructural-protein insertion screen; tag identity can affect fitness independently of site | does not prove all internal insertions in HRV-A89 2C are impossible |
+| Bakhache W et al. *Nat Microbiol.* 2025;10:158–168. DOI `10.1038/s41564-024-01871-y`; Dryad DOI `10.5061/dryad.866t1g1xm`; GitHub `QVEU/eva71_dimple` commit `c99331a60980f68bb0141506e750e8339f278d08` | A / direct homolog phenotype | EV-A71 2C direct insertion/deletion/substitution viral-fitness layer mapped to all 320 A89 junctions in `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`; supports `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION` because all mapped 2C handle-insertion scores are unfavorable | homolog EV-A71 evidence using 8 aa insertional handle `SGRPGSLS`; does not directly validate or reject an HRV-A89 construct or a different tag chemistry |
 
 ## 2C ATPase / oligomerization / structural-function evidence
 

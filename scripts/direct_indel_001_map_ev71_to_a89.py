@@ -169,6 +169,16 @@ def classify_insert(score: float | None) -> str:
     return "direct_insert_strongly_deleterious"
 
 
+def classify_deletion_context(score: float | None) -> str:
+    if score is None:
+        return "no_direct_deletion_context"
+    if score > 0:
+        return "deletion_context_tolerated_score_gt0"
+    if score >= -1:
+        return "deletion_context_partly_deleterious"
+    return "deletion_context_strongly_deleterious"
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--raw-dir", type=Path, default=Path("data/raw/direct_indel_001"))
@@ -275,6 +285,16 @@ def main() -> None:
                 v = score_at(dele, p, "3AAdel")
                 if v is not None:
                     del_3_spans.append(v)
+        deletion_candidates = [
+            ("1AAdel_left_residue", del_1_left),
+            ("1AAdel_right_residue", del_1_right),
+            ("2AAdel_spanning_junction", del_2_span),
+        ] + [(f"3AAdel_spanning_option_{i+1}", v) for i, v in enumerate(del_3_spans)]
+        deletion_candidates = [(k, v) for k, v in deletion_candidates if v is not None and not math.isnan(v)]
+        best_deletion_design = ""
+        best_deletion_score = None
+        if deletion_candidates:
+            best_deletion_design, best_deletion_score = max(deletion_candidates, key=lambda kv: kv[1])
 
         flank_positions = []
         if len(source_lefts) == 1:
@@ -309,6 +329,9 @@ def main() -> None:
                 "deletion_1aa_right_raw_log2_enrich2": fmt_float(del_1_right),
                 "deletion_2aa_spanning_raw_log2_enrich2": fmt_float(del_2_span),
                 "deletion_3aa_spanning_raw_log2_enrich2_values": fmt_list(del_3_spans),
+                "deletion_context_best_design": best_deletion_design,
+                "deletion_context_best_raw_log2_enrich2": fmt_float(best_deletion_score),
+                "deletion_context_class": classify_deletion_context(best_deletion_score),
                 "substitution_flank_mean_raw_log2_enrich2": fmt_float(sub_mean),
                 "source_identifier": "Bakhache_2024_NatMicrobiol_Dryad_10.5061_dryad.866t1g1xm_QVEU_eva71_dimple_c99331a6",
             }
@@ -393,6 +416,7 @@ def main() -> None:
             ("source_ev71_2c_substitution_scores", len(dms)),
             ("a89_junctions_with_direct_insert_score", int((direct["insertion_raw_log2_enrich2"] != "").sum())),
             ("a89_junctions_insert_score_gt0", int((pd.to_numeric(direct["insertion_raw_log2_enrich2"], errors="coerce") > 0).sum())),
+            ("a89_junctions_deletion_context_score_gt0", int((pd.to_numeric(direct["deletion_context_best_raw_log2_enrich2"], errors="coerce") > 0).sum())),
             ("integrated_rows", len(merged)),
             ("integrated_experimental_conflict", int((merged["direct_indel_integration_class"] == "experimental_conflict").sum())),
             ("integrated_new_candidate_outside_strict_gate", int((merged["direct_indel_integration_class"] == "new_candidate_outside_strict_gate").sum())),

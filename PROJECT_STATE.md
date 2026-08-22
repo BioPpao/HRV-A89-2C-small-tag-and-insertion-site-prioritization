@@ -46,9 +46,9 @@ Four audited inputs use a common HRV-A89 2C sequence and residue numbering 1–3
 | 3. Small-tag evidence screen | **COMPLETE, V1** | `docs/TAG_CANDIDATE_SCREEN_V1.md` | MAP8/HA/G196 lead the first modeling layer; tag ranking remains site-dependent |
 | 4A. HRV-A conservation / natural-indel screen | **PROVISIONANCE V1** | `docs/CONSERVATION_SCREEN_V1.md` | historical/provisional only |
 | 4B. Conservation/taxonomy/structural QC hardening | **COMPLETE, V2** | `docs/CONSERVATION_SCREEN_V2.md`, `data/candidate_junctions_v2.tsv` | MAFFT/ICTV/indel/structural QC is decision-grade as a proxy layer |
-| 5. Preliminary candidate shortlist | **WORKING HYPOTHESIS ONLY** | `docs/CANDIDATE_SHORTLIST_001_DECISION.md` | current cluster is not final because direct homolog InDel phenotype has not yet been integrated |
-| 5B. Direct homolog insertion/deletion phenotype | **CURRENT / READY TO EXECUTE** | `tasks/DIRECT_INDEL_001.md` | map EV-A71 2C direct InDel fitness to all 320 A89 junctions and allow current shortlist to be overturned |
-| 5C. Candidate re-audit after direct evidence | **PENDING** | planned V3 integrated table/report | identify convergent support, experimental conflicts and new candidates outside current structural gate |
+| 5. Preliminary candidate shortlist | **REQUIRES REVISION** | `docs/CANDIDATE_SHORTLIST_001_DECISION.md` | EV-A71 direct insertion evidence does not support the working cluster as a targeted shortlist |
+| 5B. Direct homolog insertion/deletion phenotype | **COMPLETE, V1** | `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`, `data/candidate_junctions_v3_direct_indel.tsv` | all 320 A89 junctions mapped; direct EV-A71 2C handle insertion is unfavorable at every mapped site |
+| 5C. Candidate re-audit after direct evidence | **CURRENT REVIEW GATE** | `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md` | ChatGPT/user must decide whether to pivot to `NO_TARGETED_SITE` / targeted empirical insertion-library strategy or retain only conflict-aware controls |
 | 6. Tag × site insertion-specific modeling | **PENDING** | planned construct ensembles/metrics | only after direct-evidence review |
 | 7. Targeted MD | **LATER** | reduced construct set only | do not return to generic WT-only MD |
 | 8. RNA/codon audit | **BLOCKED ON INPUT** | planned nucleotide-level analysis | exact experimental sequence/context required |
@@ -78,6 +78,36 @@ Stable interpretation:
 
 Important nuance: do not describe `287–291` as uniformly variable. `287|288` has conserved flanking residues despite a variable local window; `288|289`, `289|290` and `290|291` include strongly variable flanking residues.
 
+## Current direct homolog InDel result — V1
+
+DIRECT_INDEL_001 integrated Bakhache et al. EV-A71 direct insertion/deletion fitness data before Tag x Site modeling.
+
+Decision state:
+
+`DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`
+
+Key outputs:
+
+- `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`
+- `data/evA71_2C_direct_indel_to_A89_v1.tsv`
+- `data/candidate_junctions_v3_direct_indel.tsv`
+- `references/direct_indel_001/source_records_v1.tsv`
+- `results/direct_indel_001/direct_indel_001_qc_summary.tsv`
+
+Stable interpretation:
+
+- EV-A71 reference was verified as `MW298156` / Tainan/4643/98, mature 2C nt `4079-5065`, 329 aa.
+- MAFFT mature-2C mapping covers all 320 HRV-A89 junctions.
+- Mapping classes: 315 `exact_aligned`, 5 `ambiguous`, 0 `unmapped`.
+- Ambiguous A89 junctions: `34|35`, `70|71`, `109|110`, `142|143`, `250|251`.
+- The direct insertion design is the 8 aa insertional handle `SGRPGSLS`; it is not mixed with deletion or substitution scores.
+- A89 junctions with EV-A71 2C insertion score `>0`: 0.
+- New candidates outside the strict structural gate with favorable direct insertion phenotype: 0.
+- The previous `287|288-290|291` working cluster maps exactly but is experimentally unfavorable in EV-A71 2C handle-insertion data.
+- `248|249` retains a partly deleterious 1-aa deletion context and literature-rescue conflict, but insertion evidence remains unfavorable.
+
+This direct homolog phenotype is not direct HRV-A89 validation, but it is stronger than WT structure/conservation proxies and therefore requires shortlist review before any Tag x Site modeling.
+
 ## Why the previous shortlist is no longer sufficient by itself
 
 The current pipeline still relies mainly on proxies for insertion tolerance:
@@ -87,14 +117,9 @@ The current pipeline still relies mainly on proxies for insertion tolerance:
 - evolutionary substitution variability;
 - natural indel context.
 
-A higher-information evidence layer has been identified: a published EV-A71 proteome-scale deep insertion/deletion fitness dataset that includes 2C and measures viral fitness directly after insertion/deletion perturbation.
+A higher-information evidence layer has now been integrated: the EV-A71 proteome-scale deep insertion/deletion fitness dataset that includes 2C and measures viral fitness directly after insertion/deletion perturbation.
 
-This direct homolog phenotype must be integrated before Tag × Site modeling because it can:
-
-- support current candidates;
-- contradict current structural/conservation predictions;
-- recover candidate junctions outside the current strict structural gate;
-- expose structural-threshold or confirmation bias.
+This direct homolog phenotype did not support the current working shortlist and did not recover a new favorable outside-strict insertion candidate.
 
 ## Current method-gap assessment
 
@@ -142,27 +167,21 @@ FLAG remains excluded.
 
 ## Current working candidate hypotheses
 
-These are **not final sites** and must be allowed to change after DIRECT_INDEL_001:
+These are **not final sites** and are no longer supported as a targeted shortlist by direct homolog insertion phenotype:
 
-- `288|289` — strong current computational candidate;
-- `289|290` — strong current computational candidate with C290/C-terminal-transition caution;
-- `287|288`, `290|291` — secondary structural candidates;
-- `248|249`, `256|257` — literature-rescue/conflict controls.
-
-The direct homolog analysis must cover all 320 junctions and explicitly search for better sites outside this set.
+- `287|288`, `288|289`, `289|290`, `290|291` — exact EV-A71 mapping, but unfavorable direct handle-insertion scores;
+- `248|249`, `256|257` — literature-rescue/conflict controls, but unfavorable direct handle-insertion scores;
+- `223|224`, `245|246` — outside-strict review controls, unfavorable direct handle-insertion scores;
+- `250|251` — outside-strict review control with ambiguous EV-A71 mapping and unfavorable source scores.
 
 ## Immediate next step
 
-Execute `tasks/DIRECT_INDEL_001.md`.
+ChatGPT/user review of `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`.
 
-Expected outputs include:
+Decision needed:
 
-- verified source/provenance records;
-- EV-A71 mature 2C perturbation data;
-- EV-A71→A89 junction mapping with mapping confidence;
-- `data/evA71_2C_direct_indel_to_A89_v1.tsv`;
-- `data/candidate_junctions_v3_direct_indel.tsv`;
-- `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`;
-- a final state of `DIRECT_EVIDENCE_SUPPORTS_TARGETED_SHORTLIST`, `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`, or `DIRECT_EVIDENCE_INSUFFICIENT_OR_MAPPING_LIMITED`.
+1. pivot to `NO_TARGETED_SITE` / targeted empirical insertion-library strategy;
+2. retain only a small conflict-aware modeling/control set, explicitly not as directly supported candidates;
+3. request a new task for optional method hardening before deciding.
 
-Do not start Tag × Site modeling automatically after completion; ChatGPT/user review remains the next decision gate.
+Do not start Tag x Site modeling automatically; ChatGPT/user review remains the next decision gate.
