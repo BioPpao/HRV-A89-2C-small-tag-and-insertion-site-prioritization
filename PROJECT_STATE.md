@@ -14,128 +14,91 @@ The computational endpoint is **relative candidate prioritization and perturbati
 
 `TAG_SITE_MODELING_PARTIALLY_COMPLETE`
 
-CONTINUOUS_TAG_SITE_MODELING_005 built a compact conflict-aware 33-junction x 4-tag panel and completed the independent WT-anchor, oligomer-context, contact-network, reused evolutionary/direct-evidence and robustness layers.
+CONTINUOUS_TAG_SITE_MODELING_005 completed all available WT-anchor/context analyses for the 33-junction x 4-tag panel but lacked mature inserted-structure, loop-remodeling and local energy workflows.
 
-The task is only partially complete because mature insertion-specific structure-prediction ensembles, Rosetta/KIC-like loop remodeling and FoldX/Rosetta/local-frustration energy analysis were not available in the current user/module environment. No inserted-structure or energy result was fabricated.
+The main remaining computational blocker is therefore now an environment/method-stack problem rather than another global site-scoring problem.
 
 ## Current active task
 
-`CONTINUOUS_TAG_SITE_MODELING_005`
+`STRUCTURE_STACK_RECOVERY_006`
 
-Status: **COMPLETED / PARTIAL BY SOFTWARE AVAILABILITY**
+Status: **AUTHORIZED / CONTINUITY-FIRST ENVIRONMENT + MODELING TASK**
 
 Branch: `analysis/conservation-002`
 
 Task specification:
 
-- `tasks/CONTINUOUS_TAG_SITE_MODELING_005.md`
+- `tasks/STRUCTURE_STACK_RECOVERY_006.md`
 
-## Why this task is next
+## Structure-engine decision
 
-The current evidence stack already includes:
+For the current project, **ColabFold / `colabfold_batch` is the primary required structure-prediction engine**.
 
-- A89 functional constraints;
-- four-structure WT geometry;
-- HRV-A conservation;
-- phylogeny-aware independent-indel evidence;
-- EV-A71 insertion/deletion/substitution phenotype mapping;
-- all-320 Pareto/robustness analysis;
-- MAP8/HA/G196 tag-specific ESM2 PLM scores;
-- V5 integrated evidence matrix;
-- V2 computational review set.
+Standalone AlphaFold, OpenFold and ESMFold are not installed by default because they are largely redundant for the present evidence class and add unnecessary environment/storage complexity. An alternative structure engine is only warranted if ColabFold cannot be made scientifically usable after reasonable recovery attempts.
 
-The main unresolved computational question remains construct-specific:
+## Storage/runtime policy
 
-> after inserting a particular tag at a particular review junction, how strongly is the native 2C structural environment perturbed?
+Repository path:
 
-CONTINUOUS_TAG_SITE_MODELING_005 answers this only for completed WT-anchor/context layers and explicitly records deferred primary insertion-specific methods.
+`/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization`
 
-## CONTINUOUS_TAG_SITE_MODELING_005 result
+The shared `/public` filesystem has substantial absolute free space but high utilization. The task must audit quota/storage before installation and avoid a full local ColabFold/MMseqs database unless clearly required.
 
-Primary report:
+Preferred workflow:
 
-- `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
+- obtain/cache MSAs from a network-capable login context using the public ColabFold MSA service;
+- keep A3M/MSA and model caches in a controlled user/project location;
+- run GPU inference on Slurm compute nodes using cached inputs when compute-node networking is restricted.
 
-Primary outputs:
+## Additional methods
 
-- `data/tag_site_modeling_panel_v1.tsv`
-- `results/tag_site_modeling_005/environment_and_method_inventory.tsv`
-- `data/tag_site_structure_ensemble_metrics_v1.tsv`
-- `data/tag_site_loop_feasibility_v1.tsv`
-- `data/tag_site_energy_context_v1.tsv`
-- `data/tag_site_contact_network_v1.tsv`
-- `data/tag_site_hexamer_context_v1.tsv`
-- `data/tag_site_integrated_perturbation_v1.tsv`
-- `results/tag_site_modeling_005/cross_method_robustness.tsv`
+The task also attempts to recover orthogonal methods where legally/technically available:
 
-Summary:
+- OpenMM relaxation/minimization and structural QC;
+- MDTraj/MDAnalysis and structural comparison utilities;
+- Rosetta/PyRosetta for loop/backbone remodeling if an existing licensed installation or legitimate user-provided access is available;
+- FoldX for an orthogonal energetic layer if an existing licensed installation or legitimate user-provided access is available;
+- local-frustration analysis if a mature reproducible workflow is available.
 
-- 132 site x tag constructs were evaluated.
-- `289|290` and `290|291` with MAP8 or G196_minimal are the lowest relative perturbation rows among completed layers.
-- All four still retain direct homolog insertion conflict and are not validated or safe.
-- `203|204`, `224|225`, `248|249` and `256|257` are structurally/context constrained in this task.
-- G196_minimal is not globally less disruptive than MAP8/HA; its advantage is local and method-dependent.
+Rosetta/FoldX license requirements must not cause the whole task to stop. If user license action is required, only that module is deferred.
 
-## Methods authorized in CONTINUOUS_TAG_SITE_MODELING_005
+## Continuity-first execution rule
 
-The task adds missing/underused orthogonal computational layers:
+The task must continue through independent work when one local resource fails.
 
-1. insertion-specific structure-prediction ensembles;
-2. loop/backbone closure and conformational feasibility modeling;
-3. local energetic/frustration analysis;
-4. oligomer-context compatibility analysis;
-5. residue-contact-network perturbation analysis;
-6. targeted phylogeny-aware site-rate / coevolution / flexibility checks where technically defensible;
-7. cross-method robustness analysis.
+Expected recovery behavior:
 
-These methods are secondary perturbation-ranking layers and cannot override direct phenotype or hard functional constraints.
+- login node without GPU → use Slurm rather than stopping;
+- GPU partition unavailable → inspect alternatives and continue CPU preparation;
+- compute-node internet blocked → download/cache from login context and execute offline on compute node;
+- preferred package fails → try another mature method in the same evidence class;
+- licensed package unavailable → mark only that module `DEFERRED_LICENSE_USER_ACTION`;
+- Git push unavailable → preserve local commits/results and retry later;
+- do not rerun completed global all-320 analyses unless a concrete QC defect is found.
 
-## Continuity-first execution rule used
+## Current scientific interpretation entering STRUCTURE_STACK_RECOVERY_006
 
-The task must not stop merely because one preferred tool, package, GPU, scheduler context, network route, or Git push is unavailable.
+The strongest relative constructs from completed non-fabricated layers are:
 
-Required recovery behavior:
+- `289|290 × MAP8`;
+- `289|290 × G196_minimal`;
+- `290|291 × MAP8`;
+- `290|291 × G196_minimal`.
 
-- detect login-node versus Slurm compute-node context;
-- request/submit GPU work when needed;
-- continue CPU-capable work while GPU jobs are pending when useful;
-- use login-node network access to prepare dependencies/checkpoints for compute-node execution when necessary;
-- try alternative mature methods within the same evidence class if the preferred package fails;
-- mark only the affected module deferred when no mature substitute is available;
-- continue independent modules;
-- preserve local commits/results if remote push temporarily fails.
+These remain direct-homolog-conflicted and are not validated or safe.
 
-The continuity rule was applied: deferred structure/loop/energy methods did not stop panel construction, WT anchor analyses or evidence integration.
+Important conflict/control rows include:
 
-## Fixed project constraints
+- `203|204`;
+- `224|225`;
+- `248|249`;
+- `256|257`;
+- `287|288`;
+- `288|289`;
+- `289|290`;
+- `290|291`.
 
-- FLAG remains excluded because the 9A5 construct already uses FLAG.
-- Ranking unit remains peptide junction `i|i+1`.
-- Monomer-only exposure is insufficient.
-- Current A89 hexamers are no-membrane/no-RNA hypotheses and are comparative context models only.
-- Conservation and PLM are supporting evidence, not direct insertion-tolerance proof.
-- Direct homolog insertion phenotype remains a high-weight prior, not an absolute HRV-A89 veto.
-- Structure prediction is a perturbation screen, not biological validation.
-- Exact RNA/codon analysis still requires the real experimental nucleotide construct.
-- No computational analysis may label a site safe or experimentally validated.
-
-## Current candidate/control interpretation
-
-### `289|290`, `290|291`
-
-`RELATIVELY_LOWER_PERTURBATION__DIRECT_EVIDENCE_CONFLICT` for MAP8 and G196_minimal under completed WT-anchor/context layers only.
-
-### `287|288`, `288|289`
-
-`STRUCTURE_EVOLUTION_FAVORED__DIRECT_HOMOLOG_CONFLICT`
-
-### `248|249`, `256|257`
-
-`HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`, with unfavorable WT oligomer/contact context in CONTINUOUS_TAG_SITE_MODELING_005.
-
-### Outside-strict examples such as `203|204`, `224|225`
-
-Remain useful conflict-aware review rows, but were structurally/context disfavored in CONTINUOUS_TAG_SITE_MODELING_005.
+The next task must generate real inserted structural ensembles before these relative rankings can be strengthened.
 
 ## Evidence hierarchy
 
@@ -153,24 +116,33 @@ When evidence conflicts, use:
 
 No lower-level method may silently override stronger evidence.
 
-## Required outputs from current task
+## Expected STRUCTURE_STACK_RECOVERY_006 outputs
 
-Expected primary outputs include:
+Primary outputs include:
 
-- `data/tag_site_modeling_panel_v1.tsv`
-- `results/tag_site_modeling_005/environment_and_method_inventory.tsv`
-- `data/tag_site_structure_ensemble_metrics_v1.tsv`
-- `data/tag_site_loop_feasibility_v1.tsv`
-- `data/tag_site_energy_context_v1.tsv`
-- `data/tag_site_contact_network_v1.tsv`
-- `data/tag_site_hexamer_context_v1.tsv`
-- `data/tag_site_integrated_perturbation_v1.tsv`
-- `results/tag_site_modeling_005/cross_method_robustness.tsv`
-- `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
+- `results/structure_stack_006/environment_inventory.tsv`
+- `results/structure_stack_006/colabfold_smoke_test.tsv`
+- `data/tag_site_structure_panel_v2.tsv`
+- `results/structure_stack_006/prediction_manifest.tsv`
+- `data/tag_site_structure_ensemble_metrics_v2.tsv`
+- `data/tag_site_structure_perturbation_v2.tsv`
+- `data/tag_site_loop_feasibility_v2.tsv`
+- `data/tag_site_energy_context_v2.tsv`
+- `data/tag_site_hexamer_context_v2_tagged.tsv`
+- `data/tag_site_contact_network_v2_tagged.tsv`
+- `data/tag_site_integrated_perturbation_v2_structure.tsv`
+- `results/structure_stack_006/cross_method_robustness_v2.tsv`
+- `docs/STRUCTURE_STACK_RECOVERY_006_REPORT.md`
 
-## Current stop gate
+## Final task state expected
 
-ChatGPT/user review is required. Do not automatically escalate to long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
+Return exactly one of:
+
+- `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
+- `NO_COMPUTATIONAL_CONSENSUS_SITE`
+- `STRUCTURE_STACK_PARTIALLY_COMPLETE`
+
+Do not automatically escalate to long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
 
 ## Required future user input
 
