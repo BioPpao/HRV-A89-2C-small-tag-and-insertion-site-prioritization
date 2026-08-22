@@ -1,105 +1,130 @@
 # Project State
 
-Last updated: 2026-08-21
+Last updated: 2026-08-22
 
 Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
-> The repository slug is historical. The project is **not HA-only**. The current question is joint prioritization of **small tag identity × internal insertion junction** for HRV-A89 2C.
+> The project is not HA-only. The core question is joint prioritization of **small tag identity × internal insertion junction** for HRV-A89 2C.
 
 ## Scientific objective
 
 Identify a small set of experimentally testable internal-tag constructs for HRV-A89 2C that minimize predicted perturbation of native 2C biology while remaining detectable in downstream mechanistic experiments.
 
-The computational endpoint is **candidate prioritization**, not proof of a "safe" insertion site.
+The computational endpoint is **candidate prioritization**, not proof of a safe insertion site.
 
 ## Fixed project constraints
 
 - FLAG is excluded because the 9A5 antibody construct already uses FLAG; orthogonal detection is required.
 - N- or C-terminal tagging is not assumed safe.
-- The ranking unit is the peptide junction `i|i+1`, with both flanking residues and a local sequence/structure window evaluated.
-- Homologous functional residues must be mapped to HRV-A89; residue numbers from PV/EV-A71/FMDV are not copied directly.
-- Monomer-only exposure is insufficient. Candidate sites must be evaluated in both AlphaFold monomers and both hexamer ensembles.
-- Current HRV-A89 hexamers are template-guided, no-membrane/no-RNA structural hypotheses and cannot by themselves establish native pore/RNA geometry.
-- Final RNA-level design requires the exact experimental nucleotide sequence/context; protein back-translation is not an acceptable substitute.
-- Decision-changing analyses must use appropriate mature methods. Missing software should be installed in a reproducible user-space environment rather than silently replaced by a weaker method.
+- The ranking unit is peptide junction `i|i+1`, not an isolated residue.
+- Homologous functional residues must be explicitly mapped to HRV-A89.
+- Monomer-only exposure is insufficient; current site metrics use two A89 monomer models and two hexamer ensembles.
+- Current A89 hexamers are template-guided no-membrane/no-RNA hypotheses and cannot establish native RNA-pore geometry by themselves.
+- Conservation is supporting evidence, not proof of artificial insertion tolerance.
+- Tagged-structure prediction is a perturbation screen, not biological validation.
+- Exact RNA/codon analysis requires the real experimental nucleotide construct; protein back-translation is not an acceptable substitute.
+- Decision-changing analyses must use mature reproducible software; missing tools should be installed in user space rather than silently replaced with weaker methods.
 
 ## Current structural inputs
 
-Four supplied structures have been audited and use a common HRV-A89 2C sequence and residue numbering 1–321:
+Four audited inputs use a common HRV-A89 2C sequence and residue numbering 1–321:
 
 | Input | Role | Audit result |
 |---|---|---|
-| `fold_hrv_2c_full_model_3.cif` | AlphaFold monomer source of the current lead hexamer | 321 aa; chain A; no residue gaps; sequence matches reference |
-| `fold_hrv_2c_full_model_1.cif` | AlphaFold monomer source of the companion/control hexamer | 321 aa; chain A; no residue gaps; sequence matches reference |
-| `selected_hexamer_01_md_representative.pdb` | current no-membrane lead hexamer | chains A–F; each 321 aa; no residue gaps |
-| `selected_hexamer_02_md_representative.pdb` | companion/control hexamer | chains A–F; each 321 aa; no residue gaps |
-
-Key C-alpha RMSD checks are recorded in `results/phase0_structure_rmsd.tsv` and summarized in `docs/METHOD_LOGIC_AUDIT_V2.md`.
+| `fold_hrv_2c_full_model_3.cif` | AlphaFold monomer / lead hexamer source | 321 aa, chain A, no residue gaps, sequence matches reference |
+| `fold_hrv_2c_full_model_1.cif` | AlphaFold monomer / companion hexamer source | 321 aa, chain A, no residue gaps, sequence matches reference |
+| `selected_hexamer_01_md_representative.pdb` | lead no-membrane hexamer | chains A–F, each 321 aa |
+| `selected_hexamer_02_md_representative.pdb` | companion no-membrane hexamer | chains A–F, each 321 aa |
 
 ## Phase status
 
 | Phase | Status | Main deliverable | Current interpretation |
 |---|---|---|---|
-| 0. Input integrity / numbering / sequence / RMSD audit | **COMPLETE** | `results/phase0_structure_integrity.tsv`, `results/phase0_structure_rmsd.tsv` | four structures are mutually compatible for residue-level comparison |
-| 1. 2C functional constraint/exclusion mapping | **COMPLETE, working V3** | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | A89-specific annotations + homolog genetics/structures define hard/high-risk regions |
-| 2. Four-structure all-atom junction screen | **COMPLETE, V2 REGENERATED** | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v2.tsv` | V2 strict gate is internally consistent; original 10 strict-pass junctions remain |
-| 3. Small-tag evidence screen | **COMPLETE, V1** | `docs/TAG_CANDIDATE_SCREEN_V1.md` | MAP8/HA/G196 lead the first modeling set; ranking remains site-dependent |
-| 4A. Near-HRV conservation / indel-tolerance layer | **PROVENANCE V1** | `docs/CONSERVATION_SCREEN_V1.md`, `data/candidate_junctions_v1.tsv` | preserved as provisional history |
-| 4B. Conservation / taxonomy / structural QC hardening | **COMPLETE, V2** | `docs/CONSERVATION_SCREEN_V2.md`, `data/candidate_junctions_v2.tsv` | MAFFT/ICTV/indel/structural QC supports `READY_FOR_SHORTLIST` for review, not automatic modeling |
-| 5. Candidate-junction shortlist | **NEXT / PENDING CHATGPT REVIEW** | `docs/CANDIDATE_JUNCTION_QC_V1.md` | choose narrow strict-pass cluster plus rescue controls, broaden to near-misses, or decide `NO_TARGETED_SITE` |
-| 6. Tag × site structural perturbation modeling | **PENDING** | planned construct models/metrics | only after the site set is reduced and approved |
-| 7. RNA/codon audit | **BLOCKED ON INPUT** | planned RNA/codon audit | requires exact experimental nucleotide sequence/context |
-| 8. Experimental construct recommendation | **PENDING** | primary/backup construct set | requires later evidence integration and biological validation |
+| 0. Input integrity / numbering / RMSD audit | **COMPLETE** | `results/phase0_structure_integrity.tsv`, `results/phase0_structure_rmsd.tsv` | four structures are compatible for residue-level comparison |
+| 1. 2C functional constraint/exclusion map | **COMPLETE, working V3** | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | A89 annotations + homolog genetics/structures define hard/high-risk regions |
+| 2. All-320 WT structural junction screen | **COMPLETE, V2** | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v2.tsv` | internally consistent; 10 strict-pass junctions retained |
+| 3. Small-tag evidence screen | **COMPLETE, V1** | `docs/TAG_CANDIDATE_SCREEN_V1.md` | MAP8/HA/G196 lead the first modeling layer; tag ranking remains site-dependent |
+| 4A. HRV-A conservation / natural-indel screen | **PROVISIONANCE V1** | `docs/CONSERVATION_SCREEN_V1.md` | historical/provisional only |
+| 4B. Conservation/taxonomy/structural QC hardening | **COMPLETE, V2** | `docs/CONSERVATION_SCREEN_V2.md`, `data/candidate_junctions_v2.tsv` | MAFFT/ICTV/indel/structural QC is decision-grade as a proxy layer |
+| 5. Preliminary candidate shortlist | **WORKING HYPOTHESIS ONLY** | `docs/CANDIDATE_SHORTLIST_001_DECISION.md` | current cluster is not final because direct homolog InDel phenotype has not yet been integrated |
+| 5B. Direct homolog insertion/deletion phenotype | **CURRENT / READY TO EXECUTE** | `tasks/DIRECT_INDEL_001.md` | map EV-A71 2C direct InDel fitness to all 320 A89 junctions and allow current shortlist to be overturned |
+| 5C. Candidate re-audit after direct evidence | **PENDING** | planned V3 integrated table/report | identify convergent support, experimental conflicts and new candidates outside current structural gate |
+| 6. Tag × site insertion-specific modeling | **PENDING** | planned construct ensembles/metrics | only after direct-evidence review |
+| 7. Targeted MD | **LATER** | reduced construct set only | do not return to generic WT-only MD |
+| 8. RNA/codon audit | **BLOCKED ON INPUT** | planned nucleotide-level analysis | exact experimental sequence/context required |
+| 9. Experimental construct recommendation | **PENDING** | primary/backup/control set | requires integrated computation and biological validation |
 
-## Current structural result
+## Current WT structural result
 
 Ten junctions are strict structural passes after V2 regeneration:
 
 `155|156`, `174|175`, `175|176`, `216|217`, `217|218`, `218|219`, `287|288`, `288|289`, `289|290`, `290|291`.
 
-None is currently promoted to a low-risk biological candidate.
+None is called low-risk or validated.
 
-CONSERVATION_002 resolved the eight V1 strict-flag/gate mismatches. They were V1 table/data-version inconsistencies; V2 is internally consistent and does not add new strict-pass rows.
+The previous eight V1 strict-flag/gate mismatches were resolved as V1 table/data-version inconsistencies; V2 is internally consistent.
 
 ## Current conservation result — V2
 
-`CONSERVATION_002` installed a user-space MAFFT environment, used ICTV VMR MSL41 as the type universe, built a 77-type V2 full panel, a 186-sequence expanded panel and a 5-sequence exact-boundary sensitivity subset.
+CONSERVATION_002 used an ICTV VMR HRV-A type universe, a 77-type full panel, 186-sequence expanded panel, a 5-sequence exact-boundary sensitivity subset and MAFFT L-INS-i-equivalent alignment.
 
-The V2 evolutionary overlay supports:
+Stable interpretation:
 
-- `155|156`, `174|175` and `216|217` remain strongly disfavored;
-- `175|176`, `217|218` and `218|219` remain unresolved;
-- `248|249` and `256|257` remain literature-rescue conflicts;
-- `287|288` through `290|291` remain the only strict-pass cluster with V2 evolutionary support;
-- no outside-strict junction is promoted, though `223|224`, `245|246` and `250|251` remain optional review controls.
+- `155|156`, `174|175`, `216|217` remain strongly disfavored;
+- `175|176`, `217|218`, `218|219` remain unresolved;
+- `287|288–290|291` remain the only current strict-pass cluster with V2 evolutionary support;
+- `248|249` and `256|257` remain literature-rescue/conflict controls;
+- `223|224`, `245|246`, `250|251` remain optional outside-strict review cases.
 
-## Focal region nuance
+Important nuance: do not describe `287–291` as uniformly variable. `287|288` has conserved flanking residues despite a variable local window; `288|289`, `289|290` and `290|291` include strongly variable flanking residues.
 
-Do not describe `287–291` as uniformly variable. V2 shows `287|288` has conserved flanking residues despite a variable local window, whereas `288|289`, `289|290` and `290|291` include strongly variable flanking residues.
+## Why the previous shortlist is no longer sufficient by itself
 
-## Functional map currently treated as authoritative
+The current pipeline still relies mainly on proxies for insertion tolerance:
 
-Current HRV-A89 working constraints include:
+- WT structural exposure/packing/interface geometry;
+- known functional constraints;
+- evolutionary substitution variability;
+- natural indel context.
 
-- N-terminal membrane/RNA/oligomerization context: graded high risk, not a blanket aa1–110 exclusion.
-- SF3 domain: approximately aa94–254 as A89 UniProt/PROSITE context; core caution unless a stronger feature applies.
-- Walker A / P-loop: aa124–131 `GSPGTGKS` — exclude.
-- 9A5 epitope: aa148–160 `YSLPPDPKYFDGY` — exclude.
-- Walker B: aa165–170 `VVIMDD` — exclude.
-- motif-C neighborhood: aa210–216 `FVLASTN`, including N216 — exclude.
-- R finger: R233/R234 — exclude.
-- homolog-mapped RNA-binding/replication triad: A197/L199/K202 — strong exclusion/down-ranking.
-- structural Zn region: C262/C273/C278 and aa262–278 context — high risk/exclude ligands.
-- C-terminal RNA-binding: approximately aa305–312 by similarity — high risk.
-- terminal oligomerization region: aa316–321 — exclude for first batch.
+A higher-information evidence layer has been identified: a published EV-A71 proteome-scale deep insertion/deletion fitness dataset that includes 2C and measures viral fitness directly after insertion/deletion perturbation.
 
-## Literature-rescue track
+This direct homolog phenotype must be integrated before Tag × Site modeling because it can:
 
-Historical poliovirus genetics reported viable small insertions after PV 2C residues 255 and 263. Explicit alignment maps these approximately to A89 junctions `248|249` and `256|257`.
+- support current candidates;
+- contradict current structural/conservation predictions;
+- recover candidate junctions outside the current strict structural gate;
+- expose structural-threshold or confirmation bias.
 
-These junctions remain a separate conflict/rescue track and are not automatically preferred.
+## Current method-gap assessment
 
-## Current tag shortlist
+See `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V1.md`.
+
+Key remaining gaps:
+
+1. no direct homolog 2C insertion-fitness layer in the current A89 matrix;
+2. strict structural pass/fail may introduce hard-threshold bias;
+3. entropy/identity are not phylogeny-aware insertion-tolerance measures;
+4. WT loop geometry does not directly measure whether an inserted peptide can close with low strain;
+5. protein-language-model insertion scoring is not yet used as an orthogonal sequence layer;
+6. exact RNA-level constraints remain unresolved until the real experimental nucleotide construct is supplied.
+
+## Updated evidence hierarchy
+
+When evidence conflicts, use:
+
+1. direct HRV-A89 insertion/replicon phenotype, if generated;
+2. direct homolog 2C insertion/deletion phenotype with high-confidence A89 mapping;
+3. direct 2C genetics/biochemistry and experimentally established functional motifs;
+4. experimental homolog structures + explicit A89 mapping;
+5. A89 structural ensemble metrics;
+6. phylogeny-aware near-HRV evolutionary / natural-indel evidence;
+7. protein-language-model scores;
+8. tagged-structure / loop-modeling outputs as perturbation-ranking evidence.
+
+No lower-level prediction should silently override stronger direct phenotype or a hard functional constraint.
+
+## Current tag layer
 
 The tag layer remains independent from the site layer.
 
@@ -107,28 +132,37 @@ The tag layer remains independent from the site layer.
 |---|---:|---|---|---|
 | MAP8 | 8 aa | primary modeling candidate | direct structure-guided internal-loop insertion evidence | 2C-specific tolerance unknown |
 | HA | 9 aa | primary benchmark | mature WB/IP/IF ecosystem | not optimized for constrained loop insertion |
-| G196 | 5 aa minimal; often 9 aa practical form | primary exploratory | smallest antibody-epitope footprint | minimal form may require flanking residues; weaker internal-loop evidence |
-| AGIA | 9 aa | strong alternative | compact/high-affinity antibody system | constrained-loop evidence limited |
-| ALFA | 13 aa core / 15 aa framed | secondary | highly orthogonal and sensitive | larger footprint; strong alpha-helical propensity |
-| PA12 | 12 aa | context-limited | excellent direct turn/loop insertion evidence | human podoplanin-derived binder background risk in human-cell contexts |
+| G196 | 5 aa minimal; often 9 aa practical form | primary exploratory | smallest antibody-epitope footprint | minimal form may require flanks; weaker loop-insertion evidence |
+| AGIA | 9 aa | strong alternative | compact/high-affinity system | constrained-loop evidence limited |
+| ALFA | 13 aa core / 15 aa framed | secondary | orthogonal/sensitive | larger footprint; alpha-helical propensity |
+| PA12 | 12 aa | context-limited | strong direct loop insertion evidence | human podoplanin-derived binder background risk |
 | HiBiT | 11 aa | orthogonal quantitative reporter | high-sensitivity luminescence | not a universal antibody/IP/IF replacement |
 
-FLAG is not considered further.
+FLAG remains excluded.
 
-## Evidence hierarchy
+## Current working candidate hypotheses
 
-Current working hierarchy:
+These are **not final sites** and must be allowed to change after DIRECT_INDEL_001:
 
-`direct 2C genetics/biochemistry > experimental homolog structures > explicit A89 sequence alignment / A89 annotations > A89 monomer ensemble > A89 hexamer ensemble > near-HRV conservation > tag-specific modeling`
+- `288|289` — strong current computational candidate;
+- `289|290` — strong current computational candidate with C290/C-terminal-transition caution;
+- `287|288`, `290|291` — secondary structural candidates;
+- `248|249`, `256|257` — literature-rescue/conflict controls.
 
-Conservation is a supporting layer, not a standalone safety criterion. Structure prediction of tagged constructs is a perturbation screen, not biological validation.
+The direct homolog analysis must cover all 320 junctions and explicitly search for better sites outside this set.
 
 ## Immediate next step
 
-ChatGPT/user should review `docs/CONSERVATION_SCREEN_V2.md` and `docs/CANDIDATE_JUNCTION_QC_V1.md`, then choose:
+Execute `tasks/DIRECT_INDEL_001.md`.
 
-1. narrow modeling shortlist: `287|288`, `288|289`, `289|290`, `290|291` plus `248|249` and `256|257` as rescue/conflict controls;
-2. broader comparison set adding `223|224`, `245|246`, `250|251`;
-3. `NO_TARGETED_SITE` and pivot to insertion-library/minimal-epitope strategy.
+Expected outputs include:
 
-Do not start Tag × Site modeling until that decision is explicitly authorized.
+- verified source/provenance records;
+- EV-A71 mature 2C perturbation data;
+- EV-A71→A89 junction mapping with mapping confidence;
+- `data/evA71_2C_direct_indel_to_A89_v1.tsv`;
+- `data/candidate_junctions_v3_direct_indel.tsv`;
+- `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`;
+- a final state of `DIRECT_EVIDENCE_SUPPORTS_TARGETED_SHORTLIST`, `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`, or `DIRECT_EVIDENCE_INSUFFICIENT_OR_MAPPING_LIMITED`.
+
+Do not start Tag × Site modeling automatically after completion; ChatGPT/user review remains the next decision gate.
