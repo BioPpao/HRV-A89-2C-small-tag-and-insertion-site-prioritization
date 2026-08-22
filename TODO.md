@@ -2,15 +2,17 @@
 
 Last updated: 2026-08-22
 
-Priority order is scientific, not cosmetic. Do not jump to Tag × Site modeling before higher-information direct insertion evidence is integrated.
+Priority order is scientific, not cosmetic. Do not jump to Tag × Site structural modeling before `METHOD_HARDENING_002` is completed and reviewed.
 
-## P0 — CONSERVATION_001 completed, V1 provisional
+## P0 — CONSERVATION_001 — COMPLETE / PROVISIONAL
 
 Preserve all V1 outputs for provenance only. Decision-making uses CONSERVATION_002/V2.
 
-## P0 — CONSERVATION_002 decision-grade QC hardening — COMPLETE
+## P0 — CONSERVATION_002 — COMPLETE
 
-Completed in:
+Decision-grade conservation/taxonomy/structural QC hardening completed.
+
+Primary outputs:
 
 - `docs/CONSERVATION_SCREEN_V2.md`
 - `docs/CANDIDATE_JUNCTION_QC_V1.md`
@@ -20,91 +22,134 @@ Completed in:
 
 ## P0 — DIRECT_INDEL_001 — COMPLETE
 
-Rationale:
+Direct EV-A71 2C insertion/deletion/substitution phenotype was mapped to the complete HRV-A89 all-320 junction landscape.
 
-The present shortlist is based mainly on WT structural geometry, functional mapping and near-HRV evolutionary context. These are useful proxies but do not directly measure insertion tolerance.
+Primary conclusion:
 
-Before Tag × Site modeling, direct enterovirus 2C insertion/deletion viral-fitness evidence was integrated.
+`DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`
 
-Completed work:
+Key interpretation:
 
-- verified the EV-A71 proteome-scale deep insertion/deletion study and data provenance;
-- acquired processed mutation-fitness data from the publication code/data repository and Dryad metadata;
-- confirmed EV-A71 Tainan/4643/98 accession `MW298156`, mature 2C nt `4079-5065`, 329 aa;
-- extracted mature EV-A71 2C insertion/deletion/substitution data;
-- mapped EV-A71 2C junctions to HRV-A89 2C with MAFFT mature-sequence alignment;
-- projected direct evidence to all 320 A89 junctions;
-- rebuilt an integrated V3 candidate table without overwriting V2;
-- identified no favorable direct insertion-supported sites, either in the current strict cluster or outside it.
+- no mapped A89 junction has favorable EV-A71 2C 8-aa insertion score;
+- the old `287|288–290|291` C-terminal working cluster is experimentally conflicted;
+- no favorable outside-strict candidate was rescued by the direct insertion phenotype;
+- direct homolog phenotype is stronger than WT structure/conservation proxies, but is not universal proof of A89-specific tag failure.
 
-Task specification:
+Primary outputs:
 
 - `tasks/DIRECT_INDEL_001.md`
+- `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`
+- `data/evA71_2C_direct_indel_to_A89_v1.tsv`
+- `data/candidate_junctions_v3_direct_indel.tsv`
+
+## P0 — CURRENT: METHOD_HARDENING_002
+
+Status: **AUTHORIZED / NEXT EXECUTION TASK**
+
+Task:
+
+- `tasks/METHOD_HARDENING_002.md`
 
 Strategic audit:
 
-- `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V1.md`
+- `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2.md`
 
-Outputs:
+Current project state entering the task:
 
-- `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md`
-- `docs/DIRECT_INDEL_001_RUN_LOG.md`
-- `data/evA71_2C_direct_indel_to_A89_v1.tsv`
-- `data/candidate_junctions_v3_direct_indel.tsv`
-- `references/direct_indel_001/source_records_v1.tsv`
+`NO_HIGH_CONFIDENCE_TARGETED_SITE_YET`
 
-Decision state:
+### Module 1 — EV-A71 substitution-tolerance integration
 
-- `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`
+- extract mature-2C substitution measurements from the existing direct dataset;
+- map local substitution tolerance to all A89 junctions;
+- keep substitution, deletion and insertion signals separate;
+- record mapping confidence and missingness.
 
-Do not start Tag × Site modeling automatically after completion; ChatGPT/user review remains mandatory.
+Planned outputs:
 
-## P0 — CURRENT: Candidate-junction shortlist re-audit after direct InDel evidence
+- `data/evA71_2C_substitution_tolerance_to_A89_v1.tsv`
+- `results/method_hardening_002/substitution_mapping_qc.tsv`
 
-After `DIRECT_INDEL_001`:
+### Module 2 — Continuous/Pareto all-320 re-ranking
 
-- review `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`;
-- decide whether `NO_TARGETED_SITE` / targeted empirical insertion-library strategy is the next project move;
-- decide whether any conflict-aware modeling/control set is still worth authorizing despite unfavorable direct insertion evidence;
-- if ambiguity remains, authorize a new explicit method-hardening task rather than starting Tag × Site modeling automatically.
+- retain the complete 320-junction landscape;
+- use `strict_structural_pass` only as an annotation;
+- preserve continuous structure/interface/exposure metrics;
+- use explicit evidence classes and Pareto/non-dominated ranking;
+- do not use one opaque weighted scalar score as the primary decision rule;
+- perform sensitivity checks for reasonable metric subsets/scaling choices.
 
-Planned deliverable:
+Planned outputs:
 
-- ChatGPT/user decision and a new task file if further execution is authorized.
+- `data/candidate_junctions_v4_method_hardening.tsv`
+- `data/pareto_junction_frontier_v1.tsv`
+- `results/method_hardening_002/pareto_sensitivity.tsv`
 
-## P1 — Optional method hardening if ambiguity remains
+### Module 3 — Phylogeny-aware independent natural-indel events
 
-Only if direct InDel evidence leaves material uncertainty:
+- use the curated CONSERVATION_002 HRV-A panel;
+- build/reuse a documented HRV-A phylogeny;
+- infer independent insertion/deletion events rather than counting inherited descendant states as repeated events;
+- report ancestral-reconstruction/alignment uncertainty.
 
-- phylogeny-aware site-rate analysis rather than relying only on entropy/identity;
-- infer independent natural-indel events rather than counting inherited descendant sequences as repeated events;
-- continuous/Pareto structural ranking to reduce hard-threshold bias;
-- protein-language-model generic insertion scan as an orthogonal secondary signal.
+Planned outputs:
 
-These are supporting analyses. They must not override direct phenotype or hard functional evidence.
+- `data/hrvA_independent_indel_events_v1.tsv`
+- `results/method_hardening_002/phylogeny_qc.tsv`
+- `docs/PHYLOGENY_AWARE_INDEL_V1.md`
 
-## P2 — Tag × Site insertion-specific modeling
+### Module 4 — MAP8 / HA / G196 tag-specific PLM insertion scan
 
-Only after the direct-evidence shortlist review:
+- record exact tag amino-acid sequences/forms;
+- construct WT-vs-inserted A89 sequences at all 320 junctions;
+- use an indel-capable protein-language-model method where practical;
+- otherwise use a documented ESM-family pseudo-log-likelihood method with explicit limitations;
+- output separate per-tag landscapes;
+- never allow PLM to override direct phenotype or hard functional constraints.
 
-- model MAP8, HA and selected G196 forms only on a reduced site set;
-- use insertion-specific conformational sampling rather than relying only on one tagged AlphaFold model;
-- where practical, combine Rosetta loop/remodel/KIC-like sampling with AlphaFold/ColabFold ensembles;
-- compare loop closure/strain, native-domain RMSD, secondary structure, clashes, interface/pore effects and tag exposure;
-- keep tag flexibility/low confidence separate from native 2C perturbation.
+Planned outputs:
 
-Planned deliverables:
+- `data/tag_specific_plm_scores_v1.tsv`
+- `results/method_hardening_002/plm_qc.tsv`
+- `docs/TAG_SPECIFIC_PLM_SCAN_V1.md`
 
-- `data/tag_site_perturbation_metrics_v1.tsv`
-- `docs/TAG_SITE_MODELING_V1.md`
+### METHOD_HARDENING_002 integration report
 
-## P3 — Targeted MD
+Required:
 
-Use MD only after a small number of tagged constructs survive structural perturbation screening.
+- `docs/METHOD_HARDENING_002_REPORT.md`
+
+The report must explicitly re-audit:
+
+- `287|288`, `288|289`, `289|290`, `290|291` as structure/evolution-favored but direct-homolog-conflicted controls;
+- `248|249`, `256|257` as historical insertion-support / modern-conflict controls;
+- potential Pareto-reviewable sites outside the previous strict 10.
+
+Stop and return for ChatGPT/user review after this task. Do not start downstream modeling automatically.
+
+Expected task-end state:
+
+- `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`, or
+- `NO_HIGH_CONFIDENCE_TARGETED_SITE`, or
+- `METHOD_HARDENING_BLOCKED`.
+
+## P1 — Insertion-specific Tag × Site structural modeling — BLOCKED PENDING METHOD_HARDENING_002
+
+Only if the next review authorizes a reduced modeling set:
+
+- model selected MAP8/HA/G196 site × tag pairs;
+- use insertion-specific loop/conformer sampling rather than one AlphaFold model;
+- where practical combine mature loop-remodel/KIC-like sampling with AlphaFold/ColabFold ensembles;
+- compare closure success, local strain, native-domain RMSD, local backbone displacement, clashes, native-contact changes, interface effects and tag exposure;
+- use current A89 hexamers for comparative oligomer-interface risk, not proof of native pore geometry.
+
+## P2 — Targeted MD
+
+Only after a small number of tagged constructs survive insertion-specific structural perturbation analysis.
 
 Do not return to generic WT-only MD as the current priority.
 
-## P3 — Exact nucleotide/RNA audit
+## P2 — Exact nucleotide/RNA audit
 
 Mandatory before final construct recommendation, but blocked until the exact experimental nucleotide construct/context is supplied.
 
@@ -112,19 +157,22 @@ Do not infer the experimental RNA by back-translation.
 
 ## Experimental gold-standard option
 
-If resources allow, prioritize HRV-A89-specific insertion-tolerance data over indefinite computational refinement:
+If computation remains conflicted, prefer HRV-A89-specific empirical insertion-tolerance evidence over indefinite computational refinement.
 
-- ideal: full 320-junction 2C deep insertion scan;
-- practical alternative: targeted 20–30-junction panel spanning positive, conflict and negative evidence classes;
-- use replicon/viral fitness as the biological acceptance/training layer.
+Conceptual options:
+
+- broad A89 2C insertion-tolerance mapping if resources permit;
+- otherwise a reduced empirical validation panel spanning distinct evidence classes and negative controls.
+
+The computational workflow should identify the most informative classes to validate, not claim that a site is safe.
 
 ## Repository maintenance
 
 - keep `PROJECT_STATE.md` current after every decision-changing phase;
 - update `ANALYSIS_INDEX.md` whenever a new report supersedes or changes the workflow;
-- append changes to `DECISIONS.md` rather than silently reversing them;
-- store raw numerical outputs under `data/` or `results/`, not only inside prose reports;
-- record source accession/DOI and evidence class for every new literature-derived constraint;
+- append decisions to `DECISIONS.md` rather than silently reversing them;
+- store raw numerical outputs under `data/` or `results/`;
+- record source accession/DOI and evidence class for every literature-derived constraint;
 - record software/environment versions for decision-changing analyses;
-- if appropriate software is absent, install it in user space rather than silently replacing it with a materially weaker method;
+- install missing mature software in user space rather than silently substituting weaker custom approximations;
 - do not commit software installations, package caches, bulk MD trajectories or restart files.
