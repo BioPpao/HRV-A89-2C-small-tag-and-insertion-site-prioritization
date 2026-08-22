@@ -4,74 +4,13 @@ Last updated: 2026-08-22
 
 Priority order is scientific, not cosmetic.
 
-## ONE_SHOT_COMPUTATIONAL_AUDIT_003 — COMPLETED WITH BLOCKER
-
-Status: **METHOD_HARDENING_BLOCKED**
-
-Task:
-
-- `tasks/ONE_SHOT_COMPUTATIONAL_AUDIT_003.md`
-
-This task superseded `METHOD_HARDENING_002` as the active execution wrapper and incorporated all of its mandatory modules.
-
-The run pushed the CPU-valid computational evidence as far as scientifically justified. Mandatory PLM scoring remained blocked.
-
-Stage status:
-
-1. EV-A71 substitution-tolerance integration: complete.
-2. Continuous/Pareto all-320 junction re-ranking: complete.
-3. Phylogeny-aware independent natural-indel-event analysis: complete.
-4. MAP8/HA/G196 tag-specific PLM insertion scans: blocked.
-5. Ranking robustness and negative-control audits: complete for non-PLM layers.
-6. Cross-tag consensus/disagreement analysis: blocked.
-7. Reduced computational review-set construction: complete as review set only.
-8. Final synthesis and repository updates: complete locally.
-
-Optional stage:
-
-- lightweight insertion-specific structural feasibility triage: deferred because no mature reproducible workflow was available.
-
-Do not automatically start long MD, experimental protocol design, final RNA/codon design, or final experimental construct recommendation.
-
-Primary outputs generated:
-
-- `data/candidate_junctions_v4_method_hardening.tsv`
-- `data/pareto_junction_frontier_v1.tsv`
-- `data/hrvA_independent_indel_events_v1.tsv`
-- `data/tag_specific_plm_scores_v1.tsv`
-- `data/tag_specific_consensus_v1.tsv`
-- `data/computational_review_set_v1.tsv`
-- `results/one_shot_003/ranking_robustness.tsv`
-- `results/one_shot_003/negative_control_audit.tsv`
-- `docs/METHOD_HARDENING_002_REPORT.md`
-- `docs/RANKING_ROBUSTNESS_AUDIT_V1.md`
-- `docs/TAG_SPECIFIC_CONSENSUS_V1.md`
-- `docs/COMPUTATIONAL_REVIEW_SET_V1.md`
-- `docs/ONE_SHOT_COMPUTATIONAL_AUDIT_003_REPORT.md`
-
-Final state:
-
-- `METHOD_HARDENING_BLOCKED`
-
 ## GPU_RECOVERY_004 — COMPLETED
 
 Status: **READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING**
 
-Task:
-
-- `tasks/GPU_RECOVERY_004.md`
-
-Report:
+Primary report:
 
 - `docs/GPU_RECOVERY_004_REPORT.md`
-
-Successful GPU run:
-
-- Slurm node: `gpu15`
-- GPU: NVIDIA GeForce RTX 3090
-- PyTorch: 2.4.1+cu118
-- PLM: ESM2 `esm2_t6_8M_UR50D`
-- completed rows: 1,280 / 1,280
 
 Primary outputs:
 
@@ -79,35 +18,63 @@ Primary outputs:
 - `data/tag_specific_consensus_v2_gpu.tsv`
 - `data/candidate_junctions_v5_plm_gpu.tsv`
 - `data/computational_review_set_v2_plm_gpu.tsv`
-- `docs/TAG_SPECIFIC_PLM_SCAN_V2_GPU.md`
-- `docs/TAG_SPECIFIC_CONSENSUS_V2_GPU.md`
 
-## CURRENT — Review / modeling authorization decision
+## CURRENT — CONTINUOUS_TAG_SITE_MODELING_005
 
-ChatGPT/user must decide one of:
+Status: **AUTHORIZED / CONTINUITY-FIRST COMPUTATIONAL TASK**
 
-1. authorize conflict-aware Tag x Site structural modeling from `data/computational_review_set_v2_plm_gpu.tsv`;
-2. stop computational escalation and pivot to HRV-A89-specific empirical validation planning;
-3. request a narrower/manual review of the V5 PLM evidence before modeling.
+Task:
 
-Until then, do not start long MD, final construct recommendation or RNA/codon design.
+- `tasks/CONTINUOUS_TAG_SITE_MODELING_005.md`
 
-## Completed upstream work
+The task moves from all-320 discovery into a compact site × tag structural perturbation panel.
 
-- CONSERVATION_001 — complete/provisional.
-- CONSERVATION_002 — complete/decision-grade.
-- DIRECT_INDEL_001 — complete; direct EV-A71 2C insertion phenotype requires shortlist revision.
-- METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2 — complete; current state `NO_HIGH_CONFIDENCE_TARGETED_SITE_YET`.
+### Main missing computational methods to add
 
-## Later work — blocked pending review
+1. insertion-specific structure-prediction ensembles;
+2. loop/backbone closure and conformational feasibility modeling;
+3. local energetic/frustration analysis;
+4. oligomer-context compatibility analysis;
+5. residue-contact-network perturbation analysis;
+6. targeted phylogeny-aware site-rate / coevolution / flexibility checks where defensible;
+7. cross-method robustness analysis.
 
-### Insertion-specific Tag × Site structural modeling
+### Continuity policy
 
-Only after `data/computational_review_set_v2_plm_gpu.tsv` is reviewed and authorized.
+Do not stop the project because one tool, package, GPU, network route, scheduler context or Git push fails.
 
-### Targeted MD
+- If GPU is absent in the current shell, inspect Slurm and obtain/submit GPU execution where needed.
+- Continue independent CPU modules while GPU jobs wait where useful.
+- If compute-node network is blocked, prepare dependencies/checkpoints from a network-capable login context.
+- If one preferred package fails, try another mature method in the same evidence class.
+- If no mature substitute exists, mark only that module deferred and continue all independent work.
+- If remote push fails, preserve local commits and continue.
+- Do not rerun completed global analyses without a concrete QC reason.
 
-Only after a very small number of tagged constructs survive insertion-specific structural perturbation analysis.
+### Planned outputs
+
+- `data/tag_site_modeling_panel_v1.tsv`
+- `results/tag_site_modeling_005/environment_and_method_inventory.tsv`
+- `data/tag_site_structure_ensemble_metrics_v1.tsv`
+- `data/tag_site_loop_feasibility_v1.tsv`
+- `data/tag_site_energy_context_v1.tsv`
+- `data/tag_site_contact_network_v1.tsv`
+- `data/tag_site_hexamer_context_v1.tsv`
+- `data/tag_site_integrated_perturbation_v1.tsv`
+- `results/tag_site_modeling_005/cross_method_robustness.tsv`
+- `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
+
+### Final state expected
+
+- `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
+- `NO_COMPUTATIONAL_CONSENSUS_SITE`
+- `TAG_SITE_MODELING_PARTIALLY_COMPLETE`
+
+## Later work
+
+### Targeted dynamic analysis
+
+Only after a reduced site × tag set survives insertion-specific perturbation modeling.
 
 ### Exact nucleotide/RNA audit
 
