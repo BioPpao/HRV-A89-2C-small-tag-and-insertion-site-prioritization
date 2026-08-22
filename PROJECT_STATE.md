@@ -14,27 +14,37 @@ The computational endpoint is **relative candidate prioritization and perturbati
 
 `TAG_SITE_MODELING_PARTIALLY_COMPLETE`
 
-CONTINUOUS_TAG_SITE_MODELING_005 completed all available WT-anchor/context analyses for the 33-junction x 4-tag panel but lacked mature inserted-structure, loop-remodeling and local energy workflows.
-
-The main remaining computational blocker is therefore now an environment/method-stack problem rather than another global site-scoring problem.
+CONTINUOUS_TAG_SITE_MODELING_005 completed WT-anchor/context analyses but lacked real inserted-structure ensembles. The current priority is therefore to build a fully open/reproducible inserted-structure pipeline rather than depend on restricted-license Rosetta/FoldX components.
 
 ## Current active task
 
-`STRUCTURE_STACK_RECOVERY_006`
+`OPEN_STRUCTURE_PIPELINE_007`
 
-Status: **AUTHORIZED / CONTINUITY-FIRST ENVIRONMENT + MODELING TASK**
+Status: **AUTHORIZED / OPEN-LICENSE CONTINUITY-FIRST TASK**
 
 Branch: `analysis/conservation-002`
 
 Task specification:
 
-- `tasks/STRUCTURE_STACK_RECOVERY_006.md`
+- `tasks/OPEN_STRUCTURE_PIPELINE_007.md`
 
-## Structure-engine decision
+`STRUCTURE_STACK_RECOVERY_006` is retained as planning provenance but is superseded as the execution task.
 
-For the current project, **ColabFold / `colabfold_batch` is the primary required structure-prediction engine**.
+## Open-tool decision
 
-Standalone AlphaFold, OpenFold and ESMFold are not installed by default because they are largely redundant for the present evidence class and add unnecessary environment/storage complexity. An alternative structure engine is only warranted if ColabFold cannot be made scientifically usable after reasonable recovery attempts.
+Primary route:
+
+- ColabFold / `colabfold_batch` for inserted-structure ensembles;
+- OpenMM for geometry cleanup/QC only;
+- US-align/TM-align for structural comparison;
+- MDAnalysis/MDTraj for batch structural metrics;
+- DSSP-compatible tooling for secondary-structure preservation;
+- transparent coordinate-derived contact-network analysis;
+- existing A89 hexamer hypotheses for tagged oligomer-context comparison.
+
+Do not require Rosetta, PyRosetta or FoldX. Do not delay the project to obtain restricted licenses.
+
+Standalone AlphaFold, OpenFold and ESMFold are not installed by default because they largely duplicate the same structure-prediction evidence class. Add an alternative open engine only if ColabFold cannot be made scientifically usable after multiple reasonable recovery attempts.
 
 ## Storage/runtime policy
 
@@ -42,41 +52,32 @@ Repository path:
 
 `/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization`
 
-The shared `/public` filesystem has substantial absolute free space but high utilization. The task must audit quota/storage before installation and avoid a full local ColabFold/MMseqs database unless clearly required.
+The shared `/public` filesystem has large absolute free capacity but high utilization. Therefore:
 
-Preferred workflow:
-
-- obtain/cache MSAs from a network-capable login context using the public ColabFold MSA service;
-- keep A3M/MSA and model caches in a controlled user/project location;
-- run GPU inference on Slurm compute nodes using cached inputs when compute-node networking is restricted.
-
-## Additional methods
-
-The task also attempts to recover orthogonal methods where legally/technically available:
-
-- OpenMM relaxation/minimization and structural QC;
-- MDTraj/MDAnalysis and structural comparison utilities;
-- Rosetta/PyRosetta for loop/backbone remodeling if an existing licensed installation or legitimate user-provided access is available;
-- FoldX for an orthogonal energetic layer if an existing licensed installation or legitimate user-provided access is available;
-- local-frustration analysis if a mature reproducible workflow is available.
-
-Rosetta/FoldX license requirements must not cause the whole task to stop. If user license action is required, only that module is deferred.
+- audit storage/quota/inodes before installation;
+- do not install a full local ColabFold/MMseqs database unless clearly necessary and explicitly justified;
+- prefer public MSA-server generation from a network-capable login context;
+- cache A3M/MSA and required parameters under user/project-controlled paths;
+- run GPU inference on Slurm compute nodes from cached inputs when compute-node networking is restricted;
+- do not commit package caches, checkpoints, local sequence databases or bulk redundant prediction directories.
 
 ## Continuity-first execution rule
 
-The task must continue through independent work when one local resource fails.
+The task must continue through recoverable technical failures.
 
-Expected recovery behavior:
+Expected behavior:
 
-- login node without GPU → use Slurm rather than stopping;
-- GPU partition unavailable → inspect alternatives and continue CPU preparation;
-- compute-node internet blocked → download/cache from login context and execute offline on compute node;
-- preferred package fails → try another mature method in the same evidence class;
-- licensed package unavailable → mark only that module `DEFERRED_LICENSE_USER_ACTION`;
-- Git push unavailable → preserve local commits/results and retry later;
-- do not rerun completed global all-320 analyses unless a concrete QC defect is found.
+- login node without GPU → inspect Slurm and submit/enter a GPU job;
+- GPU queue pending → continue CPU preparation and QC work;
+- compute node without internet → download/cache from login context and execute offline on compute node;
+- one ColabFold/JAX install path fails → troubleshoot compatibility and try another isolated compatible environment;
+- one analysis utility fails → use another mature open utility where possible;
+- Git push unavailable → preserve local commits/results and retry from a network-capable context;
+- do not rerun completed all-320 global analyses without a concrete QC defect.
 
-## Current scientific interpretation entering STRUCTURE_STACK_RECOVERY_006
+A single local failure is not a project-wide blocker.
+
+## Current scientific interpretation entering OPEN_STRUCTURE_PIPELINE_007
 
 The strongest relative constructs from completed non-fabricated layers are:
 
@@ -87,7 +88,7 @@ The strongest relative constructs from completed non-fabricated layers are:
 
 These remain direct-homolog-conflicted and are not validated or safe.
 
-Important conflict/control rows include:
+Mandatory re-audit rows include:
 
 - `203|204`;
 - `224|225`;
@@ -98,7 +99,7 @@ Important conflict/control rows include:
 - `289|290`;
 - `290|291`.
 
-The next task must generate real inserted structural ensembles before these relative rankings can be strengthened.
+Real inserted-structure ensembles are allowed to overturn previous weaker rankings.
 
 ## Evidence hierarchy
 
@@ -111,28 +112,26 @@ When evidence conflicts, use:
 5. A89 continuous structural-ensemble evidence;
 6. phylogeny-aware HRV-A evolutionary / independent-indel evidence;
 7. tag-specific PLM scores;
-8. insertion-specific loop/structure/energy/network analyses;
+8. inserted-structure/OpenMM/secondary-structure/contact-network/oligomer-context analyses;
 9. targeted dynamics only after a reduced construct set survives perturbation screening.
 
 No lower-level method may silently override stronger evidence.
 
-## Expected STRUCTURE_STACK_RECOVERY_006 outputs
+## Expected OPEN_STRUCTURE_PIPELINE_007 outputs
 
-Primary outputs include:
-
-- `results/structure_stack_006/environment_inventory.tsv`
-- `results/structure_stack_006/colabfold_smoke_test.tsv`
-- `data/tag_site_structure_panel_v2.tsv`
-- `results/structure_stack_006/prediction_manifest.tsv`
-- `data/tag_site_structure_ensemble_metrics_v2.tsv`
-- `data/tag_site_structure_perturbation_v2.tsv`
-- `data/tag_site_loop_feasibility_v2.tsv`
-- `data/tag_site_energy_context_v2.tsv`
-- `data/tag_site_hexamer_context_v2_tagged.tsv`
-- `data/tag_site_contact_network_v2_tagged.tsv`
-- `data/tag_site_integrated_perturbation_v2_structure.tsv`
-- `results/structure_stack_006/cross_method_robustness_v2.tsv`
-- `docs/STRUCTURE_STACK_RECOVERY_006_REPORT.md`
+- `results/open_structure_007/environment_inventory.tsv`
+- `results/open_structure_007/colabfold_smoke_test.tsv`
+- `data/tag_site_structure_panel_v3_open.tsv`
+- `results/open_structure_007/prediction_manifest.tsv`
+- `data/tag_site_structure_ensemble_metrics_v3_open.tsv`
+- `data/tag_site_structure_perturbation_v3_open.tsv`
+- `data/tag_site_openmm_qc_v1.tsv`
+- `data/tag_site_secondary_structure_accessibility_v1.tsv`
+- `data/tag_site_hexamer_context_v3_open.tsv`
+- `data/tag_site_contact_network_v3_open.tsv`
+- `data/tag_site_integrated_perturbation_v3_open.tsv`
+- `results/open_structure_007/cross_method_robustness_v3.tsv`
+- `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
 
 ## Final task state expected
 
@@ -140,7 +139,7 @@ Return exactly one of:
 
 - `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
 - `NO_COMPUTATIONAL_CONSENSUS_SITE`
-- `STRUCTURE_STACK_PARTIALLY_COMPLETE`
+- `OPEN_STRUCTURE_PIPELINE_PARTIALLY_COMPLETE`
 
 Do not automatically escalate to long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
 
