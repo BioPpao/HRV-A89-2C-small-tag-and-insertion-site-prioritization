@@ -40,3 +40,11 @@ A89_2C_290_291_G196_minimal	290|291	G196_minimal	results/open_structure_007/tier
 A89_2C_290_291_G196_practical_GS	290|291	G196_practical_GS	results/open_structure_007/tier1_shallow/A89_2C_290_291_G196_practical_GS_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_011.pdb	completed	110.30634307861328	0.25	0.5	0.25	1.0
 A89_2C_290_291_HA	290|291	HA	results/open_structure_007/tier1_shallow/A89_2C_290_291_HA_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_011.pdb	completed	136.230712890625	0.375	0.375	0.25	1.0
 A89_2C_290_291_MAP8	290|291	MAP8	results/open_structure_007/tier1_shallow/A89_2C_290_291_MAP8_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_011.pdb	completed	67.31599426269531	0.75	0.0	0.25	1.0
+A89_2C_289_290_G196_minimal	289|290	G196_minimal	results/open_structure_007/deep_subset/A89_2C_289_290_G196_minimal_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_022.pdb	completed	138.58987426757812	0.25	0.375	0.375	0.8
+A89_2C_289_290_G196_minimal	289|290	G196_minimal	results/open_structure_007/deep_subset/A89_2C_289_290_G196_minimal_unrelaxed_rank_002_alphafold2_ptm_model_1_seed_021.pdb	completed	139.30123901367188	0.25	0.375	0.375	0.8
+A89_2C_289_290_MAP8	289|290	MAP8	results/open_structure_007/deep_subset/A89_2C_289_290_MAP8_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_022.pdb	completed	108.46527099609375	0.25	0.375	0.375	0.875
+A89_2C_289_290_MAP8	289|290	MAP8	results/open_structure_007/deep_subset/A89_2C_289_290_MAP8_unrelaxed_rank_002_alphafold2_ptm_model_1_seed_021.pdb	completed	107.27061462402344	0.25	0.375	0.375	0.875
+A89_2C_290_291_G196_minimal	290|291	G196_minimal	results/open_structure_007/deep_subset/A89_2C_290_291_G196_minimal_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_022.pdb	completed	147.06813049316406	0.75	0.0	0.25	1.0
+A89_2C_290_291_G196_minimal	290|291	G196_minimal	results/open_structure_007/deep_subset/A89_2C_290_291_G196_minimal_unrelaxed_rank_002_alphafold2_ptm_model_1_seed_021.pdb	completed	144.23165893554688	0.75	0.0	0.25	1.0
+A89_2C_290_291_MAP8	290|291	MAP8	results/open_structure_007/deep_subset/A89_2C_290_291_MAP8_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_022.pdb	completed	84.13847351074219	0.75	0.0	0.25	1.0
+A89_2C_290_291_MAP8	290|291	MAP8	results/open_structure_007/deep_subset/A89_2C_290_291_MAP8_unrelaxed_rank_002_alphafold2_ptm_model_1_seed_021.pdb	completed	78.24032592773438	0.75	0.0	0.25	1.0

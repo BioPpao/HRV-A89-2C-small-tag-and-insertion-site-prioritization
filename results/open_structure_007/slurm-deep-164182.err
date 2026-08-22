@@ -1,0 +1,65 @@
+2026-08-23 01:39:50.216675: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:462] TfrtCpuClient created.
+2026-08-23 01:39:50.497629: I external/xla/xla/service/service.cc:168] XLA service 0x55fa1fb57390 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2026-08-23 01:39:50.497697: I external/xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 3090, Compute Capability 8.6
+2026-08-23 01:39:50.498031: I external/xla/xla/pjrt/gpu/se_gpu_pjrt_client.cc:633] Using BFC allocator.
+2026-08-23 01:39:50.498090: I external/xla/xla/pjrt/gpu/gpu_helpers.cc:108] XLA backend will use up to 101184176128 bytes on device 0 for BFCAllocator.
+2026-08-23 01:39:54.689112: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-08-23 01:39:55.370847: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-08-23 01:40:53.729219: I external/xla/xla/stream_executor/cuda/cuda_dnn.cc:440] Loaded cuDNN version 8600
+2026-08-23 01:40:53.782022: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2026-08-23 01:40:53.876359: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2026-08-23 01:40:53.877342: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2026-08-23 01:41:00.439739: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:353] MLIR V1 optimization pass is not enabled
+2026-08-23 01:41:10.823499: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_157', 4 bytes spill stores, 4 bytes spill loads
+
+2026-08-23 01:41:12.430274: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_46', 448 bytes spill stores, 448 bytes spill loads
+
+2026-08-23 01:41:12.831387: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_46', 424 bytes spill stores, 424 bytes spill loads
+
+2026-08-23 01:41:13.411903: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 92 bytes spill stores, 92 bytes spill loads
+
+2026-08-23 01:41:13.629806: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 1060 bytes spill stores, 964 bytes spill loads
+
+2026-08-23 01:41:13.683414: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 5040 bytes spill stores, 4764 bytes spill loads
+
+2026-08-23 01:41:13.812376: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 536 bytes spill stores, 528 bytes spill loads
+
+2026-08-23 01:41:14.132628: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 476 bytes spill stores, 440 bytes spill loads
+
+2026-08-23 01:41:14.313126: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 20 bytes spill stores, 20 bytes spill loads
+
+2026-08-23 01:41:14.406296: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 848 bytes spill stores, 832 bytes spill loads
+
+2026-08-23 01:41:14.413727: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 7360 bytes spill stores, 7404 bytes spill loads
+
+2026-08-23 01:41:14.610789: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 6462 bytes spill stores, 6768 bytes spill loads
+
+2026-08-23 01:41:16.447609: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_158', 360 bytes spill stores, 360 bytes spill loads
+
+2026-08-23 01:41:16.594190: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_158', 8 bytes spill stores, 8 bytes spill loads
+
+2026-08-23 01:41:16.612882: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_158', 364 bytes spill stores, 364 bytes spill loads
+
+2026-08-23 01:41:17.131368: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_159', 4 bytes spill stores, 4 bytes spill loads
+
+2026-08-23 01:41:17.423742: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_159', 232 bytes spill stores, 212 bytes spill loads
+
+2026-08-23 01:41:17.694293: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_159', 308 bytes spill stores, 300 bytes spill loads
+
+2026-08-23 01:41:17.767994: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_159', 1352 bytes spill stores, 1072 bytes spill loads
+
+2026-08-23 01:41:18.043285: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_159', 580 bytes spill stores, 464 bytes spill loads
+
+2026-08-23 01:41:18.734938: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_164', 4 bytes spill stores, 4 bytes spill loads
+
+2026-08-23 01:41:19.908185: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_154', 8 bytes spill stores, 8 bytes spill loads
+
+warning: Linking two modules of different target triples: 'LLVMDialectModule' is 'nvptx64-nvidia-gpulibs' whereas '' is 'nvptx64-nvidia-cuda'
+
+warning: Linking two modules of different target triples: 'LLVMDialectModule' is 'nvptx64-nvidia-gpulibs' whereas '' is 'nvptx64-nvidia-cuda'
+
+2026-08-23 01:41:25.859725: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_127', 20 bytes spill stores, 20 bytes spill loads
+ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 20 bytes spill stores, 20 bytes spill loads
+
+2026-08-23 01:47:26.741093: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:465] TfrtCpuClient destroyed.

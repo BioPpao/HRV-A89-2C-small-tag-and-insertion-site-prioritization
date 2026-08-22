@@ -1,0 +1,5 @@
+record	value
+hostname	gpu15
+cuda_visible_devices	0
+date	2026-08-23T01:39:44+08:00
+nvidia_smi	NVIDIA GeForce RTX 3090, 575.57.08, 24576 MiB
