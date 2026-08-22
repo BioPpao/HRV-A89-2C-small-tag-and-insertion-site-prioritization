@@ -18,96 +18,90 @@ Completed:
 - WT oligomer-context analysis;
 - WT residue-contact-network anchors;
 - direct/evolutionary/PLM evidence integration;
-- cross-method robustness with explicit deferred flags.
+- cross-method robustness with deferred flags.
 
-Deferred by missing mature software:
+The major remaining gap is real inserted-structure modeling.
 
-- actual inserted-structure ensembles;
-- mature loop/backbone remodeling;
-- local FoldX/Rosetta/frustration energy analysis;
-- WT-vs-tagged contact-map deltas;
-- tagged hexamer clash/interface deltas.
+## STRUCTURE_STACK_RECOVERY_006 — SUPERSEDED AS EXECUTION TASK
 
-## CURRENT — STRUCTURE_STACK_RECOVERY_006
+Retained as planning provenance. It included Rosetta/FoldX options, but the current project should not depend on restricted-license software.
 
-Status: **AUTHORIZED / CONTINUITY-FIRST ENVIRONMENT + MODELING TASK**
+## CURRENT — OPEN_STRUCTURE_PIPELINE_007
+
+Status: **AUTHORIZED / OPEN-LICENSE CONTINUITY-FIRST TASK**
 
 Task:
 
-- `tasks/STRUCTURE_STACK_RECOVERY_006.md`
+- `tasks/OPEN_STRUCTURE_PIPELINE_007.md`
 
-### Primary engine decision
+### Primary open stack
 
-Install/configure **ColabFold / `colabfold_batch`** as the main structure-prediction engine.
+- ColabFold / `colabfold_batch`;
+- OpenMM geometry cleanup/QC;
+- US-align/TM-align;
+- MDAnalysis/MDTraj;
+- DSSP-compatible secondary-structure analysis;
+- transparent WT-vs-tagged contact networks;
+- actual tagged placement into existing A89 hexamer hypotheses.
 
-Do not install standalone AlphaFold, OpenFold and ESMFold by default because they duplicate the same evidence class and increase environment/storage complexity. Only use an alternative structure engine if ColabFold cannot be made scientifically usable after reasonable recovery attempts.
+Do not require Rosetta, PyRosetta or FoldX.
 
 ### Required blocker-removal work
 
-1. storage/quota audit;
-2. Slurm/GPU and network-context audit;
-3. ColabFold/JAX/OpenMM environment installation;
-4. real WT A89 2C GPU smoke test;
+1. storage/quota/inode audit;
+2. Slurm/GPU/network-context audit;
+3. ColabFold/JAX/OpenMM open environment installation;
+4. real WT 321-aa A89 2C smoke test;
 5. tiered inserted-construct panel;
 6. multi-model/multi-seed ColabFold ensembles;
-7. actual WT-vs-tagged perturbation metrics;
-8. OpenMM relaxation/QC;
-9. tagged hexamer clash/interface analysis;
-10. tagged contact-network delta analysis;
-11. integrated structural re-ranking and robustness.
-
-### Additional orthogonal methods
-
-Attempt when legally/technically available:
-
-- Rosetta/PyRosetta loop/backbone remodeling;
-- FoldX energetic analysis;
-- local-frustration analysis;
-- US-align/TM-align structural comparison.
-
-Rosetta and FoldX are license-governed. If manual user license/download action is required, mark only that module `DEFERRED_LICENSE_USER_ACTION` and continue the remaining task.
+7. WT-vs-tagged structural perturbation metrics;
+8. OpenMM geometry QC;
+9. secondary-structure/accessibility changes;
+10. actual tagged hexamer clash/interface analysis;
+11. actual WT-vs-tagged contact-network analysis;
+12. integrated open-tool re-ranking and robustness.
 
 ### Storage policy
 
-- do not install full local ColabFold/MMseqs databases unless clearly required and quota/storage is verified;
-- prefer public MSA-server generation from the network-capable login context;
-- cache A3M/MSA/model parameters in user/project-controlled paths;
-- execute GPU inference via Slurm from cached inputs when compute-node networking is restricted;
-- do not commit package caches, checkpoints or bulk prediction directories.
+- do not install full local ColabFold/MMseqs databases unless clearly necessary and explicitly justified;
+- prefer public MSA-server generation from the network-capable login node;
+- cache A3M/MSA/model parameters under controlled paths;
+- run GPU inference via Slurm from cached inputs when compute-node networking is restricted;
+- do not commit package caches, checkpoints, databases or bulk redundant prediction outputs.
 
 ### Continuity policy
 
-Do not stop the whole task because one tool, GPU partition, network route, licensed package or Git push fails.
+Do not stop the whole task because the current shell has no GPU, a GPU job is pending, a compute node lacks internet, one package path fails, or Git push temporarily fails.
 
-Continue independent work, try mature alternatives, use login-node download/cache plus compute-node execution, and preserve local commits/results.
+Use Slurm, login-node downloads/cache, isolated compatible environments, mature open alternatives, CPU-side preparation while GPU work waits, and local commits/results.
 
 ### Expected outputs
 
-- `results/structure_stack_006/environment_inventory.tsv`
-- `results/structure_stack_006/colabfold_smoke_test.tsv`
-- `data/tag_site_structure_panel_v2.tsv`
-- `results/structure_stack_006/prediction_manifest.tsv`
-- `data/tag_site_structure_ensemble_metrics_v2.tsv`
-- `data/tag_site_structure_perturbation_v2.tsv`
-- `data/tag_site_loop_feasibility_v2.tsv`
-- `data/tag_site_energy_context_v2.tsv`
-- `data/tag_site_hexamer_context_v2_tagged.tsv`
-- `data/tag_site_contact_network_v2_tagged.tsv`
-- `data/tag_site_integrated_perturbation_v2_structure.tsv`
-- `results/structure_stack_006/cross_method_robustness_v2.tsv`
-- `docs/STRUCTURE_STACK_RECOVERY_006_REPORT.md`
+- `results/open_structure_007/environment_inventory.tsv`
+- `results/open_structure_007/colabfold_smoke_test.tsv`
+- `data/tag_site_structure_panel_v3_open.tsv`
+- `results/open_structure_007/prediction_manifest.tsv`
+- `data/tag_site_structure_ensemble_metrics_v3_open.tsv`
+- `data/tag_site_structure_perturbation_v3_open.tsv`
+- `data/tag_site_openmm_qc_v1.tsv`
+- `data/tag_site_secondary_structure_accessibility_v1.tsv`
+- `data/tag_site_hexamer_context_v3_open.tsv`
+- `data/tag_site_contact_network_v3_open.tsv`
+- `data/tag_site_integrated_perturbation_v3_open.tsv`
+- `results/open_structure_007/cross_method_robustness_v3.tsv`
+- `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
 
 ### Final state expected
 
 - `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
 - `NO_COMPUTATIONAL_CONSENSUS_SITE`
-- `STRUCTURE_STACK_PARTIALLY_COMPLETE`
+- `OPEN_STRUCTURE_PIPELINE_PARTIALLY_COMPLETE`
 
 ## Later work
 
 ### Targeted dynamic analysis
 
-Only after a reduced site × tag set survives real inserted-structure perturbation screening.
+Only after a reduced site × tag set survives actual inserted-structure perturbation screening.
 
 ### Exact nucleotide/RNA audit
 
@@ -115,7 +109,4 @@ Mandatory before final construct recommendation, but blocked until the exact exp
 
 ## Repository maintenance
 
-- keep `PROJECT_STATE.md`, `ACTIVE_TASK.md`, `ANALYSIS_INDEX.md`, `DECISIONS.md` and this file consistent;
-- preserve versioned historical outputs;
-- record software/environment versions and commands;
-- commit small/medium scientific data/reports, not package caches, checkpoints, full databases or bulk trajectories.
+Keep `PROJECT_STATE.md`, `ACTIVE_TASK.md`, `ANALYSIS_INDEX.md`, `DECISIONS.md` and this file consistent. Preserve versioned historical outputs and record software/environment versions and commands.
