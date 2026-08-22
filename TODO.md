@@ -53,12 +53,33 @@ Final state:
 
 - `METHOD_HARDENING_BLOCKED`
 
+## GPU_RECOVERY_004 — BLOCKED / NO GPU VISIBLE
+
+Status: **GPU_RECOVERY_BLOCKED_NO_GPU**
+
+Task:
+
+- `tasks/GPU_RECOVERY_004.md`
+
+Report:
+
+- `docs/GPU_RECOVERY_004_REPORT.md`
+
+Required GPU checks were performed:
+
+- `hostname`: `admin1`
+- `nvidia-smi`: command not found
+- `CUDA_VISIBLE_DEVICES`: empty
+- `/dev/nvidia*`: absent
+
+Per task rule, no completed CPU analyses were rerun and no PLM-completed V5/V2 outputs were generated.
+
 ## CURRENT — Review / unblock decision
 
 ChatGPT/user must decide one of:
 
-1. authorize a new PLM environment recovery task on a GPU-capable session;
-2. accept `METHOD_HARDENING_BLOCKED` and pivot to HRV-A89-specific empirical validation planning;
+1. rerun `GPU_RECOVERY_004` inside a Slurm GPU allocation where `nvidia-smi` and `/dev/nvidia*` are visible;
+2. accept the unresolved PLM blocker and pivot to HRV-A89-specific empirical validation planning;
 3. explicitly authorize conflict-aware Tag x Site modeling despite absent PLM evidence.
 
 Until then, do not start Tag x Site modeling, long MD, final construct recommendation or RNA/codon design.

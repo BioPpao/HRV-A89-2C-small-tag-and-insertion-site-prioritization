@@ -1,0 +1,5 @@
+check	command	exit_code	stdout	stderr
+hostname	hostname	0	admin1	
+nvidia_smi	nvidia-smi	127		/bin/bash: nvidia-smi: command not found
+cuda_visible_devices	echo $CUDA_VISIBLE_DEVICES	0		
+dev_nvidia	ls -l /dev/nvidia*	2		ls: cannot access '/dev/nvidia*': No such file or directory

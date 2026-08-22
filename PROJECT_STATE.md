@@ -12,37 +12,36 @@ The computational endpoint is **relative candidate prioritization**, not proof o
 
 ## Current project-level decision state
 
-`METHOD_HARDENING_BLOCKED`
+`GPU_RECOVERY_BLOCKED_NO_GPU`
 
-ONE_SHOT_COMPUTATIONAL_AUDIT_003 completed the CPU-valid hardening modules but could not complete the mandatory tag-specific PLM scan because mature PLM software/GPU access was unavailable and package installation was rejected by the platform escalation gate.
+GPU_RECOVERY_004 was started to recover the previously blocked tag-specific PLM stage, but the session had no visible CUDA-capable GPU: `hostname` was `admin1`, `nvidia-smi` was unavailable, `CUDA_VISIBLE_DEVICES` was empty and `/dev/nvidia*` did not exist.
+
+Per the task stop rule, no CPU analyses were rerun and no PLM-completed V5/V2 outputs were fabricated.
 
 The previous `287|288–290|291` C-terminal cluster remains unsupported as a targeted shortlist after direct EV-A71 2C insertion-fitness mapping. The homolog 8-aa insertion result is still not treated as universal proof that every HRV-A89-specific MAP8/HA/G196 insertion must fail.
 
 ## Current active task
 
-`ONE_SHOT_COMPUTATIONAL_AUDIT_003`
+`GPU_RECOVERY_004`
 
-Status: **COMPLETED WITH BLOCKER**
+Status: **BLOCKED BEFORE GPU/PLM EXECUTION**
 
 Branch: `analysis/conservation-002`
 
 Task specification:
 
-- `tasks/ONE_SHOT_COMPUTATIONAL_AUDIT_003.md`
+- `tasks/GPU_RECOVERY_004.md`
 
-This task was designed for an unattended 3090-server run. It superseded `METHOD_HARDENING_002` as the active execution wrapper while preserving all of its mandatory scientific modules.
+This task was designed to recover only the GPU/PLM work blocked in `ONE_SHOT_COMPUTATIONAL_AUDIT_003`.
 
 Completed/attempted scope:
 
-1. EV-A71 substitution-tolerance integration: complete;
-2. continuous/Pareto all-320 junction re-ranking: complete;
-3. phylogeny-aware independent natural-indel-event analysis: complete;
-4. MAP8/HA/G196 tag-specific PLM insertion scans: blocked;
-5. ranking robustness and negative-control audits: complete for non-PLM layers;
-6. cross-tag consensus/disagreement analysis: blocked because PLM scores are unavailable;
-7. reduced computational review-set construction: complete as a review set only;
-8. optional lightweight insertion-specific structural feasibility triage: deferred;
-9. final synthesis and repository-state updates: complete locally.
+1. required GPU visibility checks: complete;
+2. GPU-capable PLM environment setup: blocked because no CUDA device was visible;
+3. MAP8/HA/G196 tag-specific PLM insertion scans: not run;
+4. cross-tag consensus/disagreement analysis: not run;
+5. V5 integrated evidence matrix and V2 review set: not created;
+6. optional lightweight insertion-specific structural feasibility triage: not run.
 
 Automatic escalation to long MD, experimental protocol design, final experimental construct selection, or RNA/codon design remains unauthorized.
 
@@ -127,7 +126,7 @@ Core data products:
 
 Decision state:
 
-`METHOD_HARDENING_BLOCKED`
+`GPU_RECOVERY_BLOCKED_NO_GPU`
 
 Key interpretation:
 
@@ -137,6 +136,27 @@ Key interpretation:
 - Phylogeny-aware indel counting makes natural-indel evidence sparse; `248|249` remains a conflict/control row with independent indel lower bound 2.
 - PLM scores for MAP8/HA/G196 are absent due software/GPU blocker, so cross-tag consensus is unavailable.
 - `data/computational_review_set_v1.tsv` is a conflict-aware review set, not a modeling authorization.
+
+## Current GPU recovery result
+
+Primary final report:
+
+- `docs/GPU_RECOVERY_004_REPORT.md`
+
+Machine-readable GPU check:
+
+- `results/gpu_recovery_004/gpu_visibility_check.tsv`
+
+Decision state:
+
+`GPU_RECOVERY_BLOCKED_NO_GPU`
+
+Key interpretation:
+
+- the task ran on `admin1`;
+- no `nvidia-smi`, no `CUDA_VISIBLE_DEVICES` value and no `/dev/nvidia*` devices were visible;
+- GPU PLM recovery was not scientifically executable in this session;
+- V4 and `data/computational_review_set_v1.tsv` remain unchanged current PLM-blocked outputs.
 
 ## Required future user input
 

@@ -185,3 +185,9 @@ These are active decisions. Future analyses should change them only with explici
 **Decision:** Treat `data/computational_review_set_v1.tsv` as a conflict-aware review set only.
 
 **Reason:** all reviewed rows remain either direct-homolog-conflicted, high-risk, mapping-uncertain, historically conflicted or negative controls. No row is validated or selected for experimental construct design.
+
+## D-029 — GPU_RECOVERY_004 stopped before PLM because no GPU was visible
+
+**Decision:** Do not reinterpret `GPU_RECOVERY_004` as a software failure or a PLM result. It is a runtime-allocation blocker with final state `GPU_RECOVERY_BLOCKED_NO_GPU`.
+
+**Reason:** required checks showed `hostname=admin1`, no `nvidia-smi`, empty `CUDA_VISIBLE_DEVICES` and no `/dev/nvidia*`. The task rule required stopping without rerunning CPU analyses or fabricating PLM-completed V5/V2 outputs.

@@ -11,7 +11,7 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint and next step |
 | Methodological logic audit | `docs/METHOD_LOGIC_AUDIT_V2.md` | CURRENT SUPPORTING | corrected logic, evidence hierarchy, Phase 0 summary |
 | Post-direct-evidence method audit | `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2.md` | **CURRENT STRATEGIC** | reinterprets direct EV-A71 phenotype, rejects both premature shortlist promotion and universal-A89-intolerance claims, authorizes method hardening |
-| Current execution task | `tasks/ONE_SHOT_COMPUTATIONAL_AUDIT_003.md` | **COMPLETE WITH BLOCKER** | unattended wrapper completed CPU modules and documented PLM/GPU blocker |
+| Current execution task | `tasks/GPU_RECOVERY_004.md` | **BLOCKED / NO GPU VISIBLE** | attempted PLM GPU recovery but stopped before GPU work because no CUDA device was visible |
 | Active task pointer | `ACTIVE_TASK.md` | CURRENT | current task/stop gate for Codex and ChatGPT |
 | Functional exclusion/constraint map | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | CURRENT | latest A89-specific functional map |
 | Historical insertion-tolerance conflict logic | `docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md` | CURRENT SUPPORTING | preserves historical PV insertion-tolerance evidence and literature-rescue conflicts |
@@ -26,6 +26,8 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Hardened all-junction matrix | `data/candidate_junctions_v4_method_hardening.tsv` | CURRENT DATA / PLM-BLOCKED | primary V4 matrix; PLM columns marked blocked |
 | One-shot final report | `docs/ONE_SHOT_COMPUTATIONAL_AUDIT_003_REPORT.md` | CURRENT REPORT | final state `METHOD_HARDENING_BLOCKED` |
 | Method hardening report | `docs/METHOD_HARDENING_002_REPORT.md` | CURRENT REPORT | CPU module results and PLM blocker |
+| GPU recovery report | `docs/GPU_RECOVERY_004_REPORT.md` | CURRENT REPORT / BLOCKED | final state `GPU_RECOVERY_BLOCKED_NO_GPU`; records GPU visibility checks |
+| GPU visibility check | `results/gpu_recovery_004/gpu_visibility_check.tsv` | CURRENT PROVENANCE | exact required GPU check commands, exit codes and outputs |
 | Phylogeny-aware indel report | `docs/PHYLOGENY_AWARE_INDEL_V1.md` | CURRENT REPORT | FastTree/Fitch-parsimony independent indel lower-bound analysis |
 | Tag-specific PLM report | `docs/TAG_SPECIFIC_PLM_SCAN_V1.md` | BLOCKED REPORT | MAP8/HA/G196 forms recorded; PLM scores unavailable |
 | Ranking robustness audit | `docs/RANKING_ROBUSTNESS_AUDIT_V1.md` | CURRENT REPORT | non-PLM Pareto sensitivity and negative-control audit |
@@ -90,6 +92,9 @@ ONE_SHOT_COMPUTATIONAL_AUDIT_003                COMPLETE WITH BLOCKER
   ├─ phylogeny-aware independent indel events
   └─ MAP8/HA/G196 tag-specific PLM scan BLOCKED
         ↓
+GPU_RECOVERY_004                                BLOCKED / NO GPU VISIBLE
+  └─ required GPU visibility checks completed
+        ↓
 ChatGPT/user review                             REQUIRED STOP GATE
         ↓
 insertion-specific loop + AF/ColabFold          BLOCKED PENDING REVIEW
@@ -107,7 +112,7 @@ HRV-A89 biological validation                   EXPERIMENTAL GOLD STANDARD
 
 Current project state:
 
-`METHOD_HARDENING_BLOCKED`
+`GPU_RECOVERY_BLOCKED_NO_GPU`
 
 The EV-A71 direct 8-aa insertion phenotype is unfavorable across mapped A89 junctions and therefore demotes the prior `287|288–290|291` structure/conservation shortlist. The result is treated as a strong homolog prior rather than universal proof that every A89-specific tag sequence will fail.
 
@@ -117,4 +122,4 @@ Current candidate/control roles:
 - `248|249`, `256|257`: `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`;
 - near-miss/non-strict sites remain eligible for full 320-junction continuous/Pareto re-ranking unless hard-excluded biologically.
 
-The next scientific question is whether to unblock a mature PLM/GPU environment, accept the computational blocker and pivot to HRV-A89-specific empirical validation, or explicitly authorize conflict-aware Tag x Site modeling despite absent PLM evidence.
+The next scientific question is whether to rerun `GPU_RECOVERY_004` inside a Slurm GPU allocation with visible `/dev/nvidia*`, accept the unresolved PLM blocker and pivot to HRV-A89-specific empirical validation, or explicitly authorize conflict-aware Tag x Site modeling despite absent PLM evidence.

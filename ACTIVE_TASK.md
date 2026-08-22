@@ -1,6 +1,6 @@
 # Active task
 
-Current task: `GPU_RECOVERY_004` — **AUTHORIZED / EXECUTE WHEN GPU IS VISIBLE**
+Current task: `GPU_RECOVERY_004` — **BLOCKED / NO GPU VISIBLE**
 
 Branch: `analysis/conservation-002`
 
@@ -13,6 +13,25 @@ Task specification:
 `ONE_SHOT_COMPUTATIONAL_AUDIT_003` completed the CPU-side hardening stages but blocked at the PLM stage because it ran on the Slurm login node without an allocated GPU device.
 
 The cluster does provide RTX 3090 resources through Slurm, so this task recovers only the previously blocked GPU/PLM work and reuses all completed upstream analyses.
+
+## Current execution result
+
+Final report:
+
+- `docs/GPU_RECOVERY_004_REPORT.md`
+
+Machine-readable GPU check:
+
+- `results/gpu_recovery_004/gpu_visibility_check.tsv`
+
+Observed runtime:
+
+- `hostname`: `admin1`
+- `nvidia-smi`: command not found
+- `CUDA_VISIBLE_DEVICES`: empty
+- `/dev/nvidia*`: absent
+
+Because no CUDA-capable GPU was visible, the task stopped at the required GPU check and did not rerun completed CPU analyses.
 
 ## Execution rule
 
@@ -63,9 +82,4 @@ No site may be called safe or validated for HRV-A89.
 
 ## Final state
 
-Return exactly one of:
-
-- `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
-- `NO_HIGH_CONFIDENCE_TARGETED_SITE`
-- `GPU_RECOVERY_BLOCKED_NO_GPU`
-- `GPU_RECOVERY_BLOCKED_SOFTWARE`
+`GPU_RECOVERY_BLOCKED_NO_GPU`
