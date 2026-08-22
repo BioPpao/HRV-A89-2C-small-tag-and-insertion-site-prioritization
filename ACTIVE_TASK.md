@@ -1,54 +1,71 @@
 # Active task
 
-Current task: `ONE_SHOT_COMPUTATIONAL_AUDIT_003` — **COMPLETED WITH BLOCKER**
+Current task: `GPU_RECOVERY_004` — **AUTHORIZED / EXECUTE WHEN GPU IS VISIBLE**
 
 Branch: `analysis/conservation-002`
 
 Task specification:
 
-`tasks/ONE_SHOT_COMPUTATIONAL_AUDIT_003.md`
+`tasks/GPU_RECOVERY_004.md`
 
-This task superseded `METHOD_HARDENING_002` as the active execution wrapper and incorporated all of its required modules.
+## Why this task exists
 
-Current project state:
+`ONE_SHOT_COMPUTATIONAL_AUDIT_003` completed the CPU-side hardening stages but blocked at the PLM stage because it ran on the Slurm login node without an allocated GPU device.
 
-`METHOD_HARDENING_BLOCKED`
+The cluster does provide RTX 3090 resources through Slurm, so this task recovers only the previously blocked GPU/PLM work and reuses all completed upstream analyses.
 
-## Completed/attempted unattended scope
+## Execution rule
 
-The run executed or attempted:
+At task start check GPU visibility with:
 
-1. EV-A71 substitution-tolerance integration: complete.
-2. Continuous/Pareto all-320 re-ranking: complete.
-3. Phylogeny-aware independent natural-indel-event analysis: complete.
-4. MAP8/HA/G196 tag-specific PLM insertion scans: blocked by software/GPU availability.
-5. Ranking robustness and negative-control audits: complete for non-PLM layers.
-6. Cross-tag consensus/disagreement analysis: blocked because PLM scores are unavailable.
-7. Construction of a reduced computational review set: complete as a review set only.
-8. Lightweight insertion-specific structural feasibility triage: deferred.
-9. Final synthesis and repository-state updates: complete locally.
+- `hostname`
+- `nvidia-smi`
+- `echo $CUDA_VISIBLE_DEVICES`
+- `/dev/nvidia*`
+
+If any CUDA-capable allocated GPU is visible and usable, proceed immediately. Do not require a specific node or physical GPU index.
+
+If no GPU is visible, stop with `GPU_RECOVERY_BLOCKED_NO_GPU` and do not rerun the completed CPU pipeline.
+
+## Authorized scope
+
+1. GPU-capable PLM environment setup and smoke-test.
+2. MAP8 / HA / G196 all-320 tag-specific PLM scans.
+3. Cross-tag consensus/disagreement analysis.
+4. New V5 integrated evidence matrix.
+5. Revised computational review set.
+6. Optional lightweight structural feasibility triage if a mature reproducible method is available.
+7. Final report and repository state updates.
+
+## Reuse, do not rerun by default
+
+- EV-A71 substitution-tolerance integration.
+- continuous/Pareto all-320 ranking.
+- phylogeny-aware independent-indel analysis.
+- non-PLM robustness/negative-control audit.
+- V4 non-PLM matrix.
+- current 17-row computational review set.
 
 ## Prohibited automatic escalation
 
 Do not start:
 
-- long molecular dynamics simulations;
-- experimental protocol design;
+- long MD;
 - final experimental construct recommendation;
+- experimental protocol design;
 - final RNA/codon design without the exact experimental nucleotide construct.
 
-Do not label any site safe or validated for HRV-A89.
+No site may be called safe or validated for HRV-A89.
 
-## Final stop state
+## Required final report
 
-Final state:
+`docs/GPU_RECOVERY_004_REPORT.md`
 
-`METHOD_HARDENING_BLOCKED`
+## Final state
 
-The final report must be:
+Return exactly one of:
 
-`docs/ONE_SHOT_COMPUTATIONAL_AUDIT_003_REPORT.md`
-
-Next gate:
-
-ChatGPT/user review. A future execution task must first restore a mature PLM/GPU-capable environment or explicitly decide to stop computational hardening and pivot to HRV-A89-specific empirical validation. Do not start Tag x Site modeling automatically.
+- `READY_FOR_CONFLICT_AWARE_TAG_SITE_MODELING`
+- `NO_HIGH_CONFIDENCE_TARGETED_SITE`
+- `GPU_RECOVERY_BLOCKED_NO_GPU`
+- `GPU_RECOVERY_BLOCKED_SOFTWARE`
