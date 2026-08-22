@@ -9,36 +9,37 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Topic | Current file | Status | Use |
 |---|---|---|---|
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint and next step |
-| Methodological self-audit | `docs/METHOD_LOGIC_AUDIT_V2.md` | CURRENT | corrected logic, evidence hierarchy, Phase 0 summary |
-| Method-gap / next-evidence audit | `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V1.md` | CURRENT STRATEGIC | identifies direct homolog InDel phenotype as the next higher-information layer and records remaining method gaps |
+| Methodological logic audit | `docs/METHOD_LOGIC_AUDIT_V2.md` | CURRENT SUPPORTING | corrected logic, evidence hierarchy, Phase 0 summary |
+| Post-direct-evidence method audit | `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V2.md` | **CURRENT STRATEGIC** | reinterprets direct EV-A71 phenotype, rejects both premature shortlist promotion and universal-A89-intolerance claims, authorizes method hardening |
+| Current execution task | `tasks/METHOD_HARDENING_002.md` | **AUTHORIZED / NEXT** | substitution tolerance + all-320 Pareto + phylogeny-aware indels + MAP8/HA/G196 PLM |
+| Active task pointer | `ACTIVE_TASK.md` | CURRENT | current task/stop gate for Codex and ChatGPT |
 | Functional exclusion/constraint map | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V3.md` | CURRENT | latest A89-specific functional map |
-| Direct-tolerance conflict / rescue logic | `docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md` | CURRENT SUPPORTING | preserves historical PV insertion-tolerance evidence and conflicts |
-| Four-structure structural screen | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v2.tsv` | CURRENT | all-atom 320-junction structural funnel regenerated in CONSERVATION_002 |
-| Small-tag evidence screen | `docs/TAG_CANDIDATE_SCREEN_V1.md` | CURRENT | tag-level literature ranking; not a construct ranking |
+| Historical insertion-tolerance conflict logic | `docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md` | CURRENT SUPPORTING | preserves historical PV insertion-tolerance evidence and literature-rescue conflicts |
+| Four-structure structural screen | `docs/STRUCTURAL_SCREEN_V2.md`, `data/junction_structural_metrics_v2.tsv` | CURRENT DATA/REPORT | all-320 WT structural metrics; strict pass is now annotation rather than sole candidate funnel |
+| Small-tag evidence screen | `docs/TAG_CANDIDATE_SCREEN_V1.md` | CURRENT SUPPORTING | tag-level literature ranking; not construct ranking |
 | HRV-A conservation / indel tolerance | `docs/CONSERVATION_SCREEN_V2.md` | CURRENT | MAFFT/ICTV-hardened near-HRV evolutionary layer |
 | Candidate QC gate | `docs/CANDIDATE_JUNCTION_QC_V1.md` | CURRENT SUPPORTING | shortlist state before direct homolog InDel integration |
-| Candidate shortlist decision framework | `docs/CANDIDATE_SHORTLIST_001_DECISION.md` | SUPERSEDED AS SHORTLIST | working hypothesis retained as provenance; direct homolog InDel V1 requires shortlist revision |
-| Direct homolog InDel task | `tasks/DIRECT_INDEL_001.md` | COMPLETE TASK | task specification for EV-A71 2C direct insertion/deletion mapping |
-| EV-A71 direct InDel mapping | `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md` | CURRENT DECISION LAYER | maps direct EV-A71 2C InDel phenotype to all 320 A89 junctions; final state `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION` |
-| All-junction metrics | `data/junction_structural_metrics_v2.tsv` | CURRENT DATA | regenerated quantitative structural metrics for all 320 junctions |
-| Integrated candidate junction evidence | `data/candidate_junctions_v2.tsv` | CURRENT DATA | current V2 structure/function/conservation/rescue matrix; will not be overwritten by direct-evidence V3 |
-| Integrated candidate junction evidence + direct InDel | `data/candidate_junctions_v3_direct_indel.tsv` | CURRENT DATA | V3 all-320 matrix with EV-A71 direct InDel layer appended; V2 preserved |
-| EV-A71 direct InDel to A89 mapping | `data/evA71_2C_direct_indel_to_A89_v1.tsv` | CURRENT DATA | all-320 A89 junction projection of EV-A71 insertion/deletion/substitution context |
-| EV-A71/A89 mature-2C alignment | `data/evA71_A89_2C_mafft_alignment_v1.fasta`, `data/evA71_A89_2C_alignment_map_v1.tsv` | CURRENT DATA | auditable mature-2C sequence alignment and residue mapping |
-| HRV-A residue conservation | `data/hrvA_conservation_per_residue_v2.tsv` | CURRENT DATA | 321 A89-anchored V2 conservation rows |
-| HRV-A junction conservation | `data/hrvA_conservation_per_junction_v2.tsv` | CURRENT DATA | 320 A89 junction rows with local-window and refined indel metrics |
-| HRV-A/B/C context | `data/hrvABC_candidate_window_context.tsv` | CURRENT DATA | secondary broader-rhinovirus context; HRV-B/C sparse |
+| Preliminary shortlist | `docs/CANDIDATE_SHORTLIST_001_DECISION.md` | SUPERSEDED AS TARGETED SHORTLIST | retained as working-hypothesis provenance only |
+| Direct homolog InDel task | `tasks/DIRECT_INDEL_001.md` | COMPLETE TASK | EV-A71 2C direct insertion/deletion mapping specification |
+| EV-A71 direct InDel mapping | `docs/EV71_2C_DIRECT_INDEL_MAPPING_V1.md` | CURRENT HIGH-WEIGHT EVIDENCE | maps EV-A71 direct 2C phenotype to all 320 A89 junctions; requires shortlist revision |
+| Current integrated direct-evidence matrix | `data/candidate_junctions_v3_direct_indel.tsv` | CURRENT DATA | all-320 V3 matrix before METHOD_HARDENING_002 |
+| Planned hardened all-junction matrix | `data/candidate_junctions_v4_method_hardening.tsv` | PENDING | primary METHOD_HARDENING_002 integration output |
+| EV-A71 direct InDel to A89 mapping | `data/evA71_2C_direct_indel_to_A89_v1.tsv` | CURRENT DATA | all-320 A89 projection of direct homolog insertion/deletion/substitution context |
+| EV-A71/A89 mature-2C alignment | `data/evA71_A89_2C_mafft_alignment_v1.fasta`, `data/evA71_A89_2C_alignment_map_v1.tsv` | CURRENT DATA | auditable mature-2C sequence alignment and mapping |
+| HRV-A residue conservation | `data/hrvA_conservation_per_residue_v2.tsv` | CURRENT DATA | 321 A89-anchored conservation rows |
+| HRV-A junction conservation | `data/hrvA_conservation_per_junction_v2.tsv` | CURRENT DATA | 320 A89 junction rows with local-window/refined indel metrics |
+| HRV-A/B/C context | `data/hrvABC_candidate_window_context.tsv` | CURRENT DATA | secondary broader-rhinovirus context |
 | CVB3→A89 functional mapping | `data/CVB3_to_A89_functional_mapping_v1.tsv` | CURRENT DATA | homolog mapping used for RNA/pore-function constraints |
 | Structure integrity audit | `results/phase0_structure_integrity.tsv` | CURRENT RESULT | residue/chain/sequence integrity |
-| Structure RMSD audit | `results/phase0_structure_rmsd.tsv` | CURRENT RESULT | monomer↔hexamer and model↔model structural correspondence |
-| Junction analysis code | `scripts/analyze_insertion_junctions.py` | CURRENT SCRIPT | reproducible structural feature calculation |
+| Structure RMSD audit | `results/phase0_structure_rmsd.tsv` | CURRENT RESULT | monomer↔hexamer and model↔model correspondence |
+| Junction analysis code | `scripts/analyze_insertion_junctions.py` | CURRENT SCRIPT | reproducible WT structural feature calculation |
 | CONSERVATION_002 code | `scripts/build_conservation_002_panels.py`, `scripts/run_mafft_map_to_A89.py`, `scripts/calculate_conservation_v2.py`, `scripts/integrate_junction_evidence_v2.py` | CURRENT SCRIPT | VMR/MAFFT/conservation/integration hardening pipeline |
-| DIRECT_INDEL_001 code | `scripts/direct_indel_001_map_ev71_to_a89.py` | CURRENT SCRIPT | source-table extraction, MAFFT mapping, direct InDel projection and V3 integration |
-| Reference sequence | `references/HRV_A89_2C_reference_sequence.fasta` | CURRENT INPUT | authoritative 321-aa project sequence |
-| Literature evidence registry | `references/LITERATURE_EVIDENCE_REGISTRY.md` | CURRENT | source-to-claim map and evidence boundaries; add verified EV-A71 direct InDel source during DIRECT_INDEL_001 |
-| Direct InDel source records | `references/direct_indel_001/source_records_v1.tsv` | CURRENT PROVENANCE | source files, checksums and roles for DIRECT_INDEL_001 |
+| DIRECT_INDEL_001 code | `scripts/direct_indel_001_map_ev71_to_a89.py` | CURRENT SCRIPT | direct homolog phenotype extraction/mapping/V3 integration |
+| Reference sequence | `references/HRV_A89_2C_reference_sequence.fasta` | CURRENT INPUT | authoritative 321-aa sequence |
+| Literature evidence registry | `references/LITERATURE_EVIDENCE_REGISTRY.md` | CURRENT | source-to-claim map and evidence boundaries |
+| Direct InDel source records | `references/direct_indel_001/source_records_v1.tsv` | CURRENT PROVENANCE | source files/checksums/roles for DIRECT_INDEL_001 |
 | Structure input provenance | `INPUT_PROVENANCE.md` | CURRENT | input role, checksums, storage policy |
-| Project decisions | `DECISIONS.md` | CURRENT | decisions that should not silently drift |
+| Project decisions | `DECISIONS.md` | CURRENT | active decisions; includes post-direct-evidence decisions D-022–D-026 |
 | Next work | `TODO.md` | CURRENT | prioritized executable backlog |
 
 ## Superseded / provenance files
@@ -50,46 +51,62 @@ These remain in Git for scientific provenance. Do not use them as the current de
 | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V1.md` | SUPERSEDED | replaced by V2/V3 mapping and graded evidence logic |
 | `docs/2C_FUNCTIONAL_EXCLUSION_MAP_V2.md` | SUPERSEDED | replaced by V3 A89-specific mapping |
 | `docs/STRUCTURAL_SCREEN_PRELIMINARY_V1.md` | SUPERSEDED | replaced by V2 all-atom/rSASA/interface screen |
-| `docs/CONSERVATION_SCREEN_V1.md` | PROVISIONAL / SUPERSEDED | replaced for decision-making by `docs/CONSERVATION_SCREEN_V2.md`; retained as CONSERVATION_001 provenance |
-| `data/junction_structural_metrics_v1.tsv` | PROVENANCE DATA | regenerated as `data/junction_structural_metrics_v2.tsv`; V1 has 8 strict-flag/gate mismatches |
-| `data/candidate_junctions_v1.tsv` | PROVISIONAL DATA | replaced for decision-making by `data/candidate_junctions_v2.tsv` |
+| `docs/CONSERVATION_SCREEN_V1.md` | PROVISIONAL / SUPERSEDED | replaced for decision-making by `docs/CONSERVATION_SCREEN_V2.md` |
+| `docs/METHOD_GAP_AND_NEXT_EVIDENCE_AUDIT_V1.md` | SUPERSEDED STRATEGIC AUDIT | correctly prioritized DIRECT_INDEL_001 before it was run; post-result interpretation now comes from V2 |
+| `data/junction_structural_metrics_v1.tsv` | PROVENANCE DATA | regenerated as V2; V1 contained 8 strict-flag/gate inconsistencies |
+| `data/candidate_junctions_v1.tsv` | PROVISIONAL DATA | replaced by V2/V3 for decision-making |
+| `data/candidate_junctions_v2.tsv` | PRE-DIRECT-EVIDENCE DATA | preserved; direct phenotype added in V3 |
 
-`docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md` is intentionally retained as a supporting current document because it records direct positive-tolerance evidence and the literature-rescue track.
+`docs/2C_FUNCTIONAL_CONSTRAINT_MAP_V2.md` remains current supporting evidence because it records direct positive-tolerance literature and the rescue/conflict track.
 
 ## Current analysis funnel
 
 ```text
-4-structure input audit                       COMPLETE
+4-structure input audit                         COMPLETE
         ↓
-2C literature/function mapping                COMPLETE (working V3)
+2C literature/function mapping                  COMPLETE (working V3)
         ↓
-320 peptide-junction WT structural screen     COMPLETE (V2)
+320-junction WT structural metrics              COMPLETE (V2)
         ↓
-near-HRV conservation + natural indel         COMPLETE (V2)
+HRV-A conservation + natural indel              COMPLETE (V2)
         ↓
-preliminary candidate shortlist               COMPLETE AS WORKING HYPOTHESIS
+preliminary candidate shortlist                 SUPERSEDED AS TARGETED SET
         ↓
-EV-A71 direct 2C InDel fitness → A89 mapping  COMPLETE (V1)
+EV-A71 direct 2C InDel fitness → A89            COMPLETE (V1)
         ↓
-all-320 candidate re-audit                    CURRENT REVIEW GATE
+post-direct-evidence strategic audit             COMPLETE (Audit V2)
         ↓
-insertion-specific tag × site modeling        PENDING
+METHOD_HARDENING_002                            CURRENT / AUTHORIZED
+  ├─ EV-A71 substitution tolerance
+  ├─ continuous/Pareto all-320 re-ranking
+  ├─ phylogeny-aware independent indel events
+  └─ MAP8/HA/G196 tag-specific PLM scan
         ↓
-targeted MD of reduced constructs             LATER
+ChatGPT/user review                             REQUIRED STOP GATE
         ↓
-exact replicon nucleotide/RNA audit           PENDING / INPUT REQUIRED
+insertion-specific loop + AF/ColabFold          BLOCKED PENDING REVIEW
         ↓
-2–3 experimental constructs + controls        PENDING
+targeted MD                                     LATER
         ↓
-WT vs tagged replicon validation              EXPERIMENTAL GATE
+exact replicon nucleotide/RNA audit             INPUT REQUIRED
+        ↓
+experimental construct/control set              PENDING
+        ↓
+HRV-A89 biological validation                   EXPERIMENTAL GOLD STANDARD
 ```
 
 ## Current checkpoint result
 
-The current structural/conservation analyses remain valid but are now treated as a preliminary site-discovery layer rather than the final shortlist authority.
+Current project state:
 
-The `287|288–290|291` cluster and `248|249` / `256|257` rescue controls remain working hypotheses. They must be allowed to be demoted or expanded after direct homolog insertion/deletion phenotype is mapped to all 320 A89 junctions.
+`NO_HIGH_CONFIDENCE_TARGETED_SITE_YET`
 
-DIRECT_INDEL_001 is complete with decision state `DIRECT_EVIDENCE_REQUIRES_SHORTLIST_REVISION`.
+The EV-A71 direct 8-aa insertion phenotype is unfavorable across mapped A89 junctions and therefore demotes the prior `287|288–290|291` structure/conservation shortlist. The result is treated as a strong homolog prior rather than universal proof that every A89-specific tag sequence will fail.
 
-The current structural/conservation shortlist is no longer sufficient as a targeted modeling set because EV-A71 direct 2C handle-insertion scores are unfavorable for all mapped A89 junctions. Tag × Site modeling is not authorized until ChatGPT/user reviews this conflict and authorizes a reduced, revised task.
+Current candidate/control roles:
+
+- `287|288–290|291`: `STRUCTURE_EVOLUTION_FAVORED__DIRECT_HOMOLOG_CONFLICT`;
+- `248|249`, `256|257`: `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`;
+- near-miss/non-strict sites remain eligible for full 320-junction continuous/Pareto re-ranking unless hard-excluded biologically.
+
+The next scientific question is whether `METHOD_HARDENING_002` can identify a defensible conflict-aware reduced modeling set, or whether the project should conclude `NO_HIGH_CONFIDENCE_TARGETED_SITE` and prioritize HRV-A89-specific empirical validation instead of additional computational site polishing.
