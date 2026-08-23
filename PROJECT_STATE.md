@@ -4,102 +4,139 @@ Last updated: 2026-08-23
 
 Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
-## Scientific objective
+## Final scientific objective
 
-Identify a small set of experimentally testable internal-tag constructs for HRV-A89 2C that minimize predicted perturbation of native 2C biology while remaining detectable in downstream mechanistic experiments.
+Build a **ranked, redundant, multi-junction × multi-tag experimental candidate panel** for HRV-A89 2C internal tagging that minimizes predicted perturbation while remaining experimentally detectable.
 
-The computational endpoint is **relative candidate prioritization and perturbation comparison**, not proof of a safe insertion site.
+The endpoint is not one computationally optimal site. The endpoint is a diversified candidate set with primary candidates, secondary/rescue candidates, conflict controls and hard-negative controls for downstream wet-lab validation.
 
-## Current project-level decision state
+No computational result may be described as a safe or experimentally validated site.
 
-`READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
+## Current project-level state
 
-OPEN_STRUCTURE_PIPELINE_007 completed the open inserted-structure recovery path. ColabFold generated real WT and inserted HRV-A89 2C models, OpenMM geometry QC completed, and the reduced panel now has open-tool structural, hexamer-context and contact-network perturbation tables.
+`CANDIDATE_PANEL_EXPANSION_IN_PROGRESS`
 
-## Current active task
+`OPEN_STRUCTURE_PIPELINE_007` is complete and technically resolved the previous inserted-structure blocker. The project is eligible for targeted dynamics, but targeted dynamics is now treated as only one future evidence layer within a broader candidate-panel program.
 
-`OPEN_STRUCTURE_PIPELINE_007`
+## Current active branch and task
 
-Status: **COMPLETE**
+Branch:
 
-Branch: `analysis/conservation-002`
+`analysis/candidate-panel-008`
+
+Active task:
+
+`CANDIDATE_PANEL_EXPANSION_008`
+
+Status:
+
+**AUTHORIZED / STRATEGIC EXPANSION BEFORE FINAL PANEL**
 
 Task specification:
 
-- `tasks/OPEN_STRUCTURE_PIPELINE_007.md`
+- `tasks/CANDIDATE_PANEL_EXPANSION_008.md`
 
-`STRUCTURE_STACK_RECOVERY_006` is retained as planning provenance but is superseded as the execution task.
+Strategic specification:
 
-## Open-tool decision
+- `docs/FINAL_CANDIDATE_PANEL_STRATEGY_V1.md`
 
-Primary route:
+## Branch provenance
 
-- ColabFold / `colabfold_batch` for inserted-structure ensembles;
-- OpenMM for geometry cleanup/QC only;
-- US-align/TM-align for structural comparison;
-- MDAnalysis/MDTraj for batch structural metrics;
-- DSSP-compatible tooling for secondary-structure preservation;
-- transparent coordinate-derived contact-network analysis;
-- existing A89 hexamer hypotheses for tagged oligomer-context comparison.
+`analysis/candidate-panel-008` was created from the current scientific branch:
 
-Do not require Rosetta, PyRosetta or FoldX. Do not delay the project to obtain restricted licenses.
+`analysis/conservation-002`
 
-Standalone AlphaFold, OpenFold and ESMFold are not installed by default because they largely duplicate the same structure-prediction evidence class. Add an alternative open engine only if ColabFold cannot be made scientifically usable after multiple reasonable recovery attempts.
+The completed OPEN_STRUCTURE_PIPELINE_007 results and all upstream evidence were inherited unchanged. New candidate-panel work should be performed on `analysis/candidate-panel-008` unless explicitly merged later.
 
-## Storage/runtime policy
+## Current completed evidence stack
 
-Repository path:
+The project already contains:
 
-`/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization`
+- A89 functional constraint/exclusion mapping;
+- all-320 WT structural metrics;
+- HRV-A conservation and natural-indel context;
+- phylogeny-aware independent-indel analysis;
+- EV-A71 direct insertion/deletion/substitution phenotype mapping;
+- continuous/Pareto all-320 re-ranking;
+- tag-specific ESM2 PLM scores for MAP8, HA and G196 forms;
+- open ColabFold inserted-structure modeling;
+- OpenMM geometry QC;
+- WT-vs-tagged structural perturbation metrics;
+- tagged hexamer-context analysis;
+- tagged contact-network analysis.
 
-The shared `/public` filesystem has large absolute free capacity but high utilization. Therefore:
+## OPEN_STRUCTURE_PIPELINE_007 checkpoint
 
-- audit storage/quota/inodes before installation;
-- do not install a full local ColabFold/MMseqs database unless clearly necessary and explicitly justified;
-- prefer public MSA-server generation from a network-capable login context;
-- cache A3M/MSA and required parameters under user/project-controlled paths;
-- run GPU inference on Slurm compute nodes from cached inputs when compute-node networking is restricted;
-- do not commit package caches, checkpoints, local sequence databases or bulk redundant prediction directories.
+OPEN_STRUCTURE_PIPELINE_007 modeled:
 
-## Continuity-first execution rule
+- 40 inserted constructs;
+- WT reference;
+- 49 total model rows;
+- four deep-replicated constructs with three models each.
 
-The task must continue through recoverable technical failures.
-
-Expected behavior:
-
-- login node without GPU → inspect Slurm and submit/enter a GPU job;
-- GPU queue pending → continue CPU preparation and QC work;
-- compute node without internet → download/cache from login context and execute offline on compute node;
-- one ColabFold/JAX install path fails → troubleshoot compatibility and try another isolated compatible environment;
-- one analysis utility fails → use another mature open utility where possible;
-- Git push unavailable → preserve local commits/results and retry from a network-capable context;
-- do not rerun completed all-320 global analyses without a concrete QC defect.
-
-A single local failure is not a project-wide blocker.
-
-## Current scientific interpretation entering OPEN_STRUCTURE_PIPELINE_007
-
-The strongest relative constructs before open inserted-structure modeling were:
+The strongest deep-replicated structural rows were:
 
 - `289|290 × MAP8`;
-- `289|290 × G196_minimal`;
-- `290|291 × MAP8`;
-- `290|291 × G196_minimal`.
+- `289|290 × G196_minimal`.
 
-These remain direct-homolog-conflicted and are not validated or safe.
+`290|291 × MAP8/G196_minimal` remained low-clash but weakened by native/local RMSD after deeper replication.
 
-Mandatory re-audit rows include:
+`256|257` was strongly disfavored by actual tagged-hexamer clash context.
 
-- `203|204`;
-- `224|225`;
-- `248|249`;
-- `256|257`;
-- `287|288`;
-- `288|289`;
-- `289|290`;
-- `290|291`.
+These observations remain **relative computational evidence only** and do not define the final candidate panel.
 
-OPEN_STRUCTURE_PIPELINE_007 did not validate any site, but it resolved the previous structure-pipeline blocker for the reduced panel. `289|290 x MAP8` and `289|290 x G196_minimal` are now the strongest deep-replicated open-structure rows. `290|291 x MAP8/G196_minimal` retained low clash counts but ranked weaker by native/local RMSD after deeper replication. `224|225` and `248|249` remain informative conflict-control rows; `256|257` is strongly disfavored by actual tagged-hexamer clash context.
+## Why the candidate universe is being reopened
+
+The final experimental design should not depend on one narrow structural cluster because:
+
+- direct homolog insertion fitness remains unfavorable for all mapped A89 junctions in the EV-A71 dataset;
+- historical poliovirus work found 2C particularly intolerant to insertion;
+- insertion tolerance is strongly sequence-, site- and protein-context dependent;
+- flexible/exposed loops are enriched for tolerated insertions but are not sufficient predictors by themselves;
+- current deep structural replication covers only four constructs;
+- tag detectability/binder geometry has not yet been integrated as a separate evidence axis;
+- the new 2026 picornaviral 2C:RNA holoenzyme evidence has not yet been mapped systematically onto A89 junctions.
+
+Therefore all 320 junctions remain available for supporting-feature review, subject to true hard biological exclusions.
+
+## Candidate-panel program now authorized
+
+The current task adds the following missing high-information layers:
+
+1. literature/evidence-gap registry update;
+2. full-320 secondary-structure boundary, solvent exposure, disorder/flexibility feature completion;
+3. mapping to the 2026 picornaviral 2C:RNA holoenzyme;
+4. tag-boundary protease/polyprotein risk analysis;
+5. realistic tag-portfolio expansion;
+6. tag-binder accessibility and epitope-recognition geometry;
+7. broader multi-seed inserted-structure replication;
+8. local dimer/trimer accommodation modeling where tractable;
+9. preliminary candidate-panel multi-objective ranking;
+10. definition of a broader targeted-dynamics subset;
+11. draft final Tier A / Tier B / control candidate panel.
+
+## Tag strategy
+
+Core current tags:
+
+- MAP8;
+- HA;
+- G196_minimal.
+
+Architecture comparison:
+
+- G196_practical_GS.
+
+Candidate expansion tags for literature/reagent feasibility review:
+
+- ALFA;
+- PA12/PA14;
+- AGIA;
+- HiBiT if luminescent complementation fits the intended experimental readout.
+
+FLAG remains excluded because the 9A5 construct already uses FLAG.
+
+No new tag should enter broad modeling until its exact sequence and realistic detection reagent/readout are fixed.
 
 ## Evidence hierarchy
 
@@ -108,47 +145,57 @@ When evidence conflicts, use:
 1. direct HRV-A89 insertion/replicon phenotype, if generated;
 2. direct homolog 2C insertion phenotype with high-confidence A89 mapping;
 3. direct homolog substitution/deletion phenotype and direct 2C genetics/biochemistry;
-4. established functional motifs and experimental homolog structures;
-5. A89 continuous structural-ensemble evidence;
-6. phylogeny-aware HRV-A evolutionary / independent-indel evidence;
-7. tag-specific PLM scores;
-8. inserted-structure/OpenMM/secondary-structure/contact-network/oligomer-context analyses;
-9. targeted dynamics only after a reduced construct set survives perturbation screening.
+4. established functional motifs and experimental homolog structures, including RNA-bound context;
+5. A89 structural ensemble / oligomer-context evidence;
+6. phylogeny-aware evolutionary / natural-indel evidence;
+7. tag-specific PLM;
+8. tag-binder accessibility / inserted-structure / network evidence;
+9. replicated targeted dynamics;
+10. exact nucleotide/RNA-context analysis before final construct design.
 
-No lower-level method may silently override stronger evidence.
+No lower-level prediction may silently override stronger evidence.
 
-## Expected OPEN_STRUCTURE_PIPELINE_007 outputs
+## Ranking policy
 
-- `results/open_structure_007/environment_inventory.tsv`
-- `results/open_structure_007/colabfold_smoke_test.tsv`
-- `data/tag_site_structure_panel_v3_open.tsv`
-- `results/open_structure_007/prediction_manifest.tsv`
-- `data/tag_site_structure_ensemble_metrics_v3_open.tsv`
-- `data/tag_site_structure_perturbation_v3_open.tsv`
-- `data/tag_site_openmm_qc_v1.tsv`
-- `data/tag_site_secondary_structure_accessibility_v1.tsv`
-- `data/tag_site_hexamer_context_v3_open.tsv`
-- `data/tag_site_contact_network_v3_open.tsv`
-- `data/tag_site_integrated_perturbation_v3_open.tsv`
-- `results/open_structure_007/cross_method_robustness_v3.tsv`
-- `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
+Do not use one opaque weighted scalar.
 
-All required files above were generated.
+Final candidate ranking must retain separate evidence axes and use:
 
-## Final task state expected
+- Pareto/non-dominated membership;
+- evidence-class labels;
+- leave-one-layer-out sensitivity;
+- rank stability/resampling where meaningful;
+- explicit unresolved-conflict labels.
 
-Return exactly one of:
+Required final views:
 
-- `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
-- `NO_COMPUTATIONAL_CONSENSUS_SITE`
-- `OPEN_STRUCTURE_PIPELINE_PARTIALLY_COMPLETE`
+- junction-level ranking;
+- site × tag ranking;
+- best junctions within each tag;
+- best tags within each junction;
+- Tier A / Tier B / control memberships.
 
-Do not automatically escalate to long MD, final experimental construct recommendation, experimental protocol design, or final RNA/codon design.
+## Target candidate-panel scale
 
-OPEN_STRUCTURE_PIPELINE_007 final state:
+Approximate target:
 
-`READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
+- Tier A: 6–10 primary constructs spanning at least 4–6 distinct junctions and at least 3 tag systems;
+- Tier B: 6–12 secondary/rescue constructs;
+- controls: 4–6 conflict/hard-negative constructs.
+
+This is a target range, not a quota.
+
+## Current stop gate
+
+`CANDIDATE_PANEL_EXPANSION_008` may define a proposed broader targeted-dynamics panel but must not automatically run it.
+
+Do not automatically start:
+
+- targeted dynamics;
+- final construct synthesis;
+- experimental protocol design;
+- final RNA/codon design.
 
 ## Required future user input
 
-Before final construct recommendation, obtain the exact nucleotide sequence of the experimental HRV-A89 2C region / replicon plasmid. Protein back-translation is not an acceptable substitute for RNA/codon-level auditing.
+Before final wet-lab construct recommendation, obtain the exact nucleotide sequence of the experimental HRV-A89 2C region / replicon/plasmid context. Protein back-translation is not an acceptable substitute.
