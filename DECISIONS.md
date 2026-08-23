@@ -118,8 +118,6 @@ These are active decisions. Future analyses should change them only with explici
 
 **Decision:** When Tag × Site modeling begins, prefer insertion-specific loop/conformer ensembles and orthogonal methods rather than a single tagged AlphaFold model.
 
-**Preferred logic:** focused Rosetta loop/remodel/KIC-like sampling + AlphaFold/ColabFold ensemble comparison where feasible, followed by hexamer compatibility analysis.
-
 **Reason:** WT loop geometry does not directly measure whether an inserted peptide can close without strain.
 
 ## D-020 — RNA/codon analysis becomes a mandatory final construct gate
@@ -154,16 +152,7 @@ These are active decisions. Future analyses should change them only with explici
 
 ## D-025 — Add substitution tolerance, phylogeny-aware indels and tag-specific PLM before structural Tag × Site modeling
 
-**Decision:** Authorize `METHOD_HARDENING_002` before Rosetta/AlphaFold/ColabFold tag modeling.
-
-**Scope:**
-
-- EV-A71 substitution-tolerance integration;
-- continuous/Pareto all-320 ranking;
-- independent natural-indel-event inference;
-- MAP8/HA/G196-specific PLM insertion perturbation scans.
-
-**Reason:** these layers have higher expected information gain than immediately modeling a shortlist that direct homolog phenotype has already challenged.
+**Decision:** Authorize `METHOD_HARDENING_002` before structural Tag × Site modeling.
 
 ## D-026 — Reinterpret current candidate groups as conflict controls
 
@@ -172,46 +161,60 @@ These are active decisions. Future analyses should change them only with explici
 - `287|288`, `288|289`, `289|290`, `290|291` → `STRUCTURE_EVOLUTION_FAVORED__DIRECT_HOMOLOG_CONFLICT`;
 - `248|249`, `256|257` → `HISTORICAL_INSERTION_SUPPORT__MODERN_CONFLICT_CONTROL`.
 
-**Reason:** preserve informative contradictions rather than averaging them away or presenting them as preferred sites.
-
 ## D-027 — ONE_SHOT_COMPUTATIONAL_AUDIT_003 ended in `METHOD_HARDENING_BLOCKED`
 
-**Decision:** Do not authorize automatic Tag × Site modeling from the current one-shot run.
-
-**Reason:** EV-A71 substitution, Pareto and phylogeny-aware indel analyses completed, but the mandatory MAP8/HA/G196 PLM insertion scan was blocked by unavailable mature PLM/GPU software and rejected dependency installation. Cross-tag consensus is therefore unresolved.
+**Decision:** Do not authorize automatic Tag × Site modeling from the one-shot run because the PLM layer was incomplete at that checkpoint.
 
 ## D-028 — V4 review set is not a modeling shortlist
 
 **Decision:** Treat `data/computational_review_set_v1.tsv` as a conflict-aware review set only.
 
-**Reason:** all reviewed rows remain either direct-homolog-conflicted, high-risk, mapping-uncertain, historically conflicted or negative controls. No row is validated or selected for experimental construct design.
-
 ## D-029 — direct login execution of GPU_RECOVERY_004 had no GPU visible
 
 **Decision:** Preserve the initial direct-login GPU check as provenance only, not the final task state.
 
-**Reason:** required checks on `admin1` showed no `nvidia-smi`, empty `CUDA_VISIBLE_DEVICES` and no `/dev/nvidia*`. The task was subsequently rerun through Slurm on `gpu15`.
-
 ## D-030 — GPU_RECOVERY_004 completed the tag-specific PLM layer
 
-**Decision:** Treat `data/candidate_junctions_v5_plm_gpu.tsv` and `data/computational_review_set_v2_plm_gpu.tsv` as the current PLM-integrated computational state for ChatGPT/user review.
-
-**Reason:** Slurm job `164151` ran on `gpu15` with NVIDIA GeForce RTX 3090 and completed ESM2 `esm2_t6_8M_UR50D` full-sequence masked pseudo-log-likelihood scoring for all 1,280 planned MAP8 / HA / G196 rows. PLM remains secondary computational evidence and does not validate any insertion site or override direct homolog phenotype.
+**Decision:** Treat `data/candidate_junctions_v5_plm_gpu.tsv` and `data/computational_review_set_v2_plm_gpu.tsv` as the current PLM-integrated computational state.
 
 ## D-031 — CONTINUOUS_TAG_SITE_MODELING_005 is partial, not a final construct gate
 
-**Decision:** Treat `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md` and `data/tag_site_integrated_perturbation_v1.tsv` as the current conflict-aware tag-site perturbation state, with final state `TAG_SITE_MODELING_PARTIALLY_COMPLETE`.
-
-**Reason:** The task completed the compact 33-junction x 4-tag panel, WT oligomer-context analysis, WT residue-contact-network anchor analysis, targeted reuse of V5/V2 direct/evolutionary/PLM evidence and cross-method robustness. Mature insertion-specific structure-prediction ensembles, Rosetta/KIC-like loop remodeling and FoldX/Rosetta/local-frustration energy analysis were not available and were explicitly deferred rather than fabricated.
-
-**Interpretation:** `289|290` and `290|291` with MAP8 or G196_minimal are the lowest relative perturbation rows among completed layers, but they retain direct homolog insertion conflict and are not safe, validated, or final construct recommendations. `248|249`, `256|257`, `203|204` and `224|225` are structurally/context constrained in this panel. G196_minimal is locally useful but not globally less disruptive than MAP8/HA.
+**Decision:** Treat `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md` and `data/tag_site_integrated_perturbation_v1.tsv` as the conflict-aware tag-site perturbation state at that checkpoint.
 
 ## D-032 — OPEN_STRUCTURE_PIPELINE_007 completed the open inserted-structure layer
 
 **Decision:** Treat `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`, `data/tag_site_integrated_perturbation_v3_open.tsv` and `results/open_structure_007/cross_method_robustness_v3.tsv` as the current open-structure evidence for the reduced structural panel.
 
-**Reason:** ColabFold 1.5.3 ran successfully through Slurm on `gpu15` with an RTX 3090; WT smoke, 40 inserted constructs, 4 deep-replicated constructs, OpenMM geometry QC, tagged-hexamer placement and contact-network analysis completed without restricted-license tools.
+**Interpretation:** `289|290 x MAP8` and `289|290 x G196_minimal` are the strongest deep-replicated open-structure rows, but remain direct-homolog-conflicted and are not final recommendations.
 
-**Interpretation:** `289|290 x MAP8` and `289|290 x G196_minimal` are the strongest deep-replicated open-structure rows. `290|291 x MAP8/G196_minimal` remain low-clash but are weaker by native/local RMSD after deeper replication. `256|257` is disfavored by actual tagged-hexamer clash context. No row is safe, validated, or a final construct recommendation.
+## D-033 — Final endpoint is a diversified candidate panel, not one best site
 
-**Current state:** `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`.
+**Decision:** The final computational deliverable must be a ranked, redundant, multi-junction × multi-tag experimental candidate panel rather than a single winning insertion junction.
+
+**Reason:** Current evidence is still model-, homolog- and tag-dependent. Wet-lab success should not hinge on one computational hypothesis.
+
+**Target structure:** approximately 6–10 Tier A constructs, 6–12 Tier B/rescue constructs and 4–6 conflict/hard-negative controls, spanning multiple junctions and multiple tag systems.
+
+## D-034 — Targeted dynamics is one evidence layer, not the only next step
+
+**Decision:** Do not launch targeted dynamics directly from the OPEN_STRUCTURE_PIPELINE_007 leaders. First execute `CANDIDATE_PANEL_EXPANSION_008` to broaden the site/tag universe and add missing orthogonal evidence.
+
+**Reason:** only four constructs currently have deep structural replication, and key evidence layers remain absent: binder accessibility, RNA-holoenzyme mapping, protease-boundary risk, broader tag portfolio and broader multi-seed structural replication.
+
+## D-035 — Candidate ranking remains multi-objective and conflict-aware
+
+**Decision:** The final candidate ranking must retain separate evidence axes and use Pareto/non-dominated membership, evidence classes, leave-one-layer-out sensitivity and rank stability/resampling where meaningful.
+
+**Reason:** a single weighted score would hide scientifically important conflicts such as direct phenotype versus structural tolerance or protein tolerance versus tag detectability.
+
+## D-036 — Tag expansion requires realistic reagent/readout feasibility
+
+**Decision:** Core tags remain MAP8, HA and G196_minimal. Additional tags such as ALFA, PA12/PA14, AGIA and HiBiT may enter the candidate program only after exact sequence, cognate binder/readout and realistic experimental availability are documented.
+
+**Reason:** computational ranking of a tag that cannot be detected or sourced experimentally has little practical value.
+
+## D-037 — Active candidate-panel branch
+
+**Decision:** New candidate-panel strategy and execution work will proceed on `analysis/candidate-panel-008`, branched from `analysis/conservation-002` after OPEN_STRUCTURE_PIPELINE_007 completion.
+
+**Reason:** preserve the completed conservation/open-structure branch as a stable scientific checkpoint while allowing broader candidate-panel development without rewriting historical state.
