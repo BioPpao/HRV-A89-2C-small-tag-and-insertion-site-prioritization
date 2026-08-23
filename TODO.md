@@ -4,110 +4,123 @@ Last updated: 2026-08-23
 
 Priority order is scientific, not cosmetic.
 
-## CONTINUOUS_TAG_SITE_MODELING_005 — COMPLETED / PARTIAL
-
-Status: **TAG_SITE_MODELING_PARTIALLY_COMPLETE**
-
-Primary report:
-
-- `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md`
-
-Completed:
-
-- 33-junction x 4-tag compact panel;
-- WT oligomer-context analysis;
-- WT residue-contact-network anchors;
-- direct/evolutionary/PLM evidence integration;
-- cross-method robustness with deferred flags.
-
-The major remaining gap is real inserted-structure modeling.
-
-## STRUCTURE_STACK_RECOVERY_006 — SUPERSEDED AS EXECUTION TASK
-
-Retained as planning provenance. It included Rosetta/FoldX options, but the current project should not depend on restricted-license software.
-
 ## OPEN_STRUCTURE_PIPELINE_007 — COMPLETE
 
 Status: **READY_FOR_TARGETED_DYNAMIC_ANALYSIS**
 
+Primary report:
+
+- `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
+
+Current authoritative open-structure outputs include:
+
+- `data/tag_site_integrated_perturbation_v3_open.tsv`
+- `results/open_structure_007/cross_method_robustness_v3.tsv`
+
+This result is retained, but targeted dynamics is no longer treated as the only next step.
+
+## CURRENT — CANDIDATE_PANEL_EXPANSION_008
+
+Status: **AUTHORIZED / STRATEGIC EXPANSION BEFORE FINAL PANEL**
+
+Branch:
+
+`analysis/candidate-panel-008`
+
 Task:
 
-- `tasks/OPEN_STRUCTURE_PIPELINE_007.md`
+- `tasks/CANDIDATE_PANEL_EXPANSION_008.md`
 
-### Primary open stack
+Strategy:
 
-- ColabFold / `colabfold_batch`;
-- OpenMM geometry cleanup/QC;
-- US-align/TM-align;
-- MDAnalysis/MDTraj;
-- DSSP-compatible secondary-structure analysis;
-- transparent WT-vs-tagged contact networks;
-- actual tagged placement into existing A89 hexamer hypotheses.
+- `docs/FINAL_CANDIDATE_PANEL_STRATEGY_V1.md`
 
-Do not require Rosetta, PyRosetta or FoldX.
+### Final objective
 
-### Completed blocker-removal work
+Build a ranked, redundant, multi-junction × multi-tag candidate panel for later wet-lab validation rather than selecting one or two computational winners.
 
-1. storage/quota/inode audit;
-2. Slurm/GPU/network-context audit;
-3. ColabFold/JAX/OpenMM open environment installation;
-4. real WT 321-aa A89 2C smoke test;
-5. tiered inserted-construct panel;
-6. multi-model/multi-seed ColabFold ensembles;
-7. WT-vs-tagged structural perturbation metrics;
-8. OpenMM geometry QC;
-9. secondary-structure/accessibility changes;
-10. actual tagged hexamer clash/interface analysis;
-11. actual WT-vs-tagged contact-network analysis;
-12. integrated open-tool re-ranking and robustness.
+### Priority work
 
-### Storage policy
+1. update literature/evidence registry for insertion tolerance and tag engineering;
+2. complete full-320 secondary-structure boundary, rSASA, disorder/flexibility and structural-prior features;
+3. map A89 junctions to the 2026 picornaviral 2C:RNA holoenzyme evidence;
+4. add tag-boundary protease/polyprotein risk annotations;
+5. review/expand the realistic tag portfolio beyond MAP8/HA/G196 when justified;
+6. add tag-binder accessibility and recognition-geometry analysis;
+7. broaden multi-seed ColabFold replication beyond the current four deep constructs;
+8. test local dimer/trimer accommodation where tractable;
+9. perform multi-objective preliminary candidate-panel ranking and robustness;
+10. define a broader targeted-dynamics panel without executing it;
+11. produce a draft final candidate panel with Tier A / Tier B / controls.
 
-- do not install full local ColabFold/MMseqs databases unless clearly necessary and explicitly justified;
-- prefer public MSA-server generation from the network-capable login node;
-- cache A3M/MSA/model parameters under controlled paths;
-- run GPU inference via Slurm from cached inputs when compute-node networking is restricted;
-- do not commit package caches, checkpoints, databases or bulk redundant prediction outputs.
+### Core tags
 
-### Continuity policy
+- MAP8
+- HA
+- G196_minimal
 
-Do not stop the whole task because the current shell has no GPU, a GPU job is pending, a compute node lacks internet, one package path fails, or Git push temporarily fails.
+Architecture comparison:
 
-Use Slurm, login-node downloads/cache, isolated compatible environments, mature open alternatives, CPU-side preparation while GPU work waits, and local commits/results.
+- G196_practical_GS
+
+Expansion tags for feasibility review:
+
+- ALFA
+- PA12/PA14
+- AGIA
+- HiBiT if the intended readout is relevant
+
+FLAG remains excluded.
 
 ### Expected outputs
 
-- `results/open_structure_007/environment_inventory.tsv`
-- `results/open_structure_007/colabfold_smoke_test.tsv`
-- `data/tag_site_structure_panel_v3_open.tsv`
-- `results/open_structure_007/prediction_manifest.tsv`
-- `data/tag_site_structure_ensemble_metrics_v3_open.tsv`
-- `data/tag_site_structure_perturbation_v3_open.tsv`
-- `data/tag_site_openmm_qc_v1.tsv`
-- `data/tag_site_secondary_structure_accessibility_v1.tsv`
-- `data/tag_site_hexamer_context_v3_open.tsv`
-- `data/tag_site_contact_network_v3_open.tsv`
-- `data/tag_site_integrated_perturbation_v3_open.tsv`
-- `results/open_structure_007/cross_method_robustness_v3.tsv`
-- `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
+- `data/junction_feature_matrix_v6_candidate_panel.tsv`
+- `data/hrvA89_2C_RNA_holoenzyme_mapping_v1.tsv`
+- `docs/RNA_HOLOENZYME_MAPPING_V1.md`
+- `data/tag_boundary_protease_risk_v1.tsv`
+- `data/tag_portfolio_v2.tsv`
+- `docs/TAG_PORTFOLIO_V2.md`
+- `data/tag_binder_accessibility_v1.tsv`
+- `docs/TAG_BINDER_ACCESSIBILITY_V1.md`
+- `data/expanded_structure_replication_panel_v1.tsv`
+- `data/expanded_structure_replication_metrics_v1.tsv`
+- `data/local_multimer_tag_context_v1.tsv`
+- `data/candidate_panel_preliminary_v1.tsv`
+- `results/candidate_panel_008/ranking_robustness_v1.tsv`
+- `data/proposed_targeted_dynamics_panel_v1.tsv`
+- `data/final_candidate_panel_draft_v1.tsv`
+- `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`
 
-All generated. Use `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md` and `data/tag_site_integrated_perturbation_v3_open.tsv` as the current open-structure evidence source.
+### Ranking policy
 
-### Final state expected
+Do not use one opaque total score.
 
-- `READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
-- `NO_COMPUTATIONAL_CONSENSUS_SITE`
-- `OPEN_STRUCTURE_PIPELINE_PARTIALLY_COMPLETE`
+Use:
 
-## Later work
+- separate evidence axes;
+- Pareto/non-dominated membership;
+- evidence classes;
+- leave-one-layer-out sensitivity;
+- rank stability/resampling where meaningful;
+- explicit conflict labels.
 
-### Targeted dynamic analysis
+### Target panel scale
 
-Now eligible for ChatGPT/user decision. Do not start without a new authorized task. The likely review focus is `289|290 x MAP8`, `289|290 x G196_minimal`, and conflict checks around `288|289`, `290|291`, `224|225`, and `248|249`.
+Approximate target:
 
-### Exact nucleotide/RNA audit
+- Tier A: 6–10 primary constructs;
+- Tier B: 6–12 secondary/rescue constructs;
+- controls: 4–6 conflict/hard-negative constructs.
 
-Mandatory before final construct recommendation, but blocked until the exact experimental nucleotide construct/context is supplied.
+The final panel should span multiple junctions and multiple tags.
+
+## Later — broad targeted dynamics
+
+Targeted dynamics should be authorized only after `CANDIDATE_PANEL_EXPANSION_008` defines a diverse dynamics panel. Prefer breadth of independent replicas across multiple constructs over prematurely committing to one long trajectory.
+
+## Later — exact nucleotide/RNA gate
+
+Mandatory before final construct recommendation. Requires the exact experimental nucleotide construct/context.
 
 ## Repository maintenance
 
