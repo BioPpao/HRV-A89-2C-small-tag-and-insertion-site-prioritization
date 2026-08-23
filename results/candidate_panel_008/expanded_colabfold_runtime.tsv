@@ -1,0 +1,11 @@
+record	value
+hostname	gpu15
+cuda_visible_devices	0
+date	2026-08-23T23:43:19+08:00
+nvidia_smi	NVIDIA GeForce RTX 3090, 575.57.08, 24576 MiB
+input_dir	results/candidate_panel_008/expanded_colabfold_input
+output_dir	results/candidate_panel_008/expanded_colabfold
+num_models	1
+num_recycle	6
+num_seeds	2
+random_seed	31

@@ -10,7 +10,7 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 |---|---|---|---|
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint and current branch/task |
 | Final candidate-panel strategy | `docs/FINAL_CANDIDATE_PANEL_STRATEGY_V1.md` | **CURRENT STRATEGIC** | defines the final multi-junction × multi-tag experimental-panel goal and missing evidence layers |
-| Current execution task | `tasks/CANDIDATE_PANEL_EXPANSION_008.md` | **AUTHORIZED / CURRENT** | broadens sites, tags and evidence before any dynamics/final panel |
+| Current execution task | `tasks/CANDIDATE_PANEL_EXPANSION_008.md` | **COMPLETE** | broadened sites, tags and evidence; final state `READY_FOR_BROAD_TARGETED_DYNAMICS` |
 | Active task pointer | `ACTIVE_TASK.md` | CURRENT | current task/stop gate for Codex and ChatGPT |
 | Open structure pipeline report | `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md` | CURRENT COMPLETED REPORT | real inserted ColabFold/OpenMM/hexamer/contact-network evidence; final state `READY_FOR_TARGETED_DYNAMIC_ANALYSIS` at that checkpoint |
 | Open structure integrated perturbation | `data/tag_site_integrated_perturbation_v3_open.tsv` | CURRENT STRUCTURE DATA | 40 construct-level inserted-structure evidence rows |
@@ -26,6 +26,9 @@ This file is the navigation layer for the project. Read `PROJECT_STATE.md` first
 | Tag consensus | `docs/TAG_SPECIFIC_CONSENSUS_V2_GPU.md`, `data/tag_specific_consensus_v2_gpu.tsv` | CURRENT | cross-tag PLM agreement/disagreement |
 | Current tag-site modeling provenance | `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md` | SUPPORTING | pre-open-structure tag-site context and deferred-method provenance |
 | Literature evidence registry | `references/LITERATURE_EVIDENCE_REGISTRY.md` | CURRENT / TO BE EXPANDED IN 008 | source-to-claim map and evidence boundaries |
+| Candidate panel 008 report | `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md` | CURRENT REPORT | broad candidate-panel expansion and final state `READY_FOR_BROAD_TARGETED_DYNAMICS` |
+| Final candidate panel draft | `data/final_candidate_panel_draft_v1.tsv` | CURRENT PANEL | 8 Tier A, 8 Tier B and 2 controls for review |
+| Proposed broad dynamics panel | `data/proposed_targeted_dynamics_panel_v1.tsv` | CURRENT PROPOSAL | 9-construct broad targeted-dynamics proposal; not executed |
 | Reference sequence | `references/HRV_A89_2C_reference_sequence.fasta` | CURRENT INPUT | authoritative 321-aa A89 2C sequence |
 | Project decisions | `DECISIONS.md` | CURRENT | active decisions through candidate-panel strategy |
 | Next work | `TODO.md` | CURRENT | prioritized executable backlog |
@@ -87,7 +90,7 @@ open inserted-structure pipeline                COMPLETE
   ├─ tagged contact networks
   └─ 4 constructs deep replicated
         ↓
-CANDIDATE_PANEL_EXPANSION_008                    CURRENT
+CANDIDATE_PANEL_EXPANSION_008                    COMPLETE
   ├─ literature/evidence-gap expansion
   ├─ full-320 insertion-prior feature completion
   ├─ 2026 2C:RNA holoenzyme mapping
@@ -95,7 +98,7 @@ CANDIDATE_PANEL_EXPANSION_008                    CURRENT
   ├─ broader realistic tag portfolio
   ├─ binder-accessibility / epitope-geometry layer
   ├─ broader multi-seed structure replication
-  ├─ local dimer/trimer accommodation where tractable
+  ├─ local dimer/trimer accommodation deferred with status record
   ├─ multi-objective candidate ranking + robustness
   └─ draft Tier A / Tier B / control panel
         ↓
@@ -112,9 +115,9 @@ HRV-A89-specific experimental validation         GOLD STANDARD
 
 ## Current checkpoint interpretation
 
-OPEN_STRUCTURE_PIPELINE_007 resolved the inserted-structure blocker but does not justify collapsing the project to one or two sites.
+OPEN_STRUCTURE_PIPELINE_007 resolved the inserted-structure blocker, and CANDIDATE_PANEL_EXPANSION_008 broadened the candidate set beyond one or two sites.
 
-Current strong structural rows such as `289|290 × MAP8` and `289|290 × G196_minimal` remain important, but they are now treated as members of a broader candidate universe rather than preselected final winners.
+Current Tier A draft spans 6 junctions and 3 tag systems. `289|290 × MAP8/G196_minimal` remain important, but they are members of a broader candidate universe rather than final winners.
 
 The candidate-panel stage must deliberately recover diversity across:
 

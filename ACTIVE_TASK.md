@@ -1,6 +1,6 @@
 # Active task
 
-Current task: `CANDIDATE_PANEL_EXPANSION_008` — **AUTHORIZED / STRATEGIC EXPANSION BEFORE FINAL PANEL**
+Current task: `CANDIDATE_PANEL_EXPANSION_008` — **COMPLETE**
 
 Branch: `analysis/candidate-panel-008`
 
@@ -12,13 +12,15 @@ Strategic specification:
 
 `docs/FINAL_CANDIDATE_PANEL_STRATEGY_V1.md`
 
-## Entering state
+## Completion state
 
-`OPEN_STRUCTURE_PIPELINE_007` is complete with final state:
+`CANDIDATE_PANEL_EXPANSION_008` completed with final state:
 
-`READY_FOR_TARGETED_DYNAMIC_ANALYSIS`
+`READY_FOR_BROAD_TARGETED_DYNAMICS`
 
-However, targeted dynamics is no longer treated as the only next step. The project goal is broader: construct a ranked, redundant, multi-junction × multi-tag experimental candidate panel before wet-lab validation.
+Primary report:
+
+`docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`
 
 ## Final-goal policy
 
@@ -79,6 +81,8 @@ Do not automatically execute:
 - experimental protocol design.
 
 Exact experimental nucleotide context remains required before final construct design.
+
+Stop here for ChatGPT/user review before authorizing targeted dynamics.
 
 ## Final state
 

@@ -13,3 +13,10 @@ GPU expansion job:
 - targets: `results/candidate_panel_008/expanded_colabfold_targets.txt`
 - target count: 18
 - status at CPU checkpoint: submitted/running on `gpu15`
+
+GPU expansion completion:
+
+- Slurm job `164255` completed on `gpu15`.
+- ColabFold expanded panel: 18 constructs, 36 PDB model rows.
+- OpenMM expanded QC: 35/36 completed; 1 retained failure at `A89_2C_248_249_HA` seed 032 (`Particle coordinate is nan`).
+- Local multimer modeling remains deferred, not a blocker for broad targeted-dynamics review.

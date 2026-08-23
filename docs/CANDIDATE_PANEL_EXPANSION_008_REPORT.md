@@ -1,10 +1,10 @@
 # CANDIDATE_PANEL_EXPANSION_008_REPORT
 
-Status: **CANDIDATE_PANEL_EXPANSION_PARTIALLY_COMPLETE**
+Status: **READY_FOR_BROAD_TARGETED_DYNAMICS**
 
 This CPU checkpoint completed literature/source records, all-320 feature integration, RNA-holoenzyme residue mapping, protease-boundary motif scanning, tag portfolio expansion, binder-accessibility proxies, preliminary ranking, robustness checks, a draft candidate panel and a proposed dynamics panel.
 
-Expanded multi-seed ColabFold replication and local multimer modeling are prepared/deferred at this checkpoint; no long MD or final construct design was started.
+Expanded multi-seed ColabFold replication completed for 18 constructs with 36 model rows. OpenMM geometry QC completed for 35/36 rows; one `248|249 x HA` seed failed with `Particle coordinate is nan` and is retained as a QC failure. Local multimer modeling remains deferred. No long MD or final construct design was started.
 
 ## Key Counts
 
@@ -29,13 +29,13 @@ Expanded multi-seed ColabFold replication and local multimer modeling are prepar
 
 ## Deferred Methods
 
-- Extra 008 ColabFold multi-seed replication: not yet completed in this CPU checkpoint; use `data/expanded_structure_replication_panel_v1.tsv` for predeclared panel.
+- Extra 008 ColabFold multi-seed replication: completed for the predeclared 18-construct panel; outputs are under `results/candidate_panel_008/expanded_colabfold/`.
 - Local dimer/trimer multimer modeling: deferred to avoid blocking independent ranking outputs.
 - IUPred2A/ANCHOR2 disorder/disordered-binding scores: tool not present in current environment; explicit NA status retained.
 - Exact RNA/codon audit: blocked until the real experimental nucleotide construct is supplied.
 
 ## Final State
 
-`CANDIDATE_PANEL_EXPANSION_PARTIALLY_COMPLETE`
+`READY_FOR_BROAD_TARGETED_DYNAMICS`
 
 No site is safe or validated. Stop for review before targeted dynamics or construct design.

@@ -1,0 +1,36 @@
+2026-08-23 23:43:45.560722: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:462] TfrtCpuClient created.
+2026-08-23 23:43:45.833733: I external/xla/xla/service/service.cc:168] XLA service 0x559ed3db09f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2026-08-23 23:43:45.833804: I external/xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 3090, Compute Capability 8.6
+2026-08-23 23:43:45.834180: I external/xla/xla/pjrt/gpu/se_gpu_pjrt_client.cc:633] Using BFC allocator.
+2026-08-23 23:43:45.834241: I external/xla/xla/pjrt/gpu/gpu_helpers.cc:108] XLA backend will use up to 101184176128 bytes on device 0 for BFCAllocator.
+2026-08-23 23:43:50.835098: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-08-23 23:43:51.526643: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-08-23 23:45:02.896276: I external/xla/xla/stream_executor/cuda/cuda_dnn.cc:440] Loaded cuDNN version 8600
+2026-08-23 23:45:03.185917: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2026-08-23 23:45:03.292370: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2026-08-23 23:45:03.293728: I external/tsl/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2026-08-23 23:45:15.148711: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:353] MLIR V1 optimization pass is not enabled
+2026-08-23 23:45:25.662253: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_155', 4 bytes spill stores, 4 bytes spill loads
+
+2026-08-23 23:45:27.307203: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_46', 8 bytes spill stores, 8 bytes spill loads
+
+2026-08-23 23:45:27.478955: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_46', 4 bytes spill stores, 4 bytes spill loads
+
+2026-08-23 23:45:28.309027: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 168 bytes spill stores, 296 bytes spill loads
+
+2026-08-23 23:45:28.342802: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 48 bytes spill stores, 48 bytes spill loads
+
+2026-08-23 23:45:28.566041: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 268 bytes spill stores, 252 bytes spill loads
+
+2026-08-23 23:45:28.646119: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_51', 56 bytes spill stores, 56 bytes spill loads
+
+2026-08-23 23:45:31.345090: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_156', 4 bytes spill stores, 4 bytes spill loads
+
+2026-08-23 23:45:32.499077: I external/xla/xla/stream_executor/gpu/asm_compiler.cc:328] ptxas warning : Registers are spilled to local memory in function 'triton_gemm_dot_154', 8 bytes spill stores, 8 bytes spill loads
+
+warning: Linking two modules of different target triples: 'LLVMDialectModule' is 'nvptx64-nvidia-gpulibs' whereas '' is 'nvptx64-nvidia-cuda'
+
+warning: Linking two modules of different target triples: 'LLVMDialectModule' is 'nvptx64-nvidia-gpulibs' whereas '' is 'nvptx64-nvidia-cuda'
+
+2026-08-24 00:13:19.274279: I external/xla/xla/pjrt/tfrt_cpu_pjrt_client.cc:465] TfrtCpuClient destroyed.

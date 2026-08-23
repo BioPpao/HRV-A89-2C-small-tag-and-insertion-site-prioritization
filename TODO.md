@@ -19,9 +19,9 @@ Current authoritative open-structure outputs include:
 
 This result is retained, but targeted dynamics is no longer treated as the only next step.
 
-## CURRENT — CANDIDATE_PANEL_EXPANSION_008
+## CANDIDATE_PANEL_EXPANSION_008 — COMPLETE
 
-Status: **AUTHORIZED / STRATEGIC EXPANSION BEFORE FINAL PANEL**
+Status: **READY_FOR_BROAD_TARGETED_DYNAMICS**
 
 Branch:
 
@@ -39,7 +39,7 @@ Strategy:
 
 Build a ranked, redundant, multi-junction × multi-tag candidate panel for later wet-lab validation rather than selecting one or two computational winners.
 
-### Priority work
+### Completed work
 
 1. update literature/evidence registry for insertion tolerance and tag engineering;
 2. complete full-320 secondary-structure boundary, rSASA, disorder/flexibility and structural-prior features;
@@ -48,7 +48,7 @@ Build a ranked, redundant, multi-junction × multi-tag candidate panel for later
 5. review/expand the realistic tag portfolio beyond MAP8/HA/G196 when justified;
 6. add tag-binder accessibility and recognition-geometry analysis;
 7. broaden multi-seed ColabFold replication beyond the current four deep constructs;
-8. test local dimer/trimer accommodation where tractable;
+8. record local dimer/trimer accommodation as deferred where not tractable in this run;
 9. perform multi-objective preliminary candidate-panel ranking and robustness;
 10. define a broader targeted-dynamics panel without executing it;
 11. produce a draft final candidate panel with Tier A / Tier B / controls.
@@ -91,6 +91,8 @@ FLAG remains excluded.
 - `data/final_candidate_panel_draft_v1.tsv`
 - `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`
 
+All generated. Use `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`, `data/final_candidate_panel_draft_v1.tsv` and `data/proposed_targeted_dynamics_panel_v1.tsv` as the current review package.
+
 ### Ranking policy
 
 Do not use one opaque total score.
@@ -116,7 +118,7 @@ The final panel should span multiple junctions and multiple tags.
 
 ## Later — broad targeted dynamics
 
-Targeted dynamics should be authorized only after `CANDIDATE_PANEL_EXPANSION_008` defines a diverse dynamics panel. Prefer breadth of independent replicas across multiple constructs over prematurely committing to one long trajectory.
+Targeted dynamics is now ready for ChatGPT/user authorization. Use `data/proposed_targeted_dynamics_panel_v1.tsv` as the starting panel; prefer breadth of independent replicas across multiple constructs over one long trajectory.
 
 ## Later — exact nucleotide/RNA gate
 

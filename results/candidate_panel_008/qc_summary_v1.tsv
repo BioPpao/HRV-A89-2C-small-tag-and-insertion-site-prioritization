@@ -5,11 +5,13 @@ data/tag_boundary_protease_risk_v1.tsv	parsed	18	11	0	0
 data/tag_portfolio_v2.tsv	parsed	9	12	NA	NA
 data/tag_binder_accessibility_v1.tsv	parsed	18	13	0	0
 data/expanded_structure_replication_panel_v1.tsv	parsed	18	16	0	0
-data/expanded_structure_replication_metrics_v1.tsv	parsed	18	20	0	0
+data/expanded_structure_replication_metrics_v1.tsv	parsed	18	38	0	0
 data/local_multimer_tag_context_v1.tsv	parsed	10	7	0	0
 data/candidate_panel_preliminary_v1.tsv	parsed	18	25	0	0
 results/candidate_panel_008/ranking_robustness_v1.tsv	parsed	18	12	0	0
 data/proposed_targeted_dynamics_panel_v1.tsv	parsed	9	8	0	0
 data/final_candidate_panel_draft_v1.tsv	parsed	18	11	0	0
+results/candidate_panel_008/expanded_openmm_qc_v1.tsv	parsed	36	13	18	18
+results/candidate_panel_008/expanded_prediction_manifest.tsv	parsed	36	21	18	18
 final_panel_tierA_distinct_junctions	6				
 final_panel_tierA_distinct_tags	3				

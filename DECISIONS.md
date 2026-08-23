@@ -218,3 +218,13 @@ These are active decisions. Future analyses should change them only with explici
 **Decision:** New candidate-panel strategy and execution work will proceed on `analysis/candidate-panel-008`, branched from `analysis/conservation-002` after OPEN_STRUCTURE_PIPELINE_007 completion.
 
 **Reason:** preserve the completed conservation/open-structure branch as a stable scientific checkpoint while allowing broader candidate-panel development without rewriting historical state.
+
+## D-038 — CANDIDATE_PANEL_EXPANSION_008 completed a diversified draft panel
+
+**Decision:** Treat `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`, `data/final_candidate_panel_draft_v1.tsv`, `data/candidate_panel_preliminary_v1.tsv` and `data/proposed_targeted_dynamics_panel_v1.tsv` as the current candidate-panel review package.
+
+**Reason:** The task generated full-320 feature integration, RNA-holoenzyme mapping, protease-boundary risk, tag portfolio expansion, binder-accessibility proxies, 18-construct expanded ColabFold replication, OpenMM QC, multi-objective ranking and a broad dynamics proposal.
+
+**Interpretation:** The Tier A draft contains 8 constructs spanning 6 junctions and 3 tag systems. It preserves `289|290` leaders while retaining `288|289`, `290|291`, `287|288`, `248|249` and `224|225` alternatives. `256|257` and `155|156` are controls. No construct is safe, validated or final wet-lab design.
+
+**Current state:** `READY_FOR_BROAD_TARGETED_DYNAMICS`.

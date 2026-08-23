@@ -14,7 +14,7 @@ No computational result may be described as a safe or experimentally validated s
 
 ## Current project-level state
 
-`CANDIDATE_PANEL_EXPANSION_IN_PROGRESS`
+`READY_FOR_BROAD_TARGETED_DYNAMICS`
 
 `OPEN_STRUCTURE_PIPELINE_007` is complete and technically resolved the previous inserted-structure blocker. The project is eligible for targeted dynamics, but targeted dynamics is now treated as only one future evidence layer within a broader candidate-panel program.
 
@@ -30,7 +30,7 @@ Active task:
 
 Status:
 
-**AUTHORIZED / STRATEGIC EXPANSION BEFORE FINAL PANEL**
+**COMPLETE / READY FOR REVIEW**
 
 Task specification:
 
@@ -115,6 +115,25 @@ The current task adds the following missing high-information layers:
 10. definition of a broader targeted-dynamics subset;
 11. draft final Tier A / Tier B / control candidate panel.
 
+`CANDIDATE_PANEL_EXPANSION_008` completed these layers where technically tractable. Local multimer prediction remains deferred; exact nucleotide/RNA-context analysis remains blocked until the real construct sequence is supplied.
+
+## CANDIDATE_PANEL_EXPANSION_008 checkpoint
+
+Primary report:
+
+- `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`
+
+Key generated outputs:
+
+- `data/junction_feature_matrix_v6_candidate_panel.tsv` -- 320 junction rows;
+- `data/expanded_structure_replication_metrics_v1.tsv` -- 18 constructs;
+- `results/candidate_panel_008/expanded_prediction_manifest.tsv` -- 36 ColabFold model rows;
+- `results/candidate_panel_008/expanded_openmm_qc_v1.tsv` -- 36 OpenMM QC rows;
+- `data/final_candidate_panel_draft_v1.tsv` -- 8 Tier A, 8 Tier B, 2 controls;
+- `data/proposed_targeted_dynamics_panel_v1.tsv` -- 9 constructs.
+
+Tier A spans 6 junctions and 3 tag systems. No candidate is safe or validated.
+
 ## Tag strategy
 
 Core current tags:
@@ -187,7 +206,7 @@ This is a target range, not a quota.
 
 ## Current stop gate
 
-`CANDIDATE_PANEL_EXPANSION_008` may define a proposed broader targeted-dynamics panel but must not automatically run it.
+`CANDIDATE_PANEL_EXPANSION_008` defined a proposed broader targeted-dynamics panel but did not run it.
 
 Do not automatically start:
 
