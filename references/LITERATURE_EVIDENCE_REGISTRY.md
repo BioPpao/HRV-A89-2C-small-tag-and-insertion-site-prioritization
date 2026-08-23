@@ -92,3 +92,21 @@ For every candidate-site claim, record at least:
 5. the unresolved contradiction if evidence layers disagree.
 
 Do not collapse conflicting evidence into a single opaque score without preserving the components.
+
+## Candidate-panel expansion 008 evidence additions
+
+| Source | Class | What it supports here | Boundary |
+|---|---|---|---|
+| Bakhache W et al. Nature Microbiology 10:158-168 (2025); `10.1038/s41564-024-01871-y; Dryad 10.5061/dryad.866t1g1xm; GitHub QVEU/eva71_dimple c99331a60980f68bb0141506e750e8339f278d08` | viral fitness substitution/insertion/deletion scan; peer_reviewed | direct homolog 2C insertion phenotype is unfavorable at mapped A89 junctions | does not validate or absolutely reject any HRV-A89 tag construct |
+| Teterina NL et al. Virology 409:1-11 (2011); `10.1016/j.virol.2010.09.028; PMCID PMC2993843` | nonstructural protein insertion screen; peer_reviewed | 2C is insertion-sensitive; tag identity and site context matter | does not prove every HRV-A89 internal 2C insertion fails |
+| Deep indel mutagenesis reveals the impact of amino acid insertions and deletions on protein stability and function. Nature Communications (2025); `10.1038/s41467-025-57510-5` | deep indel mutagenesis across domains; peer_reviewed | loops and secondary-structure termini are modestly enriched for indel tolerance; rSASA alone is weak for insertion tolerance | does not provide viral 2C-specific tolerance |
+| EpicTope non-disruptive epitope-tagging framework; `PMCID PMC10979891; PMCID PMC13006528` | feature framework; peer_reviewed/tool_article | combine conservation, secondary structure, solvent exposure and disordered-binding features | does not replace direct viral fitness or structure-specific modeling |
+| Wakasa A et al. Journal of Biochemistry 168:375-384 (2020); `10.1093/jb/mvaa054; PMCID PMC7585734` | internal epitope insertion and antibody recognition; peer_reviewed | MAP8 is realistic for loop insertion and structural/binder evaluation | does not establish HRV-A89 2C tolerance |
+| Moving toward generalizable NZ-1 labeling for 3D structure determination with optimized epitope-tag insertion; `PMCID PMC8098476` | PA12/PA14 inserted epitope and NZ-1 Fab structural work; peer_reviewed | PA14 can adopt closed loop-like bound geometry and may reduce insertion-induced structural change relative to PA12 | does not prove PA14 works inside HRV-A89 2C |
+| Gotzke H et al. Nature Communications 10:4403 (2019); `10.1038/s41467-019-12301-7; PMCID PMC6764986` | nanobody tag structural and assay system; peer_reviewed | ALFA has strong nanobody reagent and defined helical epitope sequence | helical 13-aa tag may be risky in short constrained loops; no A89 2C evidence |
+| Yano T et al. PLOS ONE 11:e0156716 (2016); `10.1371/journal.pone.0156716` | AGIA antibody tag; peer_reviewed | AGIA is compact and has high-affinity antibody detection | limited internal-insertion structural evidence for A89 2C |
+| Tatsumi K et al. Scientific Reports 7:43480 (2017); `10.1038/srep43480; PMCID PMC5339894` | small monoclonal antibody epitope tag; peer_reviewed | minimal DLVPR epitope and GS-flanked practical form are experimentally defined | does not establish internal A89 2C tolerance |
+| Schwinn MK et al. ACS Chemical Biology 13:467-474 (2018); `10.1021/acschembio.7b00549` | NanoLuc complementation peptide; peer_reviewed | HiBiT is an 11-aa quantitative luminescent tag with LgBiT complementation | not an antibody epitope and may not fit IP/IF/complex-capture goals |
+| Pfuetzner RA et al. The Structure of the Picornaviral 2C:RNA holoenzyme (2026 preprint); `10.64898/2026.06.07.730651` | RNA-bound 2C structural and mutational evidence; preprint | RNA pore/contact residues should be mapped as mechanistic risk context | not a direct HRV-A89 structure or binary veto |
+| Yeager C et al. Nucleic Acids Research (2022); `10.1093/nar/gkac1054; PMCID PMC9723501` | RNA-stimulated ATPase mechanism; peer_reviewed | 2C RNA binding and ATPase coupling are central functional constraints | does not identify A89 insertion-tolerant sites |
+
