@@ -1,0 +1,5 @@
+timestamp	array_index	old_job_id	new_job_id	node	partition	command	status
+2026-08-24T14:50:37	6	164359_6	DRY_RUN:sbatch --parsable --partition=RTX3090 --gres=gpu:1 --cpus-per-task=2 --mem=8G --oversubscribe --nodelist=gpu16 --array=6 scripts/broad_dynamics_009_gmx_production.sbatch	gpu16	RTX3090	DRY_RUN:sbatch --parsable --partition=RTX3090 --gres=gpu:1 --cpus-per-task=2 --mem=8G --oversubscribe --nodelist=gpu16 --array=6 scripts/broad_dynamics_009_gmx_production.sbatch	dry_run
+2026-08-24T14:50:37	7	164359_7	DRY_RUN:sbatch --parsable --partition=RTX3090 --gres=gpu:1 --cpus-per-task=2 --mem=8G --oversubscribe --nodelist=gpu17 --array=7 scripts/broad_dynamics_009_gmx_production.sbatch	gpu17	RTX3090	DRY_RUN:sbatch --parsable --partition=RTX3090 --gres=gpu:1 --cpus-per-task=2 --mem=8G --oversubscribe --nodelist=gpu17 --array=7 scripts/broad_dynamics_009_gmx_production.sbatch	dry_run
+2026-08-24T14:50:59	6		164374_6	gpu16	RTX3090	sbatch array=6	submitted
+2026-08-24T14:50:59	7		164375_7	gpu17	RTX3090	sbatch array=7	submitted

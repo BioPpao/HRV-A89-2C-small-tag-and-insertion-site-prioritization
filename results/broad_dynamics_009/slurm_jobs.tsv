@@ -11,3 +11,6 @@ job_id	job_name	status	exit_code	elapsed	node	script
 164356	bd009_prod20	CANCELLED_PARTITIONCONFIG_ACCOUNT_LIMIT	0:0_pending_cancelled	00:00:00	NA	sbatch --partition=RTX3090-autoEM --gres=gpu:rtx3090:1 --array=4-20
 164357	bd009_prod20	CANCELLED_REPLACED_BY_ANY_ALLOWED_GPU_SUBMISSION	0:0_pending_cancelled	00:00:00	NA	sbatch --partition=A40,A40-autoEM --gres=gpu:a40:1 --array=21-38
 164359	bd009_prod20	SUBMITTED_ARRAY_4-38_ANY_ALLOWED_GPU	0:0_pending_resources	NA	NA	sbatch --partition=A40,RTX3090 --gres=gpu:1 --array=4-38
+164374	bd009_prod20	BACKFILL_SUBMITTED_ARRAY_6_PENDING_PRIORITY	0:0_pending_priority	NA	gpu16	scripts/broad_dynamics_009_gpu_backfill_submit.py --max-submit 2
+164375	bd009_prod20	BACKFILL_SUBMITTED_ARRAY_7_PENDING_PRIORITY	0:0_pending_priority	NA	gpu17	scripts/broad_dynamics_009_gpu_backfill_submit.py --max-submit 2
+164379	bd009_gpu_fill	RUNNING_BACKFILL_WATCHER	0:0_running	NA	computer1	scripts/broad_dynamics_009_gpu_backfill_loop.sbatch

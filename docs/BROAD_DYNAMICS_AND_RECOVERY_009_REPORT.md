@@ -52,8 +52,10 @@ Tag counts: `{"G196_minimal": 2, "HA": 3, "MAP8": 7}`.
 - production target: 3 replicas per system; current submitted MDP covers the required 20 ns minimum-coverage stage before selective extension;
 - `164330` failed only because the first production launch incorrectly used checkpoint append before a checkpoint existed; the script was repaired;
 - `164351_0-3` are running on `gpu16/gpu17`;
-- `164359_4` is running and `164359_5-38` are queued with generic `gpu:1` across account-accessible `A40,RTX3090` partitions;
-- `RTX3090-autoEM` was not usable from the current account (`chengtong`) because that partition allows only `cryosparc,cryoem`.
+- `164359_4-5` are running; `164374_6` and `164375_7` are pending after explicit GPU-backfill split; `164359_8-38` remain queued with generic `gpu:1` across account-accessible `A40,RTX3090` partitions;
+- `yukang` is the Linux/Slurm user; `chengtong` is the scheduler/project accounting account on these jobs;
+- `RTX3090-autoEM` was not usable from the current Slurm accounting account (`chengtong`) because that partition allows only `cryosparc,cryoem`;
+- GPU backfill helper added: `scripts/broad_dynamics_009_gpu_backfill_submit.py`.
 
 ## Current Limitation
 

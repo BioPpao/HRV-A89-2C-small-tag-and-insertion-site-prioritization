@@ -29,7 +29,7 @@ The 009 task remains active. Do **not** create a new task/branch merely because 
 - balanced dynamics panel V2;
 - WT/tagged `112–321` system manifest and residue mapping;
 - WT and all 12 tagged systems passed GROMACS topology/EM/NVT/NPT/100 ps smoke preproduction;
-- production arrays submitted for the 20 ns broad minimum-coverage stage: `164351_0-3` and `164359_4` running; `164359_5-38` queued;
+- production arrays submitted for the 20 ns broad minimum-coverage stage: `164351_0-3` and `164359_4-5` running; `164374_6`/`164375_7` pending after backfill split; `164359_8-38` queued;
 - placeholder trajectory-dependent tables with explicit no-trajectory status.
 
 ## Mandatory continuation work

@@ -82,6 +82,21 @@ sacct -j 164359 --format=JobID,JobName,Partition,State,ExitCode,Elapsed,NodeList
 .tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_update_gmx_status.py
 ```
 
+### GPU backfill helper
+
+Use the helper to keep remaining production replicas moving when account-accessible GPUs open:
+
+```bash
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_gpu_backfill_submit.py --dry-run
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_gpu_backfill_submit.py --loop --interval 300
+```
+
+Default mode preserves existing pending queue priority and submits only missing/orphaned indices. Use `--rescue-pending` only when intentionally splitting pending array tasks onto detected free GPU nodes.
+
+Current watcher:
+
+- `164379` runs `scripts/broad_dynamics_009_gpu_backfill_loop.sbatch` on `computer1`.
+
 ### Dynamics system
 
 Primary broad comparison:

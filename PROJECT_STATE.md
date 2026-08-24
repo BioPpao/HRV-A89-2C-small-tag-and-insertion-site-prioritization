@@ -154,8 +154,10 @@ Stopping before minimum coverage is acceptable only for a genuine hard blocker d
 
 - Local multimer: `164291`, running on RTX3090 `gpu16`.
 - Production stage 1: `164351_0-3`, running on RTX3090 `gpu16/gpu17`.
-- Production stage 2: `164359_4` running and `164359_5-38` queued with generic `gpu:1` across account-accessible `A40,RTX3090` partitions.
+- Production stage 2: `164359_4-5` running; `164374_6` and `164375_7` pending after explicit GPU-backfill split; `164359_8-38` queued with generic `gpu:1` across account-accessible `A40,RTX3090` partitions.
 - `RTX3090-autoEM` was checked but is not usable by the current `chengtong` account because that partition allows only `cryosparc,cryoem`.
+- Clarification: `yukang` remains the Linux/Slurm user; `chengtong` is the Slurm accounting/project account on these jobs.
+- GPU backfill helper: `scripts/broad_dynamics_009_gpu_backfill_submit.py`.
 
 ## Ranking policy
 

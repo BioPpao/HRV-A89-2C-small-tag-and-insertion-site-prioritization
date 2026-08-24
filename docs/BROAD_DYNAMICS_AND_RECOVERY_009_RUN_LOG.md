@@ -163,3 +163,57 @@ After production replicas finish:
 ```
 
 Trajectory QC and dynamics/network analysis remain pending until real production trajectories complete.
+
+## 2026-08-24 clarification and GPU backfill helper
+
+Account clarification:
+
+- Linux user is `yukang` (`whoami`, `id`);
+- Slurm job field `UserId=yukang(10035)` confirms the running owner;
+- Slurm job field `Account=chengtong` is the scheduler/project accounting account, not the login user;
+- `RTX3090-autoEM` remains inaccessible for these jobs because its partition policy allows only accounting accounts `cryosparc,cryoem`.
+
+Added helper:
+
+- `scripts/broad_dynamics_009_gpu_backfill_submit.py`
+
+Purpose:
+
+- detect account-accessible free GPUs from `scontrol show node`;
+- avoid duplicate submission by parsing current `squeue` task indices;
+- submit only missing/orphaned `bd009_prod20` array indices by default;
+- optionally split pending array tasks with `--rescue-pending` when explicitly desired.
+
+Important behavior:
+
+- default mode does not cancel existing pending jobs, preserving queue priority;
+- `--rescue-pending` cancels selected pending task IDs and resubmits singleton array tasks to detected GPU nodes;
+- backfill submissions are logged in `results/broad_dynamics_009/gpu_backfill_submissions.tsv`;
+- command-line `--cpus-per-task` and `--mem` can reduce CPU demand for GPU backfill without changing MD scientific parameters.
+
+Observed run:
+
+- dry-run identified two RTX3090 free-GPU slots on `gpu16` and `gpu17`;
+- an initial rescue run split indices `6` and `7` from the pending `164359` array and submitted them as `164374_6` and `164375_7`;
+- those singleton jobs became `PENDING (Priority)`, not `PENDING (Resources)`;
+- therefore the script default was changed to avoid cancelling existing pending work unless `--rescue-pending` is explicitly supplied.
+
+Current known queue after this checkpoint:
+
+- `164351_0-3`: running;
+- `164359_4-5`: running;
+- `164374_6`, `164375_7`: pending by priority after backfill split;
+- `164359_8-38`: pending in the generic `A40,RTX3090` array.
+
+Useful commands:
+
+```bash
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_gpu_backfill_submit.py --dry-run
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_gpu_backfill_submit.py --loop --interval 300
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_gpu_backfill_submit.py --rescue-pending --max-submit 2
+```
+
+Watcher:
+
+- Slurm job `164379` started `scripts/broad_dynamics_009_gpu_backfill_loop.sbatch` on `computer1`;
+- it runs conservative loop mode every 300 s and preserves existing pending queue priority.
