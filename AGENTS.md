@@ -58,7 +58,7 @@ Default hierarchy:
 
 `direct 2C genetics/biochemistry > experimental homolog structures > explicit A89 sequence mapping / A89 annotations > A89 monomer ensemble > A89 hexamer ensemble > near-HRV conservation > tag-specific modeling`
 
-This hierarchy is not an instruction to ignore lower layers; it is an instruction about how to resolve conflicts and how strongly to word conclusions.
+For Task 010, corrected replicated MD remains a downstream supporting layer. It must not override direct phenotype or hard biological constraints.
 
 ## Current structural ensemble
 
@@ -98,6 +98,44 @@ All use A89 2C numbering 1–321 and were integrity-audited. Checksums are in `I
 - Do not fabricate unavailable PDB/EMDB/accession identifiers.
 - Push meaningful task checkpoints so the repository remains inspectable from ChatGPT without relying on Codex conversation state.
 
+## Task 010 dynamics-specific rules
+
+During `DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010`:
+
+- preserve all Task 009 trajectories and outputs;
+- do not overwrite historical 009 analysis tables;
+- repair periodic-boundary-condition handling before geometry-dependent analysis;
+- cross-check representative RMSD with GROMACS-native analysis;
+- distinguish self-drift from deviation from a common WT reference;
+- use junction-matched WT local RMSF baselines;
+- calculate WT-defined contact retention separately from candidate-start contact persistence;
+- use true tag SASA in addition to nonlocal contact metrics;
+- do not treat frames as independent statistical replicates;
+- use replica/time-block/time-truncation robustness;
+- dynamic-network evidence is exploratory unless stable across replicas and windows;
+- audit/correct CHARMM36 nonbonded settings before any new production extension;
+- do not automatically extend all legacy trajectories to 50 ns;
+- select a reduced, biologically diverse corrected-protocol validation subset;
+- prefer more replicas when between-replica variance dominates and longer trajectories when all replicas show shared slow drift;
+- do not count adjacent C-terminal junctions as independent biological regions;
+- do not create a new opaque weighted score to force a ranking.
+
 ## Current next task
 
-Read `ACTIVE_TASK.md`. CONSERVATION_002, DIRECT_INDEL_001, METHOD_HARDENING_002, GPU_RECOVERY_004 and CONTINUOUS_TAG_SITE_MODELING_005 are complete. The current decision state is `TAG_SITE_MODELING_PARTIALLY_COMPLETE`, documented in `docs/CONTINUOUS_TAG_SITE_MODELING_005_REPORT.md` and `data/tag_site_integrated_perturbation_v1.tsv`. Do not start long MD, final construct design, RNA/codon design or experimental protocol design until ChatGPT/user explicitly authorizes the next task.
+Read `ACTIVE_TASK.md`.
+
+The currently authorized task is:
+
+`DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010`
+
+on branch:
+
+`analysis/dynamics-audit-010`.
+
+Primary files:
+
+- `tasks/DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010.md`
+- `docs/DYNAMICS_009_POSTHOC_AUDIT_V1.md`
+- `codex/TASK_010_OVERNIGHT_PROMPT.md`
+
+Task 010 is authorized for autonomous server execution within its defined computational scope. It does not authorize exact nucleotide design, wet-lab procedural protocols, broad membrane/RNA/ATP/antibody mechanism simulations, safety/validation claims, or automatic merge to `main`.
