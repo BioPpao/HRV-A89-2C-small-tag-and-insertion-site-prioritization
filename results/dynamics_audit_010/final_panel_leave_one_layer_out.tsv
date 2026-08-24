@@ -1,0 +1,25 @@
+construct_id	removed_layer	original_priority_class	priority_class_after_removal	sensitivity_interpretation
+A89_2C_289_290_MAP8	direct_homolog	Priority_A	Priority_A	negative layer removed; class does not improve beyond computational-priority because HRV-A89 direct evidence remains absent
+A89_2C_289_290_MAP8	structure_oligomer	Priority_A	Priority_B	C-terminal Priority_A relies on favorable structure/oligomer context
+A89_2C_289_290_MAP8	conservation_indel	Priority_A	Priority_A	unchanged
+A89_2C_289_290_MAP8	PLM	Priority_A	Priority_A	unchanged
+A89_2C_289_290_MAP8	corrected_MD	Priority_A	Priority_A	unchanged
+A89_2C_289_290_MAP8	accessibility	Priority_A	Priority_A	unchanged
+A89_2C_289_290_G196_minimal	direct_homolog	Priority_A	Priority_A	negative layer removed; class does not improve beyond computational-priority because HRV-A89 direct evidence remains absent
+A89_2C_289_290_G196_minimal	structure_oligomer	Priority_A	Priority_B	C-terminal Priority_A relies on favorable structure/oligomer context
+A89_2C_289_290_G196_minimal	conservation_indel	Priority_A	Priority_A	unchanged
+A89_2C_289_290_G196_minimal	PLM	Priority_A	Priority_A	unchanged
+A89_2C_289_290_G196_minimal	corrected_MD	Priority_A	Priority_A	unchanged
+A89_2C_289_290_G196_minimal	accessibility	Priority_A	Priority_A	unchanged
+A89_2C_248_249_HA	direct_homolog	Priority_A	Priority_A	negative layer removed; class does not improve beyond computational-priority because HRV-A89 direct evidence remains absent
+A89_2C_248_249_HA	structure_oligomer	Priority_A	Priority_A	unchanged
+A89_2C_248_249_HA	conservation_indel	Priority_A	Priority_B	non-C-terminal Priority_A relies on this supporting layer
+A89_2C_248_249_HA	PLM	Priority_A	Priority_A	unchanged
+A89_2C_248_249_HA	corrected_MD	Priority_A	Priority_B	non-C-terminal Priority_A relies on this supporting layer
+A89_2C_248_249_HA	accessibility	Priority_A	Priority_B	non-C-terminal Priority_A relies on this supporting layer
+A89_2C_248_249_MAP8	direct_homolog	Priority_A	Priority_A	negative layer removed; class does not improve beyond computational-priority because HRV-A89 direct evidence remains absent
+A89_2C_248_249_MAP8	structure_oligomer	Priority_A	Priority_A	unchanged
+A89_2C_248_249_MAP8	conservation_indel	Priority_A	Priority_B	non-C-terminal Priority_A relies on this supporting layer
+A89_2C_248_249_MAP8	PLM	Priority_A	Priority_A	unchanged
+A89_2C_248_249_MAP8	corrected_MD	Priority_A	Priority_B	non-C-terminal Priority_A relies on this supporting layer
+A89_2C_248_249_MAP8	accessibility	Priority_A	Priority_B	non-C-terminal Priority_A relies on this supporting layer

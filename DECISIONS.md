@@ -270,3 +270,27 @@ These are active decisions. Future analyses should change them only with explici
 **Implementation:** keep running jobs intact, but submit pending/restartable work to generic account-accessible GPU partitions where possible. Record partition/account constraints explicitly.
 
 **Current constraint:** `RTX3090-autoEM` has idle hardware but rejects the current `chengtong` account because the partition allows only `cryosparc,cryoem`; therefore remaining production rows were submitted as `164359_4-38` with generic `gpu:1` across `A40,RTX3090`.
+
+## D-042 — Task 010 supersedes Task 009 dynamics ranking
+
+**Decision:** Treat `data/final_candidate_panel_v3_audited.tsv`, `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md`, `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md` and `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md` as the current audited provisional candidate-priority package.
+
+**Reason:** Task 010 reanalyzed all 39 legacy 20 ns trajectories with explicit PBC repair, GROMACS RMSD cross-validation, WT-reference RMSD, junction-matched WT RMSF baselines, WT-defined contact retention, tag SASA, corrected nonlocal tag contacts, replica/time-window sensitivity and downgraded network interpretation.
+
+**Superseded:** Task 009 V1 dynamics metrics and `data/final_candidate_panel_v2_dynamics.tsv` remain provenance only and must not be used as the current candidate-priority table.
+
+**Current state:** `CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`.
+
+**Boundary:** no construct is safe or experimentally validated; direct HRV-A89 insertion phenotype and exact nucleotide/RNA context remain absent.
+
+## D-043 — Corrected CHARMM36 validation is submitted but not yet interpreted
+
+**Decision:** Corrected-protocol validation is running as Slurm array job `164594` and must be analyzed before advancing to `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`.
+
+**Subset:** WT; `289|290 x MAP8`; `248|249 x HA`; `256|257 x MAP8`; `224|225 x MAP8`; `155|156 x MAP8`, each with 3 independent 20 ns replicas.
+
+**Reason:** legacy Task 009 used CHARMM36 nonbonded settings that differ from GROMACS-documented force-switch/DispCorr recommendations, so corrected-protocol validation is required before making the final experimental-review state.
+
+**Slurm identity note:** queue records show `UserId=yukang` and `Account=chengtong`; the account field is a Slurm allocation label, not a Linux user switch.
+
+**Sampling boundary:** do not extend all 39 legacy trajectories to 50 ns. Consider further replicas or 50 ns extension only after corrected-validation outputs are analyzed and show decision-relevant instability.

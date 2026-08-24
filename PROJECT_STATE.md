@@ -1,6 +1,6 @@
 # Project State
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
@@ -12,7 +12,7 @@ No computational result may be described as safe or experimentally validated.
 
 ## Current Project-Level State
 
-`MD_ANALYSIS_AUDIT_REQUIRED__PRELIMINARY_WET_PANEL_EVIDENCE_AVAILABLE`
+`CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
 
 ## Current Branch And Task
 
@@ -84,9 +84,9 @@ The following project layers remain decision-relevant and are not invalidated by
 
 The direct homolog insertion signal remains a strong negative prior for all current candidates but is not treated as an absolute HRV-A89 veto.
 
-## Task 010 Required Outputs
+## Task 010 Corrected Reanalysis Outputs
 
-Expected core outputs include:
+Generated core outputs:
 
 - `results/dynamics_audit_010/input_trajectory_inventory.tsv`
 - `results/dynamics_audit_010/pbc_rmsd_crossvalidation.tsv`
@@ -107,6 +107,43 @@ Expected core outputs include:
 - `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md`
 - `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md`
 
+## Task 010 Corrected Candidate Priorities
+
+Current audited provisional panel:
+
+- Priority A: `289|290 x MAP8`, `289|290 x G196_minimal`, `248|249 x HA`, `248|249 x MAP8`.
+- Priority B: `288|289 x MAP8`, `288|289 x HA`, `290|291 x MAP8`.
+- Conflict controls: `224|225 x MAP8`, `224|225 x HA`, `203|204 x G196_minimal`, `256|257 x MAP8`.
+- Hard-negative control: `155|156 x MAP8`.
+
+Authoritative files:
+
+- `data/final_candidate_panel_v3_audited.tsv`
+- `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md`
+- `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md`
+- `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md`
+
+No construct is safe or experimentally validated.
+
+## Corrected-Protocol Validation Status
+
+Corrected CHARMM36 validation subset:
+
+- `results/dynamics_audit_010/corrected_validation_subset.tsv`
+- `results/dynamics_audit_010/corrected_validation_manifest.tsv`
+- `scripts/dynamics_audit_010_corrected_validation.sbatch`
+
+Submitted Slurm array:
+
+- Job: `164594`
+- Rows: 18 array tasks, 6 systems x 3 replicas.
+- Initial status: tasks `0-2` running on `gpu17`; tasks `3-17` pending for resources.
+- Slurm identity: `UserId=yukang`, `Account=chengtong`.
+
+The `Account=chengtong` field is a Slurm allocation/account label, not a switch away from Linux user `yukang`.
+
+Corrected validation results are pending and must not be interpreted until completed and analyzed.
+
 ## 20 ns Versus 50 ns Decision
 
 There is no project rule that all systems must reach 50 ns.
@@ -124,9 +161,9 @@ Current 009 MD is an apo protein-only `112-321` core-fragment screen with an art
 
 No amount of generic trajectory extension removes this model limitation.
 
-## Current Candidate Interpretation Before Task 010 Rerank
+## Current Candidate Interpretation After Task 010 Rerank
 
-Do not use the old 009 Tier A/B calls as final priorities.
+Do not use the old 009 Tier A/B calls as final priorities. Use V3 audited outputs instead.
 
 Retain candidate identities as hypotheses only:
 

@@ -1,6 +1,6 @@
 # Literature Evidence Registry
 
-Last updated: 2026-08-21
+Last updated: 2026-08-25
 
 Purpose: map each literature source to the **specific claim it is allowed to support** in this project. This avoids silently turning homologous or computational evidence into direct HRV-A89 evidence.
 
@@ -61,6 +61,16 @@ Purpose: map each literature source to the **specific claim it is allowed to sup
 | Tien MZ et al. *PLoS ONE.* 2013;8:e80635. DOI `10.1371/journal.pone.0080635` | method | maximum accessible surface areas used for relative SASA normalization |
 | MDTraj Shrake–Rupley SASA / DSSP implementation | method | reproducible per-residue SASA and secondary-structure calculations in the structural screen |
 
+## Molecular-dynamics audit methodology
+
+| Source | Class | What it supports here | Boundary |
+|---|---|---|---|
+| Knapp B, Ospina L, Deane CM. *J Chem Theory Comput.* 2018. DOI `10.1021/acs.jctc.8b00391` | method | Task 010 emphasizes independent replicas and avoids treating frames as independent biological replicates | does not prescribe a universal number of replicas or make 20 ns mechanistically converged |
+| *Reliability and reproducibility checklist for molecular dynamics simulations*. *Communications Biology.* 2023. DOI `10.1038/s42003-023-04653-0` | method/reporting | Task 010 reports protocol, inputs, validation status, convergence and limitations explicitly | checklist compliance does not validate any insertion site experimentally |
+| GROMACS 2024 documentation, CHARMM force-field/nonbonded recommendations | method/software | Task 010 corrected MDP set uses force-switch style CHARMM36 settings and `DispCorr = no` as protocol validation target | software documentation is a simulation-protocol reference, not biological evidence |
+| MDAnalysis 2.9.0 transformations | method/software | Task 010 PBC unwrap/center preprocessing for geometry-dependent metrics | preprocessing correctness was cross-checked only on representative RMSD cases |
+| MDTraj 1.10.3 Shrake-Rupley and DSSP routines | method/software | Task 010 tag SASA and local secondary-structure persistence | SASA/DSSP are structural proxies and do not establish antibody binding or viral fitness |
+
 ## Tag-system evidence
 
 | Tag/system | Key source | Class | Allowed project inference |
@@ -109,4 +119,3 @@ Do not collapse conflicting evidence into a single opaque score without preservi
 | Schwinn MK et al. ACS Chemical Biology 13:467-474 (2018); `10.1021/acschembio.7b00549` | NanoLuc complementation peptide; peer_reviewed | HiBiT is an 11-aa quantitative luminescent tag with LgBiT complementation | not an antibody epitope and may not fit IP/IF/complex-capture goals |
 | Pfuetzner RA et al. The Structure of the Picornaviral 2C:RNA holoenzyme (2026 preprint); `10.64898/2026.06.07.730651` | RNA-bound 2C structural and mutational evidence; preprint | RNA pore/contact residues should be mapped as mechanistic risk context | not a direct HRV-A89 structure or binary veto |
 | Yeager C et al. Nucleic Acids Research (2022); `10.1093/nar/gkac1054; PMCID PMC9723501` | RNA-stimulated ATPase mechanism; peer_reviewed | 2C RNA binding and ATPase coupling are central functional constraints | does not identify A89 insertion-tolerant sites |
-

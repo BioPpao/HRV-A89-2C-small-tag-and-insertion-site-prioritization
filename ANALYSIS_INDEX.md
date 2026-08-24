@@ -1,6 +1,6 @@
 # Analysis Index
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 Read `PROJECT_STATE.md` first.
 
@@ -9,21 +9,30 @@ Read `PROJECT_STATE.md` first.
 | Topic | Current file | Status | Use |
 |---|---|---|---|
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint |
-| Active task pointer | `ACTIVE_TASK.md` | CURRENT | Task 010 authorization and scope |
+| Active task pointer | `ACTIVE_TASK.md` | CURRENT | Task 010 checkpoint and validation-running status |
 | Task 010 specification | `tasks/DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010.md` | CURRENT ACTIVE | full autonomous server task |
+| Task 010 final report | `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md` | CURRENT PROVISIONAL | corrected reanalysis, rerank and validation submission state |
+| Audited final candidate priority | `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md` | CURRENT PROVISIONAL | construct-level Priority A/B/control panel |
+| Final candidate panel V3 | `data/final_candidate_panel_v3_audited.tsv` | CURRENT PROVISIONAL | machine-readable audited candidate panel |
+| Dynamic network V2 audited | `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md` | CURRENT EXPLORATORY | corrected network interpretation boundary |
+| Corrected broad dynamics metrics V2 | `data/broad_dynamics_metrics_v2_corrected.tsv` | CURRENT | PBC-corrected self/WT-reference/RMSF/Rg metrics |
+| Corrected contact persistence V2 | `data/contact_persistence_dynamics_v2_corrected.tsv` | CURRENT | WT-defined and candidate-start contact metrics |
+| Corrected tag SASA V2 | `data/tag_exposure_dynamics_v2_sasa.tsv` | CURRENT | tag SASA and corrected nonlocal tag-contact metrics |
+| Corrected network perturbation V2 | `data/dynamic_network_perturbation_v2_corrected.tsv` | CURRENT EXPLORATORY | PBC-corrected DCCM/network metrics |
+| Task 010 validation subset | `results/dynamics_audit_010/corrected_validation_subset.tsv` | SUBMITTED / PENDING | corrected CHARMM36 validation job `164594` |
 | Task 009 posthoc audit | `docs/DYNAMICS_009_POSTHOC_AUDIT_V1.md` | CURRENT DECISION-CHANGING | why old dynamics ranking is provisional |
 | Broad dynamics 009 report | `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md` | HISTORICAL COMPLETE / PROVISIONAL INTERPRETATION | legacy 009 interpretation |
 | Broad dynamics 009 run log | `docs/BROAD_DYNAMICS_AND_RECOVERY_009_RUN_LOG.md` | HISTORICAL CURRENT PROVENANCE | execution/provenance log |
 | Dynamics QC V1 | `docs/DYNAMICS_QC_V1.md` | HISTORICAL TECHNICAL QC | verifies 39 x 20 ns completion, not corrected scientific ranking |
-| Dynamic network V1 | `docs/DYNAMIC_NETWORK_ANALYSIS_V1.md` | HISTORICAL PROVISIONAL | must be recomputed after PBC/convergence audit |
+| Dynamic network V1 | `docs/DYNAMIC_NETWORK_ANALYSIS_V1.md` | HISTORICAL SUPERSEDED | superseded by Task 010 V2 audited network report |
 | Local multimer recovery | `docs/LOCAL_MULTIMER_RECOVERY_V2.md` | CURRENT INCONCLUSIVE | nonfinite local multimer output status |
-| Final panel V2 dynamics | `data/final_candidate_panel_v2_dynamics.tsv` | HISTORICAL PROVISIONAL | do not use as final priority list |
+| Final panel V2 dynamics | `data/final_candidate_panel_v2_dynamics.tsv` | HISTORICAL SUPERSEDED | do not use as final priority list |
 | Ranking robustness V2 | `results/broad_dynamics_009/ranking_robustness_v2.tsv` | HISTORICAL PROVISIONAL | old 20 ns ranking summary |
 | Replica QC V1 | `data/dynamics_replica_qc_v1.tsv` | CURRENT RAW/TECHNICAL INPUT | 39-replica technical QC |
-| Broad dynamics metrics V1 | `data/broad_dynamics_metrics_v1.tsv` | HISTORICAL REANALYSIS REQUIRED | PBC/reference issues |
-| Tag exposure dynamics V1 | `data/tag_exposure_dynamics_v1.tsv` | HISTORICAL REANALYSIS REQUIRED | distance proxy; PBC-sensitive |
-| Contact persistence V1 | `data/contact_persistence_dynamics_v1.tsv` | HISTORICAL REANALYSIS REQUIRED | candidate-start contacts, PBC-sensitive |
-| Dynamic network perturbation V1 | `data/dynamic_network_perturbation_v1.tsv` | HISTORICAL REANALYSIS REQUIRED | PBC/convergence sensitive |
+| Broad dynamics metrics V1 | `data/broad_dynamics_metrics_v1.tsv` | HISTORICAL SUPERSEDED | PBC/reference issues; use V2 corrected |
+| Tag exposure dynamics V1 | `data/tag_exposure_dynamics_v1.tsv` | HISTORICAL SUPERSEDED | distance proxy; use V2 SASA |
+| Contact persistence V1 | `data/contact_persistence_dynamics_v1.tsv` | HISTORICAL SUPERSEDED | candidate-start contacts; use V2 corrected |
+| Dynamic network perturbation V1 | `data/dynamic_network_perturbation_v1.tsv` | HISTORICAL SUPERSEDED | PBC/convergence sensitive; use V2 corrected |
 | Production manifest | `results/broad_dynamics_009/production_manifest.tsv` | CURRENT RAW INPUT | paths/status/provenance |
 | Replica completion | `results/broad_dynamics_009/replica_completion.tsv` | CURRENT RAW INPUT | paths/status/provenance |
 | Balanced dynamics panel V2 | `data/balanced_targeted_dynamics_panel_v2.tsv` | CURRENT HISTORICAL PANEL | frozen panel that was simulated |
@@ -70,21 +79,21 @@ BROAD_DYNAMICS_AND_RECOVERY_009                           RAW MD COMPLETE
   ├─ old Tier A/B dynamics ranking                        PROVISIONAL / SUPERSEDED PENDING 010
   └─ local multimer recovery                              INCONCLUSIVE
         ↓
-DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010         CURRENT ACTIVE TASK
-  ├─ inventory/hash legacy trajectories                   REQUIRED
-  ├─ PBC make-whole/center/fit repair                     REQUIRED
-  ├─ GROMACS-vs-Python RMSD cross-validation              REQUIRED
-  ├─ self-drift vs WT-reference RMSD                      REQUIRED
-  ├─ junction-matched WT RMSF                             REQUIRED
-  ├─ WT-defined contact retention                         REQUIRED
-  ├─ true tag SASA + corrected nonlocal contacts          REQUIRED
-  ├─ time-block/truncation/replica convergence            REQUIRED
-  ├─ network evidence hardening/downgrade                 REQUIRED
-  ├─ negative-control discrimination audit                REQUIRED
-  ├─ CHARMM36 protocol correction                         REQUIRED
-  ├─ reduced corrected-protocol validation subset         AUTHORIZED
-  ├─ adaptive more-replica / 50-ns decision               AUTHORIZED, NOT AUTOMATIC
-  └─ audited candidate panel V3                           REQUIRED
+DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010         PROVISIONAL CHECKPOINT
+  ├─ inventory/hash legacy trajectories                   COMPLETE
+  ├─ PBC make-whole/center/fit repair                     COMPLETE
+  ├─ GROMACS-vs-Python RMSD cross-validation              COMPLETE
+  ├─ self-drift vs WT-reference RMSD                      COMPLETE
+  ├─ junction-matched WT RMSF                             COMPLETE
+  ├─ WT-defined contact retention                         COMPLETE
+  ├─ true tag SASA + corrected nonlocal contacts          COMPLETE
+  ├─ time-block/truncation/replica convergence            COMPLETE
+  ├─ network evidence hardening/downgrade                 COMPLETE
+  ├─ negative-control discrimination audit                COMPLETE
+  ├─ CHARMM36 protocol correction                         COMPLETE
+  ├─ reduced corrected-protocol validation subset         SUBMITTED AS JOB 164594
+  ├─ adaptive more-replica / 50-ns decision               PENDING VALIDATION RESULTS
+  └─ audited candidate panel V3                           COMPLETE / PROVISIONAL
         ↓
 experimental candidate review                            TARGET
         ↓

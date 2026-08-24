@@ -1,12 +1,12 @@
 # TODO
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 Priority order is scientific, not cosmetic.
 
 ## Current Gate — Task 010 Dynamics Audit And Candidate Rerank
 
-Status: `AUTHORIZED_FOR_AUTONOMOUS_SERVER_EXECUTION`
+Status: `CHECKPOINTED_CORRECTED_VALIDATION_RUNNING`
 
 Branch:
 
@@ -21,6 +21,8 @@ Primary audit:
 - `docs/DYNAMICS_009_POSTHOC_AUDIT_V1.md`
 
 ## P0 — Must Complete Before Any Final Candidate Priority Call
+
+Completed in Task 010 checkpoint:
 
 1. Freeze/hash/inventory all 39 legacy 009 trajectories and critical inputs.
 2. Repair PBC handling; make protein whole and apply explicit centering/fitting.
@@ -37,19 +39,24 @@ Primary audit:
 
 ## P1 — Corrected-Protocol Validation
 
-After corrected legacy reanalysis:
+Submitted as Slurm array job `164594`:
 
-1. select a compact diverse validation subset containing WT, best C-terminal candidate, best non-C-terminal candidate, one additional conflict/tag rationale and the `155|156 x MAP8` hard-negative control;
-2. use corrected GROMACS CHARMM36 settings;
-3. use independent velocity seeds;
-4. run at least 3 replicas per system at an initial 20 ns checkpoint;
-5. analyze with the new Task 010 pipeline.
+1. compact diverse validation subset containing WT, best C-terminal candidate, best non-C-terminal candidate, one oligomer/function conflict, one corrected-MD conflict and the `155|156 x MAP8` hard-negative control;
+2. corrected GROMACS CHARMM36 settings;
+3. independent velocity seeds;
+4. 3 replicas per system at an initial 20 ns checkpoint.
+
+Pending:
+
+5. monitor job `164594` to completion;
+6. analyze completed validation trajectories with the Task 010 corrected pipeline;
+7. decide whether final state can advance to `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`.
 
 Do not select only neighboring C-terminal junctions.
 
 ## P2 — Adaptive Sampling Decision
 
-For each corrected-validation system determine whether the dominant uncertainty favors:
+After job `164594` completes, determine whether the dominant uncertainty favors:
 
 - no additional sampling;
 - more independent replicas;
@@ -69,6 +76,8 @@ Required outputs:
 - `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md`
 - `results/dynamics_audit_010/final_panel_leave_one_layer_out.tsv`
 - `results/dynamics_audit_010/final_panel_without_md.tsv`
+
+Status: generated and checkpointed as provisional pending corrected-protocol validation.
 
 The final panel must include:
 

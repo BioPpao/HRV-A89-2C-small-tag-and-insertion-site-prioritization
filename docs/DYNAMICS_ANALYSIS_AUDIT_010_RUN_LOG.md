@@ -85,3 +85,83 @@ Pilot checks:
 Important implementation note:
 
 - MDTraj residue `resSeq` does not match project `sim_resid` for inserted-tag systems. Task 010 SASA mapping must use protein residue order from MDAnalysis/project mapping rather than MDTraj residue numbers.
+
+## Corrected 20 ns Reanalysis
+
+Script:
+
+- `scripts/dynamics_audit_010_reanalyze.py`
+
+Outputs:
+
+- `data/broad_dynamics_metrics_v2_corrected.tsv`
+- `data/contact_persistence_dynamics_v2_corrected.tsv`
+- `data/tag_exposure_dynamics_v2_sasa.tsv`
+- `data/dynamic_network_perturbation_v2_corrected.tsv`
+- `results/dynamics_audit_010/time_truncation_stability.tsv`
+- `results/dynamics_audit_010/replica_stability.tsv`
+- `results/dynamics_audit_010/dynamics_rank_stability.tsv`
+- `results/dynamics_audit_010/control_discrimination_audit.tsv`
+- `results/dynamics_audit_010/pbc_rmsd_crossvalidation.tsv`
+
+Summary:
+
+- 39 / 39 legacy 20 ns trajectories were reanalyzed after MDAnalysis unwrap/center PBC handling.
+- GROMACS-native RMSD cross-validation passed for WT, `289|290 x MAP8`, `224|225 x MAP8` and `155|156 x MAP8`.
+- Old Task 009 Tier A/B interpretation is superseded.
+- Corrected MD flagged persistent nonlocal tag-contact concerns for `155|156 x MAP8`, `224|225 x HA/MAP8` and `203|204 x G196_minimal`.
+
+Checkpoint:
+
+- `9ff753d task010: add corrected dynamics reanalysis outputs`
+
+## Audited Candidate Rerank
+
+Script:
+
+- `scripts/dynamics_audit_010_finalize.py`
+
+Generated:
+
+- `data/final_candidate_panel_v3_audited.tsv`
+- `results/dynamics_audit_010/final_panel_leave_one_layer_out.tsv`
+- `results/dynamics_audit_010/final_panel_without_md.tsv`
+- `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md`
+- `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md`
+- `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md`
+
+Provisional Priority A:
+
+- `289|290 x MAP8`
+- `289|290 x G196_minimal`
+- `248|249 x HA`
+- `248|249 x MAP8`
+
+No construct is safe or experimentally validated.
+
+## Corrected CHARMM36 Validation Submission
+
+Prepared:
+
+- `results/dynamics_audit_010/corrected_validation_subset.tsv`
+- `results/dynamics_audit_010/corrected_validation_manifest.tsv`
+- `scripts/dynamics_audit_010_corrected_validation.sbatch`
+
+Submitted:
+
+- Slurm array job `164594`
+- 18 array rows: 6 systems x 3 replicas.
+- Initial queue state: tasks `0-2` running on `gpu17`; tasks `3-17` pending for resources.
+- Slurm identity: `UserId=yukang(10035)`, `GroupId=yukang(10035)`, `Account=chengtong`.
+- Health check at 2026-08-25 00:05 Asia/Shanghai: array tasks `0-2` passed EM/NVT/NPT and entered corrected 20 ns production on `gpu17`; tasks `3-17` remained pending for resources.
+
+Interpretation:
+
+- The account field is a Slurm allocation/account label, not a Linux user switch.
+- Corrected validation results are not complete at this checkpoint and must not be fabricated.
+
+## Final Task 010 Checkpoint State
+
+State:
+
+`CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`

@@ -1,0 +1,10 @@
+record	value
+created	2026-08-25T00:05:24
+status	submitted_running_or_pending
+reason	corrected validation subset submitted after final panel generation; results are not yet complete and must not be fabricated
+array_rows	18
+slurm_array_job_id	164594
+initial_queue_state	0-2 running on gpu17; 3-17 pending for resources
+slurm_user	yukang
+slurm_account	chengtong
+health_check_2026-08-25T00:05	164594_0-2 passed EM/NVT/NPT and entered corrected 20 ns production on gpu17; 164594_3-17 pending resources

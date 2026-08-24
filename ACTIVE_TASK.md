@@ -1,6 +1,6 @@
 # Active Task
 
-Current task: `DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010` — **AUTHORIZED / AUTONOMOUS SERVER EXECUTION**
+Current task: `DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010` — **CHECKPOINTED / CORRECTED VALIDATION RUNNING**
 
 Branch: `analysis/dynamics-audit-010`
 
@@ -14,7 +14,7 @@ Primary audit:
 
 ## Current State
 
-`MD_ANALYSIS_AUDIT_REQUIRED__PRELIMINARY_WET_PANEL_EVIDENCE_AVAILABLE`
+`CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
 
 ## Why Task 010 Exists
 
@@ -47,6 +47,24 @@ Task 010 may autonomously:
 11. produce `data/final_candidate_panel_v3_audited.tsv` and an audited priority report;
 12. commit and push meaningful checkpoints.
 
+## Completed In Current Checkpoint
+
+- Historical Task 009 local multimer raw outputs were inventoried and left untracked.
+- 39 / 39 legacy 20 ns trajectories were reanalyzed with explicit PBC unwrap/center handling.
+- Representative RMSD was cross-validated against GROMACS-native analysis.
+- Corrected RMSD/RMSF/Rg/contact/SASA/tag-contact/network tables were generated.
+- Old Task 009 Tier A/B dynamics classification is superseded.
+- `data/final_candidate_panel_v3_audited.tsv` and audited reports were generated.
+- Corrected CHARMM36 validation subset was prepared and submitted as Slurm array job `164594`.
+
+## Running Work
+
+Corrected-validation job `164594`:
+
+- 18 array rows: 6 systems x 3 replicas.
+- Initial state: tasks `0-2` running on `gpu17`, tasks `3-17` pending for resources.
+- Results are pending and must not be interpreted until completed and analyzed.
+
 ## Important Execution Rule
 
 Do **not** automatically extend all 39 legacy trajectories to 50 ns.
@@ -59,7 +77,7 @@ Preferred if corrected-protocol validation completes without overturning the ran
 
 `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
 
-Allowed provisional checkpoint if corrected validation jobs remain incomplete but the corrected legacy reanalysis is complete:
+Current provisional checkpoint because corrected validation jobs remain incomplete but the corrected legacy reanalysis is complete:
 
 `CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
 
