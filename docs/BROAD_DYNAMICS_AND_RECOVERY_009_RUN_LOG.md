@@ -217,3 +217,55 @@ Watcher:
 
 - Slurm job `164379` started `scripts/broad_dynamics_009_gpu_backfill_loop.sbatch` on `computer1`;
 - it runs conservative loop mode every 300 s and preserves existing pending queue priority.
+
+## 2026-08-24 continuation after network interruption
+
+Account/GPU check:
+
+- `whoami` returned `yukang`.
+- `squeue -u yukang` initially showed watcher job `164379` plus duplicate backfill jobs `164556_0`, `164557_1`, `164558_2`, `164559_3`.
+- `sinfo` showed account-visible GPU nodes including idle `gpu16` and `gpu17`.
+
+Corrective action:
+
+- Canceled watcher `164379` and duplicate reruns `164556_0`, `164557_1`, `164558_2`, `164559_3`.
+- Verified `squeue -u yukang` was empty after cancellation.
+- Patched `scripts/broad_dynamics_009_gpu_backfill_submit.py` so it skips rows with completed output/log evidence before checking free GPU nodes or submitting new work.
+- Dry-run after patch returned `submitted=0`, confirming completed replicas are not resubmitted.
+
+Local multimer integration:
+
+- Ran `scripts/broad_dynamics_009_integrate_local_multimer.py` after patching it to handle non-finite model coordinates.
+- Output status: all focused local multimer constructs are `completed_all_models_nonfinite_coordinates`.
+- Interpretation: local multimer output is inconclusive and cannot override rigid-context evidence.
+
+Trajectory analysis:
+
+- Added `scripts/broad_dynamics_009_analyze_md.py`.
+- Ran real analysis over 39 GROMACS production trajectories and `.edr` files.
+- Fixed an energy-column parsing bug after detecting that `gmx energy` wrote Potential/Kinetic/Total/Temperature/Pressure order rather than the initial assumed order.
+- Fixed tag exposure proxy to exclude local insertion-window native atoms so covalent tag flanks do not force collapse = 1.0.
+- Final analyzed state:
+  - 39 / 39 replicas included;
+  - 20.0 ns per replica;
+  - 201 frames per replica;
+  - 780 ns total analyzed production sampling;
+  - 0 technical exclusions.
+
+Generated/updated compact outputs:
+
+- `data/dynamics_replica_qc_v1.tsv`
+- `data/broad_dynamics_metrics_v1.tsv`
+- `data/tag_exposure_dynamics_v1.tsv`
+- `data/contact_persistence_dynamics_v1.tsv`
+- `data/dynamic_network_perturbation_v1.tsv`
+- `data/final_candidate_panel_v2_dynamics.tsv`
+- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
+- `results/broad_dynamics_009/forcefield_provenance.tsv`
+- `docs/DYNAMICS_QC_V1.md`
+- `docs/DYNAMIC_NETWORK_ANALYSIS_V1.md`
+- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
+
+Final state:
+
+`READY_FOR_FINAL_CANDIDATE_PANEL_REVIEW`

@@ -99,6 +99,21 @@ def read_manifest() -> tuple[list[str], list[dict[str, str]]]:
         return reader.fieldnames or [], list(reader)
 
 
+def row_done(row: dict[str, str]) -> bool:
+    """Return True for replicas that should never be backfilled again."""
+    paths = [row.get("trajectory_path", ""), row.get("checkpoint_path", ""), row.get("energy_path", "")]
+    if not paths or not all(Path(p).is_file() and Path(p).stat().st_size > 0 for p in paths):
+        return False
+    log = Path(row["trajectory_path"]).with_suffix(".log")
+    log_ok = log.is_file() and "Finished mdrun" in log.read_text(errors="ignore")
+    try:
+        enough_time = float(row.get("achieved_ns", "nan")) >= float(row.get("fallback_minimum_ns", 20)) - 0.05
+    except ValueError:
+        enough_time = False
+    status = row.get("status", row.get("completion_status", ""))
+    return log_ok or enough_time or status == "completed_20ns_verified"
+
+
 def write_manifest(fields: list[str], rows: list[dict[str, str]]) -> None:
     with MANIFEST.open("w", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=fields, delimiter="\t", lineterminator="\n")
@@ -139,10 +154,10 @@ def submit_one(idx: int, old_job: str, node: str, partition: str, args: argparse
 def once(args: argparse.Namespace) -> int:
     fields, rows = read_manifest()
     active, pending = active_tasks()
-    slots = free_gpu_nodes(set(args.partitions.split(",")))
     candidates = [
         int(r["slurm_array_index"])
         for r in rows
+        if not row_done(r)
         if int(r["slurm_array_index"]) not in active
         or (args.rescue_pending and int(r["slurm_array_index"]) in pending)
     ]
@@ -150,6 +165,9 @@ def once(args: argparse.Namespace) -> int:
         i for i in sorted(set(candidates))
         if i not in active or (args.rescue_pending and i in pending)
     ]
+    if not candidates:
+        return 0
+    slots = free_gpu_nodes(set(args.partitions.split(",")))
     n = min(len(slots), len(candidates), args.max_submit)
     now = datetime.now().isoformat(timespec="seconds")
     for idx, (node, partition, _free) in zip(candidates[:n], slots[:n]):
@@ -177,7 +195,7 @@ def once(args: argparse.Namespace) -> int:
 
 def main() -> None:
     p = argparse.ArgumentParser()
-    p.add_argument("--partitions", default="A40,RTX3090")
+    p.add_argument("--partitions", default="A40,A40-autoEM,RTX3090,RTX3090-autoEM")
     p.add_argument("--cpus-per-task", type=int, default=2)
     p.add_argument("--mem", default="8G")
     p.add_argument("--max-submit", type=int, default=8)

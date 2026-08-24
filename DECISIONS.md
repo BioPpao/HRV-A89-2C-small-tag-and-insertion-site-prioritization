@@ -219,6 +219,20 @@ These are active decisions. Future analyses should change them only with explici
 
 **Reason:** preserve the completed conservation/open-structure branch as a stable scientific checkpoint while allowing broader candidate-panel development without rewriting historical state.
 
+## D-038 — Broad dynamics 009 completed a review-ready computational panel
+
+**Decision:** Treat `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md` and `data/final_candidate_panel_v2_dynamics.tsv` as the current dynamics-informed review package.
+
+**Reason:** WT plus 12 tagged A89 2C `112-321` systems completed 39 / 39 included 20 ns replicas, for 780 ns total analyzed production sampling.
+
+**Boundary:** this is comparative perturbation evidence only. It does not validate viral fitness, tag detectability in cells, RNA compatibility, membrane-state behavior or construct safety.
+
+## D-039 — Local multimer recovery is inconclusive, not a ranking override
+
+**Decision:** Treat `data/local_multimer_tag_context_v2.tsv` as technical provenance only for task 009.
+
+**Reason:** focused local multimer runs completed computationally, but parsed model coordinates and confidence values were non-finite. The result cannot support, rescue or worsen rigid oligomer-context conclusions.
+
 ## D-038 — CANDIDATE_PANEL_EXPANSION_008 completed a diversified draft panel
 
 **Decision:** Treat `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`, `data/final_candidate_panel_draft_v1.tsv`, `data/candidate_panel_preliminary_v1.tsv` and `data/proposed_targeted_dynamics_panel_v1.tsv` as the current candidate-panel review package.

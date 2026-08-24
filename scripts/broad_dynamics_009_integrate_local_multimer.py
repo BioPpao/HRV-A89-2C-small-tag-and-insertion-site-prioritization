@@ -30,7 +30,13 @@ def score_json(pdb: Path) -> dict:
         data = json.loads(js.read_text())
     except Exception:
         return {}
-    return {k: data.get(k, "") for k in ["iptm", "ptm", "ranking_confidence"]}
+    out = {}
+    for k in ["iptm", "ptm", "ranking_confidence"]:
+        v = data.get(k, "")
+        if isinstance(v, float) and math.isnan(v):
+            v = "NA"
+        out[k] = v
+    return out
 
 
 def atoms(path: Path) -> list[dict]:
@@ -53,10 +59,19 @@ def atoms(path: Path) -> list[dict]:
 
 def metrics(path: Path, left: int, tag_len: int) -> dict:
     a = atoms(path)
+    if any(not np.all(np.isfinite(x["xyz"])) for x in a):
+        return {
+            "coordinate_status": "nonfinite_coordinates",
+            "tag_neighbor_min_distance_A": "NA",
+            "inter_protomer_clash_count_2p5A": "NA",
+            "interface_contacts_8A": "NA",
+            "chain_count": len(set(x["chain"] for x in a)) if a else "NA",
+        }
     tag = [x for x in a if x["chain"] == "A" and left < x["resid"] <= left + tag_len]
     neigh = [x for x in a if x["chain"] != "A"]
     if not tag or not neigh:
         return {
+            "coordinate_status": "finite_but_missing_tag_or_neighbor",
             "tag_neighbor_min_distance_A": "NA",
             "inter_protomer_clash_count_2p5A": "NA",
             "interface_contacts_8A": "NA",
@@ -74,6 +89,7 @@ def metrics(path: Path, left: int, tag_len: int) -> dict:
         ntree = cKDTree(np.vstack([x["xyz"] for x in n_ca]))
         contacts = sum(len(ntree.query_ball_point(x["xyz"], 8.0)) for x in a_ca)
     return {
+        "coordinate_status": "finite",
         "tag_neighbor_min_distance_A": float(np.min(d)),
         "inter_protomer_clash_count_2p5A": int(clashes),
         "interface_contacts_8A": int(contacts),
@@ -97,6 +113,7 @@ def main() -> None:
                 "iptm": "NA",
                 "ptm": "NA",
                 "ranking_confidence": "NA",
+                "coordinate_status": "NA",
                 "tag_neighbor_min_distance_A": "NA",
                 "inter_protomer_clash_count_2p5A": "NA",
                 "interface_contacts_8A": "NA",
@@ -113,7 +130,7 @@ def main() -> None:
                 "model_file": str(pdb),
                 "rank": rank.group(1) if rank else "",
                 "seed": seed.group(1) if seed else "",
-                "prediction_status": "completed",
+                "prediction_status": "completed" if met.get("coordinate_status") == "finite" else f"completed_{met.get('coordinate_status', 'metric_warning')}",
                 "iptm": sc.get("iptm", "NA"),
                 "ptm": sc.get("ptm", "NA"),
                 "ranking_confidence": sc.get("ranking_confidence", "NA"),
@@ -134,7 +151,13 @@ def main() -> None:
             status = "completed_single_sequence_multimer"
             accom = "tag_neighbor_contact_or_clash_detected" if (not math.isnan(min_dist) and min_dist < 2.5) or (not math.isnan(max_clash) and max_clash > 0) else "no_tag_neighbor_clash_in_model"
         else:
-            min_dist = "NA"; max_clash = "NA"; iptm = "NA"; status = "failed_no_pdb_found"; accom = "not_assessable"
+            min_dist = "NA"; max_clash = "NA"; iptm = "NA"
+            if len(g) and g["prediction_status"].astype(str).str.contains("nonfinite_coordinates").all():
+                status = "completed_all_models_nonfinite_coordinates"
+                accom = "inconclusive_nonfinite_multimer_coordinates"
+            else:
+                status = "failed_no_pdb_found"
+                accom = "not_assessable"
         agg.append({
             "construct_id": cid,
             "junction": first["junction"],

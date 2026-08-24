@@ -1,63 +1,114 @@
 # BROAD_DYNAMICS_AND_RECOVERY_009 Report
 
-Generated: 2026-08-24T14:26:04+08:00
+Generated: 2026-08-24
 
-Final task state: `BROAD_DYNAMICS_PARTIALLY_COMPLETE`.
+Final task state: `READY_FOR_FINAL_CANDIDATE_PANEL_REVIEW`.
 
-Partial classification: `COMPUTE_JOBS_RUNNING_OR_QUEUED`.
+## Completed Outputs
 
-## Completed
+- `results/broad_dynamics_009/production_manifest.tsv`
+- `results/broad_dynamics_009/replica_completion.tsv`
+- `data/dynamics_replica_qc_v1.tsv`
+- `data/broad_dynamics_metrics_v1.tsv`
+- `data/tag_exposure_dynamics_v1.tsv`
+- `data/contact_persistence_dynamics_v1.tsv`
+- `data/dynamic_network_perturbation_v1.tsv`
+- `data/final_candidate_panel_v2_dynamics.tsv`
+- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
+- `results/broad_dynamics_009/forcefield_provenance.tsv`
+- `results/broad_dynamics_009/local_multimer/local_multimer_model_metrics.tsv`
+- `data/local_multimer_tag_context_v2.tsv`
 
-- repository/branch/input/software audit completed;
-- `248|249 x HA` OpenMM NaN classified as `MODEL_SPECIFIC_GEOMETRY_FAILURE`;
-- disorder layer recovered for all 321 residues and all 320 junctions;
-- PA14/AGIA exploratory ColabFold completed: 8 constructs x 2 seeds = 16 PDB rows;
-- local multimer target manifest prepared and Slurm job submitted;
-- balanced dynamics panel V2 created before MD;
-- WT/tagged 112-321 system manifest and residue mapping created;
-- WT GROMACS pilot completed through topology, solvation, ions, EM, restrained NVT, restrained NPT and 100 ps smoke production;
-- all 12 tagged balanced-panel systems completed the same GROMACS preproduction/smoke workflow;
-- 39 production replicas have been submitted through Slurm for the 20 ns broad minimum-coverage stage;
-- trajectory-dependent outputs remain placeholders until production trajectories complete and pass QC.
+## Broad MD Coverage
 
-## Balanced Dynamics Panel V2
+The 20 ns broad minimum-coverage milestone is complete.
 
-Tagged systems: 12 plus WT reference.
-Site-region counts: `{"155-156 hard-negative RNA/pore context": 1, "203-204 mechanistic/conflict region": 1, "224 neighborhood / non-C-terminal core": 2, "248-249 historical insertion region": 2, "256-257 oligomer-conflict control": 1, "C-terminal 287-291 cluster": 5}`.
-Tag counts: `{"G196_minimal": 2, "HA": 3, "MAP8": 7}`.
+- WT: 3 x 20 ns.
+- Tagged constructs: 12 constructs x 3 x 20 ns.
+- Total production sampling analyzed: 780 ns.
+- Replica QC inclusion: 39 / 39.
+- Technical exclusions: 0 / 39.
+
+The original 50 ns target remains a possible later extension, but the task-defined minimum broad screen was met and analyzed.
+
+## Provenance Caveat
+
+A CPU watcher continued to submit duplicate backfill attempts after outputs were already present. Codex canceled watcher job `164379` and duplicate jobs `164556_0`, `164557_1`, `164558_2`, `164559_3`.
+
+Because some duplicate restarts touched files, Slurm job attribution is imperfect. The authoritative completion evidence is the trajectory endpoint, `prod_20ns.log`, `.xtc`, `.edr` and `.cpt` files. This is recorded in the manifests and run log.
+
+## Local Multimer Recovery
+
+Focused local trimer ColabFold output was generated for:
+
+- `289|290 x MAP8`
+- `289|290 x G196_minimal`
+- `288|289 x HA`
+- `224|225 x HA`
+- `248|249 x MAP8`
+- `256|257 x MAP8`
+
+All parsed multimer PDB coordinates and score JSON confidence fields were non-finite (`nan`). Therefore local multimer recovery is `completed_all_models_nonfinite_coordinates` and remains inconclusive. It neither rescues nor worsens the previous rigid-placement interpretation.
+
+## Dynamics-Informed Panel
+
+The dynamics panel contains 12 tagged constructs plus WT. Final dynamics tiers in `data/final_candidate_panel_v2_dynamics.tsv`:
+
+- Tier A dynamics retained: 9 constructs.
+- Tier B dynamics secondary: 1 construct.
+- Controls after dynamics: 2 constructs.
+
+Tier A retained:
+
+- `289|290 x MAP8`
+- `289|290 x G196_minimal`
+- `288|289 x HA`
+- `288|289 x MAP8`
+- `290|291 x MAP8`
+- `224|225 x HA`
+- `224|225 x MAP8`
+- `248|249 x MAP8`
+- `203|204 x G196_minimal`
+
+Tier B secondary:
+
+- `248|249 x HA`
+
+Controls:
+
+- `256|257 x MAP8`
+- `155|156 x MAP8`
+
+No construct is called safe or experimentally validated.
+
+## Key Readouts
+
+Relative to WT, `248|249 x HA` showed the clearest dynamics penalty in this compact heuristic: native RMSD effect was about `+1.02 A`, with elevated local RMSF and moderate nonlocal tag-collapse fraction. It was moved to Tier B secondary.
+
+`289|290 x G196_minimal` had the lowest native RMSD mean among candidates and low nonlocal tag-collapse fraction, but it also had one of the larger raw local-to-functional DCCM values and remains direct-homolog conflicted.
+
+`224|225` and `248|249 x MAP8` remain competitive non-C-terminal candidates by the 20 ns screen, but `224|225` constructs showed high nonlocal tag proximity/collapse in this distance-proxy analysis.
+
+The C-terminal `288|289-290|291` neighborhood remains represented, but it is not treated as multiple independent biological regions. Non-C-terminal candidates remain necessary for a diversified panel.
 
 ## Answers To Required Questions
 
-1. `248|249 x HA` NaN: `MODEL_SPECIFIC_GEOMETRY_FAILURE`; not treated as biological failure.
-2. Disorder layer: recovered with metapredict if import succeeded, otherwise explicit composition proxy fallback recorded in `docs/DISORDER_LAYER_RECOVERY_V1.md`.
-3. Local multimer: Slurm job `164291` is running; no completed local multimer model is available yet and no rigid-placement conclusion changed.
-4. PA14/AGIA: single-sequence ColabFold completed, but mean CA pLDDT was low (~35-38 across constructs); none is promoted.
-5. MD panel: `data/balanced_targeted_dynamics_panel_v2.tsv`.
-6. Replicas/ns: 0 completed at this checkpoint; 39 submitted for 20 ns broad minimum coverage (`164351_0-3`, `164359_4` running; `164359_5-38` queued).
-7. Stable candidates across replicas: not assessable yet.
-8. Persistent tag exposure: not assessable yet.
-9. Local/native perturbation from dynamics: not assessable yet.
-10. Dynamic/network propagation: not assessable yet.
-11. 288/289/290/291 dynamics ordering: not assessable yet.
-12. 224|225 and 248|249 competitiveness: retained for dynamics; final evidence pending.
-13. Tier A bias: rebalanced pre-MD panel groups 287-291 as one region and includes non-C-terminal regions/controls.
-14. MAP8 bias: reduced but MAP8 remains common because inherited structural evidence is strongest there.
-15. Remaining uncertainty: exact nucleotide/RNA context and HRV-A89 wet-lab phenotype remain required.
+1. `248|249 x HA` OpenMM NaN: classified earlier as `MODEL_SPECIFIC_GEOMETRY_FAILURE`; not biological rejection.
+2. Disorder layer: recovered only as a low-evidence fallback/proxy; not decision-grade.
+3. Local multimer: completed computationally but all model coordinates/confidence fields were non-finite; no rigid-placement conclusion changed.
+4. PA14/AGIA: exploratory single-sequence screen was low-confidence and did not produce a construct competitive with core tags.
+5. Simulated panel: WT plus 12 tagged constructs from `data/balanced_targeted_dynamics_panel_v2.tsv`, spanning C-terminal, 224, 248, 203 and control regions.
+6. Replicas: yes, 3 independent 20 ns replicas per system were obtained and analyzed.
+7. Stable candidates: all simulated candidate constructs had 3 included replicas; `248|249 x HA` is the main dynamics-deprioritized candidate.
+8. Tag exposure: measured with a nonlocal heavy-atom distance proxy, not SASA. C-terminal tags generally remained more separated from nonlocal native atoms than 224/203/155-region tags.
+9. Elevated perturbation: `248|249 x HA` showed the clearest native RMSD/local RMSF concern among candidates.
+10. Network perturbation: dynamic CA DCCM/contact-network metrics were generated; high raw DCCM values are review flags, not functional proof.
+11. `288|289`, `289|290`, `290|291`: all remain retained in the 20 ns screen; `289|290 x G196_minimal` looks favorable on native RMSD, while `290|291 x MAP8` has higher collapse than neighboring C-terminal MAP8 rows.
+12. Non-C-terminal candidates: `224|225` and `248|249 x MAP8` remain competitive; `248|249 x HA` is secondary.
+13. C-terminal bias: still present, but now explicitly balanced by retained 224, 248 and 203 candidates.
+14. Final Tier A / Tier B / controls: listed above and machine-readable in `data/final_candidate_panel_v2_dynamics.tsv`.
+15. Remaining uncertainty: exact nucleotide/RNA context, HRV-A89-specific insertion phenotype, membrane/RNA/ATP states and direct wet-lab readout remain unresolved.
 
-## GROMACS Status
+## Final Boundary
 
-- force field/water: cluster GROMACS `charmm36.ff` with TIP3P, used consistently for WT and all tagged systems;
-- system: comparative A89 2C native residues `112-321`, exact inserted tags retained;
-- preproduction QC: `13/13` systems passed topology, EM, NVT, NPT and 100 ps smoke production;
-- production target: 3 replicas per system; current submitted MDP covers the required 20 ns minimum-coverage stage before selective extension;
-- `164330` failed only because the first production launch incorrectly used checkpoint append before a checkpoint existed; the script was repaired;
-- `164351_0-3` are running on `gpu16/gpu17`;
-- `164359_4-5` are running; `164374_6` and `164375_7` are pending after explicit GPU-backfill split; `164359_8-38` remain queued with generic `gpu:1` across account-accessible `A40,RTX3090` partitions;
-- `yukang` is the Linux/Slurm user; `chengtong` is the scheduler/project accounting account on these jobs;
-- `RTX3090-autoEM` was not usable from the current Slurm accounting account (`chengtong`) because that partition allows only `cryosparc,cryoem`;
-- GPU backfill helper added: `scripts/broad_dynamics_009_gpu_backfill_submit.py`.
-
-## Current Limitation
-
-Replicated GROMACS production MD and trajectory/network analysis are not complete in this checkpoint. PA14/AGIA exploratory modeling completed but remains method-limited by single-sequence low confidence.
-Do not use `final_candidate_panel_v2_dynamics.tsv` as a dynamics-informed final panel until trajectories finish and QC passes.
+This task completes a computational review package. It does not authorize final RNA/codon design, wet-lab construct design, long MD, membrane/RNA/ATP mechanistic MD, antibody/binder-state modeling, or experimental protocol design.

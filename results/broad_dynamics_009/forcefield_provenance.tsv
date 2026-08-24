@@ -1,0 +1,5 @@
+path	exists	sha256	first_line
+/public/apps/gromacs/2024.2/share/gromacs/top/charmm36.ff/forcefield.doc	True	140bbc56fa8ddc1e1834b93b6968f7a76f89909a8886af8c1bf679e47c67d980	CHARMM all-atom force field
+/public/apps/gromacs/2024.2/share/gromacs/top/charmm36.ff/forcefield.itp	True	0030b8035169deed39261f9b3d4a11151db39a1bcdf0f784e7e935fa8686851a	; CHARMM-port for GROMACS
+/public/apps/gromacs/2024.2/share/gromacs/top/charmm36.ff/tip3p.itp	True	03edae6a67887742ecc52f48098508c0d86e2f268d2ad5115282eea595d4bf9d	
+results/broad_dynamics_009/gromacs/mdp/prod_20ns.mdp	True	d864f707bdebb08c2f7aeacd3306ced649905c96c70b8f56b5c9438002eca90d	dt = 0.002
