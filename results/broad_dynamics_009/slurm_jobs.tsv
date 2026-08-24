@@ -1,2 +1,13 @@
 job_id	job_name	status	exit_code	elapsed	node	script
 164287	bd009_extag	COMPLETED	0:0	00:07:02	gpu16	scripts/broad_dynamics_009_exploratory_colabfold.sbatch
+164290	bd009_wt_pilot	SUBMITTED	NA	NA	NA	scripts/broad_dynamics_009_gmx_pilot.sbatch WT_112_321
+164291	bd009_multimer	SUBMITTED	NA	NA	NA	scripts/broad_dynamics_009_local_multimer.sbatch
+164292	bd009_wt_pilot	COMPLETED	0:0	00:01:07	gpu16	scripts/broad_dynamics_009_gmx_pilot.sbatch WT_112_321
+164295	bd009_preprod	SUBMITTED_ARRAY_1-12	NA	NA	NA	scripts/broad_dynamics_009_gmx_preprod_array.sbatch --array=1-12
+164308	bd009_preprod	SUBMITTED_ARRAY_1-12_RETRY_PATH_FIX	NA	NA	NA	scripts/broad_dynamics_009_gmx_preprod_array.sbatch --array=1-12
+164321	bd009_preprod	SUBMITTED_ARRAY_1-12_RETRY_MAXWARN	NA	NA	NA	scripts/broad_dynamics_009_gmx_preprod_array.sbatch --array=1-12
+164330	bd009_prod20	CANCELLED_AFTER_SCRIPT_FIRST_RUN_RESTART_BUG	partial_failed_0-3_then_cancelled_pending	NA	gpu16,gpu17	scripts/broad_dynamics_009_gmx_production.sbatch --array=0-38 --dependency=afterany:164321
+164351	bd009_prod20	RUNNING_ARRAY_0-3_ONLY_RETRY_FIXED_FIRST_RUN	0:0_running	NA	gpu16,gpu17	scripts/broad_dynamics_009_gmx_production.sbatch --array=0-38 initially; pending 4-38 cancelled for redistribution
+164356	bd009_prod20	CANCELLED_PARTITIONCONFIG_ACCOUNT_LIMIT	0:0_pending_cancelled	00:00:00	NA	sbatch --partition=RTX3090-autoEM --gres=gpu:rtx3090:1 --array=4-20
+164357	bd009_prod20	CANCELLED_REPLACED_BY_ANY_ALLOWED_GPU_SUBMISSION	0:0_pending_cancelled	00:00:00	NA	sbatch --partition=A40,A40-autoEM --gres=gpu:a40:1 --array=21-38
+164359	bd009_prod20	SUBMITTED_ARRAY_4-38_ANY_ALLOWED_GPU	0:0_pending_resources	NA	NA	sbatch --partition=A40,RTX3090 --gres=gpu:1 --array=4-38

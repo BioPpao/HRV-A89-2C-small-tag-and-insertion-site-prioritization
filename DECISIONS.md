@@ -248,3 +248,11 @@ These are active decisions. Future analyses should change them only with explici
 **Hard boundaries:** no `sudo`, no restricted-license software, no fabricated credentials, no destructive actions outside project-owned paths, and no automatic expansion into membrane/RNA/ATP/antibody mechanistic MD, exact nucleotide/codon design or wet-lab protocols.
 
 **Minimum dynamics milestone:** achieve `3 × 20 ns` broad coverage per valid system before selective extension when resources permit; target `3 × 50 ns` per valid system.
+
+## D-041 — Task 009 GPU scheduling should use any account-accessible CUDA GPU
+
+**Decision:** For remaining `BROAD_DYNAMICS_AND_RECOVERY_009` Slurm work, do not wait for one historical GPU node or one GPU type when other account-accessible CUDA GPUs can run the same reproducible job.
+
+**Implementation:** keep running jobs intact, but submit pending/restartable work to generic account-accessible GPU partitions where possible. Record partition/account constraints explicitly.
+
+**Current constraint:** `RTX3090-autoEM` has idle hardware but rejects the current `chengtong` account because the partition allows only `cryosparc,cryoem`; therefore remaining production rows were submitted as `164359_4-38` with generic `gpu:1` across `A40,RTX3090`.

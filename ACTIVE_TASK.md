@@ -1,6 +1,6 @@
 # Active task
 
-Current task: `BROAD_DYNAMICS_AND_RECOVERY_009` — **AUTONOMOUS CONTINUATION AUTHORIZED / MD PENDING**
+Current task: `BROAD_DYNAMICS_AND_RECOVERY_009` — **AUTONOMOUS CONTINUATION AUTHORIZED / PRODUCTION MD RUNNING OR QUEUED**
 
 Branch: `analysis/broad-dynamics-009`
 
@@ -16,7 +16,7 @@ Continuation authority:
 
 `BROAD_DYNAMICS_PARTIALLY_COMPLETE`
 
-The previous execution reached a checkpoint but stopped before local multimer completion and before any GROMACS topology/minimization/equilibration/production MD was started.
+The previous execution reached a checkpoint before local multimer completion and before GROMACS MD was started. The continuation has now completed GROMACS preproduction for WT plus all 12 tagged systems and submitted production MD through Slurm.
 
 The 009 task remains active. Do **not** create a new task/branch merely because the previous Codex session ended.
 
@@ -28,20 +28,20 @@ The 009 task remains active. Do **not** create a new task/branch merely because 
 - PA14/AGIA exploratory single-sequence ColabFold screen;
 - balanced dynamics panel V2;
 - WT/tagged `112–321` system manifest and residue mapping;
+- WT and all 12 tagged systems passed GROMACS topology/EM/NVT/NPT/100 ps smoke preproduction;
+- production arrays submitted for the 20 ns broad minimum-coverage stage: `164351_0-3` and `164359_4` running; `164359_5-38` queued;
 - placeholder trajectory-dependent tables with explicit no-trajectory status.
 
 ## Mandatory continuation work
 
-1. repair straightforward environment/tool defects needed for the task;
-2. complete focused local multimer ColabFold where technically tractable;
-3. prove a complete WT `112–321` GROMACS workflow through minimization/NVT/NPT/short production;
-4. prepare the balanced tagged systems under the same protocol;
-5. submit 3 independent replicas per valid system through Slurm;
-6. obtain broad minimum coverage (`3 × 20 ns`) across the valid panel before selective extension when resources permit;
-7. extend toward `3 × 50 ns` per system as feasible;
-8. perform trajectory QC, structural/tag/contact dynamics and dynamic-network analysis;
-9. integrate dynamics into the multi-objective candidate panel;
-10. update repository state and compact results.
+1. monitor focused local multimer ColabFold job `164291` and integrate completed models if produced;
+2. monitor submitted production arrays `164351` and `164359`;
+3. repair/restart only failed production rows, preserving completed rows;
+4. obtain broad minimum coverage (`3 × 20 ns`) across the valid panel before selective extension when resources permit;
+5. extend toward `3 × 50 ns` per system as feasible after broad minimum coverage;
+6. perform trajectory QC, structural/tag/contact dynamics and dynamic-network analysis;
+7. integrate dynamics into the multi-objective candidate panel;
+8. update repository state and compact results.
 
 ## Execution authority
 

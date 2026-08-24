@@ -6,7 +6,7 @@ Priority order is scientific, not cosmetic.
 
 ## CURRENT — BROAD_DYNAMICS_AND_RECOVERY_009 CONTINUATION
 
-Status: **AUTONOMOUS CONTINUATION AUTHORIZED / BROAD_DYNAMICS_PARTIALLY_COMPLETE**
+Status: **AUTONOMOUS CONTINUATION AUTHORIZED / BROAD_DYNAMICS_PARTIALLY_COMPLETE / COMPUTE_JOBS_RUNNING_OR_QUEUED**
 
 Branch:
 
@@ -26,10 +26,10 @@ The previous Codex execution stopped at a partial checkpoint. Do not create a ne
 
 1. repair PDBFixer/setuptools and other straightforward environment defects needed downstream;
 2. attempt a mature open disorder predictor without letting it block MD;
-3. complete focused local multimer ColabFold predictions;
-4. prove the full WT `112–321` GROMACS pipeline through minimization/NVT/NPT/short production;
-5. prepare all valid balanced-panel systems under exactly the same force-field/water/terminal policy;
-6. submit 3 independent replicas per valid system with Slurm;
+3. monitor focused local multimer ColabFold job `164291`, then run `scripts/broad_dynamics_009_integrate_local_multimer.py`;
+4. WT `112–321` GROMACS pipeline has passed minimization/NVT/NPT/short production;
+5. all valid balanced-panel systems have passed the same GROMACS preproduction/smoke protocol;
+6. monitor submitted Slurm production arrays: `164351_0-3` and `164359_4` running; `164359_5-38` queued;
 7. achieve at least `3 × 20 ns` broad coverage per valid system before selective extension;
 8. extend toward `3 × 50 ns` where feasible;
 9. run trajectory QC and comparative dynamics/network analyses;
@@ -67,9 +67,20 @@ If Slurm jobs remain queued/running, preserve exact job IDs, paths and restart i
 - local multimer rows remain pending and must be replaced with actual results or explicit exhausted-blocker status;
 - current disorder V1 is a low-quality composition proxy and not decision-grade;
 - PA14/AGIA single-sequence low-pLDDT screen is method-limited and not biological rejection;
-- GROMACS 2024.2 is available;
-- all current production-manifest rows remain `not_started` and must not remain that way without a concrete demonstrated blocker;
+- GROMACS 2024.2 is available and WT plus all 12 tagged systems passed preproduction QC;
+- production rows are submitted, not completed: `164351_0-3` running and `164359_4` running and `164359_5-38` queued on account-accessible generic GPU partitions;
+- `RTX3090-autoEM` was tested but is not account-accessible for `chengtong`;
 - placeholder dynamics tables must never be interpreted as real trajectory evidence.
+
+### Current monitor commands
+
+```bash
+squeue -u "$USER"
+sacct -j 164291 --format=JobID,JobName,State,ExitCode,Elapsed,NodeList -P
+sacct -j 164351 --format=JobID,JobName,Partition,State,ExitCode,Elapsed,NodeList -P
+sacct -j 164359 --format=JobID,JobName,Partition,State,ExitCode,Elapsed,NodeList -P
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_update_gmx_status.py
+```
 
 ### Dynamics system
 

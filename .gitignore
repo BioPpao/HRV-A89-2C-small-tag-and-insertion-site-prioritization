@@ -31,6 +31,10 @@ results/candidate_panel_008/expanded_colabfold_input/
 *.key
 
 # Large MD / restart / generated state files
+mdout.mdp
+*/mdout.mdp
+\#*\#
+results/broad_dynamics_009/gromacs/systems/
 *.xtc
 *.trr
 *.cpt

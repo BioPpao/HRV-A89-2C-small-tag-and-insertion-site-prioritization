@@ -1,8 +1,10 @@
 # BROAD_DYNAMICS_AND_RECOVERY_009 Report
 
-Generated: 2026-08-24T04:03:45.972280+00:00
+Generated: 2026-08-24T14:26:04+08:00
 
 Final task state: `BROAD_DYNAMICS_PARTIALLY_COMPLETE`.
+
+Partial classification: `COMPUTE_JOBS_RUNNING_OR_QUEUED`.
 
 ## Completed
 
@@ -10,10 +12,13 @@ Final task state: `BROAD_DYNAMICS_PARTIALLY_COMPLETE`.
 - `248|249 x HA` OpenMM NaN classified as `MODEL_SPECIFIC_GEOMETRY_FAILURE`;
 - disorder layer recovered for all 321 residues and all 320 junctions;
 - PA14/AGIA exploratory ColabFold completed: 8 constructs x 2 seeds = 16 PDB rows;
-- local multimer target manifest prepared;
+- local multimer target manifest prepared and Slurm job submitted;
 - balanced dynamics panel V2 created before MD;
 - WT/tagged 112-321 system manifest and residue mapping created;
-- trajectory-dependent outputs created with explicit no-trajectory status.
+- WT GROMACS pilot completed through topology, solvation, ions, EM, restrained NVT, restrained NPT and 100 ps smoke production;
+- all 12 tagged balanced-panel systems completed the same GROMACS preproduction/smoke workflow;
+- 39 production replicas have been submitted through Slurm for the 20 ns broad minimum-coverage stage;
+- trajectory-dependent outputs remain placeholders until production trajectories complete and pass QC.
 
 ## Balanced Dynamics Panel V2
 
@@ -25,10 +30,10 @@ Tag counts: `{"G196_minimal": 2, "HA": 3, "MAP8": 7}`.
 
 1. `248|249 x HA` NaN: `MODEL_SPECIFIC_GEOMETRY_FAILURE`; not treated as biological failure.
 2. Disorder layer: recovered with metapredict if import succeeded, otherwise explicit composition proxy fallback recorded in `docs/DISORDER_LAYER_RECOVERY_V1.md`.
-3. Local multimer: not completed yet; no rigid-placement conclusion changed.
+3. Local multimer: Slurm job `164291` is running; no completed local multimer model is available yet and no rigid-placement conclusion changed.
 4. PA14/AGIA: single-sequence ColabFold completed, but mean CA pLDDT was low (~35-38 across constructs); none is promoted.
 5. MD panel: `data/balanced_targeted_dynamics_panel_v2.tsv`.
-6. Replicas/ns: 0 completed; manifests preserve planned 3 replicas per system.
+6. Replicas/ns: 0 completed at this checkpoint; 39 submitted for 20 ns broad minimum coverage (`164351_0-3`, `164359_4` running; `164359_5-38` queued).
 7. Stable candidates across replicas: not assessable yet.
 8. Persistent tag exposure: not assessable yet.
 9. Local/native perturbation from dynamics: not assessable yet.
@@ -39,7 +44,18 @@ Tag counts: `{"G196_minimal": 2, "HA": 3, "MAP8": 7}`.
 14. MAP8 bias: reduced but MAP8 remains common because inherited structural evidence is strongest there.
 15. Remaining uncertainty: exact nucleotide/RNA context and HRV-A89 wet-lab phenotype remain required.
 
-## Blocker
+## GROMACS Status
+
+- force field/water: cluster GROMACS `charmm36.ff` with TIP3P, used consistently for WT and all tagged systems;
+- system: comparative A89 2C native residues `112-321`, exact inserted tags retained;
+- preproduction QC: `13/13` systems passed topology, EM, NVT, NPT and 100 ps smoke production;
+- production target: 3 replicas per system; current submitted MDP covers the required 20 ns minimum-coverage stage before selective extension;
+- `164330` failed only because the first production launch incorrectly used checkpoint append before a checkpoint existed; the script was repaired;
+- `164351_0-3` are running on `gpu16/gpu17`;
+- `164359_4` is running and `164359_5-38` are queued with generic `gpu:1` across account-accessible `A40,RTX3090` partitions;
+- `RTX3090-autoEM` was not usable from the current account (`chengtong`) because that partition allows only `cryosparc,cryoem`.
+
+## Current Limitation
 
 Replicated GROMACS production MD and trajectory/network analysis are not complete in this checkpoint. PA14/AGIA exploratory modeling completed but remains method-limited by single-sequence low confidence.
 Do not use `final_candidate_panel_v2_dynamics.tsv` as a dynamics-informed final panel until trajectories finish and QC passes.

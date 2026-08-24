@@ -70,3 +70,96 @@ Blockers / pending:
 Current final state for this checkpoint:
 
 `BROAD_DYNAMICS_PARTIALLY_COMPLETE`
+
+## 2026-08-24 continuation checkpoint: GROMACS preproduction and production submission
+
+Repository/session state:
+
+- branch confirmed: `analysis/broad-dynamics-009`;
+- orchestration host: `admin1`;
+- Slurm GPU inventory showed account-usable `RTX3090` and `A40` partitions plus `*-autoEM` partitions with additional nodes;
+- `RTX3090-autoEM` was tested but rejected by scheduler/account configuration because the partition allows only `cryosparc,cryoem`, while the current account is `chengtong`.
+
+Environment/tool recovery:
+
+- repaired the existing `.tools/envs/open_structure_007` environment by restoring compatible `setuptools/pkg_resources`;
+- verified `PDBFixer` import after repair;
+- reused GROMACS `2024.2` CUDA module and existing ColabFold `1.5.3` environment.
+
+GROMACS setup:
+
+- added reproducible setup and Slurm scripts under `scripts/`;
+- generated shared MDP protocol under `results/broad_dynamics_009/gromacs/mdp/`;
+- selected one consistent force-field/water policy for every compared system: cluster GROMACS `charmm36.ff` with TIP3P water, dodecahedron box, neutralization plus 0.15 M NaCl, consistent charged termini;
+- prepared WT and 12 tagged systems as the comparative native A89 2C `112-321` segment with exact inserted tags retained;
+- corrected a tagged-system directory mismatch so `system_manifest.tsv` IDs and GROMACS system directories match exactly.
+
+WT pilot:
+
+- Slurm job `164290` failed because `gmx mdrun` was called with `-ntomp` but without explicit `-ntmpi`;
+- script fixed to use `-ntmpi 1 -ntomp ${SLURM_CPUS_PER_TASK}`;
+- Slurm job `164292` completed WT topology, solvation, ionization, EM, restrained NVT, restrained NPT and 100 ps smoke production;
+- WT smoke output exists at `results/broad_dynamics_009/gromacs/systems/WT_112_321/prod_smoke.xtc`.
+
+Tagged preproduction:
+
+- Slurm array `164295` exposed the first tagged-directory mismatch;
+- Slurm array `164308` exposed the expected pre-ion net-charge warning before neutralization;
+- script fixed with `grompp -maxwarn 1` only for the ion-generation step;
+- Slurm array `164321` completed all 12 tagged preproduction jobs;
+- `results/broad_dynamics_009/preproduction_qc.tsv` now has 13/13 rows with topology, EM, NVT, NPT and smoke production completed.
+
+Production submission:
+
+- first production array `164330` used `-cpi ... -append` on the first production start and failed immediately for early rows because no production checkpoint existed yet;
+- `scripts/broad_dynamics_009_gmx_production.sbatch` was repaired to use checkpoint append only when `prod_20ns.cpt` already exists;
+- replacement array `164351` was submitted; array indices `0-3` are running on `gpu16/gpu17`;
+- pending indices `4-38` from `164351` were cancelled and redistributed after the user requested use of any idle GPU rather than waiting on one GPU type;
+- `164356` tested `RTX3090-autoEM` but was cancelled because the partition is not account-accessible;
+- `164357` was replaced to avoid mixed autoEM account ambiguity;
+- current remaining array `164359` covers indices `4-38` and requests generic `gpu:1` on account-accessible partitions `A40,RTX3090`.
+
+Current production manifest:
+
+- 39 planned production rows = WT plus 12 tagged systems x 3 replicas;
+- rows 0-3: job IDs `164351_0` to `164351_3`;
+- rows 4-38: job IDs `164359_4` to `164359_38` (`164359_4` running at checkpoint, `164359_5-38` queued);
+- target remains 50 ns; submitted production MDP is the 20 ns broad minimum-coverage stage.
+
+Local multimer:
+
+- focused local multimer job `164291` is still running on `gpu16`;
+- output currently contains only `log.txt`; no model PDB has completed yet;
+- this remains independent of GROMACS production and is not blocking MD.
+
+Current checkpoint state:
+
+`BROAD_DYNAMICS_PARTIALLY_COMPLETE`
+
+Partial classification:
+
+`COMPUTE_JOBS_RUNNING_OR_QUEUED`
+
+Exact restart/monitor commands:
+
+```bash
+squeue -u "$USER"
+sacct -j 164291 --format=JobID,JobName,State,ExitCode,Elapsed,NodeList -P
+sacct -j 164351 --format=JobID,JobName,Partition,State,ExitCode,Elapsed,NodeList -P
+sacct -j 164359 --format=JobID,JobName,Partition,State,ExitCode,Elapsed,NodeList -P
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_update_gmx_status.py
+```
+
+After `164291` finishes:
+
+```bash
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_integrate_local_multimer.py
+```
+
+After production replicas finish:
+
+```bash
+.tools/envs/open_structure_007/bin/python scripts/broad_dynamics_009_update_gmx_status.py
+```
+
+Trajectory QC and dynamics/network analysis remain pending until real production trajectories complete.

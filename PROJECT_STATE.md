@@ -28,7 +28,7 @@ Active task:
 
 Execution state:
 
-**AUTONOMOUS CONTINUATION AUTHORIZED / PRE-DYNAMICS CHECKPOINT COMPLETE / REAL MD PENDING**
+**AUTONOMOUS CONTINUATION AUTHORIZED / GROMACS PREPRODUCTION COMPLETE / PRODUCTION MD RUNNING OR QUEUED**
 
 Primary task specification:
 
@@ -97,9 +97,9 @@ Run log:
 1. local tagged dimer/trimer ColabFold models remain pending;
 2. current disorder layer uses a composition/low-complexity proxy and is not decision-grade;
 3. PA14/AGIA low-pLDDT results are method-limited single-sequence predictions, not biological rejection;
-4. GROMACS 2024.2 is available but topology/minimization/NVT/NPT/production had not started at the checkpoint;
-5. all production-manifest rows were still `not_started`;
-6. trajectory-dependent metrics remain placeholders and must not be interpreted as dynamics evidence.
+4. GROMACS 2024.2 is available and WT plus all 12 tagged systems passed topology/minimization/NVT/NPT/100 ps smoke preproduction;
+5. 39 production replicas have been submitted for the 20 ns broad minimum-coverage stage, with rows `0-3` under Slurm job `164351` and rows `4-38` under Slurm job `164359`;
+6. trajectory-dependent metrics remain placeholders and must not be interpreted as dynamics evidence until production trajectories complete and pass QC.
 
 ## Execution authority now granted
 
@@ -149,6 +149,13 @@ Required behavior:
 `diagnose → repair/fallback → record → continue independent work → revisit`
 
 Stopping before minimum coverage is acceptable only for a genuine hard blocker defined in `tasks/BROAD_DYNAMICS_AND_RECOVERY_009_CONTINUATION.md` or when all remaining work is already submitted and legitimately running/queued under Slurm.
+
+## Current 009 Slurm checkpoint
+
+- Local multimer: `164291`, running on RTX3090 `gpu16`.
+- Production stage 1: `164351_0-3`, running on RTX3090 `gpu16/gpu17`.
+- Production stage 2: `164359_4` running and `164359_5-38` queued with generic `gpu:1` across account-accessible `A40,RTX3090` partitions.
+- `RTX3090-autoEM` was checked but is not usable by the current `chengtong` account because that partition allows only `cryosparc,cryoem`.
 
 ## Ranking policy
 

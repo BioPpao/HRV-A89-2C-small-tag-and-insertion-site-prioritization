@@ -15,8 +15,8 @@ Read `PROJECT_STATE.md` first.
 | Candidate-panel 008 report | `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md` | CURRENT COMPLETED CHECKPOINT | 008 results and limitations |
 | Candidate-panel draft V1 | `data/final_candidate_panel_draft_v1.tsv` | CURRENT PRE-DYNAMICS PANEL | 8 Tier A, 8 Tier B, 2 controls before dynamics |
 | Proposed dynamics V1 | `data/proposed_targeted_dynamics_panel_v1.tsv` | SUPERSEDED AS EXECUTION PANEL | starting point only; 009 must rebalance site/tag bias before MD |
-| Broad dynamics 009 report | `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md` | CURRENT PARTIAL | OpenMM NaN audit, disorder fallback, balanced panel, MD blocker |
-| Broad dynamics 009 run log | `docs/BROAD_DYNAMICS_AND_RECOVERY_009_RUN_LOG.md` | CURRENT PARTIAL | execution record and pending Slurm job |
+| Broad dynamics 009 report | `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md` | CURRENT PARTIAL | OpenMM NaN audit, disorder fallback, balanced panel, GROMACS preproduction complete, production MD running/queued |
+| Broad dynamics 009 run log | `docs/BROAD_DYNAMICS_AND_RECOVERY_009_RUN_LOG.md` | CURRENT PARTIAL | execution record, Slurm job IDs and resume commands |
 | Balanced dynamics panel V2 | `data/balanced_targeted_dynamics_panel_v2.tsv` | CURRENT PRE-MD PANEL | 12 tagged systems plus WT system manifest; not dynamics-informed yet |
 | Final panel V2 dynamics | `data/final_candidate_panel_v2_dynamics.tsv` | PLACEHOLDER / NOT DYNAMICS-INFORMED | preserves explicit `not_completed` dynamics status |
 | Ranking robustness V1 | `results/candidate_panel_008/ranking_robustness_v1.tsv` | CURRENT PRE-DYNAMICS ROBUSTNESS | multi-objective/leave-layer-out context |
@@ -86,10 +86,10 @@ CANDIDATE_PANEL_EXPANSION_008                             COMPLETE
 BROAD_DYNAMICS_AND_RECOVERY_009                           PARTIAL CHECKPOINT
   ├─ resolve 248|249×HA OpenMM NaN                  COMPLETE
   ├─ recover disorder layer                          PARTIAL / fallback
-  ├─ run local tagged dimer/trimer accommodation      PENDING
+  ├─ run local tagged dimer/trimer accommodation      RUNNING under Slurm
   ├─ focused PA14/AGIA structure screen               COMPLETE / low confidence
   ├─ rebalance site/tag dynamics panel                COMPLETE pre-MD
-  ├─ replicated comparative MD on A89 2C 112–321      PENDING
+  ├─ replicated comparative MD on A89 2C 112–321      PREPRODUCTION COMPLETE / PRODUCTION RUNNING OR QUEUED
   ├─ tag exposure/contact/convergence analysis        PENDING
   ├─ dynamic correlation/network analysis             PENDING
   └─ revise Tier A / Tier B / controls                PLACEHOLDER only
