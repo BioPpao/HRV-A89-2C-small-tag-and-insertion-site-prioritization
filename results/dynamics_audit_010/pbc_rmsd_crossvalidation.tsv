@@ -1,0 +1,5 @@
+construct_id	replica	gromacs_status	frame_count_compared	python_self_rmsd_mean_A	gromacs_self_rmsd_mean_A	mean_abs_difference_A	max_abs_difference_A	qualitative_agreement	note
+WT_112_321	1	ok	201	1.7171517291098224	1.7171032388059702	0.0001772182319157362	0.001022639334803177	pass	GROMACS rms uses trjconv pbc mol center and native_ca index; values converted nm_to_A
+A89_2C_289_290_MAP8	1	ok	201	1.8970578102336462	1.8970436069651742	0.00018135809105872236	0.0008590733366067305	pass	GROMACS rms uses trjconv pbc mol center and native_ca index; values converted nm_to_A
+A89_2C_224_225_MAP8	1	ok	201	2.1642144179696667	2.1642146368159207	7.291025222498778e-05	0.0004362224256970748	pass	GROMACS rms uses trjconv pbc mol center and native_ca index; values converted nm_to_A
+A89_2C_155_156_MAP8	1	ok	201	1.8969000539793086	1.896958462686567	0.0001598670675606193	0.0005635423055276867	pass	GROMACS rms uses trjconv pbc mol center and native_ca index; values converted nm_to_A
