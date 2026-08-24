@@ -1,0 +1,9 @@
+tool	version	source
+python	3.10.21	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/bin/python
+MDAnalysis	2.9.0	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/MDAnalysis/__init__.py
+numpy	1.26.4	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/numpy/__init__.py
+pandas	1.5.3	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/pandas/__init__.py
+scipy	1.15.2	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/scipy/__init__.py
+networkx	3.4.2	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/networkx/__init__.py
+mdtraj	1.10.3	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/mdtraj/__init__.py
+gromacs	2024.2	/public/apps/gromacs/2024.2

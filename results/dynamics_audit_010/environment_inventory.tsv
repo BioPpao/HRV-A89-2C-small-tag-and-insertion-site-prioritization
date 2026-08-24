@@ -1,0 +1,7 @@
+key	value
+hostname	admin1
+platform	Linux-4.18.0-372.9.1.el8.x86_64-x86_64-with-glibc2.28
+cwd	/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization
+branch	analysis/dynamics-audit-010
+commit	549c5dd80a4fc9486844494902f10dc959eddac7
+user	yukang
