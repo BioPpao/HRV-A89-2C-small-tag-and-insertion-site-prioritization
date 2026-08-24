@@ -1,129 +1,158 @@
 # TODO
 
-Last updated: 2026-08-23
+Last updated: 2026-08-24
 
 Priority order is scientific, not cosmetic.
-
-## OPEN_STRUCTURE_PIPELINE_007 — COMPLETE
-
-Status: **READY_FOR_TARGETED_DYNAMIC_ANALYSIS**
-
-Primary report:
-
-- `docs/OPEN_STRUCTURE_PIPELINE_007_REPORT.md`
-
-Current authoritative open-structure outputs include:
-
-- `data/tag_site_integrated_perturbation_v3_open.tsv`
-- `results/open_structure_007/cross_method_robustness_v3.tsv`
-
-This result is retained, but targeted dynamics is no longer treated as the only next step.
 
 ## CANDIDATE_PANEL_EXPANSION_008 — COMPLETE
 
 Status: **READY_FOR_BROAD_TARGETED_DYNAMICS**
 
-Branch:
+Stable checkpoint branch:
 
 `analysis/candidate-panel-008`
 
-Task:
+Primary report:
 
-- `tasks/CANDIDATE_PANEL_EXPANSION_008.md`
-
-Strategy:
-
-- `docs/FINAL_CANDIDATE_PANEL_STRATEGY_V1.md`
-
-### Final objective
-
-Build a ranked, redundant, multi-junction × multi-tag candidate panel for later wet-lab validation rather than selecting one or two computational winners.
-
-### Completed work
-
-1. update literature/evidence registry for insertion tolerance and tag engineering;
-2. complete full-320 secondary-structure boundary, rSASA, disorder/flexibility and structural-prior features;
-3. map A89 junctions to the 2026 picornaviral 2C:RNA holoenzyme evidence;
-4. add tag-boundary protease/polyprotein risk annotations;
-5. review/expand the realistic tag portfolio beyond MAP8/HA/G196 when justified;
-6. add tag-binder accessibility and recognition-geometry analysis;
-7. broaden multi-seed ColabFold replication beyond the current four deep constructs;
-8. record local dimer/trimer accommodation as deferred where not tractable in this run;
-9. perform multi-objective preliminary candidate-panel ranking and robustness;
-10. define a broader targeted-dynamics panel without executing it;
-11. produce a draft final candidate panel with Tier A / Tier B / controls.
-
-### Core tags
-
-- MAP8
-- HA
-- G196_minimal
-
-Architecture comparison:
-
-- G196_practical_GS
-
-Expansion tags for feasibility review:
-
-- ALFA
-- PA12/PA14
-- AGIA
-- HiBiT if the intended readout is relevant
-
-FLAG remains excluded.
-
-### Expected outputs
-
-- `data/junction_feature_matrix_v6_candidate_panel.tsv`
-- `data/hrvA89_2C_RNA_holoenzyme_mapping_v1.tsv`
-- `docs/RNA_HOLOENZYME_MAPPING_V1.md`
-- `data/tag_boundary_protease_risk_v1.tsv`
-- `data/tag_portfolio_v2.tsv`
-- `docs/TAG_PORTFOLIO_V2.md`
-- `data/tag_binder_accessibility_v1.tsv`
-- `docs/TAG_BINDER_ACCESSIBILITY_V1.md`
-- `data/expanded_structure_replication_panel_v1.tsv`
-- `data/expanded_structure_replication_metrics_v1.tsv`
-- `data/local_multimer_tag_context_v1.tsv`
-- `data/candidate_panel_preliminary_v1.tsv`
-- `results/candidate_panel_008/ranking_robustness_v1.tsv`
-- `data/proposed_targeted_dynamics_panel_v1.tsv`
-- `data/final_candidate_panel_draft_v1.tsv`
 - `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`
 
-All generated. Use `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`, `data/final_candidate_panel_draft_v1.tsv` and `data/proposed_targeted_dynamics_panel_v1.tsv` as the current review package.
+Current review package:
 
-### Ranking policy
+- `data/final_candidate_panel_draft_v1.tsv`
+- `data/proposed_targeted_dynamics_panel_v1.tsv`
+- `results/candidate_panel_008/ranking_robustness_v1.tsv`
 
-Do not use one opaque total score.
+The draft is useful but remains biased toward the contiguous C-terminal `287–291` neighborhood and MAP8, and several technical layers remained incomplete.
 
-Use:
+## CURRENT — BROAD_DYNAMICS_AND_RECOVERY_009
 
-- separate evidence axes;
-- Pareto/non-dominated membership;
-- evidence classes;
-- leave-one-layer-out sensitivity;
-- rank stability/resampling where meaningful;
-- explicit conflict labels.
+Status: **AUTHORIZED / PRE-DYNAMICS RECOVERY + BROAD REPLICATED DYNAMICS**
 
-### Target panel scale
+Branch:
 
-Approximate target:
+`analysis/broad-dynamics-009`
 
-- Tier A: 6–10 primary constructs;
-- Tier B: 6–12 secondary/rescue constructs;
-- controls: 4–6 conflict/hard-negative constructs.
+Task:
 
-The final panel should span multiple junctions and multiple tags.
+- `tasks/BROAD_DYNAMICS_AND_RECOVERY_009.md`
 
-## Later — broad targeted dynamics
+### Phase A — resolve unfinished 008 work
 
-Targeted dynamics is now ready for ChatGPT/user authorization. Use `data/proposed_targeted_dynamics_panel_v1.tsv` as the starting panel; prefer breadth of independent replicas across multiple constructs over one long trajectory.
+1. audit/recover the `248|249 × HA` OpenMM `Particle coordinate is nan` failure;
+2. install/configure an open disorder predictor and complete the missing all-320 disorder layer;
+3. run focused local tagged dimer/trimer ColabFold accommodation modeling;
+4. structure-model PA14 and AGIA at representative candidate junctions;
+5. update pre-dynamics feature/ranking evidence.
+
+### Phase B — remove panel-selection bias
+
+Create a balanced dynamics panel with approximately 10–12 tagged constructs plus WT.
+
+Require:
+
+- at least 4 genuinely distinct site regions;
+- at least 3 tag systems;
+- no automatic domination by adjacent `287–291` junctions;
+- at least one hard-negative/control and one mechanistic conflict control;
+- selection rationale frozen before MD results are generated.
+
+### Phase C — broad replicated dynamics
+
+Primary comparative system:
+
+- native A89 2C residues `112–321`;
+- exact tag retained;
+- equivalent terminal treatment across WT and tagged constructs;
+- explicit solvent;
+- one consistent force field/solvent model;
+- broad apo/protein-only screening state.
+
+Default production target:
+
+- 3 independent replicas × 50 ns per system.
+
+Minimum fallback before selective extension:
+
+- 3 × 20 ns for every panel member.
+
+Prefer independent replica breadth over one long trajectory.
+
+### Phase D — dynamics analysis
+
+Required analyses include:
+
+- native-domain RMSD;
+- per-residue/local RMSF;
+- tag RMSF;
+- tag exposure persistence;
+- secondary-structure persistence;
+- native/local contact persistence;
+- tag-native distance distributions;
+- replica convergence;
+- bootstrap/effect estimates versus WT;
+- dynamic cross-correlation/covariance;
+- residue-network/community/path perturbation where reproducible.
+
+### Phase E — revised candidate panel
+
+Create:
+
+- `data/final_candidate_panel_v2_dynamics.tsv`
+- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
+- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
+
+Final ranking must remain multi-objective and conflict-aware; no opaque total score.
+
+## Required open software stack
+
+Reuse functioning tools where possible and install missing tools in user space only when needed:
+
+- GROMACS 2024.x or best working cluster module;
+- ColabFold existing environment;
+- OpenMM / PDBFixer for structural sanitation/QC;
+- MDAnalysis / MDTraj;
+- DSSP-compatible analysis;
+- NumPy / SciPy / pandas;
+- NetworkX;
+- IUPred2A/ANCHOR2 only if accessible without restricted/manual license, otherwise a mature open disorder predictor such as metapredict.
+
+Do not pursue Rosetta/FoldX or other restricted-license dependencies.
+
+## Expected 009 outputs
+
+- `results/broad_dynamics_009/environment_inventory.tsv`
+- `results/broad_dynamics_009/input_integrity_qc.tsv`
+- `results/broad_dynamics_009/openmm_248_249_HA_root_cause.tsv`
+- `docs/OPENMM_248_249_HA_FAILURE_AUDIT.md`
+- `data/hrvA89_2C_disorder_v1.tsv`
+- `data/junction_feature_matrix_v7_pre_dynamics.tsv`
+- `docs/DISORDER_LAYER_RECOVERY_V1.md`
+- `data/local_multimer_tag_context_v2.tsv`
+- `docs/LOCAL_MULTIMER_RECOVERY_V2.md`
+- `data/exploratory_tag_structure_panel_v1.tsv`
+- `data/exploratory_tag_structure_metrics_v1.tsv`
+- `docs/EXPLORATORY_TAG_SCREEN_V1.md`
+- `data/balanced_targeted_dynamics_panel_v2.tsv`
+- `results/broad_dynamics_009/system_manifest.tsv`
+- `results/broad_dynamics_009/residue_mapping.tsv`
+- `results/broad_dynamics_009/preproduction_qc.tsv`
+- `results/broad_dynamics_009/production_manifest.tsv`
+- `results/broad_dynamics_009/replica_completion.tsv`
+- `data/dynamics_replica_qc_v1.tsv`
+- `docs/DYNAMICS_QC_V1.md`
+- `data/broad_dynamics_metrics_v1.tsv`
+- `data/tag_exposure_dynamics_v1.tsv`
+- `data/contact_persistence_dynamics_v1.tsv`
+- `data/dynamic_network_perturbation_v1.tsv`
+- `docs/DYNAMIC_NETWORK_ANALYSIS_V1.md`
+- `data/final_candidate_panel_v2_dynamics.tsv`
+- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
+- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
 
 ## Later — exact nucleotide/RNA gate
 
-Mandatory before final construct recommendation. Requires the exact experimental nucleotide construct/context.
+Mandatory before final wet-lab construct design. Requires the real experimental nucleotide context.
 
 ## Repository maintenance
 
-Keep `PROJECT_STATE.md`, `ACTIVE_TASK.md`, `ANALYSIS_INDEX.md`, `DECISIONS.md` and this file consistent. Preserve versioned historical outputs and record software/environment versions and commands.
+Keep `PROJECT_STATE.md`, `ACTIVE_TASK.md`, `ANALYSIS_INDEX.md`, `DECISIONS.md` and this file consistent. Preserve historical outputs and avoid committing bulk trajectories, model checkpoints, package caches or large databases.
