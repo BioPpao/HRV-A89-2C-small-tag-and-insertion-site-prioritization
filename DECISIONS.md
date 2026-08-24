@@ -236,3 +236,15 @@ These are active decisions. Future analyses should change them only with explici
 **Reason:** The task resolved the `248|249 x HA` OpenMM NaN as `MODEL_SPECIFIC_GEOMETRY_FAILURE`, created a balanced 12-construct dynamics panel plus WT system manifest, and completed low-confidence single-sequence exploratory PA14/AGIA modeling, but local multimer modeling and replicated GROMACS dynamics are not complete.
 
 **Boundary:** `data/final_candidate_panel_v2_dynamics.tsv` currently records explicit `not_completed` dynamics/network status. It must not be used as a final dynamics-informed panel until production trajectories complete and pass QC.
+
+## D-040 — Task 009 may continue autonomously through routine technical recovery and Slurm execution
+
+**Decision:** Within the already authorized computational scope of `BROAD_DYNAMICS_AND_RECOVERY_009`, Codex may continue without user confirmation after routine checkpoints and may repair user-space environments, install open-source dependencies, submit/restart/cancel its own Slurm jobs, and make consistent MD implementation choices documented in the repository.
+
+**Reason:** The previous execution stopped before GROMACS preparation despite GROMACS 2024.2 being available. Routine environment or scheduler issues should not repeatedly force a human stop gate when the scientific scope is already fixed.
+
+**Execution rule:** use `diagnose → repair/fallback → record → continue independent work → revisit` for recoverable failures. A single package/model/replica/network/Git failure is not a task-level stop condition.
+
+**Hard boundaries:** no `sudo`, no restricted-license software, no fabricated credentials, no destructive actions outside project-owned paths, and no automatic expansion into membrane/RNA/ATP/antibody mechanistic MD, exact nucleotide/codon design or wet-lab protocols.
+
+**Minimum dynamics milestone:** achieve `3 × 20 ns` broad coverage per valid system before selective extension when resources permit; target `3 × 50 ns` per valid system.
