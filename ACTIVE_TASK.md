@@ -1,93 +1,102 @@
 # Active task
 
-Current task: `BROAD_DYNAMICS_AND_RECOVERY_009` — **PARTIAL CHECKPOINT / MD PENDING**
+Current task: `BROAD_DYNAMICS_AND_RECOVERY_009` — **AUTONOMOUS CONTINUATION AUTHORIZED / MD PENDING**
 
 Branch: `analysis/broad-dynamics-009`
 
-Task specification:
+Primary task specification:
 
 `tasks/BROAD_DYNAMICS_AND_RECOVERY_009.md`
 
-## Entering state
+Continuation authority:
 
-`CANDIDATE_PANEL_EXPANSION_008` completed on `analysis/candidate-panel-008` with final state:
+`tasks/BROAD_DYNAMICS_AND_RECOVERY_009_CONTINUATION.md`
 
-`READY_FOR_BROAD_TARGETED_DYNAMICS`
-
-The 008 checkpoint is preserved unchanged. Task 009 proceeds on a new branch so the diversified candidate-panel checkpoint remains reproducible.
-
-## Why 009 is not a simple MD launch
-
-Task 008 left several important issues that must be resolved before or alongside broad replicated dynamics:
-
-- one `248|249 × HA` OpenMM model failed with `Particle coordinate is nan`;
-- local tagged dimer/trimer accommodation modeling was deferred;
-- disorder/disordered-binding prediction remained incomplete;
-- the proposed dynamics panel remained biased toward the contiguous `287–291` C-terminal neighborhood and MAP8;
-- PA14/AGIA were reviewed but not actually structure-modeled;
-- current rigid oligomer placement does not allow local neighboring-protomer accommodation.
-
-Task 009 therefore first hardens these missing layers, freezes a balanced dynamics panel, then runs broad replicated comparative dynamics.
-
-## Authorized scope
-
-1. environment/storage/Slurm integrity audit;
-2. root-cause and recover the `248|249 × HA` OpenMM NaN failure;
-3. recover an open disorder/flexibility layer for all 320 junctions;
-4. complete focused local tagged dimer/trimer ColabFold accommodation modeling;
-5. perform focused real structure modeling for PA14 and AGIA at representative junctions;
-6. redesign the dynamics panel to reduce C-terminal and MAP8 selection bias;
-7. install/configure any necessary open dynamics/QC/analysis tools;
-8. prepare a standardized comparative A89 2C `112–321` soluble-domain screening system for WT and tagged constructs;
-9. run multiple independent explicit-solvent MD replicas per system using one consistent force field;
-10. analyze structural persistence, local/tag flexibility, tag exposure, contact persistence and replicate convergence;
-11. perform dynamic correlation/network analysis;
-12. integrate dynamics with all prior evidence without an opaque weighted score;
-13. produce a revised Tier A / Tier B / control candidate panel.
-
-## Primary dynamics policy
-
-Broad screening dynamics is a comparative perturbation assay, not a complete biological-state simulation.
-
-Because full-length 2C contains a membrane-associated N terminus, the primary broad screen uses native A89 residues `112–321` with equivalent terminal treatment across WT and all tagged constructs. This retains all 009 insertion sites while avoiding a bulk-water full-length membrane-anchor artifact.
-
-Default target:
-
-- 3 independent replicas × 50 ns per system;
-- minimum broad-coverage fallback: 3 × 20 ns before any selective extension;
-- WT reference under the identical protocol.
-
-Prefer replica breadth over one long trajectory.
-
-## Stop gate
-
-Do not automatically proceed after 009 to:
-
-- final wet-lab construct design;
-- exact RNA/codon design without the real nucleotide construct;
-- membrane/RNA/ATP mechanistic MD;
-- experimental protocol design.
-
-## Current checkpoint state
+## Current state
 
 `BROAD_DYNAMICS_PARTIALLY_COMPLETE`
 
-Completed:
+The previous execution reached a checkpoint but stopped before local multimer completion and before any GROMACS topology/minimization/equilibration/production MD was started.
+
+The 009 task remains active. Do **not** create a new task/branch merely because the previous Codex session ended.
+
+## Already completed
 
 - environment/input/software audit;
-- `248|249 x HA` OpenMM NaN audit;
-- all-320 disorder V1 table with explicit fallback-method limitation;
-- PA14/AGIA exploratory input panel;
-- local multimer target manifest;
+- `248|249 × HA` OpenMM audit, classified `MODEL_SPECIFIC_GEOMETRY_FAILURE` rather than biological failure;
+- all-320 disorder placeholder layer, explicitly low-evidence because a mature predictor was not installed;
+- PA14/AGIA exploratory single-sequence ColabFold screen;
 - balanced dynamics panel V2;
-- WT/tagged 112-321 system manifest and residue mapping;
-- PA14/AGIA single-sequence exploratory ColabFold screen;
-- explicit no-trajectory placeholder outputs for MD-dependent layers.
+- WT/tagged `112–321` system manifest and residue mapping;
+- placeholder trajectory-dependent tables with explicit no-trajectory status.
 
-Pending:
+## Mandatory continuation work
 
-- local multimer ColabFold predictions;
-- GROMACS preparation, replicated production MD, trajectory QC and dynamic-network analysis.
+1. repair straightforward environment/tool defects needed for the task;
+2. complete focused local multimer ColabFold where technically tractable;
+3. prove a complete WT `112–321` GROMACS workflow through minimization/NVT/NPT/short production;
+4. prepare the balanced tagged systems under the same protocol;
+5. submit 3 independent replicas per valid system through Slurm;
+6. obtain broad minimum coverage (`3 × 20 ns`) across the valid panel before selective extension when resources permit;
+7. extend toward `3 × 50 ns` per system as feasible;
+8. perform trajectory QC, structural/tag/contact dynamics and dynamic-network analysis;
+9. integrate dynamics into the multi-objective candidate panel;
+10. update repository state and compact results.
+
+## Execution authority
+
+Codex is authorized to continue without waiting for routine user approval for actions inside task 009, including:
+
+- user-space open-source package/environment installation and repair;
+- module loading;
+- small open-source utility compilation;
+- GROMACS/ColabFold/OpenMM/PDBFixer troubleshooting;
+- Slurm `sbatch` submission, job arrays, restart from checkpoints and resubmission of failed replicas;
+- cancellation/resubmission of Codex-owned failed/stuck jobs when justified;
+- routine consistent choices for box/ions/terminal treatment/equilibration/output stride;
+- local commits and push retries.
+
+No `sudo`, no restricted-license software, no fabricated credentials, and no destructive operations outside project-owned files.
+
+## Do-not-stop policy
+
+Do not stop the overall task for a single recoverable package, model, job, network or push failure.
+
+Use:
+
+`diagnose → repair/fallback → record → continue independent work → revisit pending work`
+
+Codex may stop before minimum MD coverage only for a genuine hard blocker defined in the continuation addendum or when all remaining work is already submitted to Slurm and legitimately running/queued.
+
+## Dynamics policy
+
+Primary broad comparative system:
+
+- native HRV-A89 2C residues `112–321`;
+- exact inserted tag retained;
+- identical preparation/terminal policy across WT and constructs;
+- explicit solvent;
+- one consistent mature force field/water model;
+- apo protein-only comparative screening state.
+
+Target:
+
+- `3 × 50 ns` per system.
+
+Minimum broad-coverage milestone:
+
+- `3 × 20 ns` per valid system before selective extension.
+
+Prefer replica breadth over one long trajectory.
+
+## Stop gate after 009
+
+Do not automatically proceed to:
+
+- final wet-lab construct design;
+- exact RNA/codon design without the real nucleotide construct;
+- membrane/RNA/ATP/antibody mechanistic MD;
+- experimental protocol design.
 
 ## Allowed final task states
 
@@ -96,3 +105,5 @@ Return exactly one of:
 - `READY_FOR_FINAL_CANDIDATE_PANEL_REVIEW`
 - `READY_FOR_EXACT_NUCLEOTIDE_AUDIT`
 - `BROAD_DYNAMICS_PARTIALLY_COMPLETE`
+
+If partial, state whether it is due to `COMPUTE_JOBS_RUNNING_OR_QUEUED`, `TECHNICAL_BLOCKER_WITH_RECOVERY_EXHAUSTED`, or `MINIMUM_COVERAGE_NOT_YET_REACHED`, and preserve exact restart instructions.
