@@ -1,6 +1,6 @@
 # Project State
 
-Last updated: 2026-08-23
+Last updated: 2026-08-24
 
 Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
@@ -8,47 +8,43 @@ Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
 Build a **ranked, redundant, multi-junction × multi-tag experimental candidate panel** for HRV-A89 2C internal tagging that minimizes predicted perturbation while remaining experimentally detectable.
 
-The endpoint is not one computationally optimal site. The endpoint is a diversified candidate set with primary candidates, secondary/rescue candidates, conflict controls and hard-negative controls for downstream wet-lab validation.
+The endpoint is not one computationally optimal site. The endpoint is a diversified panel with primary candidates, secondary/rescue candidates, conflict controls and hard-negative controls for downstream wet-lab validation.
 
-No computational result may be described as a safe or experimentally validated site.
+No computational result may be described as safe or experimentally validated.
 
 ## Current project-level state
 
-`READY_FOR_BROAD_TARGETED_DYNAMICS`
-
-`OPEN_STRUCTURE_PIPELINE_007` is complete and technically resolved the previous inserted-structure blocker. The project is eligible for targeted dynamics, but targeted dynamics is now treated as only one future evidence layer within a broader candidate-panel program.
+`BROAD_DYNAMICS_AND_RECOVERY_009_AUTHORIZED`
 
 ## Current active branch and task
 
 Branch:
 
-`analysis/candidate-panel-008`
+`analysis/broad-dynamics-009`
 
 Active task:
 
-`CANDIDATE_PANEL_EXPANSION_008`
+`BROAD_DYNAMICS_AND_RECOVERY_009`
 
 Status:
 
-**COMPLETE / READY FOR REVIEW**
+**AUTHORIZED / PRE-DYNAMICS RECOVERY + BROAD REPLICATED DYNAMICS**
 
 Task specification:
 
-- `tasks/CANDIDATE_PANEL_EXPANSION_008.md`
-
-Strategic specification:
-
-- `docs/FINAL_CANDIDATE_PANEL_STRATEGY_V1.md`
+- `tasks/BROAD_DYNAMICS_AND_RECOVERY_009.md`
 
 ## Branch provenance
 
-`analysis/candidate-panel-008` was created from the current scientific branch:
+Current branch chain:
 
 `analysis/conservation-002`
+→ `analysis/candidate-panel-008`
+→ `analysis/broad-dynamics-009`
 
-The completed OPEN_STRUCTURE_PIPELINE_007 results and all upstream evidence were inherited unchanged. New candidate-panel work should be performed on `analysis/candidate-panel-008` unless explicitly merged later.
+`analysis/candidate-panel-008` remains the stable completed `CANDIDATE_PANEL_EXPANSION_008` checkpoint. New recovery/dynamics work is isolated on `analysis/broad-dynamics-009`.
 
-## Current completed evidence stack
+## Completed evidence stack inherited by 009
 
 The project already contains:
 
@@ -57,65 +53,19 @@ The project already contains:
 - HRV-A conservation and natural-indel context;
 - phylogeny-aware independent-indel analysis;
 - EV-A71 direct insertion/deletion/substitution phenotype mapping;
-- continuous/Pareto all-320 re-ranking;
-- tag-specific ESM2 PLM scores for MAP8, HA and G196 forms;
-- open ColabFold inserted-structure modeling;
+- continuous/Pareto all-320 ranking;
+- tag-specific ESM2 PLM scores;
+- real ColabFold inserted-structure modeling;
 - OpenMM geometry QC;
 - WT-vs-tagged structural perturbation metrics;
-- tagged hexamer-context analysis;
-- tagged contact-network analysis.
-
-## OPEN_STRUCTURE_PIPELINE_007 checkpoint
-
-OPEN_STRUCTURE_PIPELINE_007 modeled:
-
-- 40 inserted constructs;
-- WT reference;
-- 49 total model rows;
-- four deep-replicated constructs with three models each.
-
-The strongest deep-replicated structural rows were:
-
-- `289|290 × MAP8`;
-- `289|290 × G196_minimal`.
-
-`290|291 × MAP8/G196_minimal` remained low-clash but weakened by native/local RMSD after deeper replication.
-
-`256|257` was strongly disfavored by actual tagged-hexamer clash context.
-
-These observations remain **relative computational evidence only** and do not define the final candidate panel.
-
-## Why the candidate universe is being reopened
-
-The final experimental design should not depend on one narrow structural cluster because:
-
-- direct homolog insertion fitness remains unfavorable for all mapped A89 junctions in the EV-A71 dataset;
-- historical poliovirus work found 2C particularly intolerant to insertion;
-- insertion tolerance is strongly sequence-, site- and protein-context dependent;
-- flexible/exposed loops are enriched for tolerated insertions but are not sufficient predictors by themselves;
-- current deep structural replication covers only four constructs;
-- tag detectability/binder geometry has not yet been integrated as a separate evidence axis;
-- the new 2026 picornaviral 2C:RNA holoenzyme evidence has not yet been mapped systematically onto A89 junctions.
-
-Therefore all 320 junctions remain available for supporting-feature review, subject to true hard biological exclusions.
-
-## Candidate-panel program now authorized
-
-The current task adds the following missing high-information layers:
-
-1. literature/evidence-gap registry update;
-2. full-320 secondary-structure boundary, solvent exposure, disorder/flexibility feature completion;
-3. mapping to the 2026 picornaviral 2C:RNA holoenzyme;
-4. tag-boundary protease/polyprotein risk analysis;
-5. realistic tag-portfolio expansion;
-6. tag-binder accessibility and epitope-recognition geometry;
-7. broader multi-seed inserted-structure replication;
-8. local dimer/trimer accommodation modeling where tractable;
-9. preliminary candidate-panel multi-objective ranking;
-10. definition of a broader targeted-dynamics subset;
-11. draft final Tier A / Tier B / control candidate panel.
-
-`CANDIDATE_PANEL_EXPANSION_008` completed these layers where technically tractable. Local multimer prediction remains deferred; exact nucleotide/RNA-context analysis remains blocked until the real construct sequence is supplied.
+- rigid tagged-hexamer context;
+- tagged contact-network analysis;
+- RNA-holoenzyme residue-neighborhood mapping;
+- protease/polyprotein boundary-risk annotations;
+- realistic tag portfolio review;
+- binder-accessibility geometry proxies;
+- expanded 18-construct / 36-model ColabFold replication;
+- preliminary Tier A / Tier B / control panel and ranking robustness.
 
 ## CANDIDATE_PANEL_EXPANSION_008 checkpoint
 
@@ -123,98 +73,107 @@ Primary report:
 
 - `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`
 
-Key generated outputs:
+Current draft panel:
 
-- `data/junction_feature_matrix_v6_candidate_panel.tsv` -- 320 junction rows;
-- `data/expanded_structure_replication_metrics_v1.tsv` -- 18 constructs;
-- `results/candidate_panel_008/expanded_prediction_manifest.tsv` -- 36 ColabFold model rows;
-- `results/candidate_panel_008/expanded_openmm_qc_v1.tsv` -- 36 OpenMM QC rows;
-- `data/final_candidate_panel_draft_v1.tsv` -- 8 Tier A, 8 Tier B, 2 controls;
-- `data/proposed_targeted_dynamics_panel_v1.tsv` -- 9 constructs.
+- Tier A: 8 constructs;
+- Tier B: 8 constructs;
+- Controls: 2 constructs.
 
-Tier A spans 6 junctions and 3 tag systems. No candidate is safe or validated.
+Important limitation: although Tier A contains 6 junctions, 6/8 Tier A constructs come from the contiguous `287|288–290|291` C-terminal neighborhood. The current proposed dynamics panel is also MAP8-heavy. These are selection-bias issues, not proof that the C-terminal cluster is globally superior.
 
-## Tag strategy
+## Technical gaps explicitly carried into 009
 
-Core current tags:
+1. `248|249 × HA` had one OpenMM failure: `Particle coordinate is nan`;
+2. local tagged dimer/trimer accommodation modeling remained deferred;
+3. disorder/disordered-binding prediction was incomplete;
+4. PA14 and AGIA were literature-reviewed but not actually structure-modeled;
+5. rigid placement into WT hexamer does not allow neighboring-protomer accommodation;
+6. dynamics has not yet tested replicate stability, tag-exposure persistence or dynamic-network propagation.
 
-- MAP8;
-- HA;
-- G196_minimal.
+Task 009 must resolve these where technically possible before producing a revised candidate panel.
 
-Architecture comparison:
+## Dynamics-system decision
 
-- G196_practical_GS.
+For broad candidate comparison, do **not** use full-length 2C in bulk-water MD as the primary system because the N-terminal region is membrane-associated and would introduce a major non-physiological artifact.
 
-Candidate expansion tags for literature/reagent feasibility review:
+Primary comparative screening system:
 
-- ALFA;
-- PA12/PA14;
-- AGIA;
-- HiBiT if luminescent complementation fits the intended experimental readout.
+**native HRV-A89 2C residues 112–321**, retaining the exact inserted tag and using equivalent terminal treatment for WT and every candidate.
 
-FLAG remains excluded because the 9A5 construct already uses FLAG.
+This is explicitly a comparative perturbation assay, not a complete native-state model.
 
-No new tag should enter broad modeling until its exact sequence and realistic detection reagent/readout are fixed.
+Broad screening remains apo/protein-only. ATP/Mg, membrane, RNA and antibody/binder states are reserved for later mechanistic sensitivity tasks.
 
-## Evidence hierarchy
+## Replicate policy
 
-When evidence conflicts, use:
+Default production target:
 
-1. direct HRV-A89 insertion/replicon phenotype, if generated;
-2. direct homolog 2C insertion phenotype with high-confidence A89 mapping;
-3. direct homolog substitution/deletion phenotype and direct 2C genetics/biochemistry;
-4. established functional motifs and experimental homolog structures, including RNA-bound context;
-5. A89 structural ensemble / oligomer-context evidence;
-6. phylogeny-aware evolutionary / natural-indel evidence;
-7. tag-specific PLM;
-8. tag-binder accessibility / inserted-structure / network evidence;
-9. replicated targeted dynamics;
-10. exact nucleotide/RNA-context analysis before final construct design.
+- 3 independent replicas × 50 ns per system;
+- WT reference under the identical protocol;
+- if resources prevent full completion, first obtain at least 3 × 20 ns for all systems before selectively extending any construct.
 
-No lower-level prediction may silently override stronger evidence.
+Independent replicate breadth has priority over one long trajectory.
+
+## Candidate-panel diversity policy
+
+Before dynamics, generate `data/balanced_targeted_dynamics_panel_v2.tsv` with approximately 10–12 tagged constructs plus WT.
+
+Require:
+
+- at least 4 genuinely distinct site regions;
+- at least 3 tag systems;
+- reduced dominance of the contiguous `287–291` region;
+- at least one hard-negative/control and one mechanistic conflict control;
+- pre-MD selection rationale frozen before trajectories are analyzed.
+
+Focused PA14/AGIA modeling may add at most one or two new-tag constructs to dynamics only if the pre-MD structure/oligomer/binder evidence is competitive.
 
 ## Ranking policy
 
 Do not use one opaque weighted scalar.
 
-Final candidate ranking must retain separate evidence axes and use:
+Final ranking must retain separate evidence axes and use:
 
 - Pareto/non-dominated membership;
-- evidence-class labels;
+- evidence classes;
 - leave-one-layer-out sensitivity;
-- rank stability/resampling where meaningful;
-- explicit unresolved-conflict labels.
+- bootstrap/rank stability where meaningful;
+- explicit unresolved-conflict labels;
+- explicit site-region diversity and tag-family diversity checks.
 
-Required final views:
+No lower-level computational method may silently override stronger direct phenotype or hard biological constraints.
 
-- junction-level ranking;
-- site × tag ranking;
-- best junctions within each tag;
-- best tags within each junction;
-- Tier A / Tier B / control memberships.
+## Expected 009 outputs
 
-## Target candidate-panel scale
+Core outputs include:
 
-Approximate target:
-
-- Tier A: 6–10 primary constructs spanning at least 4–6 distinct junctions and at least 3 tag systems;
-- Tier B: 6–12 secondary/rescue constructs;
-- controls: 4–6 conflict/hard-negative constructs.
-
-This is a target range, not a quota.
+- `results/broad_dynamics_009/openmm_248_249_HA_root_cause.tsv`
+- `data/hrvA89_2C_disorder_v1.tsv`
+- `data/junction_feature_matrix_v7_pre_dynamics.tsv`
+- `data/local_multimer_tag_context_v2.tsv`
+- `data/exploratory_tag_structure_panel_v1.tsv`
+- `data/exploratory_tag_structure_metrics_v1.tsv`
+- `data/balanced_targeted_dynamics_panel_v2.tsv`
+- `results/broad_dynamics_009/system_manifest.tsv`
+- `results/broad_dynamics_009/production_manifest.tsv`
+- `data/dynamics_replica_qc_v1.tsv`
+- `data/broad_dynamics_metrics_v1.tsv`
+- `data/tag_exposure_dynamics_v1.tsv`
+- `data/contact_persistence_dynamics_v1.tsv`
+- `data/dynamic_network_perturbation_v1.tsv`
+- `data/final_candidate_panel_v2_dynamics.tsv`
+- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
+- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
 
 ## Current stop gate
 
-`CANDIDATE_PANEL_EXPANSION_008` defined a proposed broader targeted-dynamics panel but did not run it.
+Do not automatically proceed after task 009 to:
 
-Do not automatically start:
-
-- targeted dynamics;
-- final construct synthesis;
-- experimental protocol design;
-- final RNA/codon design.
+- wet-lab construct synthesis/design;
+- final RNA/codon design without the exact experimental nucleotide context;
+- membrane/RNA/ATP mechanistic MD;
+- experimental protocols.
 
 ## Required future user input
 
-Before final wet-lab construct recommendation, obtain the exact nucleotide sequence of the experimental HRV-A89 2C region / replicon/plasmid context. Protein back-translation is not an acceptable substitute.
+Before final construct design, obtain the exact experimental HRV-A89 2C/replicon/plasmid nucleotide context. Protein back-translation is not an acceptable substitute.
