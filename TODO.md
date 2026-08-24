@@ -26,7 +26,7 @@ The draft is useful but remains biased toward the contiguous C-terminal `287–2
 
 ## CURRENT — BROAD_DYNAMICS_AND_RECOVERY_009
 
-Status: **AUTHORIZED / PRE-DYNAMICS RECOVERY + BROAD REPLICATED DYNAMICS**
+Status: **BROAD_DYNAMICS_PARTIALLY_COMPLETE**
 
 Branch:
 
@@ -38,11 +38,11 @@ Task:
 
 ### Phase A — resolve unfinished 008 work
 
-1. audit/recover the `248|249 × HA` OpenMM `Particle coordinate is nan` failure;
-2. install/configure an open disorder predictor and complete the missing all-320 disorder layer;
-3. run focused local tagged dimer/trimer ColabFold accommodation modeling;
-4. structure-model PA14 and AGIA at representative candidate junctions;
-5. update pre-dynamics feature/ranking evidence.
+1. audit/recover the `248|249 × HA` OpenMM `Particle coordinate is nan` failure — done, classified `MODEL_SPECIFIC_GEOMETRY_FAILURE`;
+2. install/configure an open disorder predictor and complete the missing all-320 disorder layer — partial, all rows present but fallback method is not decision-grade;
+3. run focused local tagged dimer/trimer ColabFold accommodation modeling — pending;
+4. structure-model PA14 and AGIA at representative candidate junctions — completed in single-sequence exploratory mode; low confidence, none promoted;
+5. update pre-dynamics feature/ranking evidence — partial, balanced panel and no-trajectory placeholder outputs written.
 
 ### Phase B — remove panel-selection bias
 
@@ -57,6 +57,8 @@ Require:
 - selection rationale frozen before MD results are generated.
 
 ### Phase C — broad replicated dynamics
+
+Status: **pending**. Do not treat `data/final_candidate_panel_v2_dynamics.tsv` as dynamics-informed until GROMACS replicas complete and QC passes.
 
 Primary comparative system:
 

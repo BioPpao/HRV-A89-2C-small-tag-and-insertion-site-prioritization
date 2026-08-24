@@ -1,6 +1,6 @@
 # Active task
 
-Current task: `BROAD_DYNAMICS_AND_RECOVERY_009` — **AUTHORIZED / PRE-DYNAMICS RECOVERY + BROAD REPLICATED DYNAMICS**
+Current task: `BROAD_DYNAMICS_AND_RECOVERY_009` — **PARTIAL CHECKPOINT / MD PENDING**
 
 Branch: `analysis/broad-dynamics-009`
 
@@ -68,7 +68,28 @@ Do not automatically proceed after 009 to:
 - membrane/RNA/ATP mechanistic MD;
 - experimental protocol design.
 
-## Final state
+## Current checkpoint state
+
+`BROAD_DYNAMICS_PARTIALLY_COMPLETE`
+
+Completed:
+
+- environment/input/software audit;
+- `248|249 x HA` OpenMM NaN audit;
+- all-320 disorder V1 table with explicit fallback-method limitation;
+- PA14/AGIA exploratory input panel;
+- local multimer target manifest;
+- balanced dynamics panel V2;
+- WT/tagged 112-321 system manifest and residue mapping;
+- PA14/AGIA single-sequence exploratory ColabFold screen;
+- explicit no-trajectory placeholder outputs for MD-dependent layers.
+
+Pending:
+
+- local multimer ColabFold predictions;
+- GROMACS preparation, replicated production MD, trajectory QC and dynamic-network analysis.
+
+## Allowed final task states
 
 Return exactly one of:
 

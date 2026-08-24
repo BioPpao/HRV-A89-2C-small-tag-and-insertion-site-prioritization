@@ -14,7 +14,7 @@ No computational result may be described as safe or experimentally validated.
 
 ## Current project-level state
 
-`BROAD_DYNAMICS_AND_RECOVERY_009_AUTHORIZED`
+`BROAD_DYNAMICS_PARTIALLY_COMPLETE`
 
 ## Current active branch and task
 
@@ -28,7 +28,7 @@ Active task:
 
 Status:
 
-**AUTHORIZED / PRE-DYNAMICS RECOVERY + BROAD REPLICATED DYNAMICS**
+**PARTIAL CHECKPOINT / PRE-DYNAMICS RECOVERY COMPLETE, MD PENDING**
 
 Task specification:
 
@@ -90,7 +90,17 @@ Important limitation: although Tier A contains 6 junctions, 6/8 Tier A construct
 5. rigid placement into WT hexamer does not allow neighboring-protomer accommodation;
 6. dynamics has not yet tested replicate stability, tag-exposure persistence or dynamic-network propagation.
 
-Task 009 must resolve these where technically possible before producing a revised candidate panel.
+Task 009 has a partial checkpoint. The OpenMM NaN audit, all-320 disorder placeholder layer, balanced dynamics panel, system manifest and residue mapping are present, but local multimer completion, PA14/AGIA completed structure metrics and replicated MD remain pending.
+
+Primary 009 report:
+
+- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
+
+Run log:
+
+- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_RUN_LOG.md`
+
+Important limitation: trajectory-dependent files exist only as explicit no-trajectory placeholders and must not be interpreted as dynamics evidence.
 
 ## Dynamics-system decision
 

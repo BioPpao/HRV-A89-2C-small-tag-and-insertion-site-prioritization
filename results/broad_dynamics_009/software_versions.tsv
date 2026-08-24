@@ -1,0 +1,16 @@
+tool	status	command	version_or_output
+hostname	available	hostname	admin1
+python	available	.tools/envs/open_structure_007/bin/python --version	Python 3.10.21
+gromacs_module	available	bash -lc module load gromacs/2024.2 && gmx --version | head -n 3	:-) GROMACS - gmx, 2024.2 (-: |  | Executable:   /public/apps/gromacs/2024.2/bin/gmx
+colabfold	missing_or_failed	.tools/envs/open_structure_007/bin/python -c import colabfold; print(colabfold.__version__)	"Traceback (most recent call last): |   File ""<string>"", line 1, in <module> | AttributeError: module 'colabfold' has no attribute '__version__'"
+openmm	available	.tools/envs/open_structure_007/bin/python -c import openmm; print(openmm.version.version)	7.7.0.dev-130124a
+pdbfixer	missing_or_failed	.tools/envs/open_structure_007/bin/python -c import pdbfixer; print('installed')	"Traceback (most recent call last): |   File ""<string>"", line 1, in <module> |   File ""/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/pdbfixer/__init__.py"", line 2, in <module> |     from .pdbfixer import PDBFixer |   File ""/public/home/yukang/wf/HRV-A89-2C-small-tag-and-insertion-site-prioritization/.tools/envs/open_structure_007/lib/python3.10/site-packages/pdbfixer/pdbfixer.py"", line 58, in <module> |     from pkg_resources import resource_filename | ModuleNotFoundError: No module named 'pkg_resources'"
+mdanalysis	available	.tools/envs/open_structure_007/bin/python -c import MDAnalysis as m; print(m.__version__)	2.9.0
+mdtraj	available	.tools/envs/open_structure_007/bin/python -c import mdtraj as m; print(m.__version__)	1.10.3
+numpy	available	.tools/envs/open_structure_007/bin/python -c import numpy as m; print(m.__version__)	1.26.4
+scipy	available	.tools/envs/open_structure_007/bin/python -c import scipy as m; print(m.__version__)	1.15.2
+pandas	available	.tools/envs/open_structure_007/bin/python -c import pandas as m; print(m.__version__)	1.5.3
+networkx	available	.tools/envs/open_structure_007/bin/python -c import networkx as m; print(m.__version__)	3.4.2
+metapredict	missing_or_failed	.tools/envs/open_structure_007/bin/python -c import metapredict as m; print(m.__version__)	"Traceback (most recent call last): |   File ""<string>"", line 1, in <module> | ModuleNotFoundError: No module named 'metapredict'"
+mkdssp	missing_or_failed	bash -lc command -v mkdssp && mkdssp --version	
+usalign	missing_or_failed	bash -lc command -v USalign && USalign 2>&1 | head -n 2	

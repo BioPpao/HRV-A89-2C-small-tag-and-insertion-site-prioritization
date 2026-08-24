@@ -1,6 +1,6 @@
 # Decision Log
 
-Last updated: 2026-08-23
+Last updated: 2026-08-24
 
 These are active decisions. Future analyses should change them only with explicit new evidence and should record the reason for the change.
 
@@ -228,3 +228,11 @@ These are active decisions. Future analyses should change them only with explici
 **Interpretation:** The Tier A draft contains 8 constructs spanning 6 junctions and 3 tag systems. It preserves `289|290` leaders while retaining `288|289`, `290|291`, `287|288`, `248|249` and `224|225` alternatives. `256|257` and `155|156` are controls. No construct is safe, validated or final wet-lab design.
 
 **Current state:** `READY_FOR_BROAD_TARGETED_DYNAMICS`.
+
+## D-039 — BROAD_DYNAMICS_AND_RECOVERY_009 partial checkpoint is not dynamics evidence
+
+**Decision:** Treat `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md` and `data/balanced_targeted_dynamics_panel_v2.tsv` as a pre-MD recovery/rebalancing checkpoint only.
+
+**Reason:** The task resolved the `248|249 x HA` OpenMM NaN as `MODEL_SPECIFIC_GEOMETRY_FAILURE`, created a balanced 12-construct dynamics panel plus WT system manifest, and completed low-confidence single-sequence exploratory PA14/AGIA modeling, but local multimer modeling and replicated GROMACS dynamics are not complete.
+
+**Boundary:** `data/final_candidate_panel_v2_dynamics.tsv` currently records explicit `not_completed` dynamics/network status. It must not be used as a final dynamics-informed panel until production trajectories complete and pass QC.

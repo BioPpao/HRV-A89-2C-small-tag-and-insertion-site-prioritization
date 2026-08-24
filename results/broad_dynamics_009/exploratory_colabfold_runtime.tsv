@@ -1,0 +1,12 @@
+record	value
+hostname	gpu16
+cuda_visible_devices	0
+date	2026-08-24T12:07:10+08:00
+nvidia_smi	NVIDIA GeForce RTX 3090, 575.57.08, 24576 MiB
+input	results/broad_dynamics_009/exploratory_colabfold_input.fasta
+output	results/broad_dynamics_009/exploratory_colabfold
+msa_mode	single_sequence
+num_models	1
+num_recycle	6
+num_seeds	2
+random_seed	41

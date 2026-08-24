@@ -1,0 +1,19 @@
+name: broad_dynamics_009
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - pandas
+  - biopython
+  - mdanalysis
+  - mdtraj
+  - networkx
+  - openmm
+  - pdbfixer
+  - matplotlib
+  - pip
+  - pip:
+      - colabfold==1.5.3

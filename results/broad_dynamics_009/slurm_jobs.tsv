@@ -1,0 +1,2 @@
+job_id	job_name	status	exit_code	elapsed	node	script
+164287	bd009_extag	COMPLETED	0:0	00:07:02	gpu16	scripts/broad_dynamics_009_exploratory_colabfold.sbatch
