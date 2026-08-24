@@ -26,13 +26,19 @@ Active task:
 
 `BROAD_DYNAMICS_AND_RECOVERY_009`
 
-Status:
+Execution state:
 
-**PARTIAL CHECKPOINT / PRE-DYNAMICS RECOVERY COMPLETE, MD PENDING**
+**AUTONOMOUS CONTINUATION AUTHORIZED / PRE-DYNAMICS CHECKPOINT COMPLETE / REAL MD PENDING**
 
-Task specification:
+Primary task specification:
 
 - `tasks/BROAD_DYNAMICS_AND_RECOVERY_009.md`
+
+Continuation authority:
+
+- `tasks/BROAD_DYNAMICS_AND_RECOVERY_009_CONTINUATION.md`
+
+The 009 task remains active. The previous Codex session ended at a checkpoint but this is not a scientific stop gate and does not authorize creation of a new task/branch.
 
 ## Branch provenance
 
@@ -42,11 +48,11 @@ Current branch chain:
 → `analysis/candidate-panel-008`
 → `analysis/broad-dynamics-009`
 
-`analysis/candidate-panel-008` remains the stable completed `CANDIDATE_PANEL_EXPANSION_008` checkpoint. New recovery/dynamics work is isolated on `analysis/broad-dynamics-009`.
+`analysis/candidate-panel-008` remains the stable completed pre-dynamics candidate-panel checkpoint.
 
-## Completed evidence stack inherited by 009
+## Completed evidence inherited by 009
 
-The project already contains:
+The repository contains:
 
 - A89 functional constraint/exclusion mapping;
 - all-320 WT structural metrics;
@@ -62,35 +68,21 @@ The project already contains:
 - tagged contact-network analysis;
 - RNA-holoenzyme residue-neighborhood mapping;
 - protease/polyprotein boundary-risk annotations;
-- realistic tag portfolio review;
-- binder-accessibility geometry proxies;
+- tag-portfolio/binder-accessibility review;
 - expanded 18-construct / 36-model ColabFold replication;
 - preliminary Tier A / Tier B / control panel and ranking robustness.
 
-## CANDIDATE_PANEL_EXPANSION_008 checkpoint
+## 009 checkpoint completed work
 
-Primary report:
+Completed in the partial 009 checkpoint:
 
-- `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`
-
-Current draft panel:
-
-- Tier A: 8 constructs;
-- Tier B: 8 constructs;
-- Controls: 2 constructs.
-
-Important limitation: although Tier A contains 6 junctions, 6/8 Tier A constructs come from the contiguous `287|288–290|291` C-terminal neighborhood. The current proposed dynamics panel is also MAP8-heavy. These are selection-bias issues, not proof that the C-terminal cluster is globally superior.
-
-## Technical gaps explicitly carried into 009
-
-1. `248|249 × HA` had one OpenMM failure: `Particle coordinate is nan`;
-2. local tagged dimer/trimer accommodation modeling remained deferred;
-3. disorder/disordered-binding prediction was incomplete;
-4. PA14 and AGIA were literature-reviewed but not actually structure-modeled;
-5. rigid placement into WT hexamer does not allow neighboring-protomer accommodation;
-6. dynamics has not yet tested replicate stability, tag-exposure persistence or dynamic-network propagation.
-
-Task 009 has a partial checkpoint. The OpenMM NaN audit, all-320 disorder placeholder layer, balanced dynamics panel, system manifest and residue mapping are present, but local multimer completion, PA14/AGIA completed structure metrics and replicated MD remain pending.
+- repository/environment/input/software audit;
+- `248|249 × HA` OpenMM failure audit, classified `MODEL_SPECIFIC_GEOMETRY_FAILURE` rather than biological failure;
+- all-320 disorder placeholder layer, explicitly low-evidence because the mature predictor installation did not complete;
+- focused PA14/AGIA single-sequence exploratory ColabFold screen;
+- balanced dynamics panel V2;
+- WT/tagged `112–321` system manifest and residue mapping;
+- explicit placeholder/no-trajectory outputs for trajectory-dependent tables.
 
 Primary 009 report:
 
@@ -100,43 +92,63 @@ Run log:
 
 - `docs/BROAD_DYNAMICS_AND_RECOVERY_009_RUN_LOG.md`
 
-Important limitation: trajectory-dependent files exist only as explicit no-trajectory placeholders and must not be interpreted as dynamics evidence.
+## Important unresolved items
+
+1. local tagged dimer/trimer ColabFold models remain pending;
+2. current disorder layer uses a composition/low-complexity proxy and is not decision-grade;
+3. PA14/AGIA low-pLDDT results are method-limited single-sequence predictions, not biological rejection;
+4. GROMACS 2024.2 is available but topology/minimization/NVT/NPT/production had not started at the checkpoint;
+5. all production-manifest rows were still `not_started`;
+6. trajectory-dependent metrics remain placeholders and must not be interpreted as dynamics evidence.
+
+## Execution authority now granted
+
+Within task 009, Codex may proceed without routine user confirmation to:
+
+- create/repair user-space open-source environments;
+- install open-source packages;
+- repair PDBFixer/setuptools/pkg_resources or equivalent environment defects;
+- load cluster modules and compile small open utilities;
+- troubleshoot ColabFold/OpenMM/GROMACS workflows;
+- submit Slurm jobs/job arrays;
+- cancel/resubmit Codex-owned failed or stuck jobs when justified;
+- restart GROMACS from checkpoints;
+- make consistent routine MD implementation choices and record them;
+- commit compact scientific outputs and retry Git pushes.
+
+Do not use `sudo`, restricted-license software, fabricated credentials or destructive actions outside project-owned files.
 
 ## Dynamics-system decision
 
-For broad candidate comparison, do **not** use full-length 2C in bulk-water MD as the primary system because the N-terminal region is membrane-associated and would introduce a major non-physiological artifact.
+Primary broad comparative screening system:
 
-Primary comparative screening system:
+**native HRV-A89 2C residues `112–321`**, retaining the exact inserted tag and using equivalent terminal treatment for WT and every construct.
 
-**native HRV-A89 2C residues 112–321**, retaining the exact inserted tag and using equivalent terminal treatment for WT and every candidate.
+This is a comparative perturbation assay, not a complete native-state model.
 
-This is explicitly a comparative perturbation assay, not a complete native-state model.
-
-Broad screening remains apo/protein-only. ATP/Mg, membrane, RNA and antibody/binder states are reserved for later mechanistic sensitivity tasks.
+Broad screening remains apo/protein-only. ATP/Mg, membrane, RNA and antibody/binder states remain outside task 009.
 
 ## Replicate policy
 
-Default production target:
+Primary target:
 
-- 3 independent replicas × 50 ns per system;
-- WT reference under the identical protocol;
-- if resources prevent full completion, first obtain at least 3 × 20 ns for all systems before selectively extending any construct.
+- 3 independent replicas × 50 ns per valid system.
 
-Independent replicate breadth has priority over one long trajectory.
+Minimum broad-coverage milestone before selective extension:
 
-## Candidate-panel diversity policy
+- 3 × 20 ns per valid system.
 
-Before dynamics, generate `data/balanced_targeted_dynamics_panel_v2.tsv` with approximately 10–12 tagged constructs plus WT.
+Replica breadth has priority over one long trajectory.
 
-Require:
+## Continuation requirement
 
-- at least 4 genuinely distinct site regions;
-- at least 3 tag systems;
-- reduced dominance of the contiguous `287–291` region;
-- at least one hard-negative/control and one mechanistic conflict control;
-- pre-MD selection rationale frozen before trajectories are analyzed.
+Codex must not stop the overall task for one recoverable package/model/job/network/push failure.
 
-Focused PA14/AGIA modeling may add at most one or two new-tag constructs to dynamics only if the pre-MD structure/oligomer/binder evidence is competitive.
+Required behavior:
+
+`diagnose → repair/fallback → record → continue independent work → revisit`
+
+Stopping before minimum coverage is acceptable only for a genuine hard blocker defined in `tasks/BROAD_DYNAMICS_AND_RECOVERY_009_CONTINUATION.md` or when all remaining work is already submitted and legitimately running/queued under Slurm.
 
 ## Ranking policy
 
@@ -149,23 +161,16 @@ Final ranking must retain separate evidence axes and use:
 - leave-one-layer-out sensitivity;
 - bootstrap/rank stability where meaningful;
 - explicit unresolved-conflict labels;
-- explicit site-region diversity and tag-family diversity checks.
+- site-region diversity and tag-family diversity checks.
 
 No lower-level computational method may silently override stronger direct phenotype or hard biological constraints.
 
-## Expected 009 outputs
+## Required real 009 completion outputs
 
-Core outputs include:
+A dynamics-informed completion requires real trajectory-derived values in:
 
-- `results/broad_dynamics_009/openmm_248_249_HA_root_cause.tsv`
-- `data/hrvA89_2C_disorder_v1.tsv`
-- `data/junction_feature_matrix_v7_pre_dynamics.tsv`
-- `data/local_multimer_tag_context_v2.tsv`
-- `data/exploratory_tag_structure_panel_v1.tsv`
-- `data/exploratory_tag_structure_metrics_v1.tsv`
-- `data/balanced_targeted_dynamics_panel_v2.tsv`
-- `results/broad_dynamics_009/system_manifest.tsv`
 - `results/broad_dynamics_009/production_manifest.tsv`
+- `results/broad_dynamics_009/replica_completion.tsv`
 - `data/dynamics_replica_qc_v1.tsv`
 - `data/broad_dynamics_metrics_v1.tsv`
 - `data/tag_exposure_dynamics_v1.tsv`
@@ -175,15 +180,17 @@ Core outputs include:
 - `results/broad_dynamics_009/ranking_robustness_v2.tsv`
 - `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
 
-## Current stop gate
+Placeholder rows do not count as completion.
 
-Do not automatically proceed after task 009 to:
+## Current stop gate after 009
+
+Do not automatically proceed to:
 
 - wet-lab construct synthesis/design;
-- final RNA/codon design without the exact experimental nucleotide context;
-- membrane/RNA/ATP mechanistic MD;
+- exact RNA/codon design without the real experimental nucleotide context;
+- membrane/RNA/ATP/antibody mechanistic MD;
 - experimental protocols.
 
 ## Required future user input
 
-Before final construct design, obtain the exact experimental HRV-A89 2C/replicon/plasmid nucleotide context. Protein back-translation is not an acceptable substitute.
+Before final nucleotide-level construct design, obtain the exact experimental HRV-A89 2C/replicon/plasmid nucleotide context. Protein back-translation is not an acceptable substitute.
