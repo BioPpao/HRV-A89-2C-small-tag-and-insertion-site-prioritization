@@ -12,110 +12,149 @@ No computational result may be described as safe or experimentally validated.
 
 ## Current Project-Level State
 
-`READY_FOR_FINAL_CANDIDATE_PANEL_REVIEW`
+`MD_ANALYSIS_AUDIT_REQUIRED__PRELIMINARY_WET_PANEL_EVIDENCE_AVAILABLE`
 
 ## Current Branch And Task
 
 Branch:
 
-`analysis/broad-dynamics-009`
+`analysis/dynamics-audit-010`
 
 Task:
 
-`BROAD_DYNAMICS_AND_RECOVERY_009`
+`DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010`
 
 Primary specification:
 
-- `tasks/BROAD_DYNAMICS_AND_RECOVERY_009.md`
-- `tasks/BROAD_DYNAMICS_AND_RECOVERY_009_CONTINUATION.md`
+- `tasks/DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010.md`
 
-Primary report:
+Primary audit:
 
-- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
+- `docs/DYNAMICS_009_POSTHOC_AUDIT_V1.md`
 
-## What Changed In Task 009
+## What Remains Valid From Task 009
 
-Task 009 completed the broad minimum-coverage dynamics layer.
+Task 009 generated a substantial legacy comparative MD dataset:
 
-- `248|249 x HA` OpenMM NaN remained classified as `MODEL_SPECIFIC_GEOMETRY_FAILURE`, not biological rejection.
-- Disorder recovery remains low-evidence/fallback and is not decision-grade.
-- PA14/AGIA exploratory modeling remained low-confidence and did not enter the final dynamics-retained core.
-- WT plus 12 tagged `112-321` systems passed GROMACS preproduction.
-- 39 / 39 production replicas completed and were analyzed at 20 ns each.
-- Total analyzed production sampling: 780 ns.
-- Trajectory QC exclusions: 0 / 39.
-- Dynamic CA correlation/contact-network metrics were generated.
-- Focused local multimer modeling completed computationally, but all model coordinates/confidence values were non-finite; the result is inconclusive.
+- WT plus 12 tagged A89 2C `112-321` systems;
+- 3 independent replicas per system;
+- 39 / 39 replicas reached 20 ns;
+- 780 ns total production sampling;
+- trajectory/energy/provenance files exist for reanalysis;
+- C-terminal, non-C-terminal and control constructs are represented.
 
-## Current Authoritative 009 Outputs
+These trajectories are **not discarded**. They are the primary raw input for corrected Task 010 reanalysis.
 
-- `results/broad_dynamics_009/production_manifest.tsv`
-- `results/broad_dynamics_009/replica_completion.tsv`
-- `data/dynamics_replica_qc_v1.tsv`
+## Why The Previous Dynamics Ranking Is Provisional
+
+Posthoc audit identified several decision-changing problems:
+
+1. the 009 Python analysis did not explicitly make the protein whole/unwrap/center under periodic boundary conditions before geometry-dependent metrics;
+2. the main RMSD is self-drift versus each system's own first frame, not direct deviation from a common WT reference;
+3. local RMSF lacks a junction-matched WT baseline for every candidate;
+4. contact retention primarily tracks candidate-starting-model contacts rather than preservation of WT-defined native contacts;
+5. tag exposure is a minimum-distance proxy rather than mature SASA/accessibility evidence;
+6. dynamic Tier A/B penalties use incomplete and threshold-sensitive metrics;
+7. DCCM/network signals require stronger replica/time-window stability checks;
+8. the Task 009 CHARMM36 production MDP differs from the GROMACS-documented CHARMM36 nonbonded protocol and should not simply be extended to 50 ns.
+
+Therefore these files remain historical/provisional rather than final ranking authority:
+
+- `data/final_candidate_panel_v2_dynamics.tsv`
+- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
 - `data/broad_dynamics_metrics_v1.tsv`
 - `data/tag_exposure_dynamics_v1.tsv`
 - `data/contact_persistence_dynamics_v1.tsv`
 - `data/dynamic_network_perturbation_v1.tsv`
-- `data/final_candidate_panel_v2_dynamics.tsv`
-- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
-- `docs/DYNAMICS_QC_V1.md`
-- `docs/DYNAMIC_NETWORK_ANALYSIS_V1.md`
-- `docs/LOCAL_MULTIMER_RECOVERY_V2.md`
 
-## Dynamics-Informed Candidate State
+## Stronger Non-MD Evidence Still Retained
 
-From `data/final_candidate_panel_v2_dynamics.tsv`:
+The following project layers remain decision-relevant and are not invalidated by the MD audit:
 
-- Tier A dynamics retained: 9 constructs.
-- Tier B dynamics secondary: 1 construct.
-- Controls after dynamics: 2 constructs.
+- A89 functional exclusion/caution map;
+- all-320 junction structural/evolutionary landscape;
+- HRV-A conservation and phylogeny-aware indel evidence;
+- EV-A71 direct insertion/deletion/substitution phenotype mapped to A89;
+- tag-specific PLM evidence;
+- inserted-structure ensemble modeling;
+- historical poliovirus insertion genetics;
+- RNA-holoenzyme mapping as homolog/preprint mechanistic context;
+- tag/binder accessibility evidence;
+- candidate-panel diversification strategy.
 
-Tier A retained:
+The direct homolog insertion signal remains a strong negative prior for all current candidates but is not treated as an absolute HRV-A89 veto.
 
-- `289|290 x MAP8`
-- `289|290 x G196_minimal`
-- `288|289 x HA`
-- `288|289 x MAP8`
-- `290|291 x MAP8`
-- `224|225 x HA`
-- `224|225 x MAP8`
-- `248|249 x MAP8`
-- `203|204 x G196_minimal`
+## Task 010 Required Outputs
 
-Tier B secondary:
+Expected core outputs include:
 
-- `248|249 x HA`
+- `results/dynamics_audit_010/input_trajectory_inventory.tsv`
+- `results/dynamics_audit_010/pbc_rmsd_crossvalidation.tsv`
+- `data/broad_dynamics_metrics_v2_corrected.tsv`
+- `data/contact_persistence_dynamics_v2_corrected.tsv`
+- `data/tag_exposure_dynamics_v2_sasa.tsv`
+- `data/dynamic_network_perturbation_v2_corrected.tsv`
+- `results/dynamics_audit_010/time_truncation_stability.tsv`
+- `results/dynamics_audit_010/replica_stability.tsv`
+- `results/dynamics_audit_010/dynamics_rank_stability.tsv`
+- `results/dynamics_audit_010/control_discrimination_audit.tsv`
+- `results/dynamics_audit_010/forcefield_protocol_audit.tsv`
+- `results/dynamics_audit_010/extension_decision.tsv`
+- `results/dynamics_audit_010/final_panel_leave_one_layer_out.tsv`
+- `results/dynamics_audit_010/final_panel_without_md.tsv`
+- `data/final_candidate_panel_v3_audited.tsv`
+- `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md`
+- `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md`
+- `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md`
 
-Controls:
+## 20 ns Versus 50 ns Decision
 
-- `256|257 x MAP8`
-- `155|156 x MAP8`
+There is no project rule that all systems must reach 50 ns.
 
-## Important Caveats
+Task 010 uses an adaptive criterion:
 
-- All candidates retain direct homolog EV-A71 InDel conflict; this remains a high-weight prior.
-- The 20 ns dynamics layer is comparative perturbation evidence, not viral fitness evidence.
-- Local multimer modeling is inconclusive because generated coordinates were non-finite.
-- Tag exposure was assessed with a nonlocal heavy-atom distance proxy, not mature SASA.
-- Exact experimental nucleotide/RNA context is still unavailable.
-- No site or construct is safe or validated.
+- corrected 20 ns may be sufficient for screening-level wet-lab prioritization if independent evidence agrees and decision-relevant observables are stable across replicas/time windows;
+- add replicas when between-replica variability dominates;
+- extend selected corrected-protocol replicas toward 50 ns when multiple replicas show continuing slow drift or a decision-critical ambiguity remains;
+- never extend all 39 legacy trajectories merely to satisfy a round-number duration target.
 
-## Scheduler State
+## Model Boundary
 
-At the completion checkpoint, `squeue -u yukang` returned no active jobs.
+Current 009 MD is an apo protein-only `112-321` core-fragment screen with an artificial fragment N terminus. It is useful for comparative perturbation triage but cannot represent full-length membrane/RNA/ATP/oligomer biology.
 
-The previous CPU watcher submitted duplicate backfill attempts after outputs were complete. Codex canceled watcher job `164379` and duplicate jobs `164556_0`, `164557_1`, `164558_2`, `164559_3`. This complicates Slurm job attribution for some rows, but trajectory endpoints and GROMACS logs verify the 20 ns outputs.
+No amount of generic trajectory extension removes this model limitation.
 
-## Stop Gate
+## Current Candidate Interpretation Before Task 010 Rerank
 
-Stop after this task and wait for ChatGPT/user review.
+Do not use the old 009 Tier A/B calls as final priorities.
 
-Do not automatically proceed to:
+Retain candidate identities as hypotheses only:
 
-- wet-lab construct synthesis/design;
-- exact RNA/codon design;
-- membrane/RNA/ATP/antibody mechanistic MD;
-- long MD extension;
-- experimental protocol design.
+- C-terminal cluster: `288|289`, `289|290`, `290|291` with MAP8/HA/G196 variants;
+- non-C-terminal alternatives: `224|225`, `248|249`, `203|204`;
+- conflict/control region: `256|257`;
+- hard-negative control: `155|156`.
 
-Before final nucleotide-level construct design, obtain the exact experimental HRV-A89 2C/replicon/plasmid nucleotide context.
+The C-terminal adjacent junctions count as one biological region for diversity reporting.
+
+## Final Task 010 Target State
+
+Preferred:
+
+`AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
+
+Allowed if corrected-protocol validation is still running at checkpoint:
+
+`CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
+
+## Stop Boundary
+
+Task 010 does not authorize:
+
+- exact nucleotide/codon design;
+- wet-lab procedural protocol design;
+- broad membrane/RNA/ATP/antibody mechanistic MD;
+- claims of safety/validation;
+- automatic merge to `main`.
+
+Before nucleotide-level construct design, obtain the exact experimental HRV-A89 2C/replicon/plasmid nucleotide context.
