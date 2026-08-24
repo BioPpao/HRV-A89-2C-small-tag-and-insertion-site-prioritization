@@ -4,11 +4,111 @@ Last updated: 2026-08-24
 
 Priority order is scientific, not cosmetic.
 
-## CANDIDATE_PANEL_EXPANSION_008 — COMPLETE
+## CURRENT — BROAD_DYNAMICS_AND_RECOVERY_009 CONTINUATION
+
+Status: **AUTONOMOUS CONTINUATION AUTHORIZED / BROAD_DYNAMICS_PARTIALLY_COMPLETE**
+
+Branch:
+
+`analysis/broad-dynamics-009`
+
+Primary task:
+
+- `tasks/BROAD_DYNAMICS_AND_RECOVERY_009.md`
+
+Continuation authority:
+
+- `tasks/BROAD_DYNAMICS_AND_RECOVERY_009_CONTINUATION.md`
+
+The previous Codex execution stopped at a partial checkpoint. Do not create a new branch/task. Continue 009 until real replicated MD evidence exists or a genuine documented hard blocker remains.
+
+### Immediate priority order
+
+1. repair PDBFixer/setuptools and other straightforward environment defects needed downstream;
+2. attempt a mature open disorder predictor without letting it block MD;
+3. complete focused local multimer ColabFold predictions;
+4. prove the full WT `112–321` GROMACS pipeline through minimization/NVT/NPT/short production;
+5. prepare all valid balanced-panel systems under exactly the same force-field/water/terminal policy;
+6. submit 3 independent replicas per valid system with Slurm;
+7. achieve at least `3 × 20 ns` broad coverage per valid system before selective extension;
+8. extend toward `3 × 50 ns` where feasible;
+9. run trajectory QC and comparative dynamics/network analyses;
+10. update the dynamics-informed Tier A / Tier B / control panel and robustness analysis.
+
+### Explicit authority
+
+Codex may perform routine project-contained technical actions without waiting for user approval:
+
+- create/repair user-space environments;
+- install open-source packages;
+- load cluster modules;
+- compile small open utilities;
+- troubleshoot GROMACS/ColabFold/OpenMM/PDBFixer;
+- submit/cancel/resubmit Codex-owned Slurm jobs and arrays;
+- restart GROMACS from checkpoints;
+- choose consistent routine MD implementation details and document them;
+- commit compact scientific outputs and retry pushes.
+
+Do not use `sudo`, restricted-license tools, fabricated credentials, or destructive actions outside project-owned paths.
+
+### Do-not-stop rule
+
+A single package/model/job/push/network failure is not a project stop condition.
+
+Use:
+
+`diagnose → repair/fallback → record → continue → revisit`
+
+If Slurm jobs remain queued/running, preserve exact job IDs, paths and restart instructions rather than claiming completion.
+
+### Current known checkpoint facts
+
+- `248|249 × HA` OpenMM failure is classified `MODEL_SPECIFIC_GEOMETRY_FAILURE`; do not treat it as biological rejection;
+- local multimer rows remain pending and must be replaced with actual results or explicit exhausted-blocker status;
+- current disorder V1 is a low-quality composition proxy and not decision-grade;
+- PA14/AGIA single-sequence low-pLDDT screen is method-limited and not biological rejection;
+- GROMACS 2024.2 is available;
+- all current production-manifest rows remain `not_started` and must not remain that way without a concrete demonstrated blocker;
+- placeholder dynamics tables must never be interpreted as real trajectory evidence.
+
+### Dynamics system
+
+Primary broad comparison:
+
+- native A89 2C `112–321`;
+- exact inserted tag retained;
+- equivalent terminal treatment across WT and tagged constructs;
+- explicit solvent;
+- one consistent mature force field/water model;
+- apo protein-only state.
+
+Default target:
+
+- `3 × 50 ns` per system.
+
+Minimum broad-coverage milestone:
+
+- `3 × 20 ns` per valid system before selective extension.
+
+### Required real dynamics outputs
+
+- `results/broad_dynamics_009/preproduction_qc.tsv`
+- `results/broad_dynamics_009/production_manifest.tsv`
+- `results/broad_dynamics_009/replica_completion.tsv`
+- `data/dynamics_replica_qc_v1.tsv`
+- `data/broad_dynamics_metrics_v1.tsv`
+- `data/tag_exposure_dynamics_v1.tsv`
+- `data/contact_persistence_dynamics_v1.tsv`
+- `data/dynamic_network_perturbation_v1.tsv`
+- `data/final_candidate_panel_v2_dynamics.tsv`
+- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
+- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
+
+## Stable previous checkpoint — CANDIDATE_PANEL_EXPANSION_008
 
 Status: **READY_FOR_BROAD_TARGETED_DYNAMICS**
 
-Stable checkpoint branch:
+Stable branch:
 
 `analysis/candidate-panel-008`
 
@@ -16,140 +116,7 @@ Primary report:
 
 - `docs/CANDIDATE_PANEL_EXPANSION_008_REPORT.md`
 
-Current review package:
-
-- `data/final_candidate_panel_draft_v1.tsv`
-- `data/proposed_targeted_dynamics_panel_v1.tsv`
-- `results/candidate_panel_008/ranking_robustness_v1.tsv`
-
-The draft is useful but remains biased toward the contiguous C-terminal `287–291` neighborhood and MAP8, and several technical layers remained incomplete.
-
-## CURRENT — BROAD_DYNAMICS_AND_RECOVERY_009
-
-Status: **BROAD_DYNAMICS_PARTIALLY_COMPLETE**
-
-Branch:
-
-`analysis/broad-dynamics-009`
-
-Task:
-
-- `tasks/BROAD_DYNAMICS_AND_RECOVERY_009.md`
-
-### Phase A — resolve unfinished 008 work
-
-1. audit/recover the `248|249 × HA` OpenMM `Particle coordinate is nan` failure — done, classified `MODEL_SPECIFIC_GEOMETRY_FAILURE`;
-2. install/configure an open disorder predictor and complete the missing all-320 disorder layer — partial, all rows present but fallback method is not decision-grade;
-3. run focused local tagged dimer/trimer ColabFold accommodation modeling — pending;
-4. structure-model PA14 and AGIA at representative candidate junctions — completed in single-sequence exploratory mode; low confidence, none promoted;
-5. update pre-dynamics feature/ranking evidence — partial, balanced panel and no-trajectory placeholder outputs written.
-
-### Phase B — remove panel-selection bias
-
-Create a balanced dynamics panel with approximately 10–12 tagged constructs plus WT.
-
-Require:
-
-- at least 4 genuinely distinct site regions;
-- at least 3 tag systems;
-- no automatic domination by adjacent `287–291` junctions;
-- at least one hard-negative/control and one mechanistic conflict control;
-- selection rationale frozen before MD results are generated.
-
-### Phase C — broad replicated dynamics
-
-Status: **pending**. Do not treat `data/final_candidate_panel_v2_dynamics.tsv` as dynamics-informed until GROMACS replicas complete and QC passes.
-
-Primary comparative system:
-
-- native A89 2C residues `112–321`;
-- exact tag retained;
-- equivalent terminal treatment across WT and tagged constructs;
-- explicit solvent;
-- one consistent force field/solvent model;
-- broad apo/protein-only screening state.
-
-Default production target:
-
-- 3 independent replicas × 50 ns per system.
-
-Minimum fallback before selective extension:
-
-- 3 × 20 ns for every panel member.
-
-Prefer independent replica breadth over one long trajectory.
-
-### Phase D — dynamics analysis
-
-Required analyses include:
-
-- native-domain RMSD;
-- per-residue/local RMSF;
-- tag RMSF;
-- tag exposure persistence;
-- secondary-structure persistence;
-- native/local contact persistence;
-- tag-native distance distributions;
-- replica convergence;
-- bootstrap/effect estimates versus WT;
-- dynamic cross-correlation/covariance;
-- residue-network/community/path perturbation where reproducible.
-
-### Phase E — revised candidate panel
-
-Create:
-
-- `data/final_candidate_panel_v2_dynamics.tsv`
-- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
-- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
-
-Final ranking must remain multi-objective and conflict-aware; no opaque total score.
-
-## Required open software stack
-
-Reuse functioning tools where possible and install missing tools in user space only when needed:
-
-- GROMACS 2024.x or best working cluster module;
-- ColabFold existing environment;
-- OpenMM / PDBFixer for structural sanitation/QC;
-- MDAnalysis / MDTraj;
-- DSSP-compatible analysis;
-- NumPy / SciPy / pandas;
-- NetworkX;
-- IUPred2A/ANCHOR2 only if accessible without restricted/manual license, otherwise a mature open disorder predictor such as metapredict.
-
-Do not pursue Rosetta/FoldX or other restricted-license dependencies.
-
-## Expected 009 outputs
-
-- `results/broad_dynamics_009/environment_inventory.tsv`
-- `results/broad_dynamics_009/input_integrity_qc.tsv`
-- `results/broad_dynamics_009/openmm_248_249_HA_root_cause.tsv`
-- `docs/OPENMM_248_249_HA_FAILURE_AUDIT.md`
-- `data/hrvA89_2C_disorder_v1.tsv`
-- `data/junction_feature_matrix_v7_pre_dynamics.tsv`
-- `docs/DISORDER_LAYER_RECOVERY_V1.md`
-- `data/local_multimer_tag_context_v2.tsv`
-- `docs/LOCAL_MULTIMER_RECOVERY_V2.md`
-- `data/exploratory_tag_structure_panel_v1.tsv`
-- `data/exploratory_tag_structure_metrics_v1.tsv`
-- `docs/EXPLORATORY_TAG_SCREEN_V1.md`
-- `data/balanced_targeted_dynamics_panel_v2.tsv`
-- `results/broad_dynamics_009/system_manifest.tsv`
-- `results/broad_dynamics_009/residue_mapping.tsv`
-- `results/broad_dynamics_009/preproduction_qc.tsv`
-- `results/broad_dynamics_009/production_manifest.tsv`
-- `results/broad_dynamics_009/replica_completion.tsv`
-- `data/dynamics_replica_qc_v1.tsv`
-- `docs/DYNAMICS_QC_V1.md`
-- `data/broad_dynamics_metrics_v1.tsv`
-- `data/tag_exposure_dynamics_v1.tsv`
-- `data/contact_persistence_dynamics_v1.tsv`
-- `data/dynamic_network_perturbation_v1.tsv`
-- `docs/DYNAMIC_NETWORK_ANALYSIS_V1.md`
-- `data/final_candidate_panel_v2_dynamics.tsv`
-- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
-- `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md`
+Keep this branch unchanged as the pre-dynamics candidate-panel checkpoint.
 
 ## Later — exact nucleotide/RNA gate
 
