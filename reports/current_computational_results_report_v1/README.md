@@ -18,7 +18,7 @@ The computational endpoint is **candidate prioritization for experimental discus
 
 | File | Purpose |
 |---|---|
-| `HRV_A89_2C_small_tag_computational_results_report.html` | self-contained interactive HTML report; CSS, JavaScript, SVG figures and report data are embedded in one file |
+| `HRV_A89_2C_small_tag_computational_results_report.html` | self-contained interactive HTML report; the report payload, CSS, JavaScript, SVG figures and report data are carried inside one file |
 | `ANALYSIS_SYNTHESIS_V1.md` | report-level scientific synthesis and interpretation framework |
 | `TAG_SELECTION_RATIONALE_V1.md` | detailed rationale for MAP8/HA/G196 and alternatives; includes a dedicated explanation of why 6×His was not prioritized |
 | `REPORT_PROVENANCE_V1.md` | source files, branch state, raw-data boundary, visual-design reference and reproducibility notes |
@@ -54,16 +54,18 @@ The report deliberately preserves conflicting evidence. For example, the current
 
 ## Offline / portability requirement
 
-The HTML is designed as a single self-contained file:
+The report is designed as a single self-contained HTML file:
 
 - no CDN;
 - no remote JavaScript;
 - no external fonts;
 - no required external images;
-- interactive SVG/JavaScript embedded directly in the document;
+- report content and interactive assets are embedded in the file;
 - local browser notes use `localStorage` only.
 
-The file can therefore be copied and opened directly on another computer, tablet or phone without the repository being present.
+For GitHub archival efficiency, the repository copy stores the complete expanded report as an embedded gzip+Base64 payload and restores it in-browser using the native `DecompressionStream` API. It therefore remains **offline and single-file**, but should be opened with a modern Chrome/Edge/Firefox/Safari-class browser that supports `DecompressionStream`.
+
+The original expanded/uncompressed export remains the most conservative compatibility master when legacy-browser support is required.
 
 ## Authoritative upstream sources
 
