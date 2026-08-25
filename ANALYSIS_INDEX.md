@@ -10,6 +10,7 @@ Read `PROJECT_STATE.md` and `ACTIVE_TASK.md` first.
 |---|---|---|---|
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint |
 | Active task pointer | `ACTIVE_TASK.md` | CURRENT | Task 010A completed stop gate |
+| Integrated computational-results report archive | `reports/current_computational_results_report_v1/` | CURRENT PRESENTATION ARCHIVE | self-contained interactive HTML + scientific synthesis + detailed tag rationale + provenance/data-boundary record |
 | Task 010A specification | `tasks/FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A.md` | CURRENT COMPLETE | final scientific cleanup task |
 | Task 010A cleanup report | `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md` | CURRENT | directional drift, WT differential drift, heterogeneity and method semantics |
 | Experimental-review shortlist | `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md` | CURRENT | 4 candidate + 2 control discussion set |
@@ -33,6 +34,26 @@ Read `PROJECT_STATE.md` and `ACTIVE_TASK.md` first.
 | Literature evidence registry | `references/LITERATURE_EVIDENCE_REGISTRY.md` | CURRENT | claim provenance |
 | Project decisions | `DECISIONS.md` | CURRENT | interpretation rules |
 | Next work | `TODO.md` | CURRENT | Task 010A execution backlog |
+
+## Current Integrated Report Archive
+
+The current presentation/synthesis layer is stored separately from the versioned analysis outputs:
+
+`reports/current_computational_results_report_v1/`
+
+Contents:
+
+| File | Role |
+|---|---|
+| `README.md` | archive index, scientific boundary and shortlist summary |
+| `HRV_A89_2C_small_tag_computational_results_report.html` | self-contained interactive integrated report |
+| `ANALYSIS_SYNTHESIS_V1.md` | long-form scientific synthesis from 320-junction discovery through Task 010A |
+| `TAG_SELECTION_RATIONALE_V1.md` | detailed tag-selection reasoning, with dedicated 6×His analysis and explanations for other advanced/non-prioritized tags |
+| `REPORT_PROVENANCE_V1.md` | source mapping, major values, visual-reference note and GitHub-vs-server raw-data boundary |
+
+The report archive **does not replace the machine-readable scientific outputs**. When a report statement and an upstream TSV differ, the current versioned upstream TSV/report listed above remains authoritative and the presentation layer must be regenerated or corrected.
+
+The HTML is intended for portable offline reading and embeds its report content rather than depending on CDN-hosted assets.
 
 ## Completed Task 010A Outputs
 
@@ -87,6 +108,8 @@ FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A  COMPLETE
   ├─ replica contact heterogeneity                         COMPLETE
   ├─ expert-adjudication provenance                        COMPLETE
   └─ 4 candidate + 2 control shortlist                     COMPLETE
+        ↓
+integrated computational-results HTML/report archive      COMPLETE
         ↓
 experimental discussion                                   TARGET
         ↓
