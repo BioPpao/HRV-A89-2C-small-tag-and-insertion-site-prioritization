@@ -12,202 +12,189 @@ No computational result may be described as safe or experimentally validated.
 
 ## Current Project-Level State
 
+Task 010 has achieved:
+
 `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
+
+A final reporting/statistical-semantics cleanup is now authorized before the shortlist is frozen for discussion:
+
+`FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A`
 
 ## Current Branch And Task
 
 Branch:
 
-`analysis/dynamics-audit-010`
+`analysis/experimental-review-cleanup-010a`
 
 Task:
 
-`DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010`
+`FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A`
 
 Primary specification:
 
-- `tasks/DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010.md`
+- `tasks/FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A.md`
 
-Primary audit:
+Execution script:
 
-- `docs/DYNAMICS_009_POSTHOC_AUDIT_V1.md`
+- `scripts/dynamics_audit_010a_cleanup.py`
 
-## What Remains Valid From Task 009
+Codex prompt:
 
-Task 009 generated a substantial legacy comparative MD dataset:
+- `codex/TASK_010A_CLEANUP_PROMPT.md`
+
+## Completed Task 010 Evidence Base
+
+Task 009 produced the broad comparative MD dataset:
 
 - WT plus 12 tagged A89 2C `112-321` systems;
 - 3 independent replicas per system;
 - 39 / 39 replicas reached 20 ns;
-- 780 ns total production sampling;
-- trajectory/energy/provenance files exist for reanalysis;
-- C-terminal, non-C-terminal and control constructs are represented.
+- 780 ns total legacy production sampling.
 
-These trajectories are **not discarded**. They are the primary raw input for corrected Task 010 reanalysis.
+Task 010 then corrected the decision-changing analysis/protocol issues:
 
-## Why The Previous Dynamics Ranking Is Provisional
+- explicit PBC unwrap/center handling;
+- GROMACS-native RMSD cross-validation;
+- self-drift versus common WT-reference RMSD separation;
+- junction-matched WT local RMSF;
+- WT-defined contact retention;
+- true tag SASA and corrected nonlocal tag contact;
+- replica/time-block/truncation analysis;
+- dynamic-network evidence downgraded to exploratory;
+- CHARMM36 nonbonded protocol audit/correction.
 
-Posthoc audit identified several decision-changing problems:
+Corrected-protocol validation added:
 
-1. the 009 Python analysis did not explicitly make the protein whole/unwrap/center under periodic boundary conditions before geometry-dependent metrics;
-2. the main RMSD is self-drift versus each system's own first frame, not direct deviation from a common WT reference;
-3. local RMSF lacks a junction-matched WT baseline for every candidate;
-4. contact retention primarily tracks candidate-starting-model contacts rather than preservation of WT-defined native contacts;
-5. tag exposure is a minimum-distance proxy rather than mature SASA/accessibility evidence;
-6. dynamic Tier A/B penalties use incomplete and threshold-sensitive metrics;
-7. DCCM/network signals require stronger replica/time-window stability checks;
-8. the Task 009 CHARMM36 production MDP differs from the GROMACS-documented CHARMM36 nonbonded protocol and should not simply be extended to 50 ns.
+- 6 systems x 3 independent replicas x 20 ns;
+- 18 / 18 trajectories completed and passed trajectory/energy QC;
+- Slurm job `164594`;
+- 360 ns corrected-protocol production sampling.
 
-Therefore these files remain historical/provisional rather than final ranking authority:
+Legacy and corrected-protocol ensembles remain separate evidence sets and are not concatenated as if they were one homogeneous simulation ensemble.
 
-- `data/final_candidate_panel_v2_dynamics.tsv`
-- `results/broad_dynamics_009/ranking_robustness_v2.tsv`
-- `data/broad_dynamics_metrics_v1.tsv`
-- `data/tag_exposure_dynamics_v1.tsv`
-- `data/contact_persistence_dynamics_v1.tsv`
-- `data/dynamic_network_perturbation_v1.tsv`
+## Current Task 010 Candidate Panel
 
-## Stronger Non-MD Evidence Still Retained
-
-The following project layers remain decision-relevant and are not invalidated by the MD audit:
-
-- A89 functional exclusion/caution map;
-- all-320 junction structural/evolutionary landscape;
-- HRV-A conservation and phylogeny-aware indel evidence;
-- EV-A71 direct insertion/deletion/substitution phenotype mapped to A89;
-- tag-specific PLM evidence;
-- inserted-structure ensemble modeling;
-- historical poliovirus insertion genetics;
-- RNA-holoenzyme mapping as homolog/preprint mechanistic context;
-- tag/binder accessibility evidence;
-- candidate-panel diversification strategy.
-
-The direct homolog insertion signal remains a strong negative prior for all current candidates but is not treated as an absolute HRV-A89 veto.
-
-## Task 010 Corrected Reanalysis Outputs
-
-Generated core outputs:
-
-- `results/dynamics_audit_010/input_trajectory_inventory.tsv`
-- `results/dynamics_audit_010/pbc_rmsd_crossvalidation.tsv`
-- `data/broad_dynamics_metrics_v2_corrected.tsv`
-- `data/contact_persistence_dynamics_v2_corrected.tsv`
-- `data/tag_exposure_dynamics_v2_sasa.tsv`
-- `data/dynamic_network_perturbation_v2_corrected.tsv`
-- `results/dynamics_audit_010/time_truncation_stability.tsv`
-- `results/dynamics_audit_010/replica_stability.tsv`
-- `results/dynamics_audit_010/dynamics_rank_stability.tsv`
-- `results/dynamics_audit_010/control_discrimination_audit.tsv`
-- `results/dynamics_audit_010/forcefield_protocol_audit.tsv`
-- `results/dynamics_audit_010/extension_decision.tsv`
-- `results/dynamics_audit_010/final_panel_leave_one_layer_out.tsv`
-- `results/dynamics_audit_010/final_panel_without_md.tsv`
-- `data/final_candidate_panel_v3_audited.tsv`
-- `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md`
-- `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md`
-- `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md`
-
-## Task 010 Corrected Candidate Priorities
-
-Current corrected-validation panel:
+Current V4 classes before 010A cleanup:
 
 - Priority A: `289|290 x MAP8`, `289|290 x G196_minimal`, `248|249 x HA`, `248|249 x MAP8`.
 - Priority B: `288|289 x MAP8`, `288|289 x HA`, `290|291 x MAP8`.
 - Conflict controls: `224|225 x MAP8`, `224|225 x HA`, `203|204 x G196_minimal`, `256|257 x MAP8`.
 - Hard-negative control: `155|156 x MAP8`.
 
-Current authoritative files:
+Current Task 010 authoritative files remain:
 
 - `data/final_candidate_panel_v4_corrected_validation.tsv`
 - `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
 - `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
 - `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md`
 
-V3/V1 reports remain provenance for the corrected legacy reanalysis and validation-submission checkpoint.
+Task 010A may refine interpretation/annotation and create V5, but must not silently rewrite historical V4 provenance.
 
-No construct is safe or experimentally validated.
+## Corrected-Protocol Validation Interpretation
 
-## Corrected-Protocol Validation Results
+Directly corrected-protocol validated:
 
-Corrected CHARMM36 validation subset:
+- `289|290 x MAP8`: MD-neutral/supportive screening classification;
+- `248|249 x HA`: MD-neutral/supportive global perturbation classification;
+- `256|257 x MAP8`: MD-neutral/supportive but biologically conflicted;
+- `224|225 x MAP8`: reproduced high nonlocal tag-contact caution;
+- `155|156 x MAP8`: reproduced MD caution and retained as hard negative;
+- WT baseline.
 
-- `results/dynamics_audit_010/corrected_validation_subset.tsv`
-- `results/dynamics_audit_010/corrected_validation_manifest.tsv`
-- `scripts/dynamics_audit_010_corrected_validation.sbatch`
+Not directly corrected-protocol validated:
 
-Completed Slurm array:
+- `289|290 x G196_minimal`;
+- `248|249 x MAP8`;
+- Priority B rows and other controls outside the six-system validation subset.
 
-- Job: `164594`
-- Rows: 18 array tasks, 6 systems x 3 replicas.
-- Final status: 18 / 18 array tasks `COMPLETED` with exit code `0:0`.
-- Node: `gpu17`.
-- Slurm identity: `UserId=yukang`, `Account=chengtong`.
+No corrected-protocol evidence may be imputed to those unsimulated constructs.
 
-The `Account=chengtong` field is a Slurm allocation/account label, not a switch away from Linux user `yukang`.
+## Why Task 010A Is Needed
 
-Corrected validation outputs:
+Scientific review after Task 010 identified four cleanup needs:
 
-- `results/dynamics_audit_010/corrected_validation_completion_v1.tsv`
-- `results/dynamics_audit_010/protocol_sensitivity_v1.tsv`
-- `results/dynamics_audit_010/final_sampling_decision_v1.tsv`
-- `data/final_candidate_panel_v4_corrected_validation.tsv`
-- `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
-- `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
+1. Same-direction late-vs-early drift can be present even when it does not cross the absolute extension threshold. `directional_drift_metrics=none` therefore overstates absence of drift.
+2. For RMSD/contact metrics, candidate drift should be compared against WT fragment relaxation before being interpreted as candidate-specific.
+3. `248|249 x HA` shows replica-level heterogeneity in nonlocal tag-contact behavior; a construct mean alone can obscure this.
+4. Priority A/B is a multi-evidence expert adjudication framework, not a validated algorithmic total score.
 
-Interpretation:
+Task 010A therefore creates:
 
-- 18 / 18 corrected-protocol trajectories passed trajectory/energy completion QC.
-- `289|290 x MAP8`, `248|249 x HA` and `256|257 x MAP8` were MD-neutral/supportive in the corrected validation subset.
-- `224|225 x MAP8` and `155|156 x MAP8` reproduced high nonlocal tag-contact caution.
-- Classification was stable versus the corrected legacy analysis for the directly validated rows.
-- Adaptive sampling decision: `STOP_AT_20NS` for all validation systems; no blanket 50 ns extension is supported.
-- Final candidate panel V4 supersedes V3 for current candidate-priority review.
+- descriptive directional-drift fields separate from extension-trigger fields;
+- candidate-minus-WT differential block drift;
+- replica-level tag-contact heterogeneity audit;
+- V5 priority-method provenance;
+- a practical 4-candidate + 2-control experimental-review shortlist.
 
-## 20 ns Versus 50 ns Decision
+## Sampling Boundary
 
-There is no project rule that all systems must reach 50 ns.
+The current Task 010 sampling decision remains `STOP_AT_20NS` for all six directly validated systems unless Task 010A reveals a truly decision-changing candidate-specific excess drift after WT comparison.
 
-Task 010 uses an adaptive criterion:
+Task 010A itself is analysis-only and must not submit new MD.
 
-- corrected 20 ns may be sufficient for screening-level wet-lab prioritization if independent evidence agrees and decision-relevant observables are stable across replicas/time windows;
-- add replicas when between-replica variability dominates;
-- extend selected corrected-protocol replicas toward 50 ns when multiple replicas show continuing slow drift or a decision-critical ambiguity remains;
-- never extend all 39 legacy trajectories merely to satisfy a round-number duration target.
+A 50 ns duration is not a project requirement. Additional sampling would only be justified by a specific unresolved decision-critical signal, not by a round-number duration target.
+
+## Expected Task 010A Shortlist
+
+Candidate discussion set:
+
+1. `289|290 x MAP8` — primary C-terminal MAP8 candidate; directly corrected-protocol validated.
+2. `289|290 x G196_minimal` — same-site alternative tag comparator; not directly corrected-protocol validated.
+3. `248|249 x HA` — primary non-C-terminal HA candidate; directly corrected-protocol validated; review replica contact heterogeneity explicitly.
+4. `248|249 x MAP8` — crossed site/tag comparator; not directly corrected-protocol validated.
+
+Controls:
+
+5. `224|225 x MAP8` — corrected-MD conflict control.
+6. `155|156 x MAP8` — hard-negative control.
+
+This is intentionally a two-region x two-tag comparison rather than several adjacent C-terminal junctions being counted as independent hypotheses.
+
+## Evidence Hierarchy
+
+Interpret priorities using the existing evidence hierarchy:
+
+1. direct HRV-A89 phenotype, if/when available;
+2. direct homolog insertion phenotype;
+3. homolog genetics/function;
+4. experimentally established functional/structural constraints;
+5. A89 structural context;
+6. phylogeny/evolution/conservation;
+7. PLM;
+8. insertion-structure modeling;
+9. comparative MD.
+
+MD is downstream perturbation evidence and cannot override stronger direct biological evidence.
 
 ## Model Boundary
 
-Current 009 MD is an apo protein-only `112-321` core-fragment screen with an artificial fragment N terminus. It is useful for comparative perturbation triage but cannot represent full-length membrane/RNA/ATP/oligomer biology.
+Current comparative MD is an apo protein-only `112-321` core-fragment screen with an artificial fragment N terminus. It does not represent full-length membrane/RNA/ATP/oligomer biology.
 
-No amount of generic trajectory extension removes this model limitation.
+No generic trajectory extension removes that model limitation.
 
-## Current Candidate Interpretation After Corrected Validation
+## Expected Task 010A Outputs
 
-Do not use the old 009 Tier A/B calls as final priorities. Use V4 corrected-validation outputs instead.
+- `results/dynamics_audit_010/differential_block_drift_vs_wt_v1.tsv`
+- `results/dynamics_audit_010/final_sampling_decision_v2_cleanup.tsv`
+- `results/dynamics_audit_010/tag_nonlocal_contact_replica_heterogeneity_v1.tsv`
+- `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
+- `data/experimental_review_shortlist_v1.tsv`
+- `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
+- `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
 
-Retain candidate identities as hypotheses only:
+Expected completion state:
 
-- Priority A: `289|290 x MAP8`, `289|290 x G196_minimal`, `248|249 x HA`, `248|249 x MAP8`;
-- Priority B: `288|289 x MAP8`, `288|289 x HA`, `290|291 x MAP8`;
-- conflict controls: `224|225 x MAP8`, `224|225 x HA`, `203|204 x G196_minimal`, `256|257 x MAP8`;
-- hard-negative control: `155|156 x MAP8`;
-- C-terminal adjacent junctions count as one biological region for diversity reporting.
-
-No construct is safe or experimentally validated.
-
-## Final Task 010 Target State
-
-Achieved:
-
-`AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
+`EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
 
 ## Stop Boundary
 
-Task 010 does not authorize:
+Task 010A does not authorize:
 
 - exact nucleotide/codon design;
 - wet-lab procedural protocol design;
+- additional MD or Slurm/GPU jobs;
 - broad membrane/RNA/ATP/antibody mechanistic MD;
 - claims of safety/validation;
-- automatic merge to `main`.
+- merge to `main`.
 
 Before nucleotide-level construct design, obtain the exact experimental HRV-A89 2C/replicon/plasmid nucleotide context.
