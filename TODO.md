@@ -6,7 +6,7 @@ Priority order is scientific, not cosmetic.
 
 ## Current Gate — Task 010A Final Scientific Cleanup
 
-Status: `AUTHORIZED / SERVER VERIFICATION PENDING`
+Status: `EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
 
 Branch:
 
@@ -40,7 +40,7 @@ Do not rerun or extend MD as part of Task 010A.
 
 ## P0 — Cleanup Analysis
 
-Required:
+Completed:
 
 1. distinguish observed directional drift from extension-trigger drift;
 2. calculate candidate-vs-WT differential block drift for RMSD/contact metrics;
@@ -54,10 +54,11 @@ Expected outputs:
 - `results/dynamics_audit_010/differential_block_drift_vs_wt_v1.tsv`
 - `results/dynamics_audit_010/final_sampling_decision_v2_cleanup.tsv`
 - `results/dynamics_audit_010/tag_nonlocal_contact_replica_heterogeneity_v1.tsv`
+- `results/dynamics_audit_010/task010a_internal_consistency_audit_v1.tsv`
 
 ## P1 — Experimental Review Panel Freeze
 
-Generate:
+Generated:
 
 - `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
 - `data/experimental_review_shortlist_v1.tsv`
@@ -89,7 +90,7 @@ Controls:
 
 ## P3 — Repository Governance After Successful Run
 
-Update:
+Updated:
 
 - `ACTIVE_TASK.md`
 - `PROJECT_STATE.md`
@@ -98,7 +99,7 @@ Update:
 - `TODO.md`
 - `docs/DYNAMICS_ANALYSIS_AUDIT_010_RUN_LOG.md`
 
-Expected final state:
+Final state:
 
 `EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
 

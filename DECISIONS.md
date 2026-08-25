@@ -1,6 +1,6 @@
 # Decision Log
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 These are active decisions. Future analyses should change them only with explicit new evidence and should record the reason for the change.
 
@@ -310,3 +310,17 @@ These are active decisions. Future analyses should change them only with explici
 **Superseded:** `data/final_candidate_panel_v3_audited.tsv` and `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md` remain provenance but are superseded for current candidate-priority review by V4/V2 corrected-validation outputs.
 
 **Boundary:** no construct is safe or experimentally validated. Corrected MD remains downstream comparative perturbation evidence and does not override direct homolog insertion fitness, functional exclusions or the missing exact HRV-A89 nucleotide/RNA context.
+
+## D-045 — Task 010A freezes a 4-candidate plus 2-control experimental-review shortlist
+
+**Decision:** Treat `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`, `data/experimental_review_shortlist_v1.tsv`, `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md` and `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md` as the current experimental-review discussion package.
+
+**Reason:** Task 010A separated observed directional drift from extension-trigger drift, computed candidate-minus-WT block drift, audited replica-level nonlocal tag-contact heterogeneity and explicitly recorded that Priority A/B is `multi_evidence_expert_adjudication` with no algorithmic total score.
+
+**Shortlist:** candidates are `289|290 x MAP8`, `289|290 x G196_minimal`, `248|249 x HA` and `248|249 x MAP8`; controls are `224|225 x MAP8` and `155|156 x MAP8`.
+
+**Interpretation:** `248|249 x HA` remains Priority A with an accessibility/contact heterogeneity caution. `289|290 x MAP8` does not show decision-relevant candidate-specific excess drift after WT subtraction. `289|290 x G196_minimal` and `248|249 x MAP8` remain not directly corrected-protocol validated.
+
+**Sampling boundary:** `STOP_AT_20NS` is a screening-level sampling decision, not a claim of full mechanistic convergence. Task 010A does not trigger new Slurm/GPU/MD jobs, additional replicas or 50 ns extension.
+
+**Boundary:** no construct is safe, compatible, experimentally validated or fitness-neutral. Exact HRV-A89 replicon/plasmid nucleotide context remains required before nucleotide/codon/RNA-level construct design.

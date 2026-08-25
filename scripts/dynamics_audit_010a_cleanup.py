@@ -23,6 +23,7 @@ BLOCK = OUT / "corrected_validation_block_stability_v1.tsv"
 TAG = DATA / "corrected_validation_tag_exposure_v1.tsv"
 V4 = DATA / "final_candidate_panel_v4_corrected_validation.tsv"
 SAMPLING_V1 = OUT / "final_sampling_decision_v1.tsv"
+INTERNAL_AUDIT = OUT / "task010a_internal_consistency_audit_v1.tsv"
 
 ABS_EXTENSION_THRESHOLDS = {
     "self_drift_rmsd": 0.75,
@@ -289,6 +290,66 @@ def experimental_shortlist(panel: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def internal_consistency_audit(diff: pd.DataFrame, sampling: pd.DataFrame, hetero: pd.DataFrame, panel: pd.DataFrame, shortlist: pd.DataFrame) -> pd.DataFrame:
+    rows: list[dict[str, str]] = []
+
+    def check(name: str, passed: bool, detail: str) -> None:
+        rows.append({"check": name, "status": "pass" if passed else "fail", "detail": detail})
+
+    v4 = read_tsv(V4)
+    merged = panel[["construct_id", "priority_class_v5"]].merge(
+        v4[["construct_id", "priority_class_v4"]], on="construct_id", how="left"
+    )
+    changed = merged[merged["priority_class_v5"] != merged["priority_class_v4"]]
+    check("v5_priority_changes_vs_v4", len(changed) == 0, "no priority class changes" if len(changed) == 0 else ";".join(changed["construct_id"]))
+
+    h248 = hetero[hetero["construct_id"].eq("A89_2C_248_249_HA")]
+    check(
+        "248_249_HA_heterogeneity_not_averaged_away",
+        bool(len(h248) and h248.iloc[0]["replica_heterogeneity_flag"] == "yes"),
+        h248.iloc[0]["replica_values_nonlocal_contact_fraction"] if len(h248) else "missing",
+    )
+
+    d289 = diff[
+        diff["construct_id"].eq("A89_2C_289_290_MAP8")
+        & diff["metric"].isin(["self_drift_rmsd", "wt_reference_ensemble_rmsd", "wt_defined_contact_retention"])
+    ]
+    check(
+        "289_290_MAP8_no_decision_relevant_wt_excess",
+        bool(len(d289) == 3 and d289["candidate_specific_excess_drift_vs_wt"].eq("no").all()),
+        ";".join(f"{r.metric}:{r.candidate_minus_wt_late_minus_early}" for r in d289.itertuples()),
+    )
+
+    expected = [cid for _, cid, *_ in SHORTLIST]
+    observed = shortlist.sort_values("shortlist_order")["construct_id"].tolist()
+    check("shortlist_exact_4_candidates_2_controls", observed == expected, ";".join(observed))
+
+    ng196 = panel[panel["construct_id"].eq("A89_2C_289_290_G196_minimal")]
+    m248 = panel[panel["construct_id"].eq("A89_2C_248_249_MAP8")]
+    check(
+        "unsimulated_shortlist_rows_not_imputed_corrected_validation",
+        bool(
+            len(ng196)
+            and len(m248)
+            and ng196.iloc[0]["corrected_protocol_validation_status_v4"] == "not_directly_corrected_protocol_validated"
+            and m248.iloc[0]["corrected_protocol_validation_status_v4"] == "not_directly_corrected_protocol_validated"
+        ),
+        "289|290_G196_minimal and 248|249_MAP8 remain not directly corrected-protocol validated",
+    )
+
+    check(
+        "sampling_stops_without_new_compute",
+        bool(sampling["sampling_decision_v2"].eq("STOP_AT_20NS").all()),
+        "cleanup is analysis-only; no Slurm/GPU/MD submission",
+    )
+
+    out = pd.DataFrame(rows)
+    write_tsv(INTERNAL_AUDIT, out)
+    if not out["status"].eq("pass").all():
+        raise RuntimeError("Task 010A internal consistency audit failed")
+    return out
+
+
 def markdown_table(df: pd.DataFrame, cols: list[str]) -> str:
     safe = df.reindex(columns=cols, fill_value="NA").astype(str).copy()
     for c in safe.columns:
@@ -296,7 +357,7 @@ def markdown_table(df: pd.DataFrame, cols: list[str]) -> str:
     return safe.to_markdown(index=False)
 
 
-def write_reports(diff: pd.DataFrame, sampling: pd.DataFrame, hetero: pd.DataFrame, panel: pd.DataFrame, shortlist: pd.DataFrame) -> None:
+def write_reports(diff: pd.DataFrame, sampling: pd.DataFrame, hetero: pd.DataFrame, panel: pd.DataFrame, shortlist: pd.DataFrame, audit: pd.DataFrame) -> None:
     h248 = hetero[hetero["construct_id"].eq("A89_2C_248_249_HA")]
     h248_text = "not available"
     if len(h248):
@@ -398,6 +459,10 @@ Not directly corrected-protocol validated:
 
 No direct corrected-protocol evidence is imputed to those two constructs.
 
+## Internal consistency audit
+
+{markdown_table(audit, ['check', 'status', 'detail'])}
+
 ## Boundary
 
 This shortlist is ready for experimental discussion only. Exact nucleotide/codon/RNA-level design remains blocked until the real experimental HRV-A89 replicon/plasmid nucleotide context is available.
@@ -410,7 +475,7 @@ Date: 2026-08-25
 
 Status: `READY_FOR_EXPERIMENTAL_DISCUSSION`
 
-Priority method: `multi_evidence_expert_adjudication`  
+Priority method: `multi_evidence_expert_adjudication`
 Algorithmic total score used: `no`
 
 No construct is safe or experimentally validated.
@@ -443,7 +508,8 @@ def main() -> None:
     hetero = tag_contact_heterogeneity()
     panel = panel_v5(hetero, sampling)
     shortlist = experimental_shortlist(panel)
-    write_reports(diff, sampling, hetero, panel, shortlist)
+    audit = internal_consistency_audit(diff, sampling, hetero, panel, shortlist)
+    write_reports(diff, sampling, hetero, panel, shortlist, audit)
     print("Task 010A cleanup outputs generated.")
 
 

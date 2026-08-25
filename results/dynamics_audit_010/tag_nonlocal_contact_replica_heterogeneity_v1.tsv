@@ -1,0 +1,6 @@
+construct_id	junction	tag_form	replica_count	replica_values_nonlocal_contact_fraction	mean	sd	min	max	replicas_gt_0p75	replicas_lt_0p50	replica_heterogeneity_flag	interpretation	priority_effect
+A89_2C_155_156_MAP8	155|156	MAP8	3	0.975124;0.900498;0.880597	0.9187396351575456	0.049834093536705544	0.8805970149253731	0.9751243781094527	3	0	no	no_major_replica_heterogeneity_detected	none
+A89_2C_224_225_MAP8	224|225	MAP8	3	1.000000;1.000000;1.000000	1.0	0.0	1.0	1.0	3	0	no	no_major_replica_heterogeneity_detected	none
+A89_2C_248_249_HA	248|249	HA	3	0.761194;0.263682;0.751244	0.5920398009950248	0.2844100682180388	0.263681592039801	0.7611940298507462	2	1	yes	replica_heterogeneous_nonlocal_tag_contact	annotate_caution_do_not_auto_demote
+A89_2C_256_257_MAP8	256|257	MAP8	3	0.109453;0.004975;0.139303	0.0845771144278607	0.07053456158585983	0.004975124378109453	0.13930348258706468	0	3	no	no_major_replica_heterogeneity_detected	none
+A89_2C_289_290_MAP8	289|290	MAP8	3	0.009950;0.049751;0.024876	0.028192371475953566	0.020106725792673533	0.009950248756218905	0.04975124378109453	0	3	no	no_major_replica_heterogeneity_detected	none

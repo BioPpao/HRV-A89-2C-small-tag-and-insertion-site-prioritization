@@ -124,18 +124,19 @@ During `DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010`:
 
 Read `ACTIVE_TASK.md`.
 
-The currently authorized task is:
+The current completed task is:
 
-`DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010`
+`FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A`
 
 on branch:
 
-`analysis/dynamics-audit-010`.
+`analysis/experimental-review-cleanup-010a`.
 
 Primary files:
 
-- `tasks/DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010.md`
-- `docs/DYNAMICS_009_POSTHOC_AUDIT_V1.md`
-- `codex/TASK_010_OVERNIGHT_PROMPT.md`
+- `tasks/FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A.md`
+- `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
+- `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
+- `codex/TASK_010A_CLEANUP_PROMPT.md`
 
-Task 010 is authorized for autonomous server execution within its defined computational scope. It does not authorize exact nucleotide design, wet-lab procedural protocols, broad membrane/RNA/ATP/antibody mechanism simulations, safety/validation claims, or automatic merge to `main`.
+Task 010A completed the analysis-only cleanup and froze the 4-candidate + 2-control experimental-review shortlist. It does not authorize exact nucleotide design, wet-lab procedural protocols, new Slurm/GPU/MD jobs, broad membrane/RNA/ATP/antibody mechanism simulations, safety/validation claims, or automatic merge to `main`.

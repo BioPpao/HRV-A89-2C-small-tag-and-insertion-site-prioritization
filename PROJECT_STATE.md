@@ -12,13 +12,9 @@ No computational result may be described as safe or experimentally validated.
 
 ## Current Project-Level State
 
-Task 010 has achieved:
+Task 010A has achieved:
 
-`AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
-
-A final reporting/statistical-semantics cleanup is now authorized before the shortlist is frozen for discussion:
-
-`FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A`
+`EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
 
 ## Current Branch And Task
 
@@ -72,23 +68,46 @@ Corrected-protocol validation added:
 
 Legacy and corrected-protocol ensembles remain separate evidence sets and are not concatenated as if they were one homogeneous simulation ensemble.
 
-## Current Task 010 Candidate Panel
+## Current Task 010A Candidate Panel
 
-Current V4 classes before 010A cleanup:
+Current V5 classes after 010A cleanup:
 
 - Priority A: `289|290 x MAP8`, `289|290 x G196_minimal`, `248|249 x HA`, `248|249 x MAP8`.
 - Priority B: `288|289 x MAP8`, `288|289 x HA`, `290|291 x MAP8`.
 - Conflict controls: `224|225 x MAP8`, `224|225 x HA`, `203|204 x G196_minimal`, `256|257 x MAP8`.
 - Hard-negative control: `155|156 x MAP8`.
 
-Current Task 010 authoritative files remain:
+Current authoritative files:
 
-- `data/final_candidate_panel_v4_corrected_validation.tsv`
-- `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
-- `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
+- `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
+- `data/experimental_review_shortlist_v1.tsv`
+- `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
+- `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
 - `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md`
 
-Task 010A may refine interpretation/annotation and create V5, but must not silently rewrite historical V4 provenance.
+V4/V2 corrected-validation files remain parent provenance and are superseded for experimental-review discussion by V5/shortlist outputs.
+
+## Task 010A Cleanup Results
+
+Generated cleanup outputs:
+
+- `results/dynamics_audit_010/differential_block_drift_vs_wt_v1.tsv`
+- `results/dynamics_audit_010/final_sampling_decision_v2_cleanup.tsv`
+- `results/dynamics_audit_010/tag_nonlocal_contact_replica_heterogeneity_v1.tsv`
+- `results/dynamics_audit_010/task010a_internal_consistency_audit_v1.tsv`
+- `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
+- `data/experimental_review_shortlist_v1.tsv`
+- `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
+- `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
+
+Key cleanup findings:
+
+- Same-direction drift below extension threshold is now recorded separately from extension-trigger drift.
+- `289|290 x MAP8` does not show decision-relevant candidate-specific excess drift after WT comparison.
+- `248|249 x HA` shows replica-heterogeneous nonlocal tag-contact behavior and remains Priority A with an accessibility/contact heterogeneity caution.
+- Priority A/B is explicitly `multi_evidence_expert_adjudication`; no algorithmic total score is used.
+- `289|290 x G196_minimal` and `248|249 x MAP8` remain not directly corrected-protocol validated.
+- Sampling decision remains `STOP_AT_20NS` at screening level; this is not a claim of full mechanistic convergence.
 
 ## Corrected-Protocol Validation Interpretation
 
@@ -134,9 +153,9 @@ Task 010A itself is analysis-only and must not submit new MD.
 
 A 50 ns duration is not a project requirement. Additional sampling would only be justified by a specific unresolved decision-critical signal, not by a round-number duration target.
 
-## Expected Task 010A Shortlist
+## Experimental-Review Shortlist
 
-Candidate discussion set:
+Frozen discussion set:
 
 1. `289|290 x MAP8` — primary C-terminal MAP8 candidate; directly corrected-protocol validated.
 2. `289|290 x G196_minimal` — same-site alternative tag comparator; not directly corrected-protocol validated.
@@ -172,17 +191,18 @@ Current comparative MD is an apo protein-only `112-321` core-fragment screen wit
 
 No generic trajectory extension removes that model limitation.
 
-## Expected Task 010A Outputs
+## Completed Task 010A Outputs
 
 - `results/dynamics_audit_010/differential_block_drift_vs_wt_v1.tsv`
 - `results/dynamics_audit_010/final_sampling_decision_v2_cleanup.tsv`
 - `results/dynamics_audit_010/tag_nonlocal_contact_replica_heterogeneity_v1.tsv`
+- `results/dynamics_audit_010/task010a_internal_consistency_audit_v1.tsv`
 - `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
 - `data/experimental_review_shortlist_v1.tsv`
 - `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
 - `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
 
-Expected completion state:
+Completion state:
 
 `EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
 

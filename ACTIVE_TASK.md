@@ -1,6 +1,6 @@
 # Active Task
 
-Current task: `FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A` — **AUTHORIZED / SERVER VERIFICATION PENDING**
+Current task: `FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A` — **COMPLETED / WAITING FOR CHATGPT REVIEW**
 
 Branch: `analysis/experimental-review-cleanup-010a`
 
@@ -22,7 +22,7 @@ Parent Task 010 achieved:
 
 `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
 
-Task 010A does not reopen the MD campaign. It performs final scientific cleanup before experimental discussion.
+Task 010A did not reopen the MD campaign. It completed the final scientific cleanup before experimental discussion.
 
 ## Why Task 010A Exists
 
@@ -35,9 +35,9 @@ Post-review identified four reporting/methodology refinements that do not justif
 
 Task 010A also freezes a practical 4-candidate + 2-control experimental-review shortlist.
 
-## Authorized Work
+## Completed Work
 
-Task 010A may:
+Task 010A completed:
 
 - reprocess existing Task 010 TSV outputs;
 - compute candidate-vs-WT differential block drift;
@@ -65,12 +65,13 @@ If cleanup reveals a genuinely decision-changing candidate-specific excess drift
 - `results/dynamics_audit_010/differential_block_drift_vs_wt_v1.tsv`
 - `results/dynamics_audit_010/final_sampling_decision_v2_cleanup.tsv`
 - `results/dynamics_audit_010/tag_nonlocal_contact_replica_heterogeneity_v1.tsv`
+- `results/dynamics_audit_010/task010a_internal_consistency_audit_v1.tsv`
 - `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
 - `data/experimental_review_shortlist_v1.tsv`
 - `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
 - `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
 
-## Expected Completion State
+## Completion State
 
 `EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
 

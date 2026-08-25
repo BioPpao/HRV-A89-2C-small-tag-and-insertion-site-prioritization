@@ -220,3 +220,45 @@ Scientific summary:
 Final Task 010 state:
 
 `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
+
+## Task 010A Final Scientific Cleanup
+
+Date: 2026-08-25
+
+Branch:
+
+- `analysis/experimental-review-cleanup-010a`
+
+Task:
+
+- `FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A`
+
+Execution:
+
+- Existing cleanup script `scripts/dynamics_audit_010a_cleanup.py` was inspected before execution.
+- A small internal consistency audit was added so V5/shortlist generation fails if priority classes change without basis, `248|249 x HA` heterogeneity is missed, `289|290 x MAP8` shows decision-relevant WT-excess drift, shortlist membership is wrong, unsimulated rows receive imputed corrected-protocol validation, or sampling changes away from `STOP_AT_20NS`.
+- System `python` is Python 2.7.18 and cannot run the script. The script was executed with the Task 010 user-space Python 3 environment via `PATH=.tools/envs/open_structure_007/bin:$PATH python scripts/dynamics_audit_010a_cleanup.py`.
+- No Slurm, GPU or MD job was submitted.
+
+Generated:
+
+- `results/dynamics_audit_010/differential_block_drift_vs_wt_v1.tsv`
+- `results/dynamics_audit_010/final_sampling_decision_v2_cleanup.tsv`
+- `results/dynamics_audit_010/tag_nonlocal_contact_replica_heterogeneity_v1.tsv`
+- `results/dynamics_audit_010/task010a_internal_consistency_audit_v1.tsv`
+- `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
+- `data/experimental_review_shortlist_v1.tsv`
+- `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
+- `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
+
+Key checks:
+
+- Observed same-direction drift is now recorded separately from extension-trigger drift.
+- `289|290 x MAP8`: self-drift differential versus WT = `-0.14412470376050857`; WT-reference differential = `0.05155255731504865`; WT-defined contact-retention differential = `-0.02782965784235336`. No decision-relevant WT-excess drift was called.
+- `248|249 x HA`: nonlocal tag-contact replica values `0.761194;0.263682;0.751244`, mean `0.592`, SD `0.284`; flagged as `replica_heterogeneous_nonlocal_tag_contact` and retained as Priority A with caution.
+- `289|290 x G196_minimal` and `248|249 x MAP8` remain `not_directly_corrected_protocol_validated`.
+- V5 priority classes are unchanged from V4; Task 010A changed annotation/method semantics, not the biological class assignments.
+
+Final Task 010A state:
+
+`EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`

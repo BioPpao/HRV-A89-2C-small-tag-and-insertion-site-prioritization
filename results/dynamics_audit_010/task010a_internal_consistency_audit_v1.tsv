@@ -1,0 +1,7 @@
+check	status	detail
+v5_priority_changes_vs_v4	pass	no priority class changes
+248_249_HA_heterogeneity_not_averaged_away	pass	0.761194;0.263682;0.751244
+289_290_MAP8_no_decision_relevant_wt_excess	pass	self_drift_rmsd:-0.14412470376050857;wt_reference_ensemble_rmsd:0.05155255731504865;wt_defined_contact_retention:-0.02782965784235336
+shortlist_exact_4_candidates_2_controls	pass	A89_2C_289_290_MAP8;A89_2C_289_290_G196_minimal;A89_2C_248_249_HA;A89_2C_248_249_MAP8;A89_2C_224_225_MAP8;A89_2C_155_156_MAP8
+unsimulated_shortlist_rows_not_imputed_corrected_validation	pass	289|290_G196_minimal and 248|249_MAP8 remain not directly corrected-protocol validated
+sampling_stops_without_new_compute	pass	cleanup is analysis-only; no Slurm/GPU/MD submission
