@@ -6,7 +6,7 @@ Priority order is scientific, not cosmetic.
 
 ## Current Gate — Task 010 Dynamics Audit And Candidate Rerank
 
-Status: `CHECKPOINTED_CORRECTED_VALIDATION_RUNNING`
+Status: `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
 
 Branch:
 
@@ -39,33 +39,32 @@ Completed in Task 010 checkpoint:
 
 ## P1 — Corrected-Protocol Validation
 
-Submitted as Slurm array job `164594`:
+Completed as Slurm array job `164594`:
 
 1. compact diverse validation subset containing WT, best C-terminal candidate, best non-C-terminal candidate, one oligomer/function conflict, one corrected-MD conflict and the `155|156 x MAP8` hard-negative control;
 2. corrected GROMACS CHARMM36 settings;
 3. independent velocity seeds;
 4. 3 replicas per system at an initial 20 ns checkpoint.
-
-Pending:
-
-5. monitor job `164594` to completion;
-6. analyze completed validation trajectories with the Task 010 corrected pipeline;
-7. decide whether final state can advance to `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`.
+5. 18 / 18 corrected-validation trajectories completed and passed trajectory/energy QC;
+6. completed validation trajectories were analyzed with the Task 010 corrected pipeline;
+7. final state advanced to `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`.
 
 Do not select only neighboring C-terminal junctions.
 
 ## P2 — Adaptive Sampling Decision
 
-After job `164594` completes, determine whether the dominant uncertainty favors:
+Completed decision:
 
-- no additional sampling;
-- more independent replicas;
-- extension of corrected replicas toward 50 ns;
-- both.
+- `STOP_AT_20NS` for WT, `289|290 x MAP8`, `248|249 x HA`, `256|257 x MAP8`, `224|225 x MAP8` and `155|156 x MAP8`.
+- no additional sampling triggered;
+- no selected 50 ns extension triggered;
+- no blanket 50 ns extension.
 
 Do **not** extend all 39 legacy trajectories to 50 ns.
 
-Create a machine-readable extension decision table.
+Machine-readable decision table:
+
+- `results/dynamics_audit_010/final_sampling_decision_v1.tsv`
 
 ## P3 — Final Audited Candidate Package
 
@@ -76,8 +75,11 @@ Required outputs:
 - `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md`
 - `results/dynamics_audit_010/final_panel_leave_one_layer_out.tsv`
 - `results/dynamics_audit_010/final_panel_without_md.tsv`
+- `data/final_candidate_panel_v4_corrected_validation.tsv`
+- `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
+- `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
 
-Status: generated and checkpointed as provisional pending corrected-protocol validation.
+Status: generated and ready for ChatGPT/user scientific review.
 
 The final panel must include:
 

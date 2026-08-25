@@ -1,6 +1,6 @@
 # Active Task
 
-Current task: `DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010` — **CHECKPOINTED / CORRECTED VALIDATION RUNNING**
+Current task: `DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010` — **COMPLETED / WAITING FOR CHATGPT REVIEW**
 
 Branch: `analysis/dynamics-audit-010`
 
@@ -14,7 +14,7 @@ Primary audit:
 
 ## Current State
 
-`CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
+`AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
 
 ## Why Task 010 Exists
 
@@ -57,13 +57,26 @@ Task 010 may autonomously:
 - `data/final_candidate_panel_v3_audited.tsv` and audited reports were generated.
 - Corrected CHARMM36 validation subset was prepared and submitted as Slurm array job `164594`.
 
-## Running Work
+## Corrected-Validation Completion
 
 Corrected-validation job `164594`:
 
 - 18 array rows: 6 systems x 3 replicas.
-- Initial state: tasks `0-2` running on `gpu17`, tasks `3-17` pending for resources.
-- Results are pending and must not be interpreted until completed and analyzed.
+- Final state: 18 / 18 array rows completed on `gpu17` with exit code `0:0`.
+- All 18 trajectories passed trajectory/energy completion QC.
+- Corrected validation directly covered WT, `289|290 x MAP8`, `248|249 x HA`, `256|257 x MAP8`, `224|225 x MAP8` and `155|156 x MAP8`.
+- Classification was stable versus corrected legacy analysis for directly validated rows.
+- Adaptive sampling decision: `STOP_AT_20NS` for all validation systems.
+- No blanket 50 ns extension is supported.
+
+Final corrected-validation outputs:
+
+- `results/dynamics_audit_010/corrected_validation_completion_v1.tsv`
+- `results/dynamics_audit_010/protocol_sensitivity_v1.tsv`
+- `results/dynamics_audit_010/final_sampling_decision_v1.tsv`
+- `data/final_candidate_panel_v4_corrected_validation.tsv`
+- `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
+- `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
 
 ## Important Execution Rule
 
@@ -71,15 +84,11 @@ Do **not** automatically extend all 39 legacy trajectories to 50 ns.
 
 Corrected 20 ns can be sufficient for screening-level candidate prioritization when independent evidence agrees and the relevant observables are stable. Additional replicas or extension are reserved for decision-critical unstable systems.
 
-## Expected Final States
+## Final State
 
-Preferred if corrected-protocol validation completes without overturning the ranking:
+Achieved:
 
 `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
-
-Current provisional checkpoint because corrected validation jobs remain incomplete but the corrected legacy reanalysis is complete:
-
-`CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
 
 ## Stop Boundary
 

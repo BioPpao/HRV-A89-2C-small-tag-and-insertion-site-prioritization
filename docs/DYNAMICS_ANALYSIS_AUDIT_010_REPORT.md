@@ -4,6 +4,8 @@ Date: 2026-08-25
 
 Final state: `CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
 
+Supersession note: this report records the corrected legacy reanalysis and corrected-validation submission checkpoint. Current candidate-priority authority is `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md` and `data/final_candidate_panel_v4_corrected_validation.tsv`.
+
 ## Executive Summary
 
 Task 010 repaired the decision-changing analysis defects in Task 009 by applying explicit PBC unwrapping/centering, separating self-drift from WT-reference deviation, adding junction-matched WT RMSF baselines, replacing candidate-start contact preservation with WT-defined contacts, adding tag SASA, and adding replica/time-window/convergence sensitivity outputs.

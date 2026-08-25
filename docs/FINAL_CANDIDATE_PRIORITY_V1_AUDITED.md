@@ -4,6 +4,8 @@ Date: 2026-08-25
 
 Status: `CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
 
+Supersession note: current candidate-priority authority is `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md` and `data/final_candidate_panel_v4_corrected_validation.tsv`.
+
 No construct is safe or experimentally validated.
 
 ## Top Priority List

@@ -160,8 +160,63 @@ Interpretation:
 - The account field is a Slurm allocation/account label, not a Linux user switch.
 - Corrected validation results are not complete at this checkpoint and must not be fabricated.
 
-## Final Task 010 Checkpoint State
+## Previous Task 010 Checkpoint State
 
 State:
 
 `CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
+
+Superseded below after corrected validation job `164594` completed and was analyzed.
+
+## Corrected CHARMM36 Validation Completion And Analysis
+
+Date: 2026-08-25
+
+Slurm completion:
+
+- Job `164594` completed 18 / 18 array rows.
+- All array rows reported `COMPLETED` with exit code `0:0`.
+- Node used: `gpu17`.
+- Slurm accounting provenance: `results/dynamics_audit_010/corrected_validation_slurm_sacct_164594_v1.tsv`.
+
+Analysis script:
+
+- `scripts/dynamics_audit_010_validation_analysis.py`
+
+Generated outputs:
+
+- `results/dynamics_audit_010/corrected_validation_completion_v1.tsv`
+- `data/corrected_validation_broad_dynamics_v1.tsv`
+- `data/corrected_validation_contact_persistence_v1.tsv`
+- `data/corrected_validation_tag_exposure_v1.tsv`
+- `data/corrected_validation_dynamic_network_v1.tsv`
+- `results/dynamics_audit_010/corrected_validation_input_trajectory_inventory_v1.tsv`
+- `results/dynamics_audit_010/corrected_validation_time_truncation_v1.tsv`
+- `results/dynamics_audit_010/corrected_validation_replica_stability_v1.tsv`
+- `results/dynamics_audit_010/corrected_validation_block_stability_v1.tsv`
+- `results/dynamics_audit_010/corrected_validation_network_replica_stability_v1.tsv`
+- `results/dynamics_audit_010/corrected_validation_dynamics_rank_v1.tsv`
+- `results/dynamics_audit_010/protocol_sensitivity_v1.tsv`
+- `results/dynamics_audit_010/final_sampling_decision_v1.tsv`
+- `data/final_candidate_panel_v4_corrected_validation.tsv`
+- `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
+- `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
+
+QC notes:
+
+- 18 / 18 corrected-protocol trajectories passed trajectory readability, finite coordinate/box, completed production, and finite energy checks.
+- GROMACS log text `epsilon-rf = inf` was treated as a normal reaction-field parameter, not a nonfinite trajectory failure.
+- Raw corrected-validation trajectories under `results/dynamics_audit_010/gromacs/validation_systems/` were left untracked.
+
+Scientific summary:
+
+- `289|290 x MAP8`, `248|249 x HA` and `256|257 x MAP8` were MD-neutral/supportive in corrected validation.
+- `224|225 x MAP8` and `155|156 x MAP8` reproduced high nonlocal tag-contact caution.
+- Directly validated rows were classification-stable versus the corrected legacy analysis.
+- Adaptive sampling decision was `STOP_AT_20NS` for all corrected-validation systems.
+- No additional replicas or selected 50 ns extension were triggered.
+- No construct is safe or experimentally validated.
+
+Final Task 010 state:
+
+`AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`

@@ -9,17 +9,23 @@ Read `PROJECT_STATE.md` first.
 | Topic | Current file | Status | Use |
 |---|---|---|---|
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint |
-| Active task pointer | `ACTIVE_TASK.md` | CURRENT | Task 010 checkpoint and validation-running status |
+| Active task pointer | `ACTIVE_TASK.md` | CURRENT | Task 010 completed stop gate and review pointer |
 | Task 010 specification | `tasks/DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010.md` | CURRENT ACTIVE | full autonomous server task |
-| Task 010 final report | `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md` | CURRENT PROVISIONAL | corrected reanalysis, rerank and validation submission state |
-| Audited final candidate priority | `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md` | CURRENT PROVISIONAL | construct-level Priority A/B/control panel |
-| Final candidate panel V3 | `data/final_candidate_panel_v3_audited.tsv` | CURRENT PROVISIONAL | machine-readable audited candidate panel |
+| Corrected-protocol validation report | `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md` | CURRENT | completed corrected CHARMM36 validation analysis |
+| Corrected-validation candidate priority | `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md` | CURRENT | final Task 010 construct-level Priority A/B/control panel |
+| Final candidate panel V4 | `data/final_candidate_panel_v4_corrected_validation.tsv` | CURRENT | machine-readable corrected-validation candidate panel |
+| Task 010 legacy-corrected final report | `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md` | HISTORICAL PROVISIONAL | corrected legacy reanalysis and validation submission state |
+| Audited final candidate priority V1 | `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md` | HISTORICAL PROVISIONAL | superseded by corrected-validation V2 |
+| Final candidate panel V3 | `data/final_candidate_panel_v3_audited.tsv` | HISTORICAL PROVISIONAL | superseded by V4 corrected-validation panel |
 | Dynamic network V2 audited | `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md` | CURRENT EXPLORATORY | corrected network interpretation boundary |
 | Corrected broad dynamics metrics V2 | `data/broad_dynamics_metrics_v2_corrected.tsv` | CURRENT | PBC-corrected self/WT-reference/RMSF/Rg metrics |
 | Corrected contact persistence V2 | `data/contact_persistence_dynamics_v2_corrected.tsv` | CURRENT | WT-defined and candidate-start contact metrics |
 | Corrected tag SASA V2 | `data/tag_exposure_dynamics_v2_sasa.tsv` | CURRENT | tag SASA and corrected nonlocal tag-contact metrics |
 | Corrected network perturbation V2 | `data/dynamic_network_perturbation_v2_corrected.tsv` | CURRENT EXPLORATORY | PBC-corrected DCCM/network metrics |
-| Task 010 validation subset | `results/dynamics_audit_010/corrected_validation_subset.tsv` | SUBMITTED / PENDING | corrected CHARMM36 validation job `164594` |
+| Task 010 validation completion | `results/dynamics_audit_010/corrected_validation_completion_v1.tsv` | CURRENT | 18 / 18 corrected-validation trajectory QC |
+| Task 010 protocol sensitivity | `results/dynamics_audit_010/protocol_sensitivity_v1.tsv` | CURRENT | legacy-corrected versus corrected-protocol comparison |
+| Task 010 sampling decision | `results/dynamics_audit_010/final_sampling_decision_v1.tsv` | CURRENT | adaptive 20 ns / additional sampling decision |
+| Task 010 validation subset | `results/dynamics_audit_010/corrected_validation_subset.tsv` | CURRENT PROVENANCE | corrected CHARMM36 validation job `164594` |
 | Task 009 posthoc audit | `docs/DYNAMICS_009_POSTHOC_AUDIT_V1.md` | CURRENT DECISION-CHANGING | why old dynamics ranking is provisional |
 | Broad dynamics 009 report | `docs/BROAD_DYNAMICS_AND_RECOVERY_009_REPORT.md` | HISTORICAL COMPLETE / PROVISIONAL INTERPRETATION | legacy 009 interpretation |
 | Broad dynamics 009 run log | `docs/BROAD_DYNAMICS_AND_RECOVERY_009_RUN_LOG.md` | HISTORICAL CURRENT PROVENANCE | execution/provenance log |
@@ -79,7 +85,7 @@ BROAD_DYNAMICS_AND_RECOVERY_009                           RAW MD COMPLETE
   ├─ old Tier A/B dynamics ranking                        PROVISIONAL / SUPERSEDED PENDING 010
   └─ local multimer recovery                              INCONCLUSIVE
         ↓
-DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010         PROVISIONAL CHECKPOINT
+DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010         COMPLETE / WAITING FOR REVIEW
   ├─ inventory/hash legacy trajectories                   COMPLETE
   ├─ PBC make-whole/center/fit repair                     COMPLETE
   ├─ GROMACS-vs-Python RMSD cross-validation              COMPLETE
@@ -91,9 +97,9 @@ DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010         PROVISIONAL CHECKPOINT
   ├─ network evidence hardening/downgrade                 COMPLETE
   ├─ negative-control discrimination audit                COMPLETE
   ├─ CHARMM36 protocol correction                         COMPLETE
-  ├─ reduced corrected-protocol validation subset         SUBMITTED AS JOB 164594
-  ├─ adaptive more-replica / 50-ns decision               PENDING VALIDATION RESULTS
-  └─ audited candidate panel V3                           COMPLETE / PROVISIONAL
+  ├─ reduced corrected-protocol validation subset         COMPLETE, 18/18 x 20 ns
+  ├─ adaptive more-replica / 50-ns decision               COMPLETE, STOP_AT_20NS
+  └─ audited candidate panel V4                           COMPLETE
         ↓
 experimental candidate review                            TARGET
         ↓
@@ -106,8 +112,8 @@ HRV-A89-specific experimental validation                 GOLD STANDARD
 
 ## Important Current Interpretation
 
-The repository already contains substantial evidence for a preliminary multi-site wet-lab candidate panel, but the Task 009 dynamics-derived Tier A/B calls must not be treated as final until Task 010 corrects the analysis.
+The repository now contains a corrected-validation Task 010 candidate-priority package for ChatGPT/user review.
 
-The 20 ns duration is not itself a failure. The scientific question is whether corrected observables and candidate ordering are stable across independent replicas and time windows.
+The 20 ns duration is not itself a failure. Corrected validation found stable screening-level classifications for the directly validated rows and did not trigger additional replicas or selected 50 ns extension.
 
-Do not impose a blanket 50 ns requirement. Additional replicas/extension should be limited to decision-critical systems identified by Task 010.
+Do not impose a blanket 50 ns requirement. No current Task 010 system requires 50 ns before experimental-review discussion.

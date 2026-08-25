@@ -273,17 +273,21 @@ These are active decisions. Future analyses should change them only with explici
 
 ## D-042 — Task 010 supersedes Task 009 dynamics ranking
 
+**Supersession note:** the provisional state in this decision is superseded by D-044 after corrected-validation completion.
+
 **Decision:** Treat `data/final_candidate_panel_v3_audited.tsv`, `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md`, `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md` and `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md` as the current audited provisional candidate-priority package.
 
 **Reason:** Task 010 reanalyzed all 39 legacy 20 ns trajectories with explicit PBC repair, GROMACS RMSD cross-validation, WT-reference RMSD, junction-matched WT RMSF baselines, WT-defined contact retention, tag SASA, corrected nonlocal tag contacts, replica/time-window sensitivity and downgraded network interpretation.
 
 **Superseded:** Task 009 V1 dynamics metrics and `data/final_candidate_panel_v2_dynamics.tsv` remain provenance only and must not be used as the current candidate-priority table.
 
-**Current state:** `CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`.
+**Historical checkpoint state at D-042:** `CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`.
 
 **Boundary:** no construct is safe or experimentally validated; direct HRV-A89 insertion phenotype and exact nucleotide/RNA context remain absent.
 
 ## D-043 — Corrected CHARMM36 validation is submitted but not yet interpreted
+
+**Supersession note:** this validation-running state is superseded by D-044 after Slurm job `164594` completed and was analyzed.
 
 **Decision:** Corrected-protocol validation is running as Slurm array job `164594` and must be analyzed before advancing to `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`.
 
@@ -294,3 +298,15 @@ These are active decisions. Future analyses should change them only with explici
 **Slurm identity note:** queue records show `UserId=yukang` and `Account=chengtong`; the account field is a Slurm allocation label, not a Linux user switch.
 
 **Sampling boundary:** do not extend all 39 legacy trajectories to 50 ns. Consider further replicas or 50 ns extension only after corrected-validation outputs are analyzed and show decision-relevant instability.
+
+## D-044 — Corrected CHARMM36 validation completes Task 010 candidate-priority package
+
+**Decision:** Treat `data/final_candidate_panel_v4_corrected_validation.tsv`, `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md` and `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md` as the current Task 010 candidate-priority package.
+
+**Reason:** Slurm array job `164594` completed 18 / 18 corrected-protocol 20 ns validation replicas on `gpu17`. All validation trajectories passed trajectory/energy completion QC. Corrected validation kept `289|290 x MAP8`, `248|249 x HA` and `256|257 x MAP8` MD-neutral/supportive, reproduced high nonlocal tag-contact caution for `224|225 x MAP8` and `155|156 x MAP8`, and found stable classification versus the corrected legacy analysis.
+
+**Sampling decision:** `STOP_AT_20NS` for all corrected-validation systems. No blanket 50 ns extension or additional replica submission is triggered by Task 010.
+
+**Superseded:** `data/final_candidate_panel_v3_audited.tsv` and `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md` remain provenance but are superseded for current candidate-priority review by V4/V2 corrected-validation outputs.
+
+**Boundary:** no construct is safe or experimentally validated. Corrected MD remains downstream comparative perturbation evidence and does not override direct homolog insertion fitness, functional exclusions or the missing exact HRV-A89 nucleotide/RNA context.

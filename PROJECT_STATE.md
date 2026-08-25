@@ -12,7 +12,7 @@ No computational result may be described as safe or experimentally validated.
 
 ## Current Project-Level State
 
-`CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
+`AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
 
 ## Current Branch And Task
 
@@ -109,23 +109,25 @@ Generated core outputs:
 
 ## Task 010 Corrected Candidate Priorities
 
-Current audited provisional panel:
+Current corrected-validation panel:
 
 - Priority A: `289|290 x MAP8`, `289|290 x G196_minimal`, `248|249 x HA`, `248|249 x MAP8`.
 - Priority B: `288|289 x MAP8`, `288|289 x HA`, `290|291 x MAP8`.
 - Conflict controls: `224|225 x MAP8`, `224|225 x HA`, `203|204 x G196_minimal`, `256|257 x MAP8`.
 - Hard-negative control: `155|156 x MAP8`.
 
-Authoritative files:
+Current authoritative files:
 
-- `data/final_candidate_panel_v3_audited.tsv`
-- `docs/FINAL_CANDIDATE_PRIORITY_V1_AUDITED.md`
-- `docs/DYNAMICS_ANALYSIS_AUDIT_010_REPORT.md`
+- `data/final_candidate_panel_v4_corrected_validation.tsv`
+- `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
+- `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
 - `docs/DYNAMIC_NETWORK_ANALYSIS_V2_AUDITED.md`
+
+V3/V1 reports remain provenance for the corrected legacy reanalysis and validation-submission checkpoint.
 
 No construct is safe or experimentally validated.
 
-## Corrected-Protocol Validation Status
+## Corrected-Protocol Validation Results
 
 Corrected CHARMM36 validation subset:
 
@@ -133,16 +135,33 @@ Corrected CHARMM36 validation subset:
 - `results/dynamics_audit_010/corrected_validation_manifest.tsv`
 - `scripts/dynamics_audit_010_corrected_validation.sbatch`
 
-Submitted Slurm array:
+Completed Slurm array:
 
 - Job: `164594`
 - Rows: 18 array tasks, 6 systems x 3 replicas.
-- Initial status: tasks `0-2` running on `gpu17`; tasks `3-17` pending for resources.
+- Final status: 18 / 18 array tasks `COMPLETED` with exit code `0:0`.
+- Node: `gpu17`.
 - Slurm identity: `UserId=yukang`, `Account=chengtong`.
 
 The `Account=chengtong` field is a Slurm allocation/account label, not a switch away from Linux user `yukang`.
 
-Corrected validation results are pending and must not be interpreted until completed and analyzed.
+Corrected validation outputs:
+
+- `results/dynamics_audit_010/corrected_validation_completion_v1.tsv`
+- `results/dynamics_audit_010/protocol_sensitivity_v1.tsv`
+- `results/dynamics_audit_010/final_sampling_decision_v1.tsv`
+- `data/final_candidate_panel_v4_corrected_validation.tsv`
+- `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
+- `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
+
+Interpretation:
+
+- 18 / 18 corrected-protocol trajectories passed trajectory/energy completion QC.
+- `289|290 x MAP8`, `248|249 x HA` and `256|257 x MAP8` were MD-neutral/supportive in the corrected validation subset.
+- `224|225 x MAP8` and `155|156 x MAP8` reproduced high nonlocal tag-contact caution.
+- Classification was stable versus the corrected legacy analysis for the directly validated rows.
+- Adaptive sampling decision: `STOP_AT_20NS` for all validation systems; no blanket 50 ns extension is supported.
+- Final candidate panel V4 supersedes V3 for current candidate-priority review.
 
 ## 20 ns Versus 50 ns Decision
 
@@ -161,28 +180,25 @@ Current 009 MD is an apo protein-only `112-321` core-fragment screen with an art
 
 No amount of generic trajectory extension removes this model limitation.
 
-## Current Candidate Interpretation After Task 010 Rerank
+## Current Candidate Interpretation After Corrected Validation
 
-Do not use the old 009 Tier A/B calls as final priorities. Use V3 audited outputs instead.
+Do not use the old 009 Tier A/B calls as final priorities. Use V4 corrected-validation outputs instead.
 
 Retain candidate identities as hypotheses only:
 
-- C-terminal cluster: `288|289`, `289|290`, `290|291` with MAP8/HA/G196 variants;
-- non-C-terminal alternatives: `224|225`, `248|249`, `203|204`;
-- conflict/control region: `256|257`;
-- hard-negative control: `155|156`.
+- Priority A: `289|290 x MAP8`, `289|290 x G196_minimal`, `248|249 x HA`, `248|249 x MAP8`;
+- Priority B: `288|289 x MAP8`, `288|289 x HA`, `290|291 x MAP8`;
+- conflict controls: `224|225 x MAP8`, `224|225 x HA`, `203|204 x G196_minimal`, `256|257 x MAP8`;
+- hard-negative control: `155|156 x MAP8`;
+- C-terminal adjacent junctions count as one biological region for diversity reporting.
 
-The C-terminal adjacent junctions count as one biological region for diversity reporting.
+No construct is safe or experimentally validated.
 
 ## Final Task 010 Target State
 
-Preferred:
+Achieved:
 
 `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
-
-Allowed if corrected-protocol validation is still running at checkpoint:
-
-`CANDIDATE_PRIORITY_PROVISIONAL_PENDING_CORRECTED_PROTOCOL_VALIDATION`
 
 ## Stop Boundary
 
