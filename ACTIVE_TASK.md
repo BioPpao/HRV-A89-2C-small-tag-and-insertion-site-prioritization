@@ -1,101 +1,79 @@
 # Active Task
 
-Current task: `DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010` — **COMPLETED / WAITING FOR CHATGPT REVIEW**
+Current task: `FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A` — **AUTHORIZED / SERVER VERIFICATION PENDING**
 
-Branch: `analysis/dynamics-audit-010`
+Branch: `analysis/experimental-review-cleanup-010a`
 
-Primary task specification:
+Primary specification:
 
-- `tasks/DYNAMICS_ANALYSIS_AUDIT_AND_CANDIDATE_RERANK_010.md`
+- `tasks/FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A.md`
 
-Primary audit:
+Execution script:
 
-- `docs/DYNAMICS_009_POSTHOC_AUDIT_V1.md`
+- `scripts/dynamics_audit_010a_cleanup.py`
 
-## Current State
+Codex prompt:
+
+- `codex/TASK_010A_CLEANUP_PROMPT.md`
+
+## Current Scientific State
+
+Parent Task 010 achieved:
 
 `AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
 
-## Why Task 010 Exists
+Task 010A does not reopen the MD campaign. It performs final scientific cleanup before experimental discussion.
 
-Task 009 completed 39 / 39 independent 20 ns production replicas, but posthoc review identified decision-changing analysis/protocol concerns:
+## Why Task 010A Exists
 
-- raw trajectory analysis lacked an explicit PBC make-whole/unwrap/center step before geometry-dependent metrics;
-- reported RMSD is primarily self-drift versus each system's own first frame, not direct WT-reference preservation;
-- local RMSF lacks junction-matched WT baselines;
-- contact retention primarily preserves each candidate's starting contacts rather than WT-defined contacts;
-- tag exposure relies on a minimum-distance proxy rather than mature SASA;
-- the current Tier A/B penalty heuristic can over-interpret incomplete metrics;
-- CHARMM36 nonbonded settings must be audited/corrected before any new MD extension.
+Post-review identified four reporting/methodology refinements that do not justify new MD but should be corrected before freezing the wet-lab review shortlist:
 
-The historical 009 trajectories remain valuable and must be preserved.
+1. `directional_drift_metrics=none` can hide same-direction drift that is present but below the extension threshold;
+2. candidate drift should be interpreted relative to WT fragment relaxation where a WT comparator exists;
+3. `248|249 x HA` has replica-heterogeneous nonlocal tag-contact behavior that should be annotated rather than averaged away;
+4. Priority A/B must be explicitly described as multi-evidence expert adjudication, not an algorithmically validated total score.
+
+Task 010A also freezes a practical 4-candidate + 2-control experimental-review shortlist.
 
 ## Authorized Work
 
-Task 010 may autonomously:
+Task 010A may:
 
-1. inventory and hash 009 inputs;
-2. repair PBC-aware trajectory preprocessing;
-3. reanalyze all 39 x 20 ns trajectories;
-4. recompute corrected RMSD/RMSF/Rg/contact/SASA/tag-contact metrics;
-5. add junction-matched WT baselines;
-6. perform replica/time-block/truncation/convergence analysis;
-7. downgrade/harden dynamic-network evidence;
-8. audit and correct CHARMM36 production settings;
-9. run a reduced corrected-protocol validation subset;
-10. decide adaptively whether any reduced-subset system needs more replicas or extension to 50 ns;
-11. produce `data/final_candidate_panel_v3_audited.tsv` and an audited priority report;
-12. commit and push meaningful checkpoints.
+- reprocess existing Task 010 TSV outputs;
+- compute candidate-vs-WT differential block drift;
+- revise drift/extension terminology;
+- audit replica-level nonlocal tag-contact heterogeneity;
+- add priority-method provenance fields;
+- generate V5 candidate panel and 4+2 shortlist;
+- update reports and repository governance files;
+- commit and push verified outputs.
 
-## Completed In Current Checkpoint
+## Explicitly Not Authorized
 
-- Historical Task 009 local multimer raw outputs were inventoried and left untracked.
-- 39 / 39 legacy 20 ns trajectories were reanalyzed with explicit PBC unwrap/center handling.
-- Representative RMSD was cross-validated against GROMACS-native analysis.
-- Corrected RMSD/RMSF/Rg/contact/SASA/tag-contact/network tables were generated.
-- Old Task 009 Tier A/B dynamics classification is superseded.
-- `data/final_candidate_panel_v3_audited.tsv` and audited reports were generated.
-- Corrected CHARMM36 validation subset was prepared and submitted as Slurm array job `164594`.
+Do not submit:
 
-## Corrected-Validation Completion
+- new MD replicas;
+- 50 ns extensions;
+- new Slurm/GPU jobs;
+- membrane/RNA/ATP/antibody MD;
+- local multimer recovery jobs.
 
-Corrected-validation job `164594`:
+If cleanup reveals a genuinely decision-changing candidate-specific excess drift after WT subtraction, document it and stop for review rather than launching compute.
 
-- 18 array rows: 6 systems x 3 replicas.
-- Final state: 18 / 18 array rows completed on `gpu17` with exit code `0:0`.
-- All 18 trajectories passed trajectory/energy completion QC.
-- Corrected validation directly covered WT, `289|290 x MAP8`, `248|249 x HA`, `256|257 x MAP8`, `224|225 x MAP8` and `155|156 x MAP8`.
-- Classification was stable versus corrected legacy analysis for directly validated rows.
-- Adaptive sampling decision: `STOP_AT_20NS` for all validation systems.
-- No blanket 50 ns extension is supported.
+## Required Outputs
 
-Final corrected-validation outputs:
+- `results/dynamics_audit_010/differential_block_drift_vs_wt_v1.tsv`
+- `results/dynamics_audit_010/final_sampling_decision_v2_cleanup.tsv`
+- `results/dynamics_audit_010/tag_nonlocal_contact_replica_heterogeneity_v1.tsv`
+- `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
+- `data/experimental_review_shortlist_v1.tsv`
+- `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
+- `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
 
-- `results/dynamics_audit_010/corrected_validation_completion_v1.tsv`
-- `results/dynamics_audit_010/protocol_sensitivity_v1.tsv`
-- `results/dynamics_audit_010/final_sampling_decision_v1.tsv`
-- `data/final_candidate_panel_v4_corrected_validation.tsv`
-- `docs/CORRECTED_PROTOCOL_VALIDATION_V1.md`
-- `docs/FINAL_CANDIDATE_PRIORITY_V2_CORRECTED_VALIDATION.md`
+## Expected Completion State
 
-## Important Execution Rule
+`EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
 
-Do **not** automatically extend all 39 legacy trajectories to 50 ns.
+## Biological Boundary
 
-Corrected 20 ns can be sufficient for screening-level candidate prioritization when independent evidence agrees and the relevant observables are stable. Additional replicas or extension are reserved for decision-critical unstable systems.
-
-## Final State
-
-Achieved:
-
-`AUDITED_CANDIDATE_PANEL_READY_FOR_EXPERIMENTAL_REVIEW`
-
-## Stop Boundary
-
-Task 010 does not authorize:
-
-- exact nucleotide/codon construct design;
-- wet-lab procedural protocol design;
-- broad membrane/RNA/ATP/antibody mechanistic MD;
-- claims that any site is safe or experimentally validated;
-- merge into `main` without explicit review.
+No construct is safe or experimentally validated. Exact HRV-A89 nucleotide/replicon/plasmid context is still required before nucleotide/codon/RNA-level construct design.
