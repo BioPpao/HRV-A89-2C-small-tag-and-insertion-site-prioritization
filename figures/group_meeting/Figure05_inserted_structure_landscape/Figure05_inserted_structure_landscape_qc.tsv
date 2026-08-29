@@ -1,0 +1,79 @@
+section	entity	metric	value	status	detail
+summary	all	unique_constructs	40	info	
+summary	all	unique_structural_model_rows_tagged	48	info	
+summary	all	total_structural_model_rows_including_WT	49	info	
+summary	all	geometry_qc_processed_tagged	48	info	
+summary	all	geometry_qc_processed_including_WT	49	info	
+summary	all	geometry_qc_success_tagged	48	pass	
+summary	all	geometry_qc_failure_tagged	0	pass	
+summary	all	rows_with_missing_global_or_local_rmsd	0	pass	
+summary	all	rows_with_missing_structure_metrics_any	0	pass	
+summary	all	duplicate_construct_model_rows	0	pass	
+summary	all	models_without_oligomer_context	0	pass	
+summary	all	oligomer_context_evaluation_rows	96	info	
+summary	all	focal_constructs_expected	9	info	
+summary	all	focal_constructs_present	9	pass	
+summary	all	focal_constructs_missing	0	pass	
+per_construct	A89_2C_155_156_G196_minimal	models_or_seeds_per_construct	1	info	seeds=11; junction=155|156; tag=G196_minimal
+per_construct	A89_2C_155_156_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=155|156; tag=G196_practical_GS
+per_construct	A89_2C_155_156_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=155|156; tag=HA
+per_construct	A89_2C_155_156_MAP8	models_or_seeds_per_construct	1	info	seeds=11; junction=155|156; tag=MAP8
+per_construct	A89_2C_203_204_G196_minimal	models_or_seeds_per_construct	1	info	seeds=11; junction=203|204; tag=G196_minimal
+per_construct	A89_2C_203_204_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=203|204; tag=G196_practical_GS
+per_construct	A89_2C_203_204_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=203|204; tag=HA
+per_construct	A89_2C_203_204_MAP8	models_or_seeds_per_construct	1	info	seeds=11; junction=203|204; tag=MAP8
+per_construct	A89_2C_216_217_G196_minimal	models_or_seeds_per_construct	1	info	seeds=11; junction=216|217; tag=G196_minimal
+per_construct	A89_2C_216_217_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=216|217; tag=G196_practical_GS
+per_construct	A89_2C_216_217_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=216|217; tag=HA
+per_construct	A89_2C_216_217_MAP8	models_or_seeds_per_construct	1	info	seeds=11; junction=216|217; tag=MAP8
+per_construct	A89_2C_224_225_G196_minimal	models_or_seeds_per_construct	1	info	seeds=11; junction=224|225; tag=G196_minimal
+per_construct	A89_2C_224_225_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=224|225; tag=G196_practical_GS
+per_construct	A89_2C_224_225_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=224|225; tag=HA
+per_construct	A89_2C_224_225_MAP8	models_or_seeds_per_construct	1	info	seeds=11; junction=224|225; tag=MAP8
+per_construct	A89_2C_248_249_G196_minimal	models_or_seeds_per_construct	1	info	seeds=11; junction=248|249; tag=G196_minimal
+per_construct	A89_2C_248_249_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=248|249; tag=G196_practical_GS
+per_construct	A89_2C_248_249_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=248|249; tag=HA
+per_construct	A89_2C_248_249_MAP8	models_or_seeds_per_construct	1	info	seeds=11; junction=248|249; tag=MAP8
+per_construct	A89_2C_256_257_G196_minimal	models_or_seeds_per_construct	1	info	seeds=11; junction=256|257; tag=G196_minimal
+per_construct	A89_2C_256_257_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=256|257; tag=G196_practical_GS
+per_construct	A89_2C_256_257_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=256|257; tag=HA
+per_construct	A89_2C_256_257_MAP8	models_or_seeds_per_construct	1	info	seeds=11; junction=256|257; tag=MAP8
+per_construct	A89_2C_287_288_G196_minimal	models_or_seeds_per_construct	1	info	seeds=11; junction=287|288; tag=G196_minimal
+per_construct	A89_2C_287_288_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=287|288; tag=G196_practical_GS
+per_construct	A89_2C_287_288_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=287|288; tag=HA
+per_construct	A89_2C_287_288_MAP8	models_or_seeds_per_construct	1	info	seeds=11; junction=287|288; tag=MAP8
+per_construct	A89_2C_288_289_G196_minimal	models_or_seeds_per_construct	1	info	seeds=11; junction=288|289; tag=G196_minimal
+per_construct	A89_2C_288_289_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=288|289; tag=G196_practical_GS
+per_construct	A89_2C_288_289_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=288|289; tag=HA
+per_construct	A89_2C_288_289_MAP8	models_or_seeds_per_construct	1	info	seeds=11; junction=288|289; tag=MAP8
+per_construct	A89_2C_289_290_G196_minimal	models_or_seeds_per_construct	3	info	seeds=11,21,22; junction=289|290; tag=G196_minimal
+per_construct	A89_2C_289_290_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=289|290; tag=G196_practical_GS
+per_construct	A89_2C_289_290_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=289|290; tag=HA
+per_construct	A89_2C_289_290_MAP8	models_or_seeds_per_construct	3	info	seeds=11,21,22; junction=289|290; tag=MAP8
+per_construct	A89_2C_290_291_G196_minimal	models_or_seeds_per_construct	3	info	seeds=11,21,22; junction=290|291; tag=G196_minimal
+per_construct	A89_2C_290_291_G196_practical_GS	models_or_seeds_per_construct	1	info	seeds=11; junction=290|291; tag=G196_practical_GS
+per_construct	A89_2C_290_291_HA	models_or_seeds_per_construct	1	info	seeds=11; junction=290|291; tag=HA
+per_construct	A89_2C_290_291_MAP8	models_or_seeds_per_construct	3	info	seeds=11,21,22; junction=290|291; tag=MAP8
+per_tag	MAP8	unique_constructs_per_tag	10	info	
+per_tag	HA	unique_constructs_per_tag	10	info	
+per_tag	G196_minimal	unique_constructs_per_tag	10	info	
+per_tag	G196_practical_GS	unique_constructs_per_tag	10	info	
+per_junction	155|156	unique_constructs_per_junction	4	info	
+per_junction	203|204	unique_constructs_per_junction	4	info	
+per_junction	216|217	unique_constructs_per_junction	4	info	
+per_junction	224|225	unique_constructs_per_junction	4	info	
+per_junction	248|249	unique_constructs_per_junction	4	info	
+per_junction	256|257	unique_constructs_per_junction	4	info	
+per_junction	287|288	unique_constructs_per_junction	4	info	
+per_junction	288|289	unique_constructs_per_junction	4	info	
+per_junction	289|290	unique_constructs_per_junction	4	info	
+per_junction	290|291	unique_constructs_per_junction	4	info	
+focal_construct	A89_2C_289_290_MAP8	focal_construct_present	1	pass	
+focal_construct	A89_2C_289_290_G196_minimal	focal_construct_present	1	pass	
+focal_construct	A89_2C_290_291_MAP8	focal_construct_present	1	pass	
+focal_construct	A89_2C_290_291_G196_minimal	focal_construct_present	1	pass	
+focal_construct	A89_2C_248_249_MAP8	focal_construct_present	1	pass	
+focal_construct	A89_2C_248_249_HA	focal_construct_present	1	pass	
+focal_construct	A89_2C_256_257_MAP8	focal_construct_present	1	pass	
+focal_construct	A89_2C_224_225_MAP8	focal_construct_present	1	pass	
+focal_construct	A89_2C_155_156_MAP8	focal_construct_present	1	pass	
