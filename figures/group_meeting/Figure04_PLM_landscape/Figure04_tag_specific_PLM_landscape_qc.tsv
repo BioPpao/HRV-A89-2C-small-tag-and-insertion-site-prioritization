@@ -1,0 +1,73 @@
+section	item	value	status
+global	total_plm_rows	1280	pass
+global	unique_junctions	320	pass
+global	unique_tags	4	pass
+global	missing_required_source_values	0	pass
+global	duplicated_site_tag_rows	0	pass
+global	color_limit_2nd_percentile	-0.049095772759566	pass
+global	color_limit_98th_percentile	0.0072298149879586	pass
+global	figure_width_mm	183	pass
+global	figure_height_mm	170	pass
+global	main_metric	plm_delta_mean_pll_insert_minus_wt	pass
+global	color_midpoint	0	pass
+global	rows_plotted	1280	pass
+global	junction_order	left_residue_1_to_320_unclustered	pass
+global	first_junction	1|2	pass
+global	last_junction	320|321	pass
+per_tag	G196_minimal:n_min_median_max	320;-0.078672897;-0.0056684042;0.023322381	pass
+per_tag	G196_practical_GS:n_min_median_max	320;-0.069432067;-0.012707987;0.016282739	pass
+per_tag	HA:n_min_median_max	320;-0.074748678;-0.012743387;0.013091915	pass
+per_tag	MAP8:n_min_median_max	320;-0.067083809;-0.012542529;0.020161602	pass
+tag_identity	MAP8	GDGMVPPG;8	pass
+tag_identity	HA	YPYDVPDYA;9	pass
+tag_identity	G196_minimal	DLVPR;5	pass
+tag_identity	G196_practical_GS	GSDLVPRGS;9	pass
+focal_values	155|156 x MAP8	delta=-0.0059009636;percentile=0.80564263;functional=EXCLUDE;strict=TRUE;conservation=conserved;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	203|204 x MAP8	delta=-0.015900154;percentile=0.35109718;functional=HIGH_RISK;strict=FALSE;conservation=intermediate;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	224|225 x MAP8	delta=-0.014918094;percentile=0.39811912;functional=CORE_CAUTION;strict=FALSE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	248|249 x MAP8	delta=-0.0072260109;percentile=0.73981191;functional=CORE_CAUTION;strict=FALSE;conservation=lineage_indel_supported;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	256|257 x MAP8	delta=-0.0048218113;percentile=0.84326019;functional=HIGH_RISK;strict=FALSE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	287|288 x MAP8	delta=-0.011030368;percentile=0.57680251;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	288|289 x MAP8	delta=-0.011470328;percentile=0.56112853;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	289|290 x MAP8	delta=-0.011806617;percentile=0.54231975;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	290|291 x MAP8	delta=-0.015774627;percentile=0.35423197;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	155|156 x HA	delta=-0.014984071;percentile=0.41065831;functional=EXCLUDE;strict=TRUE;conservation=conserved;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	203|204 x HA	delta=-0.021809904;percentile=0.19122257;functional=HIGH_RISK;strict=FALSE;conservation=intermediate;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	224|225 x HA	delta=-0.036766534;percentile=0.059561129;functional=CORE_CAUTION;strict=FALSE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	248|249 x HA	delta=-0.0090880418;percentile=0.63949843;functional=CORE_CAUTION;strict=FALSE;conservation=lineage_indel_supported;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	256|257 x HA	delta=-0.00036330487;percentile=0.94670846;functional=HIGH_RISK;strict=FALSE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	287|288 x HA	delta=-0.0046295619;percentile=0.82758621;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	288|289 x HA	delta=-0.0063576462;percentile=0.76489028;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	289|290 x HA	delta=-0.013151981;percentile=0.47335423;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	290|291 x HA	delta=-0.01466252;percentile=0.42633229;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	155|156 x G196_minimal	delta=0.0071881887;percentile=0.94670846;functional=EXCLUDE;strict=TRUE;conservation=conserved;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	203|204 x G196_minimal	delta=-0.022104568;percentile=0.07523511;functional=HIGH_RISK;strict=FALSE;conservation=intermediate;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	224|225 x G196_minimal	delta=-0.02038139;percentile=0.10031348;functional=CORE_CAUTION;strict=FALSE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	248|249 x G196_minimal	delta=0.0017970542;percentile=0.80250784;functional=CORE_CAUTION;strict=FALSE;conservation=lineage_indel_supported;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	256|257 x G196_minimal	delta=0.0017127569;percentile=0.79310345;functional=HIGH_RISK;strict=FALSE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	287|288 x G196_minimal	delta=-0.0037504602;percentile=0.57053292;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	288|289 x G196_minimal	delta=-0.0038897871;percentile=0.56426332;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	289|290 x G196_minimal	delta=-0.0070742477;percentile=0.44827586;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	290|291 x G196_minimal	delta=-0.0065747969;percentile=0.46708464;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	155|156 x G196_practical_GS	delta=-0.0095398517;percentile=0.64890282;functional=EXCLUDE;strict=TRUE;conservation=conserved;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	203|204 x G196_practical_GS	delta=-0.027635289;percentile=0.12852665;functional=HIGH_RISK;strict=FALSE;conservation=intermediate;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	224|225 x G196_practical_GS	delta=-0.038355329;percentile=0.037617555;functional=CORE_CAUTION;strict=FALSE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	248|249 x G196_practical_GS	delta=-0.015037988;percentile=0.40438871;functional=CORE_CAUTION;strict=FALSE;conservation=lineage_indel_supported;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	256|257 x G196_practical_GS	delta=-0.010426601;percentile=0.60188088;functional=HIGH_RISK;strict=FALSE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	287|288 x G196_practical_GS	delta=-0.0093913037;percentile=0.65517241;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	288|289 x G196_practical_GS	delta=-0.0085894433;percentile=0.68338558;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	289|290 x G196_practical_GS	delta=-0.0073826232;percentile=0.73040752;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+focal_values	290|291 x G196_practical_GS	delta=-0.014141448;percentile=0.44200627;functional=HIGH_RISK;strict=TRUE;conservation=variable;EV_A71=direct_insert_strongly_deleterious	pass
+scientific_calibration	155|156_G196_minimal_high_rank_preserved	delta approximately +0.00719; within-tag percentile approximately 94.7%	pass
+scientific_calibration	248|249_tag_disagreement_preserved	within-tag percentiles=74;63.9;80.3;40.4	pass
+scientific_calibration	256|257_biology_conflict_preserved	PLM-favorable for several tags; structure/oligomer/function context remains conflicted	pass
+scientific_calibration	289|290_not_universally_top	within-tag percentiles=54.2;47.3;44.8;73	pass
+scientific_calibration	no_arbitrary_tolerance_threshold	none defined	pass
+scientific_calibration	PLM_secondary_evidence_statement	PLM does not override direct phenotype or hard functional constraints	pass
+export	svg_editable_vector	Figure04_tag_specific_PLM_landscape.svg	pass
+export	pdf_vector	Figure04_tag_specific_PLM_landscape.pdf	pass
+export	png_600dpi	Figure04_tag_specific_PLM_landscape_600dpi.png	pass
+export	source_data	Figure04_tag_specific_PLM_landscape_source_data.tsv	pass
+export	workflow_backend	R 4.4.2	pass
+export	svg_device	svglite	pass
+export	png_device	ragg::agg_png	pass
