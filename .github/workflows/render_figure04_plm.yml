@@ -1,0 +1,86 @@
+name: Render Figure 4 PLM landscape
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - analysis/experimental-review-cleanup-010a
+    paths:
+      - scripts/plot_figure04_tag_specific_PLM_landscape.R
+      - data/tag_specific_plm_scores_v2_gpu.tsv
+      - data/candidate_junctions_v2.tsv
+      - data/evA71_2C_direct_indel_to_A89_v1.tsv
+      - data/final_candidate_panel_v5_experimental_review_cleanup.tsv
+      - docs/TAG_SPECIFIC_PLM_SCAN_V2_GPU.md
+      - docs/TAG_PORTFOLIO_V2.md
+      - .github/workflows/render_figure04_plm.yml
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out target branch
+        uses: actions/checkout@v4
+        with:
+          ref: analysis/experimental-review-cleanup-010a
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.2'
+          use-public-rspm: true
+
+      - name: Install R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::readr
+            any::dplyr
+            any::tidyr
+            any::ggplot2
+            any::patchwork
+            any::scales
+            any::svglite
+            any::ragg
+
+      - name: Render and run hard QC
+        run: Rscript scripts/plot_figure04_tag_specific_PLM_landscape.R
+
+      - name: Verify required outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          out='figures/group_meeting/Figure04_PLM_landscape'
+          test -s "$out/Figure04_tag_specific_PLM_landscape.svg"
+          test -s "$out/Figure04_tag_specific_PLM_landscape.pdf"
+          test -s "$out/Figure04_tag_specific_PLM_landscape_600dpi.png"
+          test -s "$out/Figure04_tag_specific_PLM_landscape_source_data.tsv"
+          test -s "$out/Figure04_tag_specific_PLM_landscape_qc.tsv"
+          test -s "$out/README.md"
+
+      - name: Upload reproducible figure bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: Figure04_PLM_landscape
+          path: figures/group_meeting/Figure04_PLM_landscape/
+          if-no-files-found: error
+
+      - name: Commit generated outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- figures/group_meeting/Figure04_PLM_landscape
+          if git diff --cached --quiet; then
+            echo 'Generated outputs are unchanged.'
+          else
+            git commit -m 'figure: render Figure 4 tag-specific PLM landscape [skip ci]'
+            git push origin HEAD:analysis/experimental-review-cleanup-010a
+          fi
+
