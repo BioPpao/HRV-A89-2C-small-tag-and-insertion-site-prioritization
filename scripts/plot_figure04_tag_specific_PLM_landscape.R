@@ -1,4 +1,3 @@
-Warning: fs12 was declared with const; use let for reassignable variables.
 #!/usr/bin/env Rscript
 
 # Figure 4: Tag-specific PLM landscape of HRV-A89 2C internal insertion junctions
