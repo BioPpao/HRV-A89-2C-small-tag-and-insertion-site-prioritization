@@ -1,0 +1,43 @@
+section	metric	value	status	detail
+broad	system_count	13	pass	WT plus 12 tagged constructs
+broad	tagged_system_count	12	pass	expected 12
+broad	trajectory_count	39	pass	expected 39
+broad	replicas_per_system	3	pass	expected 3 for every system
+broad	WT_replica_rows	3	pass	expected 3
+broad	replica_rows	39	pass	rows plotted as small points in panel b
+broad	construct_summary_rows	13	pass	one per system
+broad	completed_ns	780	pass	cumulative screening sampling
+broad	usable_trajectories	39	pass	39/39 expected
+broad	technical_exclusions	0	pass	expected 0
+validation	system_count	6	pass	expected six named systems
+validation	trajectory_count	18	pass	expected 18
+validation	replicas_per_system	3	pass	expected 3 for every system
+validation	WT_replica_rows	3	pass	expected 3
+validation	replica_rows	18	pass	15 tagged plus 3 WT
+validation	construct_summary_rows	6	pass	one per system
+validation	completed_ns	360	pass	cumulative corrected-validation sampling
+validation	tagged_panel_c_points	15	pass	5 constructs x 3 replicas
+combined	trajectory_count	57	pass	independent ensembles; not pooled
+combined	cumulative_sampling_ns	1140	pass	1.14 microseconds cumulative screening/validation sampling
+integrity	duplicate_broad_join_keys	0	pass	construct_id + replica + row_type
+integrity	duplicate_validation_join_keys	0	pass	construct_id + replica + row_type
+missingness	broad_replica_core_metric_missing	0	pass	RMSD/contact required for all trajectories
+missingness	broad_tagged_replica_tag_metric_missing	0	pass	WT tag-specific fields are intentionally not applicable
+missingness	validation_tagged_replica_tag_metric_missing	0	pass	panel c fields
+focal	289_290_MAP8_validation_mean_contact	0.028192	pass	low persistent nonlocal contact
+focal	248_249_HA_validation_replica_contacts	0.263682;0.751244;0.761194	pass	replica heterogeneity retained
+focal	256_257_MAP8_validation_mean_contact	0.084577	pass	MD-neutral-like contact behavior; biological conflict retained
+focal	224_225_MAP8_validation_replica_contacts	1.000000;1.000000;1.000000	pass	persistent nonlocal-contact caution
+focal	155_156_MAP8_validation_mean_contact	0.918740	pass	hard-negative MD caution reproduced
+protocol	panel_d_task009_replica_points	15	pass	five constructs x three independent replicas
+protocol	panel_d_validation_replica_points	15	pass	five constructs x three independent replicas
+metrics	exact_metrics_used	wt_reference_ensemble_rmsd_mean_A;delta_local_rmsf_vs_wt_A;wt_defined_contact_retention_mean;tag_nonlocal_contact_fraction_any_lt_4p5A	pass	no composite MD score; tag exposure is used only in panel c
+environment	R_version	4.3.3	info	isolated Conda environment
+environment	package_versions	ggplot2=3.5.2;dplyr=1.1.4;tidyr=1.3.1;data.table=1.17.8;patchwork=1.3.2;svglite=2.2.1;ragg=1.5.0	info	R-only plotting and export
+caption	word_count	296	pass	Nature-style target <=300 words
+interpretation	ensemble_handling	independent_3x20ns_ensembles_side_by_side_not_pooled	pass	no paired test and no six-replica concatenation
+interpretation	sampling_statement	screening_adequate_not_mechanistic_convergence	pass	no blanket 50-ns claim
+export	svg	TRUE	pass	editable vector output
+export	pdf	TRUE	pass	vector output
+export	png_600dpi	TRUE	pass	183 x 190 mm at 600 dpi
+discrepancy	any_data_discrepancy	none_detected	pass	all requested counts and focal patterns matched authoritative TSV values
