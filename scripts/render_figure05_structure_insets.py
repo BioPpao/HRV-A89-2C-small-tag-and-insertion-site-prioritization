@@ -30,8 +30,8 @@ CASES = [
         "tag_resi": "290-297",
         "model": ROOT / "results" / "open_structure_007" / "tier1_shallow"
         / "A89_2C_289_290_MAP8_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_011.pdb",
-        "color": "0x0B6E69",
-        "tag_color": "0x17324D",
+        "color": "0x0077B6",
+        "tag_color": "0xF28E2B",
         "output": "inset_289_290_MAP8.png",
     },
     {
@@ -41,8 +41,8 @@ CASES = [
         "tag_resi": "291-298",
         "model": ROOT / "results" / "open_structure_007" / "tier1_shallow"
         / "A89_2C_290_291_MAP8_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_011.pdb",
-        "color": "0x2A9D8F",
-        "tag_color": "0x17324D",
+        "color": "0x2F67B1",
+        "tag_color": "0xF28E2B",
         "output": "inset_290_291_MAP8.png",
     },
     {
@@ -52,8 +52,8 @@ CASES = [
         "tag_resi": "249-256",
         "model": ROOT / "results" / "open_structure_007" / "tier1_shallow"
         / "A89_2C_248_249_MAP8_unrelaxed_rank_001_alphafold2_ptm_model_1_seed_011.pdb",
-        "color": "0x0B6E69",
-        "tag_color": "0x17324D",
+        "color": "0x008C95",
+        "tag_color": "0xF28E2B",
         "output": "inset_248_249_MAP8.png",
     },
 ]
@@ -67,9 +67,9 @@ def configure_scene() -> None:
     cmd.set("ray_trace_mode", 1)
     cmd.set("ray_trace_color", "0x17324D")
     cmd.set("antialias", 2)
-    cmd.set("ambient", 0.48)
-    cmd.set("direct", 0.42)
-    cmd.set("specular", 0.12)
+    cmd.set("ambient", 0.40)
+    cmd.set("direct", 0.62)
+    cmd.set("specular", 0.18)
     cmd.set("shininess", 8)
     cmd.set("cartoon_smooth_loops", 1)
     cmd.set("cartoon_fancy_helices", 1)
@@ -98,12 +98,12 @@ def render_case(case: dict[str, object], reference_view: tuple[float, ...]) -> d
     cmd.show("cartoon", "local_wt")
     cmd.show("cartoon", "local_inserted")
     cmd.show("sticks", "tag")
-    cmd.color("0xC7CCD1", "local_wt")
+    cmd.color("0xD9DDE2", "local_wt")
     cmd.color(str(case["color"]), "local_inserted")
     cmd.color(str(case["tag_color"]), "tag")
-    cmd.set("cartoon_transparency", 0.42, "local_wt")
-    cmd.set("cartoon_transparency", 0.03, "local_inserted")
-    cmd.set("stick_radius", 0.18, "tag")
+    cmd.set("cartoon_transparency", 0.62, "local_wt")
+    cmd.set("cartoon_transparency", 0.0, "local_inserted")
+    cmd.set("stick_radius", 0.24, "tag")
 
     # Fixed rotation and a constant zoom buffer give comparable local snapshots.
     cmd.set_view(reference_view)

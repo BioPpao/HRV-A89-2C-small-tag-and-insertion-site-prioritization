@@ -28,23 +28,24 @@ The earlier 005 report covered 132 proxy-layer constructs but explicitly lacked 
 
 ## Visual language
 
-The requested American-comic influence is limited to flat high-contrast ink outlines, a compact halftone texture in the workflow, and a restrained teal/amber/red semantic palette. Axes, labels, white background and data density follow publication-figure conventions. There are no shadows, glossy effects, rainbow colours, 3D bars or decorative composite scores.
+The requested American-comic influence is limited to flat high-contrast ink outlines, a compact halftone texture in the workflow, and restrained semantic colours. Panel c inherits only the visual grammar of the supplied reference: pale-to-deep blue summary bars, black raw-model points and black min-max whiskers. Panel d uses a light-grey WT, saturated blue inserted chain and orange tag to maximise structural contrast. Axes, labels, white background and data density follow publication-figure conventions. There are no shadows, glossy effects, rainbow colours, 3D bars or decorative composite scores.
 
 ## Caption
 
-**Fig. 5 | Explicit insertion modeling reveals strong site × tag differences in local structural perturbation.** **a,** Full-length inserted sequences were predicted, aligned to WT, quantified by global and local C-alpha RMSD, processed by OpenMM geometry QC, and projected into two project hexamer contexts. The workflow comprised 40 inserted constructs, 48 tagged structural models and 96 model × hexamer evaluations. **b,** Global/native C-alpha RMSD is plotted against local-window RMSD for every individual tagged model; point shape denotes tag identity and fill denotes the current expert-adjudicated construct class. Dashed dataset medians are visual guides rather than structural pass/fail thresholds. **c,** Individual model values and medians compare focal constructs across global RMSD, local RMSD, WT native-contact loss and oligomer-context clash burden. **d,** Fixed-view structural overlays show WT in light grey, inserted constructs in class-related colours and tags as dark highlights. Global and local perturbation can diverge, including low-global/high-local cases, showing that global RMSD alone is insufficient. Relatively lower-perturbation constructs emerge from this comparative modeling layer, but geometry QC and oligomer-context evaluation do not constitute experimental validation, biological compatibility or safety. Source data are provided as a Source Data file.
+**Fig. 5 | Explicit insertion modeling reveals strong site × tag differences in local structural perturbation.** **a,** Full-length inserted sequences were predicted, aligned to WT, quantified by global and local C-alpha RMSD, processed by OpenMM geometry QC, and projected into two project hexamer contexts. The workflow comprised 40 inserted constructs, 48 tagged structural models and 96 model × hexamer evaluations. **b,** Global/native C-alpha RMSD is plotted against local-window RMSD for every individual tagged model; point shape denotes tag identity and fill denotes the current expert-adjudicated construct class. Nine focal constructs are connected to fixed callout labels by dashed leaders. Dashed dataset medians are visual guides rather than structural pass/fail thresholds. **c,** Bars show focal-construct medians, black points show individual structural models and black whiskers show the observed min-max range across global RMSD, local RMSD, WT native-contact loss and oligomer-context clash burden; blue shade denotes tag identity. **d,** Fixed-view structural overlays show WT in light grey, inserted chains in saturated blue and tags in orange. Global and local perturbation can diverge, showing that global RMSD alone is insufficient. Relatively lower-perturbation constructs emerge from this comparative modeling layer, but geometry QC and oligomer-context evaluation do not constitute experimental validation, biological compatibility or safety. Source data are provided as a Source Data file.
 
 ## Reproducibility
 
 1. Render each inset in a fresh process to avoid intermittent evaluation-build watermarks: D:\Pymol\python.exe scripts\render_figure05_structure_insets.py A89_2C_289_290_MAP8; repeat for A89_2C_290_291_MAP8 and A89_2C_248_249_MAP8.
 2. Run D:\R-4.4.2\bin\Rscript.exe scripts\plot_figure05_inserted_structure_landscape.R from a pure-ASCII mirror of the repository if this Windows R build cannot decode the Chinese workspace path.
 3. The R export packages are loaded from the recorded local ASCII-path library; final outputs are copied back without changing inputs or visual logic.
+4. The 600 dpi PNG is globally quantized to 32 levels per colour channel in R after rendering to reduce Git storage overhead. Canvas dimensions, coordinates, labels and quantitative encodings are unchanged; SVG/PDF remain the vector masters.
 
 ## Final QA
 
 - [x] Structural summary files discovered and read.
 - [x] Panel b uses all individual tagged models rather than construct averages.
-- [x] Panel c retains per-model/seed variability and displays medians separately.
+- [x] Panel c retains per-model/seed variability as black points; bars show medians and whiskers show min-max ranges.
 - [x] Failed and missing rows are represented in QC; no tagged source row lacked a required model metric.
 - [x] No arbitrary structural pass threshold or composite score was introduced.
 - [x] Inset examples were chosen after quantitative review and use fixed orientation/zoom rules.

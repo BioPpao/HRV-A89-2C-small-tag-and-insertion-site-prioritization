@@ -298,28 +298,28 @@ halftone <- expand_grid(x = seq(0.15, 1.85, by = 0.14), y = seq(0.45, 7.55, by =
 p_a <- ggplot() +
   geom_point(data = halftone, aes(x, y), colour = ink, alpha = 0.055, size = 0.22) +
   geom_segment(
-    data = tibble(x = 1, xend = 1, y = 6.62:1.62, yend = 6.25:1.25),
+    data = tibble(x = 1, xend = 1, y = 6.63:1.63, yend = 6.37:1.37),
     aes(x, y, xend = xend, yend = yend), colour = ink, linewidth = 0.55,
-    arrow = arrow(length = unit(1.6, "mm"), type = "closed")
+    arrow = arrow(length = unit(1.35, "mm"), type = "closed")
   ) +
   geom_rect(
     data = workflow,
-    aes(xmin = x - 0.72, xmax = x + 0.72, ymin = y - 0.30, ymax = y + 0.30, fill = fill),
+    aes(xmin = x - 0.70, xmax = x + 0.70, ymin = y - 0.34, ymax = y + 0.34, fill = fill),
     colour = ink, linewidth = 0.55
   ) +
   geom_text(
     data = workflow, aes(x, y, label = label), family = "Arial",
-    fontface = "bold", colour = ink, size = 2.05, lineheight = 0.88
+    fontface = "bold", colour = ink, size = 1.72, lineheight = 0.84
   ) +
   annotate(
-    "label", x = 1, y = 7.75,
+    "label", x = 1, y = 7.80,
     label = sprintf(
-      "%d constructs | %d inserted models | %d hexamer evals",
+      "%d constructs  |  %d inserted models\n%d hexamer evaluations",
       n_distinct(source_data$construct_id), nrow(source_data), nrow(hexamer)
     ),
-    size = 1.72, family = "Arial", fontface = "bold",
+    size = 1.48, lineheight = 0.92, family = "Arial", fontface = "bold",
     fill = "#F2C14E", colour = ink, linewidth = 0.35,
-    label.padding = unit(1.2, "mm")
+    label.padding = unit(0.85, "mm")
   ) +
   scale_fill_identity() +
   coord_cartesian(xlim = c(0, 2), ylim = c(0.35, 8.02), clip = "off") +
@@ -354,7 +354,27 @@ label_data <- source_data %>%
   ) %>%
   slice_min(distance_to_construct_median, n = 1, with_ties = FALSE) %>%
   ungroup() %>%
-  mutate(label = paste0(junction, " x ", tag_form))
+  mutate(
+    label = case_when(
+      tag_form == "G196_minimal" ~ paste0(junction, " - G196 min"),
+      TRUE ~ paste0(junction, " - ", tag_form)
+    )
+  ) %>%
+  left_join(
+    tribble(
+      ~construct_id,                    ~label_x, ~label_y, ~label_hjust,
+      "A89_2C_224_225_MAP8",               3.58,      7.0,            0,
+      "A89_2C_248_249_MAP8",               3.58,      6.2,            0,
+      "A89_2C_155_156_MAP8",               3.58,      5.4,            0,
+      "A89_2C_290_291_MAP8",               3.58,      4.6,            0,
+      "A89_2C_290_291_G196_minimal",       3.58,      3.8,            0,
+      "A89_2C_256_257_MAP8",               3.58,      3.0,            0,
+      "A89_2C_289_290_MAP8",               3.58,      2.2,            0,
+      "A89_2C_248_249_HA",                 3.58,      1.4,            0,
+      "A89_2C_289_290_G196_minimal",       3.58,      0.6,            0
+    ),
+    by = "construct_id"
+  )
 
 p_b <- ggplot(
   source_data,
@@ -366,28 +386,41 @@ p_b <- ggplot(
            fill = "#F2D49B", alpha = 0.16) +
   geom_vline(xintercept = x_med, linetype = "22", linewidth = 0.35, colour = "#7C8791") +
   geom_hline(yintercept = y_med, linetype = "22", linewidth = 0.35, colour = "#7C8791") +
-  geom_point(colour = ink, stroke = 0.35, size = 2.35, alpha = 0.90) +
-  ggrepel::geom_text_repel(
-    data = label_data, aes(label = label), family = "Arial",
-    size = 1.72, colour = ink, box.padding = 0.18, point.padding = 0.12,
-    segment.colour = "#6D7882", segment.size = 0.25,
-    min.segment.length = 0, max.overlaps = Inf, seed = 42, show.legend = FALSE
+  geom_point(colour = ink, stroke = 0.30, size = 1.72, alpha = 0.90) +
+  geom_segment(
+    data = label_data,
+    aes(x = global_rmsd, y = local_rmsd, xend = label_x, yend = label_y),
+    inherit.aes = FALSE, colour = "#687784", linewidth = 0.26, linetype = "22"
   ) +
-  annotate(
-    "text", x = x_rng[1] + 0.03 * diff(x_rng), y = y_rng[1] + 0.04 * diff(y_rng),
-    label = "lower global / lower local", hjust = 0, vjust = 0,
-    size = 1.65, colour = "#48716D"
+  geom_label(
+    data = label_data,
+    aes(x = label_x, y = label_y, label = label, hjust = label_hjust),
+    inherit.aes = FALSE, family = "Arial", size = 1.26,
+    colour = ink, fill = "white", linewidth = 0.18,
+    label.padding = unit(0.32, "mm"), label.r = unit(0.25, "mm"),
+    lineheight = 0.88, show.legend = FALSE
   ) +
-  annotate(
-    "text", x = x_rng[1] + 0.03 * diff(x_rng), y = y_rng[2] - 0.03 * diff(y_rng),
-    label = "low global / high local", hjust = 0, vjust = 1,
-    size = 1.65, colour = "#9A6A20"
+  scale_fill_manual(
+    values = palette_class, drop = FALSE,
+    breaks = names(palette_class),
+    labels = c("Priority A", "Priority B", "Conflict control", "Hard-negative control", "Other")
   ) +
-  scale_fill_manual(values = palette_class, drop = FALSE) +
-  scale_shape_manual(values = shape_tag, drop = FALSE) +
+  scale_shape_manual(
+    values = shape_tag, drop = FALSE,
+    breaks = names(shape_tag),
+    labels = c("MAP8", "HA", "G196 minimal", "G196 practical GS")
+  ) +
+  scale_x_continuous(expand = expansion(mult = c(0.08, 0.25))) +
+  scale_y_continuous(expand = expansion(mult = c(0.14, 0.10))) +
   guides(
-    fill = guide_legend(title = "Construct class", order = 1, override.aes = list(shape = 21)),
-    shape = guide_legend(title = "Tag identity", order = 2, override.aes = list(fill = "white"))
+    fill = guide_legend(
+      title = "Construct class", order = 1,
+      override.aes = list(shape = 21, size = 1.55)
+    ),
+    shape = guide_legend(
+      title = "Tag identity", order = 2,
+      override.aes = list(fill = "white", size = 1.35, stroke = 0.30)
+    )
   ) +
   labs(
     title = "Global structural perturbation landscape",
@@ -397,15 +430,16 @@ p_b <- ggplot(
   theme_nature_comic() +
   theme(
     legend.position = "right", legend.box = "vertical",
-    legend.margin = margin(0, 0, 0, 2), plot.margin = margin(3, 2, 3, 3)
+    legend.key.height = unit(2.8, "mm"),
+    legend.margin = margin(0, 0, 0, 1), plot.margin = margin(3, 2, 3, 3)
   )
 
-# Panel c: focal comparisons with individual models, min-max intervals, and medians.
+# Panel c: reference-inspired horizontal median bars with raw-model dots and min-max whiskers.
 focal_labels <- c(
   "A89_2C_289_290_MAP8" = "289|290 x MAP8",
-  "A89_2C_289_290_G196_minimal" = "289|290 x G196 minimal",
+  "A89_2C_289_290_G196_minimal" = "289|290 x G196 min",
   "A89_2C_290_291_MAP8" = "290|291 x MAP8",
-  "A89_2C_290_291_G196_minimal" = "290|291 x G196 minimal",
+  "A89_2C_290_291_G196_minimal" = "290|291 x G196 min",
   "A89_2C_248_249_MAP8" = "248|249 x MAP8",
   "A89_2C_248_249_HA" = "248|249 x HA",
   "A89_2C_256_257_MAP8" = "256|257 x MAP8",
@@ -438,35 +472,41 @@ focal_summary <- focal_long %>%
     value_median = median(value, na.rm = TRUE), n_models = n(), .groups = "drop"
   )
 
-p_c <- ggplot() +
-  geom_segment(
-    data = focal_summary,
-    aes(x = value_min, xend = value_max, y = construct_label, yend = construct_label),
-    colour = "#8A949D", linewidth = 0.55
+palette_tag_blue <- c(
+  MAP8 = "#2F67B1", HA = "#BFD7EF", G196_minimal = "#75AADB"
+)
+
+p_c <- ggplot(focal_summary, aes(x = value_median, y = construct_label, fill = tag_form)) +
+  geom_col(width = 0.62, colour = ink, linewidth = 0.28) +
+  geom_errorbar(
+    aes(xmin = value_min, xmax = value_max),
+    orientation = "y", width = 0.22, colour = "black", linewidth = 0.38
   ) +
   geom_point(
-    data = focal_long,
-    aes(x = value, y = construct_label, fill = construct_class, shape = tag_form),
-    position = position_jitter(height = 0.10, width = 0),
-    size = 1.7, colour = ink, stroke = 0.28, alpha = 0.82
-  ) +
-  geom_point(
-    data = focal_summary, aes(x = value_median, y = construct_label),
-    shape = 23, size = 2.05, fill = NA, colour = ink, stroke = 0.48
+    data = focal_long, aes(x = value, y = construct_label),
+    inherit.aes = FALSE,
+    position = position_jitter(height = 0.075, width = 0, seed = 42),
+    shape = 16, size = 1.05, colour = "black", alpha = 0.95
   ) +
   facet_wrap(~ metric_label, nrow = 1, scales = "free_x") +
-  scale_fill_manual(values = palette_class, drop = FALSE) +
-  scale_shape_manual(values = shape_tag, drop = FALSE) +
+  scale_fill_manual(
+    values = palette_tag_blue, breaks = c("HA", "G196_minimal", "MAP8"),
+    labels = c("HA", "G196 minimal", "MAP8"), name = "Tag identity"
+  ) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.08))) +
   labs(
     title = "Focal construct comparison",
-    subtitle = "Individual models; open diamonds mark medians and grey lines show model ranges.",
+    subtitle = "Blue bars: medians; black dots: individual models; whiskers: min-max range.",
     x = NULL, y = NULL
   ) +
   theme_nature_comic(base_size = 6.4) +
   theme(
-    legend.position = "none", axis.text.y = element_text(size = 5.2),
-    axis.text.x = element_text(size = 5.2), panel.spacing.x = unit(2.0, "mm"),
-    strip.text = element_text(size = 5.3, face = "bold"),
+    legend.position = "top", legend.direction = "horizontal",
+    legend.justification = "left", legend.key.width = unit(3.0, "mm"),
+    legend.key.height = unit(2.3, "mm"),
+    axis.text.y = element_text(size = 5.0),
+    axis.text.x = element_text(size = 5.0), panel.spacing.x = unit(2.2, "mm"),
+    strip.text = element_text(size = 5.1, face = "bold"),
     plot.margin = margin(3, 2, 3, 3)
   )
 
@@ -515,7 +555,7 @@ p_d_inner <- (p_d1 / p_d2 / p_d3) +
   plot_layout(heights = c(1, 1, 1)) +
   plot_annotation(
     title = "    Representative WT overlays",
-    subtitle = "WT grey; construct class colour; tag dark."
+    subtitle = "WT light grey; inserted chain blue; tag orange."
   )
 p_d <- wrap_elements(full = p_d_inner)
 
@@ -549,12 +589,19 @@ grDevices::cairo_pdf(
 print(fig)
 dev.off()
 
+png_out <- paste0(base_out, "_600dpi.png")
 ragg::agg_png(
-  paste0(base_out, "_600dpi.png"), width = width_mm, height = height_mm,
+  png_out, width = width_mm, height = height_mm,
   units = "mm", res = 600, background = "white"
 )
 print(fig)
 dev.off()
+
+# Preserve the 600-dpi canvas while reducing lossless Git storage overhead.
+# Thirty-two channel levels are visually indistinguishable at final size and
+# do not change positions, labels, categories, or quantitative encodings.
+png_image <- png::readPNG(png_out)
+png::writePNG(round(png_image * 31) / 31, png_out, dpi = 600)
 
 cat(sprintf(
   "Figure05 complete: %d tagged models, %d constructs, %d focal constructs present.\n",
