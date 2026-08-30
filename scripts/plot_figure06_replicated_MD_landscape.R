@@ -256,18 +256,29 @@ if (!setequal(
   stop("Corrected-protocol validation dataset does not contain the expected six systems.")
 }
 
+# Reference-inspired palette: white canvas, black structural ink, orange/teal
+# primary accents, blue support, violet caution, and pale blue/lilac/blush fills.
+reference_orange <- "#F07818"
+reference_teal <- "#149AAA"
+reference_teal_light <- "#23B5B8"
+reference_blue <- "#1478C9"
+reference_purple <- "#A33AEE"
+pale_blue <- "#EDF5FB"
+pale_lavender <- "#F7EEFC"
+pale_blush <- "#FCE7E8"
+
 role_palette <- c(
-  "WT" = "#4D4D4D",
-  "Priority A" = "#006D77",
-  "Priority B" = "#4F7C89",
-  "Conflict control" = "#D6902F",
-  "Hard negative" = "#B84A4A",
-  "Unclassified" = "#9AA0A6"
+  "WT" = "#4B5563",
+  "Priority A" = reference_teal,
+  "Priority B" = reference_blue,
+  "Conflict control" = reference_orange,
+  "Hard negative" = reference_purple,
+  "Unclassified" = "#9CA3AF"
 )
 
-ink <- "#17324D"
-neutral_text <- "#59636E"
-light_grid <- "#E8EBED"
+ink <- "#111827"
+neutral_text <- "#4B5563"
+light_grid <- "#E5E7EB"
 
 theme_nature_md <- function(base_size = 7, base_family = "Arial") {
   theme_classic(base_size = base_size, base_family = base_family) +
@@ -302,7 +313,7 @@ total_ns <- broad_ns + validation_ns
 p_a <- ggplot() +
   annotate(
     "rect", xmin = 0.35, xmax = 9.65, ymin = 6.0, ymax = 9.1,
-    fill = "#DDE8EA", colour = role_palette[["Priority B"]], linewidth = 0.55
+    fill = pale_blue, colour = reference_blue, linewidth = 0.55
   ) +
   annotate(
     "text", x = 0.8, y = 8.55, hjust = 0,
@@ -319,7 +330,7 @@ p_a <- ggplot() +
   ) +
   annotate(
     "rect", xmin = 0.35, xmax = 9.65, ymin = 2.45, ymax = 5.45,
-    fill = "#D8F0ED", colour = role_palette[["Priority A"]], linewidth = 0.55
+    fill = pale_lavender, colour = reference_purple, linewidth = 0.55
   ) +
   annotate(
     "text", x = 0.8, y = 4.9, hjust = 0,
@@ -346,7 +357,7 @@ p_a <- ggplot() +
       nrow(broad_replica) + nrow(validation_replica), total_ns / 1000
     ),
     family = "Arial", fontface = "bold", size = 2.35,
-    fill = "#FFF4D6", colour = ink, label.size = 0.35,
+    fill = pale_blush, colour = reference_orange, label.size = 0.35,
     label.padding = unit(1.0, "mm")
   ) +
   annotate(
@@ -408,7 +419,7 @@ plot_b_metric <- function(metric_name, show_y = FALSE) {
   p <- ggplot() +
     geom_hline(
       yintercept = group_boundaries,
-      colour = "#BFC5C9", linewidth = 0.28, linetype = "22"
+      colour = "#D4D9DF", linewidth = 0.28, linetype = "22"
     ) +
     geom_point(
       data = replica_dat,
@@ -488,11 +499,11 @@ validation_tagged_replica <- source_data %>%
   )
 
 construct_palette <- c(
-  "A89_2C_289_290_MAP8" = "#006D77",
-  "A89_2C_248_249_HA" = "#2A9D8F",
-  "A89_2C_256_257_MAP8" = "#D9A441",
-  "A89_2C_224_225_MAP8" = "#C67A16",
-  "A89_2C_155_156_MAP8" = "#B84A4A"
+  "A89_2C_289_290_MAP8" = reference_teal,
+  "A89_2C_248_249_HA" = reference_teal_light,
+  "A89_2C_256_257_MAP8" = "#F5A24A",
+  "A89_2C_224_225_MAP8" = reference_orange,
+  "A89_2C_155_156_MAP8" = reference_purple
 )
 construct_shapes <- c(
   "A89_2C_289_290_MAP8" = 21,
@@ -544,7 +555,7 @@ p_c <- ggplot(
     colour = ink, fill = alpha("white", 0.92),
     box.padding = 0.3, point.padding = 0.25,
     label.padding = unit(0.45, "mm"), label.r = unit(0.3, "mm"),
-    segment.colour = "#7A858E", segment.size = 0.25,
+    segment.colour = "#6B7280", segment.size = 0.25,
     seed = 42, max.overlaps = Inf, min.segment.length = 0,
     show.legend = FALSE
   ) +

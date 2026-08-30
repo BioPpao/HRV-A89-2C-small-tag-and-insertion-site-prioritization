@@ -14,7 +14,16 @@ Subtitle: **Broad 3 x 20-ns screening and independent corrected-protocol validat
 - Export contract: editable SVG, vector PDF, 600-dpi PNG, machine-readable source data and machine-readable QC.
 - Biological boundary: MD is downstream comparative perturbation evidence. No construct is called safe, compatible, fitness-neutral or experimentally validated.
 
-The existing Figure 5 script contributed style-only inheritance: restrained semantic colours, Arial-first typography, thin axes, white background and compact panel labels. Figure 6 was built anew because its replicate structure, statistics and scientific questions differ.
+The existing Figure 5 script contributed Arial-first typography, thin axes, a white background and compact panel labels. The supplied visual reference contributes palette-only inheritance: bright orange and teal are the main comparison accents, blue is a supporting cool hue, purple marks the hard-negative/caution role, and very pale blue, lilac and blush are limited to schematic fills. Its model architecture, panel geometry and labels are not reused. Figure 6 retains its original replicate structure, statistical definitions and scientific questions.
+
+Palette contract used consistently across panels:
+
+- WT: neutral charcoal `#4B5563`.
+- Priority A: teal `#149AAA`.
+- Priority B: blue `#1478C9`.
+- Conflict controls: orange `#F07818`.
+- Hard negative: purple `#A33AEE`.
+- Canvas: white; structural ink: near-black; guides: very light neutral grey.
 
 ## Scientific question
 
