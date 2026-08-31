@@ -589,6 +589,23 @@ if (requireNamespace("svglite", quietly = TRUE)) {
 print(figure)
 dev.off()
 
+if (identical(svg_device, "svglite")) {
+  svg_lines <- readLines(svg_path, warn = FALSE, encoding = "UTF-8")
+  svg_lines <- gsub(
+    'font-family: "Liberation Sans";',
+    'font-family: Arial, Helvetica, sans-serif;',
+    svg_lines,
+    fixed = TRUE
+  )
+  svg_lines <- gsub(
+    'font-family: "Arial";',
+    'font-family: Arial, Helvetica, sans-serif;',
+    svg_lines,
+    fixed = TRUE
+  )
+  writeLines(svg_lines, svg_path, useBytes = TRUE)
+}
+
 cairo_pdf(pdf_path, width = width_mm / 25.4, height = height_mm / 25.4,
           family = figure_font, bg = "white", onefile = TRUE)
 print(figure)
@@ -614,7 +631,11 @@ for (path in c(svg_path, pdf_path, png_path, source_path)) {
 svg_text <- paste(readLines(svg_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 svg_natural_spacing <- !grepl("textLength=", svg_text, fixed = TRUE) &&
   !grepl("lengthAdjust=", svg_text, fixed = TRUE)
-svg_arial_family <- grepl('font-family: "Arial"', svg_text, fixed = TRUE)
+svg_arial_family <- grepl(
+  "font-family: Arial, Helvetica, sans-serif;",
+  svg_text,
+  fixed = TRUE
+)
 if (identical(svg_device, "svglite")) {
   stopifnot(svg_natural_spacing, svg_arial_family)
 }
@@ -694,7 +715,8 @@ qc <- bind_rows(
              "svg_device", "png_device", "font_family", "svg_natural_word_spacing",
              "svg_no_forced_text_width"),
     value = c(basename(svg_path), basename(pdf_path), basename(png_path), basename(source_path),
-              paste0("R ", getRversion()), svg_device, png_device, figure_font,
+              paste0("R ", getRversion()), svg_device, png_device,
+              "Arial, Helvetica, sans-serif",
               svg_natural_spacing, svg_natural_spacing),
     status = c(
       rep("pass", 7),
