@@ -9,6 +9,7 @@ Tag-specific PLM scoring reveals site × tag heterogeneity, supporting the decis
 - Archetype: asymmetric mixed-modality composite with Panel b as the hero evidence panel.
 - Backend: R (`ggplot2`, `patchwork`, `svglite`, `ragg`).
 - Final dimensions: 183 × 170 mm.
+- Typography: Arial across panels; SVG uses natural font spacing without forced text-width attributes.
 - Primary metric: `plm_delta_mean_pll_insert_minus_wt`.
 - Color midpoint: exactly 0.
 - Visual color limits: 2nd percentile = `-0.04909577`; 98th percentile = `0.007229815`.
@@ -26,6 +27,7 @@ The palette adapts the supplied scientific schematic: muted orange for negative/
 - Four tags × 320 rows each; sequences and lengths verified against the input table.
 - No duplicated site × tag rows.
 - All annotation joins resolved.
+- SVG word spacing is renderer-safe: editable Arial text with no forced width scaling.
 
 Per-tag distributions:
 

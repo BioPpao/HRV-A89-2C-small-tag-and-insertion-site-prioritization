@@ -71,3 +71,6 @@ export	source_data	Figure04_tag_specific_PLM_landscape_source_data.tsv	pass
 export	workflow_backend	R 4.4.2	pass
 export	svg_device	svglite	pass
 export	png_device	ragg::agg_png	pass
+export	font_family	Arial, Helvetica, sans-serif	pass
+export	svg_natural_word_spacing	TRUE	pass
+export	svg_no_forced_text_width	TRUE	pass
