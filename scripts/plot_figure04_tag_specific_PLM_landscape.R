@@ -16,6 +16,13 @@ suppressPackageStartupMessages({
 
 options(stringsAsFactors = FALSE, scipen = 999)
 
+figure_font <- "Arial"
+svg_metric_font <- if (identical(Sys.info()[["sysname"]], "Windows")) {
+  "Arial"
+} else {
+  "Liberation Sans"
+}
+
 repo_root <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
 out_dir <- file.path(repo_root, "figures", "group_meeting", "Figure04_PLM_landscape")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
@@ -222,7 +229,7 @@ conservation_palette <- c(
 )
 
 theme_nature <- function(base_size = 6.5) {
-  theme_classic(base_size = base_size, base_family = "sans") +
+  theme_classic(base_size = base_size, base_family = figure_font) +
     theme(
       axis.line = element_line(linewidth = 0.3, colour = palette[["ink"]]),
       axis.ticks = element_line(linewidth = 0.3, colour = palette[["ink"]]),
@@ -275,7 +282,7 @@ p_a <- ggplot() +
   geom_text(
     data = tag_cards,
     aes(x = 3.02, y = y - 0.15, label = paste0(tag_sequence, "  ·  ", tag_length, " aa")),
-    hjust = 0, size = 1.85, family = "mono", colour = palette[["muted"]]
+    hjust = 0, size = 1.85, family = figure_font, colour = palette[["muted"]]
   ) +
   scale_colour_identity() +
   annotate("segment", x = 6.10, xend = 6.10, y = 4.95, yend = 1.05,
@@ -293,7 +300,7 @@ p_a <- ggplot() +
            colour = palette[["muted"]]) +
   coord_cartesian(xlim = c(0, 10), ylim = c(0.75, 6.75), clip = "off") +
   labs(title = "PLM design and tag architectures") +
-  theme_void(base_family = "sans") +
+  theme_void(base_family = figure_font) +
   theme(
     plot.title = element_text(size = 7.2, face = "bold", margin = margin(b = 3)),
     plot.margin = margin(3, 4, 3, 3)
@@ -483,7 +490,7 @@ p_d_heat <- ggplot(focal_df, aes(tag_plot, junction_plot, fill = delta_mean_pll)
     ),
     x = NULL, y = NULL
   ) +
-  theme_minimal(base_size = 6.1, base_family = "sans") +
+  theme_minimal(base_size = 6.1, base_family = figure_font) +
   theme(
     panel.grid = element_blank(),
     plot.title = element_text(size = 7.0, face = "bold", margin = margin(b = 1)),
@@ -507,7 +514,7 @@ focal_meta <- source_data %>%
     strict_group = if_else(strict_structural_pass, "strict pass", "not strict pass")
   )
 
-annotation_theme <- theme_void(base_family = "sans") +
+annotation_theme <- theme_void(base_family = figure_font) +
   theme(
     plot.title = element_text(size = 5.3, face = "bold", hjust = 0.5, margin = margin(b = 2)),
     plot.margin = margin(2, 0.5, 2, 0.5),
@@ -565,18 +572,25 @@ png_path <- paste0(base_name, "_600dpi.png")
 
 if (requireNamespace("svglite", quietly = TRUE)) {
   svg_device <- "svglite"
-  svglite::svglite(svg_path, width = width_mm / 25.4, height = height_mm / 25.4, bg = "white")
+  svglite::svglite(
+    svg_path,
+    width = width_mm / 25.4,
+    height = height_mm / 25.4,
+    bg = "white",
+    system_fonts = list(sans = figure_font, Arial = svg_metric_font),
+    fix_text_size = FALSE
+  )
 } else {
   stopifnot(capabilities("cairo"))
   svg_device <- "grDevices::svg (Cairo fallback)"
   grDevices::svg(svg_path, width = width_mm / 25.4, height = height_mm / 25.4,
-                 family = "sans", bg = "white", onefile = TRUE)
+                 family = figure_font, bg = "white", onefile = TRUE)
 }
 print(figure)
 dev.off()
 
 cairo_pdf(pdf_path, width = width_mm / 25.4, height = height_mm / 25.4,
-          family = "sans", bg = "white", onefile = TRUE)
+          family = figure_font, bg = "white", onefile = TRUE)
 print(figure)
 dev.off()
 
@@ -595,6 +609,14 @@ dev.off()
 
 for (path in c(svg_path, pdf_path, png_path, source_path)) {
   stopifnot(file.exists(path), file.info(path)$size > 1000)
+}
+
+svg_text <- paste(readLines(svg_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+svg_natural_spacing <- !grepl("textLength=", svg_text, fixed = TRUE) &&
+  !grepl("lengthAdjust=", svg_text, fixed = TRUE)
+svg_arial_family <- grepl('font-family: "Arial"', svg_text, fixed = TRUE)
+if (identical(svg_device, "svglite")) {
+  stopifnot(svg_natural_spacing, svg_arial_family)
 }
 
 # ---------- QC output ----------
@@ -669,10 +691,17 @@ qc <- bind_rows(
   tibble(
     section = "export",
     item = c("svg_editable_vector", "pdf_vector", "png_600dpi", "source_data", "workflow_backend",
-             "svg_device", "png_device"),
+             "svg_device", "png_device", "font_family", "svg_natural_word_spacing",
+             "svg_no_forced_text_width"),
     value = c(basename(svg_path), basename(pdf_path), basename(png_path), basename(source_path),
-              paste0("R ", getRversion()), svg_device, png_device),
-    status = "pass"
+              paste0("R ", getRversion()), svg_device, png_device, figure_font,
+              svg_natural_spacing, svg_natural_spacing),
+    status = c(
+      rep("pass", 7),
+      if_else(identical(svg_device, "svglite"), if_else(svg_arial_family, "pass", "fail"), "pass"),
+      if_else(svg_natural_spacing, "pass", "fail"),
+      if_else(svg_natural_spacing, "pass", "fail")
+    )
   )
 )
 
@@ -708,6 +737,7 @@ readme <- c(
   "- Archetype: asymmetric mixed-modality composite with Panel b as the hero evidence panel.",
   "- Backend: R (`ggplot2`, `patchwork`, `svglite`, `ragg`).",
   paste0("- Final dimensions: ", width_mm, " × ", height_mm, " mm."),
+  "- Typography: Arial across panels; SVG uses natural font spacing without forced text-width attributes.",
   "- Primary metric: `plm_delta_mean_pll_insert_minus_wt`.",
   "- Color midpoint: exactly 0.",
   paste0("- Visual color limits: 2nd percentile = `", signif(visual_limits[1], 7),
@@ -726,6 +756,7 @@ readme <- c(
   "- Four tags × 320 rows each; sequences and lengths verified against the input table.",
   "- No duplicated site × tag rows.",
   "- All annotation joins resolved.",
+  "- SVG word spacing is renderer-safe: editable Arial text with no forced width scaling.",
   "",
   "Per-tag distributions:",
   "",

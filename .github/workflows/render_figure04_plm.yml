@@ -47,6 +47,7 @@ jobs:
             any::scales
             any::svglite
             any::ragg
+            any::systemfonts
 
       - name: Render and run hard QC
         run: Rscript scripts/plot_figure04_tag_specific_PLM_landscape.R
@@ -83,4 +84,3 @@ jobs:
             git commit -m 'figure: render Figure 4 tag-specific PLM landscape [skip ci]'
             git push origin HEAD:analysis/experimental-review-cleanup-010a
           fi
-
