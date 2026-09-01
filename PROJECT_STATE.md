@@ -1,6 +1,6 @@
 # Project State
 
-Last updated: 2026-08-25
+Last updated: 2026-09-02
 
 Project: **HRV-A89 2C small-tag and insertion-site prioritization**
 
@@ -10,21 +10,53 @@ Build a ranked, redundant, multi-junction x multi-tag experimental candidate pan
 
 No computational result may be described as safe or experimentally validated.
 
+
+## Current Task 011 State
+
+Task 011 has achieved:
+
+`READY_FOR_EXPERIMENTAL_REVIEW_WITH_9A5_CONTEXT_LAYER`
+
+Branch:
+
+`analysis/9a5-monomer-hexamer-context-011`
+
+Task:
+
+`9A5_MONOMER_HEXAMER_CONTEXT_011`
+
+Authoritative files:
+
+- `tasks/9A5_MONOMER_HEXAMER_CONTEXT_011.md`
+- `data/final_candidate_panel_v6_9a5_context.tsv`
+- `data/9a5_context_structure_inventory_v1.tsv`
+- `data/9a5_context_input_provenance_v1.tsv`
+- `data/9a5_monomer_tag_compatibility_v1.tsv`
+- `data/9a5_hexamer_tag_compatibility_v1.tsv`
+- `data/9a5_context_ensemble_summary_v1.tsv`
+- `docs/9A5_COMPLEX_CONTEXT_INTEGRATION_V1.md`
+- `docs/9A5_MONOMER_CONTEXT_V1.md`
+- `docs/9A5_HEXAMER_CONTEXT_V1.md`
+
+Task 011 reused existing C01/C04 9A5-core complexes, the current full-length 1x9A5 2C hexamer ensemble, free-hexamer endpoints and existing tagged monomer models. It did not run new docking, AF/ColabFold, Slurm/GPU work or MD.
+
+The 9A5 context layer does not validate any construct. It is a structural-proxy evidence layer for experimental-review discussion.
+
 ## Current Project-Level State
 
-Task 010A has achieved:
+Task 011 has achieved:
 
-`EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
+`READY_FOR_EXPERIMENTAL_REVIEW_WITH_9A5_CONTEXT_LAYER`
 
 ## Current Branch And Task
 
 Branch:
 
-`analysis/experimental-review-cleanup-010a`
+`analysis/9a5-monomer-hexamer-context-011`
 
 Task:
 
-`FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A`
+`9A5_MONOMER_HEXAMER_CONTEXT_011`
 
 Primary specification:
 

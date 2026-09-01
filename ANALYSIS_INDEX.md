@@ -1,6 +1,6 @@
 # Analysis Index
 
-Last updated: 2026-08-25
+Last updated: 2026-09-02
 
 Read `PROJECT_STATE.md` and `ACTIVE_TASK.md` first.
 
@@ -10,6 +10,12 @@ Read `PROJECT_STATE.md` and `ACTIVE_TASK.md` first.
 |---|---|---|---|
 | Overall project state | `PROJECT_STATE.md` | CURRENT | authoritative checkpoint |
 | Active task pointer | `ACTIVE_TASK.md` | CURRENT | Task 010A completed stop gate |
+| Task 011 specification | `tasks/9A5_MONOMER_HEXAMER_CONTEXT_011.md` | CURRENT COMPLETE | authorized 9A5-bound context task |
+| Task 011 integration report | `docs/9A5_COMPLEX_CONTEXT_INTEGRATION_V1.md` | CURRENT | final 9A5 monomer+hexamer context integration |
+| Task 011 monomer report | `docs/9A5_MONOMER_CONTEXT_V1.md` | CURRENT | 9A5-bound monomer/core transfer layer |
+| Task 011 hexamer report | `docs/9A5_HEXAMER_CONTEXT_V1.md` | CURRENT | 1x9A5 full-length hexamer and free-hexamer context layer |
+| Final candidate panel V6 | `data/final_candidate_panel_v6_9a5_context.tsv` | CURRENT | V5 plus 9A5-bound complex context layer |
+| 9A5 structure inventory | `data/9a5_context_structure_inventory_v1.tsv` | CURRENT PROVENANCE | source/target structure QC and checksums |
 | Task 010A specification | `tasks/FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A.md` | CURRENT COMPLETE | final scientific cleanup task |
 | Task 010A cleanup report | `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md` | CURRENT | directional drift, WT differential drift, heterogeneity and method semantics |
 | Experimental-review shortlist | `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md` | CURRENT | 4 candidate + 2 control discussion set |
@@ -102,3 +108,9 @@ Task 010A produced the current experimental-review shortlist. It is a precision 
 A same-direction drift below the extension threshold must still be reported as observed drift. Candidate-specific interpretation should use WT differential drift where possible. `248|249 x HA` should retain its priority hypothesis while explicitly carrying replica-level nonlocal-contact heterogeneity if confirmed.
 
 Priority A/B is a multi-evidence expert adjudication framework, not a validated algorithmic score. The current stop state is `EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`.
+
+## Task 011 Completion
+
+`READY_FOR_EXPERIMENTAL_REVIEW_WITH_9A5_CONTEXT_LAYER`
+
+Task 011 adds a 9A5-bound monomer/core and full-length hexamer structural-context layer to the current V5 experimental-review panel. It does not authorize or perform nucleotide design, wet-lab protocols, new MD, or safety/validation claims.

@@ -149,3 +149,17 @@ There is currently:
 - **no final cloning recommendation**.
 
 What is established is a reproducible filtering framework that preserves negative evidence and conflicts rather than forcing a convenient answer.
+
+
+## Current 9A5 Context Layer
+
+Task `9A5_MONOMER_HEXAMER_CONTEXT_011` adds a 9A5-bound monomer/core and full-length hexamer structural-proxy layer to the experimental-review panel.
+
+Current files:
+
+- `data/final_candidate_panel_v6_9a5_context.tsv`
+- `docs/9A5_COMPLEX_CONTEXT_INTEGRATION_V1.md`
+- `docs/9A5_MONOMER_CONTEXT_V1.md`
+- `docs/9A5_HEXAMER_CONTEXT_V1.md`
+
+No construct is computationally safe, compatible or experimentally validated.

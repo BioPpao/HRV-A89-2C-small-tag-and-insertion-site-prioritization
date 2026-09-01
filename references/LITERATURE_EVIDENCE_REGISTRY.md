@@ -1,6 +1,6 @@
 # Literature Evidence Registry
 
-Last updated: 2026-08-25
+Last updated: 2026-09-02
 
 Purpose: map each literature source to the **specific claim it is allowed to support** in this project. This avoids silently turning homologous or computational evidence into direct HRV-A89 evidence.
 
@@ -119,3 +119,10 @@ Do not collapse conflicting evidence into a single opaque score without preservi
 | Schwinn MK et al. ACS Chemical Biology 13:467-474 (2018); `10.1021/acschembio.7b00549` | NanoLuc complementation peptide; peer_reviewed | HiBiT is an 11-aa quantitative luminescent tag with LgBiT complementation | not an antibody epitope and may not fit IP/IF/complex-capture goals |
 | Pfuetzner RA et al. The Structure of the Picornaviral 2C:RNA holoenzyme (2026 preprint); `10.64898/2026.06.07.730651` | RNA-bound 2C structural and mutational evidence; preprint | RNA pore/contact residues should be mapped as mechanistic risk context | not a direct HRV-A89 structure or binary veto |
 | Yeager C et al. Nucleic Acids Research (2022); `10.1093/nar/gkac1054; PMCID PMC9723501` | RNA-stimulated ATPase mechanism; peer_reviewed | 2C RNA binding and ATPase coupling are central functional constraints | does not identify A89 insertion-tolerant sites |
+
+
+## Project 9A5-bound Structural-Proxy Evidence
+
+| Source | Class | What it supports here | Boundary |
+|---|---|---|---|
+| HRV_Oligomers source repo commit `3385e069fa8469253d8776b3adb3361759094faa`; C01/C04 9A5-core complexes and 1x9A5 full-length hexamer endpoints inventoried in `data/9a5_context_structure_inventory_v1.tsv` | D / project structural model | Task 011 9A5-bound monomer/core and hexamer context proxies for current tag-insertion candidates | not experimental HRV-A89 insertion tolerance, not antibody-detection validation, not a safe-site claim |

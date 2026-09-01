@@ -1,6 +1,6 @@
 # Decision Log
 
-Last updated: 2026-08-25
+Last updated: 2026-09-02
 
 These are active decisions. Future analyses should change them only with explicit new evidence and should record the reason for the change.
 
@@ -324,3 +324,12 @@ These are active decisions. Future analyses should change them only with explici
 **Sampling boundary:** `STOP_AT_20NS` is a screening-level sampling decision, not a claim of full mechanistic convergence. Task 010A does not trigger new Slurm/GPU/MD jobs, additional replicas or 50 ns extension.
 
 **Boundary:** no construct is safe, compatible, experimentally validated or fitness-neutral. Exact HRV-A89 replicon/plasmid nucleotide context remains required before nucleotide/codon/RNA-level construct design.
+
+
+## D-046 — 9A5-bound complex context is an added structural-proxy layer
+
+**Decision:** Treat `data/final_candidate_panel_v6_9a5_context.tsv`, `docs/9A5_COMPLEX_CONTEXT_INTEGRATION_V1.md`, `docs/9A5_MONOMER_CONTEXT_V1.md` and `docs/9A5_HEXAMER_CONTEXT_V1.md` as the current 9A5-context review package.
+
+**Reason:** Task 011 reused existing C01/C04 9A5-core complexes, the current 1x9A5 full-length hexamer ensemble, free-hexamer endpoints and existing tagged monomer models to audit whether antibody-bound monomer/hexamer context changes the experimental-review candidate logic.
+
+**Boundary:** This is a structural proxy layer, not direct HRV-A89 insertion phenotype, antibody-detection validation, viral-fitness evidence, nucleotide/codon design or wet-lab protocol. No construct is safe, compatible or experimentally validated.

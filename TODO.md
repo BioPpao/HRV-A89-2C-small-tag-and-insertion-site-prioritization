@@ -1,119 +1,43 @@
 # TODO
 
-Last updated: 2026-08-25
+Last updated: 2026-09-02
 
-Priority order is scientific, not cosmetic.
+## Current Gate — Task 011 9A5 Context Integration
 
-## Current Gate — Task 010A Final Scientific Cleanup
-
-Status: `EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
+Status: `READY_FOR_EXPERIMENTAL_REVIEW_WITH_9A5_CONTEXT_LAYER`
 
 Branch:
 
-`analysis/experimental-review-cleanup-010a`
+`analysis/9a5-monomer-hexamer-context-011`
 
-Primary task:
+Current authoritative output:
 
-- `tasks/FINAL_SCIENTIFIC_CLEANUP_AND_EXPERIMENTAL_SHORTLIST_010A.md`
+- `data/final_candidate_panel_v6_9a5_context.tsv`
+- `docs/9A5_COMPLEX_CONTEXT_INTEGRATION_V1.md`
+- `docs/9A5_MONOMER_CONTEXT_V1.md`
+- `docs/9A5_HEXAMER_CONTEXT_V1.md`
 
-Execution script:
+## Completed In Task 011
 
-- `scripts/dynamics_audit_010a_cleanup.py`
+- inventoried HRV_Oligomers and target-repo 9A5/free-hexamer/tagged-monomer assets;
+- verified chain/residue ranges and checksums for primary structures;
+- reused C01/C04 core 9A5 complexes and full-length 1x9A5 hexamer endpoints;
+- generated monomer/core transfer compatibility metrics;
+- generated six-tagged-protomer plus 1x9A5 hexamer proxy metrics;
+- integrated V5 candidate/control evidence into V6 with 9A5-context fields;
+- generated six data-driven figures and slim representative proxy PDBs.
 
-Codex prompt:
+## Next Scientific Review
 
-- `codex/TASK_010A_CLEANUP_PROMPT.md`
+ChatGPT/user should review whether the V6 9A5-context caution labels change the experimental discussion order, while preserving the evidence hierarchy.
 
-## Parent Task 010 — Complete
+No additional generic long MD is required for the current tag-prioritization decision.
 
-Task 010 has already completed:
+## Still Not Authorized
 
-- 39 / 39 legacy 20 ns corrected reanalysis;
-- PBC/RMSD/reference/contact/SASA audit;
-- corrected CHARMM36 validation;
-- 18 / 18 corrected-validation 20 ns trajectories;
-- candidate/control classification stability review;
-- `STOP_AT_20NS` screening decision;
-- V4 candidate panel.
-
-Do not rerun or extend MD as part of Task 010A.
-
-## P0 — Cleanup Analysis
-
-Completed:
-
-1. distinguish observed directional drift from extension-trigger drift;
-2. calculate candidate-vs-WT differential block drift for RMSD/contact metrics;
-3. preserve WT tag-SASA comparison as not applicable;
-4. audit replica-level nonlocal tag-contact heterogeneity;
-5. specifically verify `248|249 x HA` replica heterogeneity;
-6. state that Priority A/B is multi-evidence expert adjudication, not a validated total-score classifier.
-
-Expected outputs:
-
-- `results/dynamics_audit_010/differential_block_drift_vs_wt_v1.tsv`
-- `results/dynamics_audit_010/final_sampling_decision_v2_cleanup.tsv`
-- `results/dynamics_audit_010/tag_nonlocal_contact_replica_heterogeneity_v1.tsv`
-- `results/dynamics_audit_010/task010a_internal_consistency_audit_v1.tsv`
-
-## P1 — Experimental Review Panel Freeze
-
-Generated:
-
-- `data/final_candidate_panel_v5_experimental_review_cleanup.tsv`
-- `data/experimental_review_shortlist_v1.tsv`
-- `docs/FINAL_SCIENTIFIC_CLEANUP_010A.md`
-- `docs/EXPERIMENTAL_REVIEW_SHORTLIST_V1.md`
-
-Shortlist must contain exactly four candidate constructs plus two controls:
-
-Candidates:
-
-- `289|290 x MAP8`
-- `289|290 x G196_minimal`
-- `248|249 x HA`
-- `248|249 x MAP8`
-
-Controls:
-
-- `224|225 x MAP8`
-- `155|156 x MAP8`
-
-## P2 — Scientific Review Rules
-
-- Do not hide below-threshold directional drift by writing `none`.
-- Do not convert a construct mean into a claim of replica consistency.
-- Do not auto-demote `248|249 x HA` solely because replica contact behavior is heterogeneous; annotate the caution.
-- Do not impute corrected-protocol validation to `289|290 x G196_minimal` or `248|249 x MAP8`.
-- Do not use a hidden weighted score.
-- Do not call any construct safe or validated.
-
-## P3 — Repository Governance After Successful Run
-
-Updated:
-
-- `ACTIVE_TASK.md`
-- `PROJECT_STATE.md`
-- `ANALYSIS_INDEX.md`
-- `DECISIONS.md`
-- `TODO.md`
-- `docs/DYNAMICS_ANALYSIS_AUDIT_010_RUN_LOG.md`
-
-Final state:
-
-`EXPERIMENTAL_REVIEW_SHORTLIST_READY_FOR_DISCUSSION`
-
-## Explicit Non-Goals
-
-Do not proceed automatically to:
-
-- new MD replicas;
-- 50 ns extension;
-- membrane/RNA/ATP/antibody mechanistic MD;
-- exact nucleotide/RNA/codon design;
+- exact nucleotide/RNA/codon construct design;
 - wet-lab procedural protocol design;
+- membrane/RNA/ATP/antibody mechanistic MD;
+- new Slurm/GPU/MD jobs by default;
+- safety, compatibility or validation claims;
 - merge to `main`.
-
-## Required Future Input
-
-Before final nucleotide-level construct design, obtain the exact experimental HRV-A89 2C/replicon/plasmid nucleotide context.
