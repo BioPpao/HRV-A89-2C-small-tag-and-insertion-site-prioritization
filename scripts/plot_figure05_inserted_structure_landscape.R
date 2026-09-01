@@ -260,7 +260,10 @@ palette_class <- c(
   Conflict_control = "#D6902F", Hard_negative_control = "#B84A4A",
   Other = "#9AA0A6"
 )
-shape_tag <- c(MAP8 = 21, HA = 22, G196_minimal = 24, G196_practical_GS = 23)
+tag_header_palette <- c(
+  MAP8 = "#1596A6", HA = "#E87516",
+  G196_minimal = "#9B2BE2", G196_practical_GS = "#006CC4"
+)
 
 theme_nature_comic <- function(base_size = 7, base_family = "Arial") {
   theme_classic(base_size = base_size, base_family = base_family) +
@@ -337,7 +340,9 @@ p_a <- ggplot() +
     plot.margin = margin(3, 4, 3, 3)
   )
 
-# Panel b: hero scatter using all individual inserted models.
+# Panel b: tag-separated small multiples using all individual inserted models.
+# Tag identity is encoded once in the coloured panel header, allowing the data
+# marks to remain small, uniform circles and removing the crowded shape legend.
 x_med <- median(source_data$global_rmsd, na.rm = TRUE)
 y_med <- median(source_data$local_rmsd, na.rm = TRUE)
 x_rng <- range(source_data$global_rmsd, na.rm = TRUE)
@@ -355,84 +360,123 @@ label_data <- source_data %>%
   slice_min(distance_to_construct_median, n = 1, with_ties = FALSE) %>%
   ungroup() %>%
   mutate(
-    label = case_when(
-      tag_form == "G196_minimal" ~ paste0(junction, " - G196 min"),
-      TRUE ~ paste0(junction, " - ", tag_form)
-    )
-  ) %>%
-  left_join(
-    tribble(
-      ~construct_id,                    ~label_x, ~label_y, ~label_hjust,
-      "A89_2C_224_225_MAP8",               3.58,      7.0,            0,
-      "A89_2C_248_249_MAP8",               3.58,      6.2,            0,
-      "A89_2C_155_156_MAP8",               3.58,      5.4,            0,
-      "A89_2C_290_291_MAP8",               3.58,      4.6,            0,
-      "A89_2C_290_291_G196_minimal",       3.58,      3.8,            0,
-      "A89_2C_256_257_MAP8",               3.58,      3.0,            0,
-      "A89_2C_289_290_MAP8",               3.58,      2.2,            0,
-      "A89_2C_248_249_HA",                 3.58,      1.4,            0,
-      "A89_2C_289_290_G196_minimal",       3.58,      0.6,            0
-    ),
-    by = "construct_id"
+    label = junction
   )
 
-p_b <- ggplot(
-  source_data,
-  aes(x = global_rmsd, y = local_rmsd, fill = construct_class, shape = tag_form)
-) +
-  annotate("rect", xmin = -Inf, xmax = x_med, ymin = -Inf, ymax = y_med,
-           fill = "#CFE8E4", alpha = 0.25) +
-  annotate("rect", xmin = -Inf, xmax = x_med, ymin = y_med, ymax = Inf,
-           fill = "#F2D49B", alpha = 0.16) +
-  geom_vline(xintercept = x_med, linetype = "22", linewidth = 0.35, colour = "#7C8791") +
-  geom_hline(yintercept = y_med, linetype = "22", linewidth = 0.35, colour = "#7C8791") +
-  geom_point(colour = ink, stroke = 0.30, size = 1.72, alpha = 0.90) +
-  geom_segment(
-    data = label_data,
-    aes(x = global_rmsd, y = local_rmsd, xend = label_x, yend = label_y),
-    inherit.aes = FALSE, colour = "#687784", linewidth = 0.26, linetype = "22"
-  ) +
-  geom_label(
-    data = label_data,
-    aes(x = label_x, y = label_y, label = label, hjust = label_hjust),
-    inherit.aes = FALSE, family = "Arial", size = 1.26,
-    colour = ink, fill = "white", linewidth = 0.18,
-    label.padding = unit(0.32, "mm"), label.r = unit(0.25, "mm"),
-    lineheight = 0.88, show.legend = FALSE
-  ) +
-  scale_fill_manual(
-    values = palette_class, drop = FALSE,
-    breaks = names(palette_class),
-    labels = c("Priority A", "Priority B", "Conflict control", "Hard-negative control", "Other")
-  ) +
-  scale_shape_manual(
-    values = shape_tag, drop = FALSE,
-    breaks = names(shape_tag),
-    labels = c("MAP8", "HA", "G196 minimal", "G196 practical GS")
-  ) +
-  scale_x_continuous(expand = expansion(mult = c(0.08, 0.25))) +
-  scale_y_continuous(expand = expansion(mult = c(0.14, 0.10))) +
-  guides(
-    fill = guide_legend(
-      title = "Construct class", order = 1,
-      override.aes = list(shape = 21, size = 1.55)
-    ),
-    shape = guide_legend(
-      title = "Tag identity", order = 2,
-      override.aes = list(fill = "white", size = 1.35, stroke = 0.30)
+x_span <- diff(x_rng)
+y_span <- diff(y_rng)
+x_limits <- c(max(0, x_rng[1] - 0.06 * x_span), x_rng[2] + 0.08 * x_span)
+y_limits <- c(max(0, y_rng[1] - 0.08 * y_span), y_rng[2] + 0.08 * y_span)
+tag_display <- c(
+  MAP8 = "MAP8", HA = "HA",
+  G196_minimal = "G196 minimal", G196_practical_GS = "G196 practical GS"
+)
+
+tag_scatter_panel <- function(tag_name, header_colour, show_x_title, show_y_title) {
+  panel_data <- source_data %>%
+    filter(as.character(tag_form) == tag_name) %>%
+    mutate(tag_panel = unname(tag_display[tag_name]))
+  panel_labels <- label_data %>%
+    filter(as.character(tag_form) == tag_name) %>%
+    mutate(tag_panel = unname(tag_display[tag_name]))
+
+  ggplot(panel_data, aes(x = global_rmsd, y = local_rmsd)) +
+    annotate(
+      "rect", xmin = -Inf, xmax = x_med, ymin = -Inf, ymax = y_med,
+      fill = "#D7F0ED", alpha = 0.22
+    ) +
+    geom_vline(
+      xintercept = x_med, linetype = "22", linewidth = 0.28, colour = "#87939E"
+    ) +
+    geom_hline(
+      yintercept = y_med, linetype = "22", linewidth = 0.28, colour = "#87939E"
+    ) +
+    geom_point(
+      aes(fill = construct_class), shape = 21, colour = ink,
+      stroke = 0.24, size = 1.18, alpha = 0.92
+    ) +
+    ggrepel::geom_label_repel(
+      data = panel_labels,
+      aes(x = global_rmsd, y = local_rmsd, label = label),
+      inherit.aes = FALSE, family = "Arial", size = 1.04,
+      colour = ink, fill = alpha("white", 0.92), label.size = 0.14,
+      label.padding = unit(0.22, "mm"), label.r = unit(0.20, "mm"),
+      box.padding = unit(0.45, "mm"), point.padding = unit(0.25, "mm"),
+      min.segment.length = 0, segment.colour = "#687784",
+      segment.size = 0.18, segment.linetype = "22",
+      max.overlaps = Inf, seed = 42, show.legend = FALSE
+    ) +
+    facet_wrap(~tag_panel, nrow = 1) +
+    scale_fill_manual(
+      values = palette_class, drop = FALSE,
+      breaks = names(palette_class),
+      labels = c(
+        "Priority A", "Priority B", "Conflict control",
+        "Hard-negative control", "Other"
+      ), guide = "none"
+    ) +
+    scale_x_continuous(limits = x_limits, expand = expansion(mult = 0)) +
+    scale_y_continuous(limits = y_limits, expand = expansion(mult = 0)) +
+    labs(
+      x = if (show_x_title) "Global/native C-alpha RMSD (A)" else NULL,
+      y = if (show_y_title) "Local-window C-alpha RMSD (A)" else NULL
+    ) +
+    theme_nature_comic(base_size = 5.6) +
+    theme(
+      axis.title = element_text(size = 5.0),
+      axis.text = element_text(size = 5.0),
+      legend.position = "none",
+      strip.background = element_rect(fill = header_colour, colour = ink, linewidth = 0.34),
+      strip.text = element_text(size = 5.1, face = "bold", colour = "white"),
+      plot.margin = margin(1.0, 1.5, 1.0, 1.5)
     )
+}
+
+p_b_panels <- list(
+  tag_scatter_panel("MAP8", tag_header_palette[["MAP8"]], FALSE, TRUE),
+  tag_scatter_panel("HA", tag_header_palette[["HA"]], FALSE, FALSE),
+  tag_scatter_panel("G196_minimal", tag_header_palette[["G196_minimal"]], TRUE, TRUE),
+  tag_scatter_panel("G196_practical_GS", tag_header_palette[["G196_practical_GS"]], TRUE, FALSE)
+)
+
+p_b_legend_data <- tibble(
+  construct_class = factor(names(palette_class), levels = names(palette_class)),
+  label = c(
+    "Priority A", "Priority B", "Conflict control",
+    "Hard-negative control", "Other"
+  ),
+  x = c(1.35, 2.42, 3.55, 4.78, 6.18)
+)
+p_b_legend <- ggplot(p_b_legend_data, aes(x = x, y = 1)) +
+  annotate(
+    "text", x = 0.20, y = 1, label = "Construct class",
+    family = "Arial", fontface = "bold", size = 1.55, colour = ink, hjust = 0
   ) +
-  labs(
-    title = "Global structural perturbation landscape",
-    subtitle = "Each point is one inserted model; dashed medians are visual guides, not pass/fail cut-offs.",
-    x = "Global/native C-alpha RMSD (A)", y = "Local-window C-alpha RMSD (A)"
+  geom_point(
+    aes(fill = construct_class), shape = 21, colour = ink,
+    size = 1.35, stroke = 0.24
   ) +
-  theme_nature_comic() +
-  theme(
-    legend.position = "right", legend.box = "vertical",
-    legend.key.height = unit(2.8, "mm"),
-    legend.margin = margin(0, 0, 0, 1), plot.margin = margin(3, 2, 3, 3)
+  geom_text(
+    aes(label = label), family = "Arial", size = 1.42,
+    colour = ink, hjust = 0, nudge_x = 0.10
+  ) +
+  scale_fill_manual(values = palette_class, guide = "none") +
+  scale_x_continuous(limits = c(0.18, 6.70), expand = expansion(mult = 0)) +
+  coord_cartesian(ylim = c(0.76, 1.24), clip = "off") +
+  theme_void(base_family = "Arial") +
+  theme(plot.margin = margin(0, 1, 0, 1))
+
+p_b_grid <- wrap_plots(p_b_panels, ncol = 2)
+p_b_inner <- (p_b_grid / p_b_legend) +
+  plot_layout(heights = c(1, 0.075)) +
+  plot_annotation(
+    title = "        Global structural perturbation landscape",
+    subtitle = paste0(
+      "        Tag identity is encoded by panel colour; small circles are individual models.\n",
+      "        Point fill denotes construct class; dashed lines show global medians."
+    )
   )
+p_b <- wrap_elements(full = p_b_inner)
 
 # Panel c: four reference-inspired vertical bar panels. Bars are deliberately
 # narrow; computational repeat points and min-max whiskers appear only for n=3.
