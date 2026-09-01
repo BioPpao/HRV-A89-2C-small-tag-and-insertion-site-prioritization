@@ -434,17 +434,18 @@ p_b <- ggplot(
     legend.margin = margin(0, 0, 0, 1), plot.margin = margin(3, 2, 3, 3)
   )
 
-# Panel c: reference-inspired horizontal median bars with raw-model dots and min-max whiskers.
+# Panel c: four reference-inspired vertical bar panels. Bars are deliberately
+# narrow; computational repeat points and min-max whiskers appear only for n=3.
 focal_labels <- c(
-  "A89_2C_289_290_MAP8" = "289|290 x MAP8",
-  "A89_2C_289_290_G196_minimal" = "289|290 x G196 min",
-  "A89_2C_290_291_MAP8" = "290|291 x MAP8",
-  "A89_2C_290_291_G196_minimal" = "290|291 x G196 min",
-  "A89_2C_248_249_MAP8" = "248|249 x MAP8",
-  "A89_2C_248_249_HA" = "248|249 x HA",
-  "A89_2C_256_257_MAP8" = "256|257 x MAP8",
-  "A89_2C_224_225_MAP8" = "224|225 x MAP8",
-  "A89_2C_155_156_MAP8" = "155|156 x MAP8"
+  "A89_2C_289_290_MAP8" = "289|290 MAP8",
+  "A89_2C_289_290_G196_minimal" = "289|290 G196 min",
+  "A89_2C_290_291_MAP8" = "290|291 MAP8",
+  "A89_2C_290_291_G196_minimal" = "290|291 G196 min",
+  "A89_2C_248_249_MAP8" = "248|249 MAP8",
+  "A89_2C_248_249_HA" = "248|249 HA",
+  "A89_2C_256_257_MAP8" = "256|257 MAP8",
+  "A89_2C_224_225_MAP8" = "224|225 MAP8",
+  "A89_2C_155_156_MAP8" = "155|156 MAP8"
 )
 metric_labels <- c(
   global_rmsd = "Global RMSD (A)", local_rmsd = "Local RMSD (A)",
@@ -456,7 +457,7 @@ focal_long <- source_data %>%
   filter(construct_id %in% names(focal_labels)) %>%
   mutate(
     construct_label = unname(focal_labels[construct_id]),
-    construct_label = factor(construct_label, levels = rev(unname(focal_labels)))
+    construct_label = factor(construct_label, levels = unname(focal_labels))
   ) %>%
   pivot_longer(
     cols = all_of(names(metric_labels)), names_to = "metric", values_to = "value"
@@ -472,43 +473,67 @@ focal_summary <- focal_long %>%
     value_median = median(value, na.rm = TRUE), n_models = n(), .groups = "drop"
   )
 
-palette_tag_blue <- c(
-  MAP8 = "#2F67B1", HA = "#BFD7EF", G196_minimal = "#75AADB"
+metric_palette <- c(
+  "Global RMSD (A)" = "#C7D9EC",
+  "Local RMSD (A)" = "#9FC9E8",
+  "Native contacts lost" = "#79A5CA",
+  "Max oligomer clashes" = "#4E72AE"
 )
 
-p_c <- ggplot(focal_summary, aes(x = value_median, y = construct_label, fill = tag_form)) +
-  geom_col(width = 0.62, colour = ink, linewidth = 0.28) +
-  geom_errorbar(
-    aes(xmin = value_min, xmax = value_max),
-    orientation = "y", width = 0.22, colour = "black", linewidth = 0.38
-  ) +
-  geom_point(
-    data = focal_long, aes(x = value, y = construct_label),
-    inherit.aes = FALSE,
-    position = position_jitter(height = 0.075, width = 0, seed = 42),
-    shape = 16, size = 1.05, colour = "black", alpha = 0.95
-  ) +
-  facet_wrap(~ metric_label, nrow = 1, scales = "free_x") +
-  scale_fill_manual(
-    values = palette_tag_blue, breaks = c("HA", "G196_minimal", "MAP8"),
-    labels = c("HA", "G196 minimal", "MAP8"), name = "Tag identity"
-  ) +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.08))) +
-  labs(
-    title = "Focal construct comparison",
-    subtitle = "Blue bars: medians; black dots: individual models; whiskers: min-max range.",
-    x = NULL, y = NULL
-  ) +
-  theme_nature_comic(base_size = 6.4) +
-  theme(
-    legend.position = "top", legend.direction = "horizontal",
-    legend.justification = "left", legend.key.width = unit(3.0, "mm"),
-    legend.key.height = unit(2.3, "mm"),
-    axis.text.y = element_text(size = 5.0),
-    axis.text.x = element_text(size = 5.0), panel.spacing.x = unit(2.2, "mm"),
-    strip.text = element_text(size = 5.1, face = "bold"),
-    plot.margin = margin(3, 2, 3, 3)
+repeated_ids <- focal_summary %>%
+  filter(n_models > 1) %>%
+  distinct(construct_id) %>%
+  pull(construct_id)
+
+metric_bar_panel <- function(metric_name, colour, strip_text_colour = ink) {
+  summary_metric <- focal_summary %>% filter(metric_label == metric_name)
+  repeat_summary <- summary_metric %>% filter(n_models > 1)
+  repeat_models <- focal_long %>%
+    filter(metric_label == metric_name, construct_id %in% repeated_ids)
+
+  ggplot(summary_metric, aes(x = construct_label, y = value_median)) +
+    geom_col(width = 0.42, fill = colour, colour = ink, linewidth = 0.24) +
+    geom_errorbar(
+      data = repeat_summary, aes(ymin = value_min, ymax = value_max),
+      width = 0.10, colour = "black", linewidth = 0.38
+    ) +
+    geom_point(
+      data = repeat_models, aes(y = value),
+      position = position_jitter(width = 0.075, height = 0, seed = 42),
+      shape = 16, size = 1.00, colour = "black", alpha = 0.96
+    ) +
+    facet_wrap(~metric_label, nrow = 1) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.16))) +
+    labs(x = NULL, y = NULL) +
+    theme_nature_comic(base_size = 6.2) +
+    theme(
+      legend.position = "none",
+      axis.text.x = element_text(size = 5.0, angle = 67, hjust = 1, vjust = 1),
+      axis.text.y = element_text(size = 5.0),
+      axis.ticks.x = element_blank(),
+      strip.background = element_rect(fill = colour, colour = ink, linewidth = 0.35),
+      strip.text = element_text(size = 5.1, face = "bold", colour = strip_text_colour),
+      plot.margin = margin(1.5, 1.5, 2.0, 1.5)
+    )
+}
+
+p_c_metrics <- Map(
+  metric_bar_panel,
+  metric_name = names(metric_palette),
+  colour = unname(metric_palette),
+  strip_text_colour = c(ink, ink, ink, "white")
+)
+
+p_c_inner <- wrap_plots(p_c_metrics, nrow = 1) +
+  plot_layout(widths = rep(1, 4)) +
+  plot_annotation(
+    title = "        Focal construct comparison",
+    subtitle = paste0(
+      "        Bars: model median; n=1 bars are single-model values.\n",
+      "        Black dots + min-max whiskers: n=3 computational predictions only."
+    )
   )
+p_c <- wrap_elements(full = p_c_inner)
 
 # Panel d: trim PyMOL white margins and assemble the three fixed-view snapshots in R.
 trim_white <- function(img, threshold = 0.985, margin = 20) {
@@ -598,10 +623,10 @@ print(fig)
 dev.off()
 
 # Preserve the 600-dpi canvas while reducing lossless Git storage overhead.
-# Thirty-two channel levels are visually indistinguishable at final size and
+# Sixteen channel levels are visually indistinguishable at final size and
 # do not change positions, labels, categories, or quantitative encodings.
 png_image <- png::readPNG(png_out)
-png::writePNG(round(png_image * 31) / 31, png_out, dpi = 600)
+png::writePNG(round(png_image * 15) / 15, png_out, dpi = 600)
 
 cat(sprintf(
   "Figure05 complete: %d tagged models, %d constructs, %d focal constructs present.\n",
