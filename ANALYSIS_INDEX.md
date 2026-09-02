@@ -135,3 +135,7 @@ Task 011 adds a 9A5-bound monomer/core and full-length hexamer structural-contex
 | Synthesized panel note | `docs/SYNTHESIZED_PLASMID_PANEL_V1.md` | CURRENT | links experimental batch status to Task 011A interpretation without reopening construct selection |
 
 Current batch gate: `NO_FURTHER_COMPUTATIONAL_CANDIDATE_SELECTION_OR_CONSTRUCT_REDESIGN_REQUIRED`.
+
+## Final Task 011A Review
+
+- `docs/TASK011A_CHATGPT_REVIEW_V1.md` — accepted scientific interpretation of Task 011A, including corrected endpoint QC, 248|249 tag-identity dependence, and the post-synthesis stop decision.
