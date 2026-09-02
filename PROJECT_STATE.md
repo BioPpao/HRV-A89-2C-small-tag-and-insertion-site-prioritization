@@ -261,3 +261,35 @@ Branch: `analysis/9a5-context-qc-011a`
 Task 011A resolved the duplicated 1x9A5 repeat endpoint PDB issue by re-exporting final frames from the distinct completed XTC trajectories, recalculated the hexamer 9A5 context layer without counting duplicate PDBs as independent, and generated `data/final_candidate_panel_v7_9a5_context_qc.tsv`.
 
 248|249 x HA robustness class: `ROBUST_HEXAMER_CROWDING`. It remains an experimental-review candidate with explicit 9A5 hexamer-crowding/tag-identity caution; 248|249 x MAP8 is less persistently crowded at the model level but not conflict-free in all rigid-transfer conformations. No site is safe or validated.
+
+# Synthesized Plasmid Batch State
+
+Status: `SYNTHESIZED_PLASMID_BATCH_FROZEN`
+
+Date: `2026-09-02`
+
+User-confirmed eight-plasmid batch:
+
+1. `289|290 x MAP8` — `GDGMVPPG`
+2. `289|290 x G196_minimal` — `DLVPR`
+3. `248|249 x HA` — `YPYDVPDYA`
+4. `248|249 x MAP8` — `GDGMVPPG`
+5. `288|289 x MAP8` — `GDGMVPPG`
+6. `288|289 x HA` — `YPYDVPDYA`
+7. `290|291 x MAP8` — `GDGMVPPG`
+8. `289|290 x HA` — `YPYDVPDYA`
+
+Authoritative experimental-status records:
+
+- `data/synthesized_plasmid_panel_v1.tsv`
+- `docs/SYNTHESIZED_PLASMID_PANEL_V1.md`
+
+Task 011A remains the current computational interpretation layer. Its 9A5-context findings do not trigger redesign or replacement of this already synthesized batch. In particular, `248|249 x HA` retains a robust rigid-proxy hexamer-crowding caution, while `248|249 x MAP8` is less persistently crowded but conformation-sensitive.
+
+`289|290 x HA` is recorded as synthesized but was not part of the formal 12-row Task 011A V7 panel; no formal V7 9A5-context class should be imputed to it.
+
+Current project gate for this batch:
+
+`NO_FURTHER_COMPUTATIONAL_CANDIDATE_SELECTION_OR_CONSTRUCT_REDESIGN_REQUIRED`
+
+Future computation should be opened only for a new scientific question or to interpret experimental results.
