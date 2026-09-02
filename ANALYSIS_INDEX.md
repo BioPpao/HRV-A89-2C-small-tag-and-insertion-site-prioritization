@@ -114,3 +114,15 @@ Priority A/B is a multi-evidence expert adjudication framework, not a validated 
 `READY_FOR_EXPERIMENTAL_REVIEW_WITH_9A5_CONTEXT_LAYER`
 
 Task 011 adds a 9A5-bound monomer/core and full-length hexamer structural-context layer to the current V5 experimental-review panel. It does not authorize or perform nucleotide design, wet-lab protocols, new MD, or safety/validation claims.
+
+# Task 011A 9A5 Context QC Outputs
+| Artifact | Path | Status | Notes |
+|---|---|---|---|
+| Task 011A report | `docs/9A5_CONTEXT_QC_011A.md` | CURRENT | QC-hardened 9A5 context integration |
+| V7 panel | `data/final_candidate_panel_v7_9a5_context_qc.tsv` | CURRENT | Supersedes V6 for 9A5-context review |
+| Endpoint provenance | `data/9a5_context_input_provenance_v2_qc.tsv` | CURRENT | Includes duplicate endpoint resolution and trajectory checksums |
+| Structure inventory | `data/9a5_context_structure_inventory_v2_qc.tsv` | CURRENT | Old duplicate endpoint PDBs retained as provenance only |
+| Hexamer compatibility | `data/9a5_hexamer_tag_compatibility_v2_qc.tsv` | CURRENT | Duplicate-collapsed corrected endpoint ensemble |
+| 248 HA robustness | `data/248_249_HA_hexamer_robustness_v1.tsv` | CURRENT | HA/MAP8 tag-identity comparison |
+| QC figures | `figures/9a5_context_011a_qc/` | CURRENT | Five required QC figure sets |
+| Endpoint re-export QC | `results/9a5_context_011a_qc/endpoint_reexport_qc_v1.tsv` | CURRENT | Explicit final-frame re-export audit |

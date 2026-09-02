@@ -58,3 +58,8 @@ Explicitly reassess the ordering of:
 ## Stop boundary
 
 No generic long MD, new blind docking, AF/ColabFold reruns, membrane/RNA/ATP expansion, safety/validation claims, or merge to `main`.
+
+# Task 011A Follow-up
+- ChatGPT/user review `docs/9A5_CONTEXT_QC_011A.md` and `data/final_candidate_panel_v7_9a5_context_qc.tsv`.
+- Decide whether the V7 experimental-review order is sufficient for wet-lab discussion.
+- Do not start nucleotide/codon design, new MD, docking, AF/ColabFold, or mechanistic membrane/RNA/ATP simulations until explicitly authorized.

@@ -333,3 +333,12 @@ These are active decisions. Future analyses should change them only with explici
 **Reason:** Task 011 reused existing C01/C04 9A5-core complexes, the current 1x9A5 full-length hexamer ensemble, free-hexamer endpoints and existing tagged monomer models to audit whether antibody-bound monomer/hexamer context changes the experimental-review candidate logic.
 
 **Boundary:** This is a structural proxy layer, not direct HRV-A89 insertion phenotype, antibody-detection validation, viral-fitness evidence, nucleotide/codon design or wet-lab protocol. No construct is safe, compatible or experimentally validated.
+
+# D-048 - Task 011A Endpoint QC And V7 9A5 Context Panel
+Date: `2026-09-02`
+
+Decision: Treat byte-identical 1x9A5 weak-posres endpoint PDBs as provenance only and use explicit final-frame re-exports from the distinct completed XTC trajectories for 9A5 hexamer-context analysis.
+
+Rationale: the packaged and analysis endpoint PDBs share one SHA across rep1/2/3, while the underlying XTC/TPR/GRO/log files are SHA-distinct. Re-exported endpoints are unique and preserve repeat independence for the endpoint proxy layer.
+
+Panel consequence: `data/final_candidate_panel_v7_9a5_context_qc.tsv` supersedes V6 for 9A5-context review. 248|249 x HA is retained with hardened hexamer-crowding/tag-identity caution; 248|249 x MAP8 is less persistently crowded at the model level but not conflict-free in all rigid-transfer conformations. No site is safe or validated.

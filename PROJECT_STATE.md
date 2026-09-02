@@ -250,3 +250,14 @@ Task 010A does not authorize:
 - merge to `main`.
 
 Before nucleotide-level construct design, obtain the exact experimental HRV-A89 2C/replicon/plasmid nucleotide context.
+
+# Task 011A 9A5 Context QC State
+Status: `READY_FOR_EXPERIMENTAL_REVIEW_WITH_9A5_QC_HARDENED_V7`
+
+Date: `2026-09-02`
+
+Branch: `analysis/9a5-context-qc-011a`
+
+Task 011A resolved the duplicated 1x9A5 repeat endpoint PDB issue by re-exporting final frames from the distinct completed XTC trajectories, recalculated the hexamer 9A5 context layer without counting duplicate PDBs as independent, and generated `data/final_candidate_panel_v7_9a5_context_qc.tsv`.
+
+248|249 x HA robustness class: `ROBUST_HEXAMER_CROWDING`. It remains an experimental-review candidate with explicit 9A5 hexamer-crowding/tag-identity caution; 248|249 x MAP8 is less persistently crowded at the model level but not conflict-free in all rigid-transfer conformations. No site is safe or validated.

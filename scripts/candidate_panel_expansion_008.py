@@ -44,6 +44,7 @@ RNA_CONTACT_A89 = {
 }
 
 HARD_NEGATIVE_JUNCTIONS = ["155|156", "216|217"]
+PROJECT_9A5_EPITOPE_A89_2C = set(range(148, 161))
 
 
 def read_tsv(path: str | Path) -> pd.DataFrame:
@@ -82,6 +83,12 @@ def nearest_distance(pos: int, targets: set[int]) -> int:
 
 def junction_mid(left: int, right: int) -> float:
     return (left + right) / 2.0
+
+
+def project_9a5_epitope_context(left: int, right: int) -> str:
+    if any(left <= pos <= right for pos in PROJECT_9A5_EPITOPE_A89_2C):
+        return "within_or_touches_project_defined_9A5_epitope_A89_2C_148_160"
+    return "outside_project_defined_9A5_epitope_A89_2C_148_160"
 
 
 def insert_tag(seq: str, left_resid: int, tag: str) -> str:
@@ -304,7 +311,9 @@ def build_feature_matrix() -> pd.DataFrame:
             "hard_constraint_class": hard,
             "atpase_core_context": "inside_PROSITE_SF3_like_94_254" if 94 <= left <= 254 or 94 <= right <= 254 else "outside_PROSITE_SF3_like_94_254",
             "motif_proximity_class": motif_proximity(left, right, functional, r.get("functional_reasons", "")),
-            "nineA5_epitope_context": "unknown_no_verified_A89_9A5_internal_epitope_mapping",
+            "nineA5_epitope_context": project_9a5_epitope_context(left, right),
+            "sequence_defined_9A5_epitope_context": project_9a5_epitope_context(left, right),
+            "3D_9A5_complex_context": "not_assessed_in_candidate_panel_expansion_008__see_9a5_context_qc_011a",
             "wt_secondary_structure_prior": ss_prior,
             "both_AF_coil": r.get("both_AF_coil", ""),
             "min_hex_coil_fraction": r.get("min_hex_coil_fraction", ""),

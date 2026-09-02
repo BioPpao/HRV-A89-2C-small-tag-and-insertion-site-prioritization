@@ -24,3 +24,17 @@ Primary objectives:
 Task 011 remains the parent evidence package; Task 011A must version outputs rather than overwrite them.
 
 No new generic long MD, blind docking, AlphaFold/ColabFold, membrane/RNA/ATP expansion, safety/validation claims, or merge to `main` is authorized.
+
+# Current Active Task
+Current task: `9A5_CONTEXT_QC_011A` - **COMPLETED / WAITING FOR CHATGPT REVIEW**
+
+Branch: `analysis/9a5-context-qc-011a`
+
+Primary outputs:
+
+- `tasks/9A5_CONTEXT_QC_011A.md`
+- `docs/9A5_CONTEXT_QC_011A.md`
+- `data/final_candidate_panel_v7_9a5_context_qc.tsv`
+- `data/248_249_HA_hexamer_robustness_v1.tsv`
+
+No further computational task is authorized by this file.
