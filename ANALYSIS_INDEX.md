@@ -126,3 +126,12 @@ Task 011 adds a 9A5-bound monomer/core and full-length hexamer structural-contex
 | 248 HA robustness | `data/248_249_HA_hexamer_robustness_v1.tsv` | CURRENT | HA/MAP8 tag-identity comparison |
 | QC figures | `figures/9a5_context_011a_qc/` | CURRENT | Five required QC figure sets |
 | Endpoint re-export QC | `results/9a5_context_011a_qc/endpoint_reexport_qc_v1.tsv` | CURRENT | Explicit final-frame re-export audit |
+
+# Synthesized Plasmid Batch
+
+| Artifact | Path | Status | Use |
+|---|---|---|---|
+| Synthesized plasmid panel | `data/synthesized_plasmid_panel_v1.tsv` | CURRENT EXPERIMENTAL STATUS | machine-readable record of the eight already synthesized constructs |
+| Synthesized panel note | `docs/SYNTHESIZED_PLASMID_PANEL_V1.md` | CURRENT | links experimental batch status to Task 011A interpretation without reopening construct selection |
+
+Current batch gate: `NO_FURTHER_COMPUTATIONAL_CANDIDATE_SELECTION_OR_CONSTRUCT_REDESIGN_REQUIRED`.
