@@ -2,42 +2,59 @@
 
 Last updated: 2026-09-02
 
-## Current Gate — Task 011 9A5 Context Integration
+## Current Gate — Task 011A 9A5 Context QC / Hardening
 
-Status: `READY_FOR_EXPERIMENTAL_REVIEW_WITH_9A5_CONTEXT_LAYER`
+Status: `AUTHORIZED / READY FOR CODEX`
 
 Branch:
 
-`analysis/9a5-monomer-hexamer-context-011`
+`analysis/9a5-context-qc-011a`
 
-Current authoritative output:
+Primary task:
 
-- `data/final_candidate_panel_v6_9a5_context.tsv`
-- `docs/9A5_COMPLEX_CONTEXT_INTEGRATION_V1.md`
-- `docs/9A5_MONOMER_CONTEXT_V1.md`
-- `docs/9A5_HEXAMER_CONTEXT_V1.md`
+- `tasks/9A5_CONTEXT_QC_011A.md`
 
-## Completed In Task 011
+## P0 — Correct the 1x9A5 endpoint provenance
 
-- inventoried HRV_Oligomers and target-repo 9A5/free-hexamer/tagged-monomer assets;
-- verified chain/residue ranges and checksums for primary structures;
-- reused C01/C04 core 9A5 complexes and full-length 1x9A5 hexamer endpoints;
-- generated monomer/core transfer compatibility metrics;
-- generated six-tagged-protomer plus 1x9A5 hexamer proxy metrics;
-- integrated V5 candidate/control evidence into V6 with 9A5-context fields;
-- generated six data-driven figures and slim representative proxy PDBs.
+- verify why the packaged rep1/rep2/rep3 endpoint PDB files share the same SHA256;
+- recover genuine independent endpoints from existing analysis outputs or trajectories;
+- if needed, re-export final frames only;
+- do not rerun MD;
+- do not count duplicate coordinates as independent ensemble members.
 
-## Next Scientific Review
+## P0 — Recalculate affected 9A5-bound ensemble metrics
 
-ChatGPT/user should review whether the V6 9A5-context caution labels change the experimental discussion order, while preserving the evidence hierarchy.
+- rerun Task 011 structural-proxy calculations using verified unique structures;
+- version provenance, inventory, hexamer metrics and ensemble summary;
+- regenerate affected figures.
 
-No additional generic long MD is required for the current tag-prioritization decision.
+## P0 — Harden 248|249 x HA
 
-## Still Not Authorized
+- search all existing tagged-model assets first;
+- test whether the severe rigid six-tagged-hexamer tag-protomer clash persists across independent HA conformations / existing ranks or minimal local relaxation;
+- distinguish real crowding from rigid-placement artifact.
 
-- exact nucleotide/RNA/codon construct design;
-- wet-lab procedural protocol design;
-- membrane/RNA/ATP/antibody mechanistic MD;
-- new Slurm/GPU/MD jobs by default;
-- safety, compatibility or validation claims;
-- merge to `main`.
+## P1 — Fix stale sequence-defined 9A5 field
+
+- repair source-generation logic for `nineA5_epitope_context`;
+- keep sequence epitope context separate from 3D 9A5 complex compatibility;
+- regenerate the affected feature matrix as a new version.
+
+## P1 — Candidate integration
+
+Expected main output:
+
+- `data/final_candidate_panel_v7_9a5_context_qc.tsv`
+
+Explicitly reassess the ordering of:
+- 289|290 x MAP8
+- 289|290 x G196_minimal
+- 248|249 x MAP8
+- 248|249 x HA
+- Priority B backups
+- 224|225 controls
+- 155|156 hard negative
+
+## Stop boundary
+
+No generic long MD, new blind docking, AF/ColabFold reruns, membrane/RNA/ATP expansion, safety/validation claims, or merge to `main`.
