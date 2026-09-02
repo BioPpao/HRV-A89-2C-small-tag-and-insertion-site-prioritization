@@ -1,22 +1,26 @@
 # Active Task
 
-Current task: `9A5_MONOMER_HEXAMER_CONTEXT_011` — **COMPLETED / WAITING FOR CHATGPT REVIEW**
+Current task: `9A5_CONTEXT_QC_011A` — **AUTHORIZED / READY FOR CODEX**
 
-Branch: `analysis/9a5-monomer-hexamer-context-011`
+Branch: `analysis/9a5-context-qc-011a`
+
+Parent scientific task:
+
+- `9A5_MONOMER_HEXAMER_CONTEXT_011`
+- parent commit: `8e84356eca097ee4f388fa92d6fc1f43c82100d5`
 
 Primary specification:
 
-- `tasks/9A5_MONOMER_HEXAMER_CONTEXT_011.md`
+- `tasks/9A5_CONTEXT_QC_011A.md`
 
-Primary outputs:
+Primary objectives:
 
-- `data/final_candidate_panel_v6_9a5_context.tsv`
-- `docs/9A5_COMPLEX_CONTEXT_INTEGRATION_V1.md`
-- `docs/9A5_MONOMER_CONTEXT_V1.md`
-- `docs/9A5_HEXAMER_CONTEXT_V1.md`
+- recover and verify genuinely independent 1x9A5 1 ns repeat endpoints;
+- recalculate the affected antibody-bound structural ensemble without duplicate-coordinate inflation;
+- determine whether the `248|249 x HA` rigid six-tagged-hexamer clash is robust or conformation-sensitive;
+- fix the stale `nineA5_epitope_context` source-generation logic;
+- generate a V7 QC-hardened candidate panel.
 
-Completion state:
+Task 011 remains the parent evidence package; Task 011A must version outputs rather than overwrite them.
 
-`READY_FOR_EXPERIMENTAL_REVIEW_WITH_9A5_CONTEXT_LAYER`
-
-No construct is safe, compatible, experimentally validated or fitness-neutral. Exact HRV-A89 nucleotide/replicon/plasmid context remains required before nucleotide/codon/RNA-level construct design.
+No new generic long MD, blind docking, AlphaFold/ColabFold, membrane/RNA/ATP expansion, safety/validation claims, or merge to `main` is authorized.
