@@ -342,3 +342,15 @@ Decision: Treat byte-identical 1x9A5 weak-posres endpoint PDBs as provenance onl
 Rationale: the packaged and analysis endpoint PDBs share one SHA across rep1/2/3, while the underlying XTC/TPR/GRO/log files are SHA-distinct. Re-exported endpoints are unique and preserve repeat independence for the endpoint proxy layer.
 
 Panel consequence: `data/final_candidate_panel_v7_9a5_context_qc.tsv` supersedes V6 for 9A5-context review. 248|249 x HA is retained with hardened hexamer-crowding/tag-identity caution; 248|249 x MAP8 is less persistently crowded at the model level but not conflict-free in all rigid-transfer conformations. No site is safe or validated.
+
+# D-049 — Freeze the already synthesized eight-plasmid experimental batch
+
+Date: `2026-09-02`
+
+**Decision:** Record the user-confirmed eight plasmids in `data/synthesized_plasmid_panel_v1.tsv` and `docs/SYNTHESIZED_PLASMID_PANEL_V1.md`, and do not use later computational ranking refinements to redesign, replace or expand this batch unless explicitly requested.
+
+**Synthesized batch:** `289|290 x MAP8`, `289|290 x G196_minimal`, `248|249 x HA`, `248|249 x MAP8`, `288|289 x MAP8`, `288|289 x HA`, `290|291 x MAP8`, and `289|290 x HA`.
+
+**Interpretation:** Task 011A remains relevant for interpreting expected structural risk. `289|290 x MAP8` remains the strongest current computational candidate; `248|249 x HA` carries robust rigid-proxy hexamer-crowding caution; `248|249 x MAP8` is less persistently crowded but conformation-sensitive. These are interpretation labels, not reasons to alter the already synthesized batch.
+
+**Boundary:** `289|290 x HA` was not part of the formal V7 12-row Task 011A panel and is therefore recorded as synthesized without a formal V7 9A5-context class. No construct is called safe, validated or experimentally successful before experimental readout.
