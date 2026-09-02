@@ -1,40 +1,23 @@
 # Active Task
 
-Current task: `9A5_CONTEXT_QC_011A` — **AUTHORIZED / READY FOR CODEX**
+Current project state: **SYNTHESIZED PLASMID BATCH FROZEN / NO ACTIVE CANDIDATE-SELECTION COMPUTE**
 
 Branch: `analysis/9a5-context-qc-011a`
 
-Parent scientific task:
+Completed computational review:
 
-- `9A5_MONOMER_HEXAMER_CONTEXT_011`
-- parent commit: `8e84356eca097ee4f388fa92d6fc1f43c82100d5`
+- Task 011 — 9A5 monomer/hexamer context integration
+- Task 011A — endpoint QC, corrected 1x9A5 ensemble, 248|249 HA robustness audit, V7 9A5-context panel
 
-Primary specification:
+Current experimental-status records:
 
-- `tasks/9A5_CONTEXT_QC_011A.md`
+- `data/synthesized_plasmid_panel_v1.tsv`
+- `docs/SYNTHESIZED_PLASMID_PANEL_V1.md`
 
-Primary objectives:
+The eight plasmids recorded there have already been synthesized.
 
-- recover and verify genuinely independent 1x9A5 1 ns repeat endpoints;
-- recalculate the affected antibody-bound structural ensemble without duplicate-coordinate inflation;
-- determine whether the `248|249 x HA` rigid six-tagged-hexamer clash is robust or conformation-sensitive;
-- fix the stale `nineA5_epitope_context` source-generation logic;
-- generate a V7 QC-hardened candidate panel.
+Task 011A remains the interpretation layer for those constructs that it formally assessed. It does not trigger redesign of the synthesized batch.
 
-Task 011 remains the parent evidence package; Task 011A must version outputs rather than overwrite them.
+No further computational candidate selection, construct expansion, generic long MD, new docking, or AF/ColabFold work is active or required for this batch.
 
-No new generic long MD, blind docking, AlphaFold/ColabFold, membrane/RNA/ATP expansion, safety/validation claims, or merge to `main` is authorized.
-
-# Current Active Task
-Current task: `9A5_CONTEXT_QC_011A` - **COMPLETED / WAITING FOR CHATGPT REVIEW**
-
-Branch: `analysis/9a5-context-qc-011a`
-
-Primary outputs:
-
-- `tasks/9A5_CONTEXT_QC_011A.md`
-- `docs/9A5_CONTEXT_QC_011A.md`
-- `data/final_candidate_panel_v7_9a5_context_qc.tsv`
-- `data/248_249_HA_hexamer_robustness_v1.tsv`
-
-No further computational task is authorized by this file.
+New computation should begin only after an explicit new scientific question or experimental result requires interpretation.
